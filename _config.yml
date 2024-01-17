@@ -23,8 +23,8 @@ email: hello@guilhermegarcia.dev
 description: >- # this means to ignore newlines until "baseurl:"
   Eu sou o Guilherme e esse é meu pequeno blog pessoal, onde escrevo
   sobre coisas que eu gosto, às vezes em pt-br, às vezes em inglês!
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "/guilhermegarcia.dev" # the subpath of your site, e.g. /blog
+url: "https://guites.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 linkedin_username: guilhermebgarcia
 github_username: guites
 
