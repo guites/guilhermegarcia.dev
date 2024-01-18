@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-Hey, I'm Guilherme Garcia :) a developer based on Brazil.
+Hey, I'm Guilherme Garcia :) a developer based in Brazil.
 
 This blog serves as my homepage on the web. I write mainly about my ongoing projects.
 
