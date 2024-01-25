@@ -1,27 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Blog do Guilherme</title>
-    <link>https://guilhermegarcia.dev/</link>
-    <description>Recent content on Blog do Guilherme</description>
+    <title>english on Blog do Guilherme</title>
+    <link>https://guilhermegarcia.dev/blog/english/</link>
+    <description>Recent content in english on Blog do Guilherme</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Copyright © 2024, Guilherme Garcia.</copyright>
     <lastBuildDate>Thu, 25 Jan 2024 20:44:34 -0300</lastBuildDate>
-    <atom:link href="https://guilhermegarcia.dev/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://guilhermegarcia.dev/blog/english/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Aware and naive datetime objects without pytz</title>
       <link>https://guilhermegarcia.dev/blog/aware-naive-datetime-objects-wo-pytz/</link>
       <pubDate>Thu, 25 Jan 2024 20:44:34 -0300</pubDate>
       <guid>https://guilhermegarcia.dev/blog/aware-naive-datetime-objects-wo-pytz/</guid>
       <description>Maybe you were trying to do a simple datetime comparison, and was met with the following:&#xA;TypeError: can&#39;t compare offset-naive and offset-aware datetimes Most solutions (1, 2) will point you towards pytz, but the lib page at pypi mentions:&#xA;Projects using Python 3.9 or later should be using the support now included as part of the standard library, and third party packages work with it such as tzdata&#xA;Let&amp;rsquo;s start by reproducing the problem.</description>
-    </item>
-    <item>
-      <title>Overview Hackers do Bem - Introd. à Cibersegurança</title>
-      <link>https://guilhermegarcia.dev/blog/hackers-do-bem-introd-ciberseguranca/</link>
-      <pubDate>Thu, 25 Jan 2024 12:47:34 -0300</pubDate>
-      <guid>https://guilhermegarcia.dev/blog/hackers-do-bem-introd-ciberseguranca/</guid>
-      <description>Neste post eu compartilho um pouco do conteúdo coberto no primeiro módulo do curso hackers do bem, que iniciou em 22/01/2024 (após alguns probleminhas no acesso), e que eu comecei a acompanhar no dia 23.&#xA;Pra quem ficou na dúvida sobre o nível do conteúdo, se deveria fazer o curso ou não, eu espero que esse post ajude a ter uma visão de como a cibersegurança vai ser abordada nesse projeto, que promete profissionalizar estudantes de qualquer nível de formação.</description>
     </item>
   </channel>
 </rss>
