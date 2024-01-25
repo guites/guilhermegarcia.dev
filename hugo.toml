@@ -1,0 +1,25 @@
+baseURL = 'https://guilhermegarcia.dev/'
+theme = 'hugo-bearblog'
+
+title = 'Blog do Guilherme'
+author = 'Guilherme Garcia'
+copyright = 'Copyright © 2024, Guilherme Garcia.'
+languageCode = 'pt-br'
+
+enableRobotsTXT = true
+
+disableKinds = ["taxonomy"]
+ignoreErrors = ["error-disable-taxonomy"]
+[permalinks]
+  blog = "/:slug/"
+  tags = "/blog/:slug"
+
+[params]
+
+    description = 'Eu sou o Guilherme e esse é meu pequeno blog pessoal, onde escrevo sobre coisas que eu gosto, às vezes em pt-br, às vezes em inglês!'
+    favicon = 'images/favicon.png'
+    # see https://gohugo.io/templates/internal#open-graph and
+    # https://gohugo.io/templates/internal#twitter-cards
+    # images = ["images/share.png"]
+    title = "Blog do Guilherme"
+    hideMadeWithLine = true
