@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="https://guilhermegarcia.dev/images/favicon.png" />
+<title>Overview Hackers do Bem - Introd. à Cibersegurança | Blog do Guilherme</title>
+<meta name="title" content="Overview Hackers do Bem - Introd. à Cibersegurança" />
+<meta name="description" content="Neste post eu compartilho um pouco do conteúdo coberto no primeiro módulo do curso hackers do bem, que iniciou em 22/01/2024 (após alguns probleminhas no acesso), e que eu comecei a acompanhar no dia 23." />
+<meta name="keywords" content="hackersdobem,cibersecurity,português," />
+
+
+<meta property="og:title" content="Overview Hackers do Bem - Introd. à Cibersegurança" />
+<meta property="og:description" content="Neste post eu compartilho um pouco do conteúdo coberto no primeiro módulo do curso hackers do bem, que iniciou em 22/01/2024 (após alguns probleminhas no acesso), e que eu comecei a acompanhar no dia 23." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://guilhermegarcia.dev/blog/hackers-do-bem-introd-ciberseguranca/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2024-01-25T12:47:34-03:00" />
+<meta property="article:modified_time" content="2024-01-25T12:47:34-03:00" /><meta property="og:site_name" content="Blog do Guilherme" />
+
+
+
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Overview Hackers do Bem - Introd. à Cibersegurança"/>
+<meta name="twitter:description" content="Neste post eu compartilho um pouco do conteúdo coberto no primeiro módulo do curso hackers do bem, que iniciou em 22/01/2024 (após alguns probleminhas no acesso), e que eu comecei a acompanhar no dia 23."/>
+
+
+
+<meta itemprop="name" content="Overview Hackers do Bem - Introd. à Cibersegurança">
+<meta itemprop="description" content="Neste post eu compartilho um pouco do conteúdo coberto no primeiro módulo do curso hackers do bem, que iniciou em 22/01/2024 (após alguns probleminhas no acesso), e que eu comecei a acompanhar no dia 23."><meta itemprop="datePublished" content="2024-01-25T12:47:34-03:00" />
+<meta itemprop="dateModified" content="2024-01-25T12:47:34-03:00" />
+<meta itemprop="wordCount" content="1773">
+<meta itemprop="keywords" content="hackersdobem,cibersecurity,português," />
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  body {
+    font-family: Verdana, sans-serif;
+    margin: auto;
+    padding: 20px;
+    max-width: 720px;
+    text-align: left;
+    background-color: #fff;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: #444;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  b {
+    color: #222;
+  }
+
+  a {
+    color: #3273dc;
+     
+  }
+
+  .title {
+    text-decoration: none;
+    border: 0;
+  }
+
+  .title span {
+    font-weight: 400;
+  }
+
+  nav a {
+    margin-right: 10px;
+  }
+
+  textarea {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  input {
+    font-size: 16px;
+  }
+
+  content {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    padding: 2px 5px;
+    background-color: #f2f2f2;
+  }
+
+  pre code {
+    color: #222;
+    display: block;
+    padding: 20px;
+    white-space: pre-wrap;
+    font-size: 14px;
+    overflow-x: auto;
+  }
+
+  div.highlight pre {
+    background-color: initial;
+    color: initial;
+  }
+
+  div.highlight code {
+    background-color: unset;
+    color: unset;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: #222;
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px;
+    text-align: center;
+  }
+
+  .helptext {
+    color: #777;
+    font-size: small;
+  }
+
+  .errorlist {
+    color: #eba613;
+    font-size: small;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: #8b6fcb;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #333;
+      color: #ddd;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    strong,
+    b {
+      color: #eee;
+    }
+
+    a {
+      color: #8cc2dd;
+    }
+
+    code {
+      background-color: #777;
+    }
+
+    pre code {
+      color: #ddd;
+    }
+
+    blockquote {
+      color: #ccc;
+    }
+
+    textarea,
+    input {
+      background-color: #252525;
+      color: #ddd;
+    }
+
+    .helptext {
+      color: #aaa;
+    }
+  }
+
+</style>
+
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h2>Blog do Guilherme</h2>
+</a>
+<nav><a href="/">Home</a>
+
+
+<a href="/blog">Blog</a>
+
+</nav>
+</header>
+  <main>
+
+<h1>Overview Hackers do Bem - Introd. à Cibersegurança</h1>
+<p>
+  <i>
+    <time datetime='2024-01-25' pubdate>
+      25 Jan, 2024
+    </time>
+  </i>
+</p>
+
+<content>
+  <p>Neste post eu compartilho um pouco do conteúdo coberto no primeiro módulo do curso <a href="https://hackersdobem.org.br">hackers do bem</a>, que iniciou em 22/01/2024 (após alguns probleminhas no acesso), e que eu comecei a acompanhar no dia 23.</p>
+<p>Pra quem ficou na dúvida sobre o nível do conteúdo, se deveria fazer o curso ou não, eu espero que esse post ajude a ter uma visão de como a cibersegurança vai ser abordada nesse projeto, que promete profissionalizar estudantes de qualquer nível de formação.</p>
+<h2 id="introdução">Introdução</h2>
+<p>O curso começa obrigatoriamente pelo nivelamento, que é composto de dez módulos.</p>
+<blockquote>
+<p>O curso aborda introdução à cibersegurança, incluindo tipos de hackers, ethical hacking e as várias profissões no campo, além de arquitetura de computadores e a instalação de sistemas operacionais, camada de aplicação, com foco em serviços essenciais de rede e práticas de segurança, proporcionando uma base sólida para quem busca compreender os fundamentos da TI e cibersegurança.</p>
+</blockquote>
+<p>Os módulos são:</p>
+<ol>
+<li>Introdução à cibersegurança (você está aqui)</li>
+<li>Identificar componentes de hardware de computador</li>
+<li>Compreender Internet e Camada de acesso à rede</li>
+<li>Compreender acesso a rede e camada de internet (IP)</li>
+<li>Compreender IPV6 e Camada de transporte</li>
+<li>Compreender Camada de Aplicação/Serviços de Rede</li>
+<li>Utilizar Sistemas Operacionais Windows</li>
+<li>Utilizar Sistemas Operacionais - Linux</li>
+<li>Lógica de programação</li>
+<li>Desenvolvimento de Scripts</li>
+</ol>
+<p>O primeiro módulo, <strong>introdução à cibersegurança</strong>, é compostos de textos interativos com vídeos do professor Raphael Nascimento, e cada aula tem uma série de perguntas de multipla escolha revisando os conceitos trabalhados.</p>
+<p>Apresento abaixo um resumo do que é trabalhado em cada aula desse módulo.</p>
+<h2 id="primeira-aula-o-que-é-hacker-e-seus-tipos">Primeira aula: O que é hacker e seus tipos</h2>
+<p>&ldquo;Hacker&rdquo;, de acordo com a plataforma, é alguém com grandes habilidades e conhecimento em computação e tecnologia. É um termo neutro, mas foi adquirindo uma conotação negativa, devido à midia e alguns grandes ataques que ocorreram nos anos 70.</p>
+<p>Alguns termos são explicados, como &ldquo;White hat&rdquo;, &ldquo;Black hat&rdquo;, &ldquo;Grey hat&rdquo;, &ldquo;Script kiddie&rdquo; e &ldquo;hacktivista&rdquo;.</p>
+<p>Também mencionaram a distinção entre &ldquo;hacker&rdquo; e &ldquo;cracker&rdquo;, onde o cracker tem por objetivo causar danos ou extrair informações de um sistema.</p>
+<p>Acho que faltou o aviso clássico de Eric Steven Raymond em &ldquo;How To Become A Hacker&rdquo; (<a href="http://catb.org/~esr/faqs/hacker-howto.html">fonte</a>)</p>
+<blockquote>
+<p>If you want to be a cracker, go read the alt.2600 newsgroup and get ready to do five to ten in the slammer after finding out you aren&rsquo;t as smart as you think you are. And that&rsquo;s all I&rsquo;m going to say about crackers.</p>
+</blockquote>
+<h2 id="segunda-aula-conceito-de-ética">Segunda aula: Conceito de ética</h2>
+<p>Essa aula é um levantamento sobre as definições de ética e moral. É feita uma contextualização com a área, e citados alguns princípios da LGPD, como:</p>
+<ul>
+<li>confidencialidade: diz respeito a postura que o profissional deve manter devido ao acesso que possui a dados sensíveis.</li>
+<li>integridade: realização do trabalho com honestidade e transparência, envitando conflitos de interesse e prezando por relações justas e imparciais.</li>
+<li>responsabilidade: se refere a prestação de contas quanto a proteção das informações e do sistema, sobre agir perante descoberta de riscos ou vulnerabilidades.</li>
+</ul>
+<blockquote>
+<p>A área de segurança e informação é responsável por garantir a ética para a proteção de dados.</p>
+</blockquote>
+<p>As questões éticas na segurança da informação envolvem:</p>
+<ul>
+<li>uso ético de dados pessoais;</li>
+<li>a avaliação dos reguladores em relação à proteção de dados;</li>
+<li>confiança do cliente em relação à privacidade dos dados.</li>
+</ul>
+<p>O <strong>Hacker ético</strong> é apresentado como praticante das atividades:</p>
+<ul>
+<li>identificação de vulnerabilidades ativas, relatando-as e impedindo que sejam exploradas.
+<ul>
+<li>avaliação de riscos (consequencias e seriedade de um ataque)</li>
+</ul>
+</li>
+<li>testes de penetração (pen test), simulando ataques reais a um sistema.
+<ul>
+<li>testes de engenharia social</li>
+</ul>
+</li>
+<li>auditorias de segurança: avaliar configurações, políticas e práticas de segurança.</li>
+</ul>
+<p>Que por sua vez exigem as seguintes habilidades:</p>
+<ul>
+<li>conhecimentos em sistemas de segurança de computação e internet</li>
+<li>habilidades de alto nível de hacking</li>
+<li>capacidade de criar relatórios</li>
+</ul>
+<p>O hacker ético pode trabalhar tanto com a segurança física, através da configuração de modens, switchs e outros aparelhos, assim como com a segurança virtual à nível de software e protocolos.</p>
+<h2 id="terceira-aula-profissões-em-cibersegurança">Terceira aula: Profissões em cibersegurança</h2>
+<p>Essa aula apresenta os conceitos de <strong>Red Team</strong>, <strong>Blue Team</strong>, <strong>Forense</strong>, <strong>GRC</strong> e <strong>DevSecOps</strong>.</p>
+<h3 id="red-team">Red Team</h3>
+<p>A <strong>Red Team</strong> é a equipe responsável pelo planejamento dos testes ofensivos dentro de uma empresa.</p>
+<p>O seu objetivo principal é melhorar a segurança dos seus sistemas, e o seu trabalho pode ser dividido em 4 principais etapas:</p>
+<ol>
+<li>Planejamento: definição de escopo, objetivo, regras e limites do teste, assim como levantamento de informações sobre o alvo - endereços IP, domínios, portas abertas, serviços ativos, etc.</li>
+<li>Execução: o ataque em si é iniciado, usando métodos como phishing, brute force, SQL injection, XSS, engenharia social, além de documentar todo o andamento do teste.</li>
+<li>Análise: geração do relatório sobre os objetivos definidos inicialmente, e se foram atingidos ou não.</li>
+<li>Recomendação: descrição clara e objetiva das vulnerabilidades e evidências encontradas, impactos gerados e por fim as recomendações para solução.</li>
+</ol>
+<h3 id="blue-team">Blue Team</h3>
+<p>Do outro lado, a <strong>Blue Team</strong> foca em melhorar os sistemas e protocolos utilizados, através de detecção, monitoramento, resposta e neutralização de ataques.</p>
+<p>A Blue Team tem como principais atividades:</p>
+<ul>
+<li>Monitoramento: acompanhamento dos sistemas para identificação de anomalias ou intrusões. Aqui entram as ferramentas como firewalls, antivirus, intrusion detection systems.</li>
+<li>Detecção: uso de técnicas como análise forense, engenharia reversa ou análise de malware, buscando evidências de ataques em andamentos ou que já tenham ocorrido.</li>
+<li>Resposta: através de uma postura reativa, são realizados isolamentos de rede, bloqueio de acesso, remoção de malwares e restauração de backups.</li>
+<li>Mitigação: através da análise dos resultados das respostas ao incidentes, são implementadas correções e atualizações.</li>
+</ul>
+<h3 id="forense">Forense</h3>
+<p>O profissional de cibersegurança <strong>forense</strong> é responsável por analisar os vestigios (&ldquo;digitais&rdquo; e &ldquo;pegadas&rdquo;) deixadas por invasorem de sistemas de segurança ou base de dados, aplicando métodos para identificar fraudes, sabotagens e outros crimes digitais.</p>
+<p>Esse profissional age como perito, precisando de conhecimentos da parte legislativa e judicial, além de técnicas de selagem física (proteger fisicamete os ativos de uma empresa), etiquetagem digital, criptografia, hashes e checksum.</p>
+<p>As suas atividades incluem:</p>
+<ul>
+<li>Coleta: busca e apreensão de dados e dispositivos digitais relacionado aos incidentes.</li>
+<li>Seguir protocolos legais: respeitando a integridade dos dados e equipamentos.</li>
+<li>Preservação: deve proteger os dados de perdas acidentais ou intencionais, mantendo sua autenticidade.</li>
+<li>Análise: extração e interpretação das evidências.</li>
+<li>Apresentação: comunicação e divulgação dos resultados das análises.</li>
+<li>Elaboração de relatórios: descrevendo e justificando os métodos utilizados.</li>
+</ul>
+<p>O desafio do profissional <strong>forense</strong> extrapola o conhecimento técnico, dialogando com diversas áreas e lidando com grande responsabilidade.</p>
+<h3 id="grc---governança-risco-e-conformidade">GRC - governança, risco e conformidade</h3>
+<p>A área de GRC integra as diferentes equipes e estratégias de cibersegurança de uma empresa, delineando normas (ou requisitos regulatórios).</p>
+<blockquote>
+<p>A área de governança, risco e conformidade trabalha com métodos estruturados para alinhar a área de T.I e segurança da informação com as metas e objetivos traçados pela empresa, visando avaliar as áreas de risco.</p>
+</blockquote>
+<p>Este profissional vai atuar diretamente com leis e padrões, implementando-as junto ao time de TI de uma empresa, em atividades como:</p>
+<ul>
+<li>Realização de auditorias internas.</li>
+<li>Desenvolvimento e implementação de planos de contingência e recuperação.</li>
+<li>Garantir a conformidade da empresa com a lei, protegendo-a contra sanções legais e regulatórias.</li>
+</ul>
+<p>O profissional de GRC tem o conhecimento específico para a área de atuação da empresa: setor alimentício, setor contábil, farmaceutico, etc.</p>
+<h3 id="devsecops">DevSecOps</h3>
+<p>É a abreviação do termo &ldquo;Development,Security and Operations&rdquo;. O profissional de <strong>DevSecOps</strong> involve o desenvolvimento, instalação e disponibilização de softwares de segurança, coordenando e executando atividades de segurança em conjunto com as áreas de desenvolvimento e segurança.</p>
+<p>Suas principais atividades envolvem:</p>
+<ul>
+<li>Aplicar práticas de desenvolvimento ágil e contínuo.</li>
+<li>Implementar padrões de desenvolvimento como OWASP Top 10, SANS Tops 25, entre outros.</li>
+<li>Uso de ferramentas de análise estática ou dinâmica de código.</li>
+</ul>
+<p>Seus principais desafios são a automatização dos processos de forma segura e em conformidade com os padrões existentes, protegendo os softwares contra ameaças cibernéticas ou falhas internas.</p>
+<h2 id="quarta-aula-conceitos-iniciais">Quarta aula: Conceitos iniciais</h2>
+<p>Essa aula foca em esclarecer conceitos e jargões comumente associados à cibersegurança, como <strong>vírus</strong>, <strong>worms</strong>, <strong>trojans</strong>, <strong>SPAM</strong>, <strong>Spyware</strong>, <strong>Phishing</strong>, <strong>Botnets</strong>, <strong>Ransomware</strong>, <strong>Rootkit</strong>, entre outros.</p>
+<p>Um <strong>vírus</strong> é um software malicioso, com objetivo de causar danos, afetar o comportamento do computador ou roubar dados sigilosos.</p>
+<p>Ele pode se espalhar através de diversos vetores, como anexos e e-mails falsos, downloads da internet ou dispositivos removíveis.</p>
+<p>Existem diferentes tipos de vírus, alguns comuns sendo:</p>
+<ul>
+<li>Vírus de arquivo: presente em arquivos executáveis, é ativado quando o usuário executa o arquivo.</li>
+<li>Vírus de macro: explora macros em aplicativos como editores de texto ou planilhas.</li>
+<li>Vírus de boot: infecta o processo de inicialização do disco rígido.</li>
+<li>Vírus polimórficos: mudam o código cada vez que se replicam, dificultando sua detecção. Exemplo: Elk Cloner.</li>
+<li>Vírus residente: fica armazenado na memória do computador e infecta outros programas quando eles são executados. Exemplo: Angelina.Stoned.</li>
+<li>Worms: não precisam se anexar a arquivos e podem se espalhar automaticamente pela rede. Exemplo: <a href="https://pt.wikipedia.org/wiki/Conficker">Conficker</a>.</li>
+</ul>
+<p><strong>Botnets</strong> são redes de computadores infectados controlados remotamente, usados em ataques do tipo denial of service, onde muitas máquinas fazem requisições simultâneas a um mesmo site, que acaba ficando indisponível. Exemplo: <a href="https://en.wikipedia.org/wiki/Mirai_(malware)">Mirai</a>.</p>
+<p><strong>Rootkit</strong> são programas com acesso elevado que conseguem enviar informações para computadores de terceiros ou alterar configurações internas do computador. Exemplo: <a href="https://pt.wikipedia.org/wiki/Stuxnet">Stuxnet</a>.</p>
+<p><strong>Trojans (cavalo de troia)</strong> são programas maliciosos disfarçados como softwares legítimos, são executados pelo usuário e recebem acesso não autorizado ao sistema. Exemplo: <a href="https://en.wikipedia.org/wiki/Zeus_(malware)">Zeus</a>.</p>
+<p><strong>Ransomware</strong> são programas que criptografam os dados de uma máquina, e apenas liberam a chave para recuperação perante pagamento. Exemplo: <a href="https://en.wikipedia.org/wiki/WannaCry_ransomware_attack">WannaCry</a>.</p>
+<h2 id="quinta-aula-como-se-proteger">Quinta aula: Como se proteger</h2>
+<p>Essa aula trás algumas informações de conhecimento geral sobre proteção na web:</p>
+<ul>
+<li>Uso de senhas fortes: letras maiúsculas e minúsculas, números e símbolos, mínimo de oito caractéres.</li>
+<li>Atualizações: manter sistema operacional e aplicativos atualizados.</li>
+<li>Antivírus: ter um antivirus instalado e ativo na máquina.</li>
+<li>Autenticação de dois fatores: sempre habilitar nos serviços que disponibilizam.</li>
+<li>Não clicar em links ou anexos suspeitos.</li>
+<li>Evitar conexão em redes wifi abertas.</li>
+<li>Realizar backups periódicos.</li>
+</ul>
+<p>Em um segundo momento, são abordados métodos para implementação das boas práticas, como:</p>
+<ul>
+<li>avaliar o nível de exposição às ameaças digitais.</li>
+<li>levantamento dos serviços utilizados.</li>
+<li>instalação e configuração das medidas de proteção.</li>
+<li>monitoramento e revisão das medidas implementadas periodicamente.</li>
+</ul>
+<h2 id="conclusão">Conclusão</h2>
+<p>Bom, como esperado, o módulo é inicial e introdutório. O conteúdo passado pelo professor é todo baseado num ebook, que fica disponível pra consulta após finalizar o módulo e é composto dos slides utilizados nas aulas.</p>
+<p>Alguns termos e conceitos eu não conhecia direito, como DevSecOps e GRC, e a parte sobre vírus me deixou curioso pra pesquisa alguns dos casos famosos de cada tipo.</p>
+<p>É um curso que pode ser recomendado sem medo praquele amigo que quer aprender sobre computadores.</p>
+<p>Eu pretendo seguir apresentando os resumos das aulas enquanto eu seguir com o curso, então logo mais postarei sobre o segundo módulo, <strong>Identificar componentes de hardware de computador</strong>.</p>
+<p>Abraço!</p>
+
+</content>
+<p>
+  
+  <a href="https://guilhermegarcia.dev/blog/hackersdobem/">#hackersdobem</a>
+  
+  <a href="https://guilhermegarcia.dev/blog/cibersecurity/">#cibersecurity</a>
+  
+  <a href="https://guilhermegarcia.dev/blog/portugu%C3%AAs/">#português</a>
+  
+</p>
+
+  </main>
+  <footer>
+</footer>
+
+    
+</body>
+
+</html>
