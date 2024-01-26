@@ -23,3 +23,6 @@ ignoreErrors = ["error-disable-taxonomy"]
     # images = ["images/share.png"]
     title = "Blog do Guilherme"
     hideMadeWithLine = true
+
+[markup.goldmark.renderer]
+  unsafe = true
