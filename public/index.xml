@@ -14,7 +14,7 @@
       <link>https://guilhermegarcia.dev/blog/aware-naive-datetime-objects-wo-pytz/</link>
       <pubDate>Thu, 25 Jan 2024 20:44:34 -0300</pubDate>
       <guid>https://guilhermegarcia.dev/blog/aware-naive-datetime-objects-wo-pytz/</guid>
-      <description>Maybe you were trying to do a simple datetime comparison, and was met with the following:&#xA;TypeError: can&#39;t compare offset-naive and offset-aware datetimes Most solutions (1, 2) will point you towards pytz, but the lib page at pypi mentions:&#xA;Projects using Python 3.9 or later should be using the support now included as part of the standard library, and third party packages work with it such as tzdata&#xA;Let&amp;rsquo;s start by reproducing the problem.</description>
+      <description>tldr: use .replace or .astimezone on both datetime objects.&#xA;Maybe you were trying to do a simple datetime comparison, and was met with the following:&#xA;TypeError: can&#39;t compare offset-naive and offset-aware datetimes Most solutions (1, 2) will point you towards pytz, but the lib page at pypi mentions:&#xA;Projects using Python 3.9 or later should be using the support now included as part of the standard library, and third party packages work with it such as tzdata</description>
     </item>
     <item>
       <title>Overview Hackers do Bem - Introd. à Cibersegurança</title>

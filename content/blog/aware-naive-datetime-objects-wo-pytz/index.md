@@ -6,6 +6,8 @@ tags = ['python', 'english']
 slug = 'aware-naive-datetime-objects-wo-pytz'
 +++
 
+tldr: use [`.replace`](#replace) or [`.astimezone`](#astimezone) on both datetime objects.
+
 Maybe you were trying to do a simple datetime comparison, and was met with the following:
 
     TypeError: can't compare offset-naive and offset-aware datetimes
@@ -45,7 +47,9 @@ print(start_date.tzinfo) # None
 print(end_date.tzinfo) # datetime.timezone.utc
 ```
 
-Cool. In this situation, we will have to assume that either the aware datetime object is wrong, or the naive object is wrong. Some information will be lost.
+{{< rawhtml >}}
+<p id="replace">Cool. In this situation, we will have to assume that either the aware datetime object is wrong, or the naive object is wrong. Some information will be lost.</p>
+{{< /rawhtml >}}
 
 Let's say we trust out UTC date is correct:
 
@@ -84,6 +88,25 @@ print(br_date > ref_date)  # True
 br_date_to_utc = br_date.replace(tzinfo=timezone.utc)
 
 print(br_date_to_utc > ref_date)  # False
+```
+ 
+{{< rawhtml >}}
+<p id="astimezone">An option to respect existing timezone information whilst converting naive objects would be to use `.astimezone()`:</p>
+{{< /rawhtml >}}
+
+```python
+from datetime import datetime, timezone
+
+br_date = datetime.strptime("2022-01-01T22:03:30-03:00", "%Y-%m-%dT%H:%M:%S%z")
+ref_date = datetime.strptime("2022-01-01T22:03:30Z", "%Y-%m-%dT%H:%M:%S%z")
+
+print(br_date > ref_date)  # True
+
+br_date_as_utc = br_date.astimezone(tz=timezone.utc)
+
+print(br_date_as_utc > ref_date)  # True
+
+print(br_date_as_utc.strftime("%Y-%m-%dT%H:%M:%S%z"))  # '2022-01-02T01:03:30+0000'
 ```
 
 ![paper sheet with "days since last timezone issue" written on it. theres a post it stating "-1"](./days-since-last-tz-issue.webp)
