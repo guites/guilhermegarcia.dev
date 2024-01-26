@@ -1,5 +1,5 @@
 +++
-title = "Overview Hackers do Bem - Introd. à Cibersegurança"
+title = "Hackers do Bem - Introd. à Cibersegurança"
 date = "2024-01-25T12:47:34-03:00"
 description = "Neste post eu compartilho um pouco do conteúdo coberto no primeiro módulo do curso hackers do bem, que iniciou em 22/01/2024 (após alguns probleminhas no acesso), e que eu comecei a acompanhar no dia 23."
 tags = ['hackersdobem', 'cibersecurity', 'português']
@@ -64,9 +64,9 @@ As questões éticas na segurança da informação envolvem:
 O **Hacker ético** é apresentado como praticante das atividades:
 
 - identificação de vulnerabilidades ativas, relatando-as e impedindo que sejam exploradas.
-    - avaliação de riscos (consequencias e seriedade de um ataque)
+  - avaliação de riscos (consequencias e seriedade de um ataque)
 - testes de penetração (pen test), simulando ataques reais a um sistema.
-    - testes de engenharia social
+  - testes de engenharia social
 - auditorias de segurança: avaliar configurações, políticas e práticas de segurança.
 
 Que por sua vez exigem as seguintes habilidades:
@@ -76,7 +76,6 @@ Que por sua vez exigem as seguintes habilidades:
 - capacidade de criar relatórios
 
 O hacker ético pode trabalhar tanto com a segurança física, através da configuração de modens, switchs e outros aparelhos, assim como com a segurança virtual à nível de software e protocolos.
-
 
 ## Terceira aula: Profissões em cibersegurança
 
@@ -125,7 +124,7 @@ O desafio do profissional **forense** extrapola o conhecimento técnico, dialoga
 
 A área de GRC integra as diferentes equipes e estratégias de cibersegurança de uma empresa, delineando normas (ou requisitos regulatórios).
 
-> A área de governança, risco e conformidade trabalha com métodos estruturados para alinhar a área de T.I e segurança da informação com as metas e objetivos traçados pela empresa, visando avaliar as áreas de risco. 
+> A área de governança, risco e conformidade trabalha com métodos estruturados para alinhar a área de T.I e segurança da informação com as metas e objetivos traçados pela empresa, visando avaliar as áreas de risco.
 
 Este profissional vai atuar diretamente com leis e padrões, implementando-as junto ao time de TI de uma empresa, em atividades como:
 
@@ -164,11 +163,11 @@ Existem diferentes tipos de vírus, alguns comuns sendo:
 - Vírus residente: fica armazenado na memória do computador e infecta outros programas quando eles são executados. Exemplo: Angelina.Stoned.
 - Worms: não precisam se anexar a arquivos e podem se espalhar automaticamente pela rede. Exemplo: [Conficker](https://pt.wikipedia.org/wiki/Conficker).
 
-**Botnets** são redes de computadores infectados controlados remotamente, usados em ataques do tipo denial of service, onde muitas máquinas fazem requisições simultâneas a um mesmo site, que acaba ficando indisponível. Exemplo: [Mirai](https://en.wikipedia.org/wiki/Mirai_(malware)).
+**Botnets** são redes de computadores infectados controlados remotamente, usados em ataques do tipo denial of service, onde muitas máquinas fazem requisições simultâneas a um mesmo site, que acaba ficando indisponível. Exemplo: [Mirai](<https://en.wikipedia.org/wiki/Mirai_(malware)>).
 
 **Rootkit** são programas com acesso elevado que conseguem enviar informações para computadores de terceiros ou alterar configurações internas do computador. Exemplo: [Stuxnet](https://pt.wikipedia.org/wiki/Stuxnet).
 
-**Trojans (cavalo de troia)** são programas maliciosos disfarçados como softwares legítimos, são executados pelo usuário e recebem acesso não autorizado ao sistema. Exemplo: [Zeus](https://en.wikipedia.org/wiki/Zeus_(malware)).
+**Trojans (cavalo de troia)** são programas maliciosos disfarçados como softwares legítimos, são executados pelo usuário e recebem acesso não autorizado ao sistema. Exemplo: [Zeus](<https://en.wikipedia.org/wiki/Zeus_(malware)>).
 
 **Ransomware** são programas que criptografam os dados de uma máquina, e apenas liberam a chave para recuperação perante pagamento. Exemplo: [WannaCry](https://en.wikipedia.org/wiki/WannaCry_ransomware_attack).
 
