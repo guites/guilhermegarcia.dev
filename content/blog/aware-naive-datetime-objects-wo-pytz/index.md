@@ -5,6 +5,7 @@ description = "How to compare offset naive and offset aware python datetime obje
 tags = ['python', 'english']
 slug = 'aware-naive-datetime-objects-wo-pytz'
 +++
+
 Maybe you were trying to do a simple datetime comparison, and was met with the following:
 
     TypeError: can't compare offset-naive and offset-aware datetimes
@@ -31,7 +32,7 @@ The [official docs for datetime](https://docs.python.org/3/library/datetime.html
 
 > Date and time objects may be categorized as “aware” or “naive” depending on whether or not they include timezone information.
 
-Well in our date strings (`"2022-01-01T22:03:30"` and `"2022-01-01T22:03:33Z"`), the first one happens to be naive: there's no timezone information included on it. 
+Well in our date strings (`"2022-01-01T22:03:30"` and `"2022-01-01T22:03:33Z"`), the first one happens to be naive: there's no timezone information included on it.
 
 Both of them include the T, which is just the default separator for [ISO 8601 combined date-time format](https://stackoverflow.com/a/29282022/14427854).
 
@@ -70,4 +71,19 @@ if start_date >= end_date:
     raise ValueError("Cannot end before you begin!")
 ```
 
-also works! But keep in mind that information could be lost.
+also works! But keep in mind that information could be lost. Consider the following:
+
+```python
+from datetime import datetime, timezone
+
+br_date = datetime.strptime("2022-01-01T22:03:30-03:00", "%Y-%m-%dT%H:%M:%S%z")
+ref_date = datetime.strptime("2022-01-01T22:03:30Z", "%Y-%m-%dT%H:%M:%S%z")
+
+print(br_date > ref_date)  # True
+
+br_date_to_utc = br_date.replace(tzinfo=timezone.utc)
+
+print(br_date_to_utc > ref_date)  # False
+```
+
+![paper sheet with "days since last timezone issue" written on it. theres a post it stating "-1"](./days-since-last-tz-issue.webp)
