@@ -6,6 +6,7 @@ author = 'Guilherme Garcia'
 copyright = 'Copyright © 2024, Guilherme Garcia.'
 languageCode = 'pt-br'
 
+tableOfContents = true
 enableRobotsTXT = true
 
 disableKinds = ["taxonomy"]

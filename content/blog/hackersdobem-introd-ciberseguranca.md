@@ -18,8 +18,8 @@ O curso começa obrigatoriamente pelo nivelamento, que é composto de dez módul
 
 Os módulos são:
 
-1. Introdução à cibersegurança (você está aqui)
-2. Identificar componentes de hardware de computador
+1. Introdução à cibersegurança (**você está aqui**)
+2. Identificar componentes de hardware de computador [visitar](/blog/hackers-do-bem-componentes-hardware)
 3. Compreender Internet e Camada de acesso à rede
 4. Compreender acesso a rede e camada de internet (IP)
 5. Compreender IPV6 e Camada de transporte
