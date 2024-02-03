@@ -1,0 +1,153 @@
+Statistical profiling result from isolate-0x130008000-56377-v8.log, (457 ticks, 0 unaccounted, 0 excluded).
+
+ [Shared libraries]:
+   ticks  total  nonlib   name
+      8    1.8%          /usr/lib/system/libsystem_kernel.dylib
+      5    1.1%          /usr/lib/system/libsystem_pthread.dylib
+      5    1.1%          /usr/lib/libc++.1.dylib
+      4    0.9%          /usr/lib/system/libsystem_malloc.dylib
+      4    0.9%          /usr/lib/system/libsystem_c.dylib
+      1    0.2%          /usr/lib/system/libsystem_platform.dylib
+
+ [JavaScript]:
+   ticks  total  nonlib   name
+    232   50.8%   54.0%  JS: *<anonymous> /Users/guilhermegarcia/jumblie/prof-array-slice.js:1:1
+      2    0.4%    0.5%  JS: *createPool /Users/guilhermegarcia/jumblie/prof-array-slice.js:9:20
+      1    0.2%    0.2%  JS: ^createPool /Users/guilhermegarcia/jumblie/prof-array-slice.js:9:20
+
+ [C++]:
+   ticks  total  nonlib   name
+    109   23.9%   25.3%  t node::NgRcBufPointer<node::http2::Http2RcBufferPointerTraits>::SelfSize() const
+     39    8.5%    9.1%  T _mach_port_type
+     25    5.5%    5.8%  t ___pfz_setup
+      4    0.9%    0.9%  t _Builtins_KeyedStoreIC
+      4    0.9%    0.9%  T _semaphore_destroy
+      3    0.7%    0.7%  t __os_once_gate_broadcast
+      3    0.7%    0.7%  t _Builtins_CloneFastJSArray
+      2    0.4%    0.5%  t std::__1::ostreambuf_iterator<char, std::__1::char_traits<char> > std::__1::__pad_and_output<char, std::__1::char_traits<char> >(std::__1::ostreambuf_iterator<char, std::__1::char_traits<char> >, char const*, char const*, char const*, std::__1::ios_base&, char)
+      1    0.2%    0.2%  t _u_getUnicodeProperties_72
+      1    0.2%    0.2%  t __posix_spawn_file_actions_grow
+      1    0.2%    0.2%  t _Builtins_TypedArrayConstructor
+      1    0.2%    0.2%  t _Builtins_CallUndefinedReceiver1Handler
+      1    0.2%    0.2%  T _task_set_special_port
+      1    0.2%    0.2%  T _OSAtomicDecrement32
+
+ [Summary]:
+   ticks  total  nonlib   name
+    235   51.4%   54.7%  JavaScript
+    195   42.7%   45.3%  C++
+    130   28.4%   30.2%  GC
+     27    5.9%          Shared libraries
+
+ [C++ entry points]:
+   ticks    cpp   total   name
+     29   54.7%    6.3%  t _Builtins_CloneFastJSArray
+     16   30.2%    3.5%  t node::NgRcBufPointer<node::http2::Http2RcBufferPointerTraits>::SelfSize() const
+      4    7.5%    0.9%  t _Builtins_KeyedStoreIC
+      2    3.8%    0.4%  t std::__1::ostreambuf_iterator<char, std::__1::char_traits<char> > std::__1::__pad_and_output<char, std::__1::char_traits<char> >(std::__1::ostreambuf_iterator<char, std::__1::char_traits<char> >, char const*, char const*, char const*, std::__1::ios_base&, char)
+      1    1.9%    0.2%  t _Builtins_TypedArrayConstructor
+      1    1.9%    0.2%  T _semaphore_destroy
+
+ [Bottom up (heavy) profile]:
+  Note: percentage shows a share of a particular caller in the total
+  amount of its parent calls.
+  Callers occupying less than 1.0% are not shown.
+
+   ticks parent  name
+    232   50.8%  JS: *<anonymous> /Users/guilhermegarcia/jumblie/prof-array-slice.js:1:1
+    232  100.0%    JS: ~Module._compile node:internal/modules/cjs/loader:1200:37
+    232  100.0%      JS: ~Module._extensions..js node:internal/modules/cjs/loader:1255:37
+    232  100.0%        JS: ~Module.load node:internal/modules/cjs/loader:1091:33
+    232  100.0%          JS: ~Module._load node:internal/modules/cjs/loader:871:24
+    232  100.0%            JS: ~executeUserEntryPoint node:internal/modules/run_main:75:31
+
+    109   23.9%  t node::NgRcBufPointer<node::http2::Http2RcBufferPointerTraits>::SelfSize() const
+      6    5.5%    JS: ^compileForInternalLoader node:internal/bootstrap/loaders:318:27
+      6  100.0%      JS: ^requireBuiltin node:internal/bootstrap/loaders:355:24
+      2   33.3%        JS: ~<anonymous> node:internal/modules/esm/loader:1:1
+      2  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/loaders:318:27
+      2  100.0%            JS: ^requireBuiltin node:internal/bootstrap/loaders:355:24
+      1   16.7%        JS: ~getTranslators node:internal/modules/esm/loader:55:24
+      1  100.0%          JS: ~<instance_members_initializer> node:internal/modules/esm/loader:182:1
+      1  100.0%            JS: ~ESMLoader node:internal/modules/esm/loader:238:14
+      1   16.7%        JS: ~<instance_members_initializer> node:internal/modules/esm/loader:182:1
+      1  100.0%          JS: ~ESMLoader node:internal/modules/esm/loader:238:14
+      1  100.0%            JS: ~<anonymous> node:internal/process/esm_loader:1:1
+      1   16.7%        JS: ~<anonymous> node:internal/process/esm_loader:1:1
+      1  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/loaders:318:27
+      1  100.0%            JS: ^requireBuiltin node:internal/bootstrap/loaders:355:24
+      1   16.7%        JS: ~<anonymous> node:internal/modules/cjs/loader:116:3
+      1  100.0%          JS: ~<anonymous> node:internal/util:708:18
+      1  100.0%            JS: ~Module.load node:internal/modules/cjs/loader:1091:33
+      2    1.8%    JS: ~toRealPath node:internal/modules/cjs/loader:459:20
+      2  100.0%      JS: ~Module._findPath node:internal/modules/cjs/loader:567:28
+      2  100.0%        JS: ~resolveMainPath node:internal/modules/run_main:10:25
+      2  100.0%          JS: ~executeUserEntryPoint node:internal/modules/run_main:75:31
+      2  100.0%            JS: ~<anonymous> node:internal/main/run_main_module:1:1
+      2    1.8%    JS: ^<anonymous> /Users/guilhermegarcia/jumblie/prof-array-slice.js:1:1
+      2  100.0%      JS: ~Module._compile node:internal/modules/cjs/loader:1200:37
+      2  100.0%        JS: ~Module._extensions..js node:internal/modules/cjs/loader:1255:37
+      2  100.0%          JS: ~Module.load node:internal/modules/cjs/loader:1091:33
+      2  100.0%            JS: ~Module._load node:internal/modules/cjs/loader:871:24
+
+     39    8.5%  T _mach_port_type
+
+     25    5.5%  t ___pfz_setup
+     25  100.0%    t _Builtins_CloneFastJSArray
+     25  100.0%      JS: *<anonymous> /Users/guilhermegarcia/jumblie/prof-array-slice.js:1:1
+     25  100.0%        JS: ~Module._compile node:internal/modules/cjs/loader:1200:37
+     25  100.0%          JS: ~Module._extensions..js node:internal/modules/cjs/loader:1255:37
+     25  100.0%            JS: ~Module.load node:internal/modules/cjs/loader:1091:33
+
+      8    1.8%  /usr/lib/system/libsystem_kernel.dylib
+      1   12.5%    JS: ~patchProcessObject node:internal/process/pre_execution:138:28
+      1  100.0%      JS: ~prepareExecution node:internal/process/pre_execution:54:26
+      1  100.0%        JS: ~prepareMainThreadExecution node:internal/process/pre_execution:38:36
+      1  100.0%          JS: ~<anonymous> node:internal/main/run_main_module:1:1
+      1   12.5%    JS: ~<anonymous> node:internal/main/run_main_module:1:1
+      1   12.5%    JS: ^initializeCJS node:internal/modules/cjs/loader:284:23
+      1  100.0%      JS: ~initializeCJSLoader node:internal/process/pre_execution:573:29
+      1  100.0%        JS: ~setupUserModules node:internal/process/pre_execution:124:26
+      1  100.0%          JS: ~prepareExecution node:internal/process/pre_execution:54:26
+      1  100.0%            JS: ~prepareMainThreadExecution node:internal/process/pre_execution:38:36
+
+      5    1.1%  /usr/lib/system/libsystem_pthread.dylib
+      1   20.0%    JS: ~toRealPath node:internal/modules/cjs/loader:459:20
+      1  100.0%      JS: ~Module._findPath node:internal/modules/cjs/loader:567:28
+      1  100.0%        JS: ~resolveMainPath node:internal/modules/run_main:10:25
+      1  100.0%          JS: ~executeUserEntryPoint node:internal/modules/run_main:75:31
+      1  100.0%            JS: ~<anonymous> node:internal/main/run_main_module:1:1
+      1   20.0%    JS: ~realpathSync node:fs:2492:22
+      1  100.0%      JS: ~toRealPath node:internal/modules/cjs/loader:459:20
+      1  100.0%        JS: ~Module._findPath node:internal/modules/cjs/loader:567:28
+      1  100.0%          JS: ~resolveMainPath node:internal/modules/run_main:10:25
+      1  100.0%            JS: ~executeUserEntryPoint node:internal/modules/run_main:75:31
+      1   20.0%    JS: ~prepareExecution node:internal/process/pre_execution:54:26
+      1  100.0%      JS: ~prepareMainThreadExecution node:internal/process/pre_execution:38:36
+      1  100.0%        JS: ~<anonymous> node:internal/main/run_main_module:1:1
+      1   20.0%    JS: ~initializeCJSLoader node:internal/process/pre_execution:573:29
+      1  100.0%      JS: ~setupUserModules node:internal/process/pre_execution:124:26
+      1  100.0%        JS: ~prepareExecution node:internal/process/pre_execution:54:26
+      1  100.0%          JS: ~prepareMainThreadExecution node:internal/process/pre_execution:38:36
+      1  100.0%            JS: ~<anonymous> node:internal/main/run_main_module:1:1
+      1   20.0%    JS: ~assertEncoding node:internal/fs/utils:154:24
+      1  100.0%      JS: ~getOptions node:internal/fs/utils:317:20
+      1  100.0%        JS: ~readFileSync node:fs:450:22
+      1  100.0%          JS: ~Module._extensions..js node:internal/modules/cjs/loader:1255:37
+      1  100.0%            JS: ~Module.load node:internal/modules/cjs/loader:1091:33
+
+      5    1.1%  /usr/lib/libc++.1.dylib
+      1   20.0%    JS: ~setSourceMapsEnabled node:internal/source_map/source_map_cache:52:30
+      1  100.0%      JS: ~getSourceMapsEnabled node:internal/source_map/source_map_cache:45:30
+      1  100.0%        JS: ~initializeSourceMapsHandlers node:internal/process/pre_execution:595:38
+      1  100.0%          JS: ~prepareExecution node:internal/process/pre_execution:54:26
+      1  100.0%            JS: ~prepareMainThreadExecution node:internal/process/pre_execution:38:36
+      1   20.0%    JS: ~prepareExecution node:internal/process/pre_execution:54:26
+      1  100.0%      JS: ~prepareMainThreadExecution node:internal/process/pre_execution:38:36
+      1  100.0%        JS: ~<anonymous> node:internal/main/run_main_module:1:1
+      1   20.0%    JS: ~initializeCJSLoader node:internal/process/pre_execution:573:29
+      1  100.0%      JS: ~setupUserModules node:internal/process/pre_execution:124:26
+      1  100.0%        JS: ~prepareExecution node:internal/process/pre_execution:54:26
+      1  100.0%          JS: ~prepareMainThreadExecution node:internal/process/pre_execution:38:36
+      1  100.0%            JS: ~<anonymous> node:internal/main/run_main_module:1:1
+

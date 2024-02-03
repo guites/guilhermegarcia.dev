@@ -1,0 +1,219 @@
+Statistical profiling result from isolate-0x128008000-54118-v8.log, (13391 ticks, 67 unaccounted, 0 excluded).
+
+ [Shared libraries]:
+   ticks  total  nonlib   name
+    107    0.8%          /usr/lib/system/libsystem_pthread.dylib
+     99    0.7%          /usr/lib/system/libsystem_malloc.dylib
+     74    0.6%          /usr/lib/system/libsystem_kernel.dylib
+     72    0.5%          /usr/lib/libc++.1.dylib
+     43    0.3%          /usr/lib/system/libsystem_c.dylib
+     14    0.1%          /usr/lib/system/libdyld.dylib
+      1    0.0%          /usr/lib/libobjc.A.dylib
+
+ [JavaScript]:
+   ticks  total  nonlib   name
+   5595   41.8%   43.1%  JS: *combinationTree /Users/guilhermegarcia/jumblie/post-filter.js:10:25
+      9    0.1%    0.1%  JS: ^combinationTree /Users/guilhermegarcia/jumblie/post-filter.js:10:25
+      2    0.0%    0.0%  JS: *<anonymous> /Users/guilhermegarcia/jumblie/preprocess-dict.js:66:48
+      2    0.0%    0.0%  JS: *<anonymous> /Users/guilhermegarcia/jumblie/preprocess-dict.js:42:49
+      1    0.0%    0.0%  JS: *subtractFromPool /Users/guilhermegarcia/jumblie/post-filter.js:222:26
+
+ [C++]:
+   ticks  total  nonlib   name
+   4037   30.1%   31.1%  t ___pfz_setup
+   1450   10.8%   11.2%  t node::NgRcBufPointer<node::http2::Http2RcBufferPointerTraits>::SelfSize() const
+    792    5.9%    6.1%  t _Builtins_CloneFastJSArray
+    379    2.8%    2.9%  t __os_once_gate_broadcast
+    347    2.6%    2.7%  T _mach_port_type
+    107    0.8%    0.8%  t _Builtins_ArrayIndexOfSmiOrObject
+     39    0.3%    0.3%  T ___libplatform_init
+     37    0.3%    0.3%  T _OSAtomicDecrement32
+     15    0.1%    0.1%  t _Builtins_CEntry_Return1_DontSaveFPRegs_ArgvOnStack_NoBuiltinExit
+     12    0.1%    0.1%  t _Builtins_StrictEqual_Baseline
+      9    0.1%    0.1%  t _Builtins_LoadIC
+      8    0.1%    0.1%  t non-virtual thunk to node::PerIsolatePlatformData::NonNestableDelayedTasksEnabled() const
+      6    0.0%    0.0%  T _necp_client_action
+      5    0.0%    0.0%  T _semaphore_destroy
+      4    0.0%    0.0%  t _Builtins_KeyedLoadIC
+      4    0.0%    0.0%  T ___pthread_init
+      3    0.0%    0.0%  t std::__1::basic_ostream<char, std::__1::char_traits<char> >& std::__1::__put_character_sequence<char, std::__1::char_traits<char> >(std::__1::basic_ostream<char, std::__1::char_traits<char> >&, char const*, unsigned long)
+      3    0.0%    0.0%  t std::__1::__split_buffer<unsigned long*, std::__1::allocator<unsigned long*> >::~__split_buffer()
+      3    0.0%    0.0%  t _Builtins_Subtract_Baseline
+      3    0.0%    0.0%  t _Builtins_AllocateInYoungGeneration
+      2    0.0%    0.0%  t __pthread_cond_updateval
+      2    0.0%    0.0%  t _Builtins_SetPrototypeAdd
+      2    0.0%    0.0%  t _Builtins_GetNamedPropertyHandler
+      2    0.0%    0.0%  t _Builtins_ArrayPrototypeSlice
+      2    0.0%    0.0%  T _pthread_attr_getschedpolicy
+      2    0.0%    0.0%  T _mach_port_allocate
+      1    0.0%    0.0%  t std::__1::ostreambuf_iterator<char, std::__1::char_traits<char> > std::__1::__pad_and_output<char, std::__1::char_traits<char> >(std::__1::ostreambuf_iterator<char, std::__1::char_traits<char> >, char const*, char const*, char const*, std::__1::ios_base&, char)
+      1    0.0%    0.0%  t std::__1::__vector_base<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > > >::~__vector_base()
+      1    0.0%    0.0%  t std::__1::__hash_table<unsigned long long, std::__1::hash<unsigned long long>, std::__1::equal_to<unsigned long long>, std::__1::allocator<unsigned long long> >::~__hash_table()
+      1    0.0%    0.0%  t non-virtual thunk to node::PerIsolatePlatformData::IdleTasksEnabled()
+      1    0.0%    0.0%  t __pthread_set_main_qos
+      1    0.0%    0.0%  t __pthread_key_global_init
+      1    0.0%    0.0%  t __os_once_gate_wait
+      1    0.0%    0.0%  t _Builtins_TestInHandler
+      1    0.0%    0.0%  t _Builtins_StringPrototypeStartsWith
+      1    0.0%    0.0%  t _Builtins_LoadIC_Noninlined
+      1    0.0%    0.0%  t _Builtins_LdaSmiHandler
+      1    0.0%    0.0%  t _Builtins_KeyedLoadIC_Megamorphic
+      1    0.0%    0.0%  t _Builtins_Increment_Baseline
+      1    0.0%    0.0%  t _Builtins_FastNewClosure
+      1    0.0%    0.0%  t _Builtins_Call_ReceiverIsNotNullOrUndefined
+      1    0.0%    0.0%  t _Builtins_CallFunction_ReceiverIsNotNullOrUndefined
+      1    0.0%    0.0%  t _Builtins_CallFunction_ReceiverIsAny
+      1    0.0%    0.0%  t _Builtins_CEntry_Return1_DontSaveFPRegs_ArgvOnStack_BuiltinExit
+      1    0.0%    0.0%  t _Builtins_ArrayReduce
+      1    0.0%    0.0%  t _Builtins_ArrayPrototypeJoin
+      1    0.0%    0.0%  t _Builtins_ArrayMap
+      1    0.0%    0.0%  t _Builtins_ArrayFilter
+      1    0.0%    0.0%  t _Builtins_AllocateRegularInYoungGeneration
+      1    0.0%    0.0%  T icu_72::UnicodeString::fromUTF8(icu_72::StringPiece)
+      1    0.0%    0.0%  T _u_hasBinaryProperty_72
+      1    0.0%    0.0%  T _pthread_workqueue_setup
+      1    0.0%    0.0%  T _pthread_cond_signal
+      1    0.0%    0.0%  T _os_unfair_recursive_lock_lock_with_options
+      1    0.0%    0.0%  T __simple_getenv
+      1    0.0%    0.0%  T _OSAtomicIncrement32
+
+ [Summary]:
+   ticks  total  nonlib   name
+   5609   41.9%   43.2%  JavaScript
+   7305   54.6%   56.3%  C++
+   1998   14.9%   15.4%  GC
+    410    3.1%          Shared libraries
+     67    0.5%          Unaccounted
+
+ [C++ entry points]:
+   ticks    cpp   total   name
+   4889   88.6%   36.5%  t _Builtins_CloneFastJSArray
+    427    7.7%    3.2%  t node::NgRcBufPointer<node::http2::Http2RcBufferPointerTraits>::SelfSize() const
+     75    1.4%    0.6%  t _Builtins_ArrayIndexOf
+     32    0.6%    0.2%  t _Builtins_ArrayIndexOfSmiOrObject
+     15    0.3%    0.1%  t _Builtins_CEntry_Return1_DontSaveFPRegs_ArgvOnStack_NoBuiltinExit
+     12    0.2%    0.1%  t _Builtins_StrictEqual_Baseline
+      8    0.1%    0.1%  t non-virtual thunk to node::PerIsolatePlatformData::NonNestableDelayedTasksEnabled() const
+      8    0.1%    0.1%  t _Builtins_LoadIC
+      8    0.1%    0.1%  t _Builtins_ArrayPrototypeSlice
+      5    0.1%    0.0%  t _Builtins_SetConstructor
+      4    0.1%    0.0%  t _Builtins_KeyedLoadIC
+      3    0.1%    0.0%  t std::__1::basic_ostream<char, std::__1::char_traits<char> >& std::__1::__put_character_sequence<char, std::__1::char_traits<char> >(std::__1::basic_ostream<char, std::__1::char_traits<char> >&, char const*, unsigned long)
+      3    0.1%    0.0%  t _Builtins_Subtract_Baseline
+      3    0.1%    0.0%  t _Builtins_ArrayFilter
+      3    0.1%    0.0%  t _Builtins_AllocateInYoungGeneration
+      2    0.0%    0.0%  t _Builtins_GetNamedPropertyHandler
+      2    0.0%    0.0%  T ___pthread_init
+      1    0.0%    0.0%  t std::__1::ostreambuf_iterator<char, std::__1::char_traits<char> > std::__1::__pad_and_output<char, std::__1::char_traits<char> >(std::__1::ostreambuf_iterator<char, std::__1::char_traits<char> >, char const*, char const*, char const*, std::__1::ios_base&, char)
+      1    0.0%    0.0%  t std::__1::__vector_base<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > > >::~__vector_base()
+      1    0.0%    0.0%  t _Builtins_TestInHandler
+      1    0.0%    0.0%  t _Builtins_StringPrototypeStartsWith
+      1    0.0%    0.0%  t _Builtins_ReflectGet
+      1    0.0%    0.0%  t _Builtins_LoadIC_Noninlined
+      1    0.0%    0.0%  t _Builtins_LdaSmiHandler
+      1    0.0%    0.0%  t _Builtins_KeyedLoadIC_Megamorphic
+      1    0.0%    0.0%  t _Builtins_Increment_Baseline
+      1    0.0%    0.0%  t _Builtins_Call_ReceiverIsNotNullOrUndefined
+      1    0.0%    0.0%  t _Builtins_CallFunction_ReceiverIsNotNullOrUndefined
+      1    0.0%    0.0%  t _Builtins_CallFunction_ReceiverIsAny
+      1    0.0%    0.0%  t _Builtins_CEntry_Return1_DontSaveFPRegs_ArgvOnStack_BuiltinExit
+      1    0.0%    0.0%  t _Builtins_ArrayReduce
+      1    0.0%    0.0%  t _Builtins_ArrayPrototypeToString
+      1    0.0%    0.0%  t _Builtins_ArrayMap
+      1    0.0%    0.0%  t _Builtins_AllocateRegularInYoungGeneration
+      1    0.0%    0.0%  T _os_unfair_recursive_lock_lock_with_options
+      1    0.0%    0.0%  T _OSAtomicDecrement32
+
+ [Bottom up (heavy) profile]:
+  Note: percentage shows a share of a particular caller in the total
+  amount of its parent calls.
+  Callers occupying less than 1.0% are not shown.
+
+   ticks parent  name
+   5595   41.8%  JS: *combinationTree /Users/guilhermegarcia/jumblie/post-filter.js:10:25
+   5595  100.0%    JS: ~<anonymous> /Users/guilhermegarcia/jumblie/post-filter.js:1:1
+   5595  100.0%      JS: ~Module._compile node:internal/modules/cjs/loader:1200:37
+   5595  100.0%        JS: ~Module._extensions..js node:internal/modules/cjs/loader:1255:37
+   5595  100.0%          JS: ~Module.load node:internal/modules/cjs/loader:1091:33
+   5595  100.0%            JS: ~Module._load node:internal/modules/cjs/loader:871:24
+
+   4037   30.1%  t ___pfz_setup
+   4026   99.7%    t _Builtins_CloneFastJSArray
+   4021   99.9%      JS: *combinationTree /Users/guilhermegarcia/jumblie/post-filter.js:10:25
+   4021  100.0%        JS: ~<anonymous> /Users/guilhermegarcia/jumblie/post-filter.js:1:1
+   4021  100.0%          JS: ~Module._compile node:internal/modules/cjs/loader:1200:37
+   4021  100.0%            JS: ~Module._extensions..js node:internal/modules/cjs/loader:1255:37
+
+   1450   10.8%  t node::NgRcBufPointer<node::http2::Http2RcBufferPointerTraits>::SelfSize() const
+    373   25.7%    JS: *combinationTree /Users/guilhermegarcia/jumblie/post-filter.js:10:25
+    373  100.0%      JS: ~<anonymous> /Users/guilhermegarcia/jumblie/post-filter.js:1:1
+    373  100.0%        JS: ~Module._compile node:internal/modules/cjs/loader:1200:37
+    373  100.0%          JS: ~Module._extensions..js node:internal/modules/cjs/loader:1255:37
+    373  100.0%            JS: ~Module.load node:internal/modules/cjs/loader:1091:33
+     25    1.7%    JS: ^compileForInternalLoader node:internal/bootstrap/loaders:318:27
+     25  100.0%      JS: ^requireBuiltin node:internal/bootstrap/loaders:355:24
+      4   16.0%        JS: ~<anonymous> node:internal/fs/promises:1:1
+      4  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/loaders:318:27
+      4  100.0%            JS: ^requireBuiltin node:internal/bootstrap/loaders:355:24
+      3   12.0%        JS: ~<anonymous> node:tty:1:1
+      3  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/loaders:318:27
+      3  100.0%            JS: ^requireBuiltin node:internal/bootstrap/loaders:355:24
+      2    8.0%        JS: ~<anonymous> node:stream:1:1
+      2  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/loaders:318:27
+      2  100.0%            JS: ^requireBuiltin node:internal/bootstrap/loaders:355:24
+      2    8.0%        JS: ~<anonymous> node:net:1:1
+      2  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/loaders:318:27
+      2  100.0%            JS: ^requireBuiltin node:internal/bootstrap/loaders:355:24
+      2    8.0%        JS: ~<anonymous> node:internal/streams/duplex:1:1
+      2  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/loaders:318:27
+      2  100.0%            JS: ^requireBuiltin node:internal/bootstrap/loaders:355:24
+      2    8.0%        JS: ~<anonymous> node:internal/modules/esm/loader:1:1
+      2  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/loaders:318:27
+      2  100.0%            JS: ^requireBuiltin node:internal/bootstrap/loaders:355:24
+      1    4.0%        JS: ~lazyLoadStreams node:fs:2925:25
+      1  100.0%          JS: ~get ReadStream node:fs:3067:17
+      1  100.0%            t _Builtins_ReflectGet
+      1    4.0%        JS: ~getTranslators node:internal/modules/esm/loader:55:24
+      1  100.0%          JS: ~<instance_members_initializer> node:internal/modules/esm/loader:182:1
+      1  100.0%            JS: ~ESMLoader node:internal/modules/esm/loader:238:14
+      1    4.0%        JS: ~<instance_members_initializer> node:internal/modules/esm/loader:182:1
+      1  100.0%          JS: ~ESMLoader node:internal/modules/esm/loader:238:14
+      1  100.0%            JS: ~<anonymous> node:internal/process/esm_loader:1:1
+      1    4.0%        JS: ~<anonymous> node:internal/streams/readable:1:1
+      1  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/loaders:318:27
+      1  100.0%            JS: ^requireBuiltin node:internal/bootstrap/loaders:355:24
+      1    4.0%        JS: ~<anonymous> node:internal/streams/operators:1:1
+      1  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/loaders:318:27
+      1  100.0%            JS: ^requireBuiltin node:internal/bootstrap/loaders:355:24
+      1    4.0%        JS: ~<anonymous> node:internal/streams/destroy:1:1
+      1  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/loaders:318:27
+      1  100.0%            JS: ^requireBuiltin node:internal/bootstrap/loaders:355:24
+      1    4.0%        JS: ~<anonymous> node:internal/streams/compose:1:1
+      1  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/loaders:318:27
+      1  100.0%            JS: ^requireBuiltin node:internal/bootstrap/loaders:355:24
+      1    4.0%        JS: ~<anonymous> node:internal/readline/interface:1:1
+      1  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/loaders:318:27
+      1  100.0%            JS: ^requireBuiltin node:internal/bootstrap/loaders:355:24
+      1    4.0%        JS: ~<anonymous> node:internal/process/esm_loader:1:1
+      1  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/loaders:318:27
+      1  100.0%            JS: ^requireBuiltin node:internal/bootstrap/loaders:355:24
+      1    4.0%        JS: ~<anonymous> node:internal/fs/streams:1:1
+      1  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/loaders:318:27
+      1  100.0%            JS: ^requireBuiltin node:internal/bootstrap/loaders:355:24
+
+    792    5.9%  t _Builtins_CloneFastJSArray
+    601   75.9%    JS: *combinationTree /Users/guilhermegarcia/jumblie/post-filter.js:10:25
+    601  100.0%      JS: ~<anonymous> /Users/guilhermegarcia/jumblie/post-filter.js:1:1
+    601  100.0%        JS: ~Module._compile node:internal/modules/cjs/loader:1200:37
+    601  100.0%          JS: ~Module._extensions..js node:internal/modules/cjs/loader:1255:37
+    601  100.0%            JS: ~Module.load node:internal/modules/cjs/loader:1091:33
+    189   23.9%    t _Builtins_CloneFastJSArray
+    189  100.0%      JS: *combinationTree /Users/guilhermegarcia/jumblie/post-filter.js:10:25
+    189  100.0%        JS: ~<anonymous> /Users/guilhermegarcia/jumblie/post-filter.js:1:1
+    189  100.0%          JS: ~Module._compile node:internal/modules/cjs/loader:1200:37
+    189  100.0%            JS: ~Module._extensions..js node:internal/modules/cjs/loader:1255:37
+
+    379    2.8%  t __os_once_gate_broadcast
+
+    347    2.6%  T _mach_port_type
+
