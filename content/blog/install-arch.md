@@ -128,7 +128,7 @@ systemctl --type=service
 
 and stopping any other network related service in order to avoid conflicts.
 
-List existing wifi networks with `nmclidevice wifi list` and connect to your desired network with `nmcli device wifi connect SSDID password my_new_password`.
+List existing wifi networks with `nmcli device wifi list` and connect to your desired network with `nmcli device wifi connect SSDID password my_new_password`.
 
 ### System time synchronization via NTP
 
@@ -140,14 +140,64 @@ If **System clock synchronized** show **no**, activate it with
 timedatectl set-ntp true
 ```
 
-### Setting up the GUI with XMonad
+### Setting up the GUI with i3
 
 Turns out I love tilling window managers. They automatically allocate new windows by dividing existing screen space between applications.
 
-You can also switch between different workspaces, each with its set of apps.
+You can also switch between different workspaces, each with its own set of apps.
 
-I'll be using [XMonad](https://xmonad.org/) as it looks just great and promises great performance for low end machines.
+[i3](https://i3wm.org/) is very similar to other TWM such as [Xmonad](https://xmonad.org/), [awesome](https://awesomewm.org/) or [yabai](https://github.com/koekeishiya/yabai) (for macOS).
+
+I'll be using i3 as its what I'm used to on other distros such as Ubuntu, but most X compatible window managers should share the same steps for installation and setting up.
+
+<aside>Also i3 comes at < 100mb against XMonad's 800mb. This is partly due to XMonad requiring most of haskell toolchain dependencies, and it might not be so much if you plan on doing Haskell coding on your pc.</aside> 
+
+Since arch comes with only the cli by default, let's start by installing X, which is on the xorg-server package. We'll include the xorg-init package which contains the helper script `startx` which is used to start X on demand.
 
 ```
-pacman -S xmonad
+pacman -S xorg-server xorg-xinit
 ```
+
+<aside> If you receive errors about mirrors receiving status 404 when trying to download specific packages such as libxfont2, xorg-xkbcomp, etc, try updating the pacman cache with `packman -Syu` and then repeating the commands.</aside>
+
+Now we add the i3 related packages with
+
+```
+pacman -S i3-wm i3status dmenu xterm
+```
+
+- An application launcher (we'll use [dmenu](https://wiki.archlinux.org/title/dmenu))
+- A terminal emulator (we'll use [xterm](https://wiki.archlinux.org/title/Xterm))
+
+...and that's about it.
+
+If prompted to choose a set of fonts, any will do (I'm going with the default gnu-free-fonts).
+
+Now we need to inform our system to start X by default, and that X should load the i3 WM. This is done by creating a `~/.xinitrc` file with a single line stating `exec i3`.
+
+Start i3 by running `startx`.
+
+<aside>
+    If you want to start i3 automatically on every session, you can add `startx` to your ~/.bash_profile or ~/.bashrc file!
+</aside>
+
+On your first launch, you'll be prompted to generate a config file at ` ~/.config/i3/config`. Press <kbd>enter</kbd> to accept it. you can also choose between the win (power) key and alt as your modifier (key used to run i3 commands).
+
+You can go back to the cli with <kbd> $mod + shift + e</kbd>.
+
+References:
+
+- <https://www.debugpoint.com/xmonad-arch-linux-setup/>
+- <https://bbs.archlinux.org/viewtopic.php?id=66701>
+- <https://suay.site/?p=610>
+- <https://wiki.archlinux.org/title/Xorg>
+- <https://wiki.archlinux.org/title/i3>
+- <https://bbs.archlinux.org/viewtopic.php?id=140448>
+
+<!--
+TODO:
+- fix keyboard layout inside i3
+- add non admin user
+- set dark terminal colors
+- is there such a thing as i3 dark mode?
+-->
