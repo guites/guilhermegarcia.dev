@@ -334,9 +334,9 @@ Foi um processo árduo, mas eu tô surpreso com o quão utilizável é um comput
 
 Com a instalação proposta no item anterior, o pc consegue fazer um boot do zero e ter um navegador rodando em cerca de 1m30s, oque é muito melhor do que eu esperava.
 
-Hoje em dia o maior limitador pra computadores antigos é o navegador, devido ao uso desenfreado de javascript pra fazer renderizações insanas que absolutamente destroem CPUs velhinhas e sticks de RAMs limitados.
+Hoje em dia o maior desafio pra computadores antigos é o navegador, devido ao uso desenfreado de javascript pra fazer renderizações insanas que absolutamente destroem CPUs velhinhas e sticks de RAMs modestos.
 
-Eu não acho que o caminho seja utilizar navegadores limitados, ou desativar o uso do javascript, por exemplo, pois isso te exclui de uma parte importante da internet.
+Eu não acho que o caminho seja utilizar navegadores limitados, ou desativar o uso do javascript, por exemplo, pois isso te exclui de uma parte enorme da internet.
 
 Eu espero que com o uso de server side rendering ganhando força novamente, os sites deixem de judiar tanto os usuários.
 
