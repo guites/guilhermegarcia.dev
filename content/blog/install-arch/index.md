@@ -2,14 +2,91 @@
 title = "Instalando arch em um pc antigo"
 date = "2024-02-04T12:47:34-03:00"
 description = ""
-tags = ['linux', 'português']
+tags = ['linux', 'português', 'english']
 slug = 'setting-up-the-white-archie'
 draft = true
+toc = true
 +++
 
-These are my notes for memory aid and overcomming gotchas while following  <https://wiki.archlinux.org/title/Installation_guide>.
+## Introdução
 
-## Arch Linux Installation
+No último final de semana, resolvi dar uma atenção pra um netbook que estava abandonado no hackerspace.
+
+Eu já tinha visto ele funcionando (na época tava rodando um [lubuntu](https://lubuntu.me)) e lembro que tentei acessar alguns sites pelo firefox, mas estava tão lento que acabei abandonando.
+
+Alguns meses depois, fui tentar ligá-lo novamente e ele não funcionava. Pelo visto tinha sido derrubado e deixado para morrer.
+
+Resolvi dar uma nova chance pra esse _Aspire One D270 - 1655_ viver novos dias de glória.
+
+{{< figure src="./archie-bancada-b4.jpg" alt="Netbook na bancada antes do início da inspeção" caption="Netbook na bancada antes do início da inspeção." >}}
+
+Eu queria usar esse pc como um _daily driver_, e pra isso eu precisava que ele operasse softwares comuns (como navegador e editor de texto) com uma performance aceitável: isso significa que o boot da máquina tem que ocorrer num intervalo de < 2min, conseguir renderizar páginas com javascript pesado, e rodar alguns projetos básicos em python sem travar.
+
+## Configurações do sistema
+
+O computador tem uma configuração bem modesta, com ~4gb de ram e um processador Atom N2600, linha de 2011.
+
+{{< figure src="./archey-output.png" alt="Saída do comando screenfetch no terminal" caption="Saída do comando screenfetch no terminal" >}}
+
+## Inspecionando o hardware
+
+Pra descobrir o motivo do pc não ligar, começamos verificando o carregador e a bateria.
+
+O próximo passo foi a remoção do teclado pra ter acesso a placa mãe e componentes.
+
+<figure>
+<img src="./teclado-removido-1.jpg" alt="Netbook após remoção do teclado"/>
+<img src="./teclado-removido-2.jpg" alt="Netbook após remoção do teclado, imagem com maior foco nos componentes"/>
+<figcaption>Netbook com o teclado removido</figcaption>
+</figure>
+
+Removendo a bateria, a parte de baixo pode ser exposta, dando acesso ao HD, memória ram, cooler do processador e placa de rede.
+
+{{< figure src="./parte-baixo-exposta.jpg" alt="Parte inferior do netbook com bateria desconectada e tampa removida" caption="Parte inferior do netbook com bateria desconectada e tampa removida" >}}
+
+Depois, foi feita a troca do HD por um SSD que tinhamos com um distro instalado, e o pc resolveu ligar.
+
+{{< figure src="./primeiro-boot.jpg" alt="Netbook em processo de boot sem o teclado" caption="Netbook em processo de boot sem o teclado" >}}
+
+Colocar o teclado de volta foi uma função enorme.
+
+{{< figure src="./ajustando-conector-teclado.jpg" alt="Duas pessoas mexendo no netbook, um está com um adaptador de conector de teclado na mão, o outro segura o teclado" caption="Ajustando o conector do teclado" >}}
+
+## Tentativas iniciais
+
+Sabendo que uma instalação moderna de Ubuntu seria demais pra essa máquina, comecei tentando colocar um Debian desktop.
+
+![boot from USB + debian screen]()
+
+Infelizmente durante a instalação já dava pra perceber que ia ficar pesado demais.
+
+A segunda tentativa foi instalar o [Puppy Linux](https://puppylinux-woof-ce.github.io/), um distro minimalista "grandpa ready", com cerca de ~500mb, que usa um formato onde o distro é carregado via pendrive e copiado pra memória ram, e o usuário cria save files no disco rígido, que servem pra persistir dados e programas entre boots.
+
+![ig com puppy linux]()
+
+O processo de instalação foi relativamente tranquilo, mas alguns pontos me fizeram desistir do Puppy Linux:
+
+1. Os softwares instalados por padrão são muito antigos.
+
+    O navegador padrão é o [PaleMoon](https://www.palemoon.org/), que não suporte algumas features modernas do javascript (como `Object.keys()`...) o que faz vários sites, como Mastodon, Github e Youtube se tornarem inutilizáveis.
+2. O distro é bastante instável.
+
+    Algumas soluções necessárias a nível de GRUB, por exemplo, não funcionam todas as vezes. O boot tem grande chance de funcionar se algum USB estiver conectado. O processo de iniciar o X (interface gráfica por trás do gerenciador de janelas) é um tiro no escuro, falhando aleatóriamente, precisando reiniciar a máquina várias vezes até funcionar.
+3. A documentação oficial é bem fraca e o conhecimento está espalhado em fóruns.
+
+O distro em si tem uma ótima performance, mas eu fiquei com a sensação de que ele é feito pensando em usuário bem avançados de Linux, que conseguem depurar erros comuns sozinhos.
+
+A experiência de fuçar nos fóruns (o [antigo](https://oldforum.puppylinux.com/) e o [novo](https://forum.puppylinux.com/)) e depurar os erros encontrados foi interessante e esse é um distro que eu pretendo dar mais uma chance no futuro.
+
+Por fim, resolvi tentar instalar o Arch Linux, confiante de que deve existir alguma combinação de GUI que exija pouco do computador.
+
+## Instalando Arch
+
+Instalar o Arch Linux é surpreendentemente tranquilo. A combinação de uma ótima wiki, que cobre 99% dos casos, com uma comunidade extremamente ativa, significa que tudo está ao alcance de uma busca do google.
+
+Abaixo eu relato os passos utilizados ao seguir o [guia de instalação](https://wiki.archlinux.org/title/Installation_guide), com alguns comentários adicionais em situações que precisei dar uma pesquisada.
+
+### Installation steps
 
 1. Download the image via torrent: <https://archlinux.org/download/>
 2. Flash to USB using the ISO as is: <https://wiki.archlinux.org/title/USB_flash_installation_medium#Using_macOS_dd>
@@ -56,24 +133,24 @@ These are my notes for memory aid and overcomming gotchas while following  <http
     - ran `reflector --verbose --latest 5 --sort rate --save /etc/pacman.d/mirrorlist`
     - retry the downloads with `pacstrap -K /mnt base linux linux-firmware` with speeds closer to 2Mib/s
 12. Install vim with `packmang -S vim`.
-13. Generated an fstab file
-14. Changed root to the new system
-15. Set the timezone
-16. Set the localization
+13. Generated an fstab file.
+14. Changed root to the new system.
+15. Set the timezone.
+16. Set the localization.
 
     - Uncommented `en_US.UTF-8 UTF-8` and `pt_BR.UTF-8 UTF-8` lines
     - ran `locale-gen`
     - created `/etc/locale.conf` with `LANG=en_US.UTF-8`.
     - persist keyboard layout by creating `/etc/vconsole.conf` with `KEYMAP=br-abnt2`
-17. Set the hostname with `echo whitearchie > /etc/hostname`
-18. Set the hostname in the /etc/hosts file
+17. Set the hostname with `echo whitearchie > /etc/hostname`.
+18. Set the hostname in the /etc/hosts file.
 
         127.0.0.1 localhost
         ::1       localhost
         127.0.0.1 whitearchie.localdomain whitearchie
-19. Complete the networkconfiguration by installing `NetworkManager` with `pacman -S networkmanager` and `systemctl enable NetworkManager`.
+19. Complete the network configuration by installing `NetworkManager` with `pacman -S networkmanager` and `systemctl enable NetworkManager`.
 20. Set the root password with `passwd`.
-21. Configure the bootloader (assuming we are a non UEFI install, or MBR:
+21. Configure the bootloader (assuming we are a non UEFI install, or MBR):
 
     - run `pacman -S grub`
     - run `grub-install --target=i386-pc /dev/sda`
@@ -94,17 +171,17 @@ Additional sources:
 - <https://www.arcolinuxd.com/5-the-actual-installation-of-arch-linux-phase-1-uefi/>
 - <https://wiki.archlinux.org/title/GRUB#Master_Boot_Record_(MBR)_specific_instructions>
 
-## Setting up the environment
+### Setting up the environment
 
 These are necessary house keeping tasks in order to run arch with an internet connection, graphical interface and non privileged user accounts.
 
-### Parallel downloads for pacman
+#### Parallel downloads for pacman
 
 We'll start by **enabling parallel downloads** with pacman. Edit the `/etc/pacman.conf` file and search for `ParallelDownloads` under `[options]`. To enable it, remove the comment (`#`) from the beginning of the line.
 
 I've left the default value of 5.
 
-### Setting the internet connection back
+#### Setting the internet connection back
 
 You will notice that after the first reboot, you won't be able to access `iwctl`, and won't have a connection.
 
@@ -130,7 +207,7 @@ and stopping any other network related service in order to avoid conflicts.
 
 List existing wifi networks with `nmcli device wifi list` and connect to your desired network with `nmcli device wifi connect SSDID password my_new_password`.
 
-### System time synchronization via NTP
+#### System time synchronization via NTP
 
 Check the current time settings with `timedatectl status`.
 
@@ -140,7 +217,7 @@ If **System clock synchronized** show **no**, activate it with
 timedatectl set-ntp true
 ```
 
-### Setting up the GUI with i3
+#### Setting up the GUI with i3
 
 Turns out I love tilling window managers. They automatically allocate new windows by dividing existing screen space between applications.
 
@@ -202,7 +279,7 @@ References:
 - <https://wiki.archlinux.org/title/i3>
 - <https://bbs.archlinux.org/viewtopic.php?id=140448>
 
-### Setting up a non root user
+#### Setting up a non root user
 
 It might be sensible to set up a non root user to perform day to day activities on the computer.
 
@@ -251,10 +328,18 @@ echo startx >> /home/new_user/.bash_profile # optional!
 
 Now you can safely reboot your machine and, this time, log in with your non root user.
 
+## Conclusão
 
-<!--
-TODO:
-- add non admin user
-- set dark terminal colors
-- is there such a thing as i3 dark mode?
--->
+Foi um processo árduo, mas eu tô surpreso com o quão utilizável é um computado antigo quando as escolhas de software levam em conta as limitações do hardware.
+
+Com a instalação proposta no item anterior, o pc consegue fazer um boot do zero e ter um navegador rodando em cerca de 1m30s, oque é muito melhor do que eu esperava.
+
+Hoje em dia o maior limitador pra computadores antigos é o navegador, devido ao uso desenfreado de javascript pra fazer renderizações insanas que absolutamente destroem CPUs velhinhas e sticks de RAMs limitados.
+
+Eu não acho que o caminho seja utilizar navegadores limitados, ou desativar o uso do javascript, por exemplo, pois isso te exclui de uma parte importante da internet.
+
+Eu espero que com o uso de server side rendering ganhando força novamente, os sites deixem de judiar tanto os usuários.
+
+De qualquer forma, espero que este post te deixe inspirado pra tirar aquele PC antigo do armário e botar ele pra rodar, seja com uma distro pronta, ou seja configurando um Arch Linux do zero.
+
+Abraço!
