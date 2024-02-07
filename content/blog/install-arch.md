@@ -183,7 +183,7 @@ Start i3 by running `startx`.
 
 On your first launch, you'll be prompted to generate a config file at ` ~/.config/i3/config`. Press <kbd>enter</kbd> to accept it. you can also choose between the win (power) key and alt as your modifier (key used to run i3 commands).
 
-#### Settings up the keyboard layout on i3
+#### Setting up the keyboard layout on i3
 
 While previously we've set the layout using /etc/vconsole.conf, in order to apply it to i3, we need to add the following to our i3 config file (defaults to `~/.config/i3/config`):
 
@@ -202,9 +202,58 @@ References:
 - <https://wiki.archlinux.org/title/i3>
 - <https://bbs.archlinux.org/viewtopic.php?id=140448>
 
+### Setting up a non root user
+
+It might be sensible to set up a non root user to perform day to day activities on the computer.
+
+In order to allow regular users to escalate privileges when necessary (such as installing a package), we need the `sudo` package.
+
+```bash
+pacman -S sudo
+```
+
+Now we can add our new user by running
+
+```bash
+useradd -m -G wheel user_name
+```
+
+The `-G wheel` option adds the newly created user to the `wheel` group.
+
+<aside>The **wheel** group in arch acts as the **sudo** group in Ubuntu</aside>
+
+We now need to allow users in the `wheel` group to run commands using `sudo`. This is done by uncommenting (removing the `#`) from the `/etc/sudoers` file.
+
+```
+#%wheel ALL=(ALL:ALL) ALL
+```
+
+<aside><strong>Warning!</strong> do not edit the `/etc/sudoers` file directly. Any syntax errors would prevent you from running `sudo` commands and lead to great headache.
+
+Instead, use `EDITOR=vim visudo /etc/sudoers` (change `vim` for your editor of choice, eg `nano`).
+
+`visudo` checks for syntax errors before saving the file and prevents common typos from locking you out.</aside>
+
+The last step is setting a password for your new user.
+
+```bash
+passwd new_user
+```
+
+Our last step is setting the default configuration files to our new user.
+
+```bash
+cp ~/.xinitrc /home/new_user/.xinitrc
+mkdir -p /home/new_user/.config/i3
+cp ~/.config/i3/config /home/new_user/.config/i3/config
+echo startx >> /home/new_user/.bash_profile # optional!
+```
+
+Now you can safely reboot your machine and, this time, log in with your non root user.
+
+
 <!--
 TODO:
-- fix keyboard layout inside i3
 - add non admin user
 - set dark terminal colors
 - is there such a thing as i3 dark mode?
