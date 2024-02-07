@@ -51,7 +51,7 @@ These are my notes for memory aid and overcomming gotchas while following  <http
 
     - used `pacstrap -K /mnt base linux linux-firmware`.
     - noticed my download speed was too slow (~200KiB/s)
-    - CtrlˆC to stop the current process (it will resume where stopped later on)
+    - <kbd>CTRL^C</kbd> to stop the current process (it will resume where stopped later on)
     - ran `cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup`
     - ran `reflector --verbose --latest 5 --sort rate --save /etc/pacman.d/mirrorlist`
     - retry the downloads with `pacstrap -K /mnt base linux linux-firmware` with speeds closer to 2Mib/s
@@ -64,7 +64,7 @@ These are my notes for memory aid and overcomming gotchas while following  <http
     - Uncommented `en_US.UTF-8 UTF-8` and `pt_BR.UTF-8 UTF-8` lines
     - ran `locale-gen`
     - created `/etc/locale.conf` with `LANG=en_US.UTF-8`.
-    - persist keyboard layout bycreating `/etc/vconsole.conf` with `KEYMAP=br-abnt2`
+    - persist keyboard layout by creating `/etc/vconsole.conf` with `KEYMAP=br-abnt2`
 17. Set the hostname with `echo whitearchie > /etc/hostname`
 18. Set the hostname in the /etc/hosts file
 
@@ -182,6 +182,14 @@ Start i3 by running `startx`.
 </aside>
 
 On your first launch, you'll be prompted to generate a config file at ` ~/.config/i3/config`. Press <kbd>enter</kbd> to accept it. you can also choose between the win (power) key and alt as your modifier (key used to run i3 commands).
+
+#### Settings up the keyboard layout on i3
+
+While previously we've set the layout using /etc/vconsole.conf, in order to apply it to i3, we need to add the following to our i3 config file (defaults to `~/.config/i3/config`):
+
+```bash
+echo 'exec "setxkbmap -layout br,us"' >> ~/.config/i3/config
+```
 
 You can go back to the cli with <kbd> $mod + shift + e</kbd>.
 
