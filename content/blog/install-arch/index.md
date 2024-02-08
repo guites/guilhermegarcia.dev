@@ -1,10 +1,10 @@
 +++
-title = "Instalando arch em um pc antigo"
+title = "Revivendo um netbook com linux"
 date = "2024-02-04T12:47:34-03:00"
-description = ""
+description = "Descrevo o processo de encontrar um distro com boa performance para utilizar um netbook de 2011 como computador de uso pessoal diário."
 tags = ['linux', 'português', 'english']
-slug = 'setting-up-the-white-archie'
-draft = true
+slug = 'revivendo-um-netbook-com-linux'
+draft = false
 toc = true
 +++
 
@@ -40,7 +40,7 @@ O próximo passo foi a remoção do teclado pra ter acesso a placa mãe e compon
 <figcaption>Netbook com o teclado removido</figcaption>
 </figure>
 
-Removendo a bateria, a parte de baixo pode ser exposta, dando acesso ao HD, memória ram, cooler do processador e placa de rede.
+Removendo a bateria, a parte de baixo é exposta, dando acesso ao HD, memória ram, cooler do processador e placa de rede.
 
 {{< figure src="./parte-baixo-exposta.jpg" alt="Parte inferior do netbook com bateria desconectada e tampa removida" caption="Parte inferior do netbook com bateria desconectada e tampa removida" >}}
 
@@ -48,7 +48,9 @@ Depois, foi feita a troca do HD por um SSD que tinhamos com um distro instalado,
 
 {{< figure src="./primeiro-boot.jpg" alt="Netbook em processo de boot sem o teclado" caption="Netbook em processo de boot sem o teclado" >}}
 
-Colocar o teclado de volta foi uma função enorme.
+A mensagem na tela ("No bootable device - insert boot disk and press any key") indica uma característica dessa máquina: ela não suporta boot no modo UEFI, que é como esse SSD de teste foi configurado.
+
+Com o PC ligando, devolvemos o HD original. Colocar o teclado de volta foi uma função enorme.
 
 {{< figure src="./ajustando-conector-teclado.jpg" alt="Duas pessoas mexendo no netbook, um está com um adaptador de conector de teclado na mão, o outro segura o teclado" caption="Ajustando o conector do teclado" >}}
 
@@ -56,27 +58,33 @@ Colocar o teclado de volta foi uma função enorme.
 
 Sabendo que uma instalação moderna de Ubuntu seria demais pra essa máquina, comecei tentando colocar um Debian desktop.
 
-![boot from USB + debian screen]()
+<figure>
+<img src="./boot-from-usb-1.jpg" alt="Netbook ligado na tela de seleção de boot com três opções: 1. HDD0 2. Network boot 3. USB HDD: Sandisk" />
+<img src="./debian-install-screen.jpg" alt="Netbook ligado na tela de instalação do Debian" />
+<figcaption>Netbook sendo iniciado via USB e tela de instalação do Debian desktop</figcaption>
+</figure>
 
-Infelizmente durante a instalação já dava pra perceber que ia ficar pesado demais.
+Infelizmente durante a instalação já dava pra perceber que ia ficar pesado demais. Com o OS rodando, deu pra notar bastante lag no cursor e uma demora infernal pra abrir os apps.
 
-A segunda tentativa foi instalar o [Puppy Linux](https://puppylinux-woof-ce.github.io/), um distro minimalista "grandpa ready", com cerca de ~500mb, que usa um formato onde o distro é carregado via pendrive e copiado pra memória ram, e o usuário cria save files no disco rígido, que servem pra persistir dados e programas entre boots.
+A segunda tentativa foi o [Puppy Linux](https://puppylinux-woof-ce.github.io/), um distro minimalista "grandpa ready", pesando cerca de ~500mb, que usa um formato onde o distro é carregado via pendrive e copiado pra memória ram, e o usuário cria save files no disco rígido, que servem pra persistir dados e programas entre boots.
 
-![ig com puppy linux]()
+{{< figure src="./puppylinux-desktop.jpg" alt="Netbook ligado mostrando o desktop do Puppy Linux" caption="Desktop padrão do Puppy Linux" >}}
 
 O processo de instalação foi relativamente tranquilo, mas alguns pontos me fizeram desistir do Puppy Linux:
 
 1. Os softwares instalados por padrão são muito antigos.
 
-    O navegador padrão é o [PaleMoon](https://www.palemoon.org/), que não suporte algumas features modernas do javascript (como `Object.keys()`...) o que faz vários sites, como Mastodon, Github e Youtube se tornarem inutilizáveis.
+    O navegador padrão é o [PaleMoon](https://www.palemoon.org/), que não suporta algumas features modernas do javascript (como `Object.keys()`...) o que faz vários sites, como Mastodon, Github e Youtube se tornarem inutilizáveis.
 2. O distro é bastante instável.
 
-    Algumas soluções necessárias a nível de GRUB, por exemplo, não funcionam todas as vezes. O boot tem grande chance de funcionar se algum USB estiver conectado. O processo de iniciar o X (interface gráfica por trás do gerenciador de janelas) é um tiro no escuro, falhando aleatóriamente, precisando reiniciar a máquina várias vezes até funcionar.
+    Algumas soluções necessárias a nível de GRUB, por exemplo, não funcionam todas as vezes. O boot tem grande chance de não funcionar se algum USB estiver conectado. O processo de iniciar o X (interface gráfica por trás do gerenciador de janelas) é um tiro no escuro, falhando aleatóriamente, precisando reiniciar a máquina várias vezes até funcionar.
 3. A documentação oficial é bem fraca e o conhecimento está espalhado em fóruns.
 
-O distro em si tem uma ótima performance, mas eu fiquei com a sensação de que ele é feito pensando em usuário bem avançados de Linux, que conseguem depurar erros comuns sozinhos.
+O distro em si tem uma ótima performance, mas eu fiquei com a sensação de que ele é feito pensando em usuários bem avançados de Linux, que conseguem depurar erros comuns sozinhos.
 
 A experiência de fuçar nos fóruns (o [antigo](https://oldforum.puppylinux.com/) e o [novo](https://forum.puppylinux.com/)) e depurar os erros encontrados foi interessante e esse é um distro que eu pretendo dar mais uma chance no futuro.
+
+{{< figure src="./puppylinux-logo.jpeg" alt="Logo do PuppyLinux" caption="A filosofia e estética do Puppy Linux são muito carismáticas" >}}
 
 Por fim, resolvi tentar instalar o Arch Linux, confiante de que deve existir alguma combinação de GUI que exija pouco do computador.
 
@@ -85,6 +93,9 @@ Por fim, resolvi tentar instalar o Arch Linux, confiante de que deve existir alg
 Instalar o Arch Linux é surpreendentemente tranquilo. A combinação de uma ótima wiki, que cobre 99% dos casos, com uma comunidade extremamente ativa, significa que tudo está ao alcance de uma busca do google.
 
 Abaixo eu relato os passos utilizados ao seguir o [guia de instalação](https://wiki.archlinux.org/title/Installation_guide), com alguns comentários adicionais em situações que precisei dar uma pesquisada.
+
+<details closed>
+<summary>Passo a passo da instalação realizada (em inglês)</summary>
 
 ### Installation steps
 
@@ -211,7 +222,7 @@ List existing wifi networks with `nmcli device wifi list` and connect to your de
 
 Check the current time settings with `timedatectl status`.
 
-If **System clock synchronized** show **no**, activate it with
+If **System clock synchronized** shows **no**, activate it with
 
 ```
 timedatectl set-ntp true
@@ -327,10 +338,13 @@ echo startx >> /home/new_user/.bash_profile # optional!
 ```
 
 Now you can safely reboot your machine and, this time, log in with your non root user.
+</details>
 
 ## Conclusão
 
 Foi um processo árduo, mas eu tô surpreso com o quão utilizável é um computado antigo quando as escolhas de software levam em conta as limitações do hardware.
+
+{{< figure src="./arch-running-apps.jpg" alt="Netbook rodando archlinux com i3 mostrando um navegador lado a lado com um terminal" caption="Netbook rodando Arch, com uma performance surpreendentemente boa." >}}
 
 Com a instalação proposta no item anterior, o pc consegue fazer um boot do zero e ter um navegador rodando em cerca de 1m30s, oque é muito melhor do que eu esperava.
 
@@ -339,6 +353,8 @@ Hoje em dia o maior desafio pra computadores antigos é o navegador, devido ao u
 Eu não acho que o caminho seja utilizar navegadores limitados, ou desativar o uso do javascript, por exemplo, pois isso te exclui de uma parte enorme da internet.
 
 Eu espero que com o uso de server side rendering ganhando força novamente, os sites deixem de judiar tanto os usuários.
+
+{{< figure src="./toot.png" alt="QUE VONTADE DE INSTALAR UM DISTRO MINIMALISTA NUM COMPUTADOR DE 2005" caption="Dessa vez foi num de 2011, talvez na próxima, 2005." >}}
 
 De qualquer forma, espero que este post te deixe inspirado pra tirar aquele PC antigo do armário e botar ele pra rodar, seja com uma distro pronta, ou seja configurando um Arch Linux do zero.
 
