@@ -24,8 +24,10 @@ You can check the final implementation [here](https://wherever-that-is).
 I'm supposing the words picked are common enough to be found in a simple dictionary. Since I'm on ubuntu, I'm
 picking up the list of words at `/usr/share/dict/american-english`, and saving it as `american-english` on my cwd.
 
+If you don't have it, you can download it by [clicking here](./american-english).
+
 ```bash
-shuf -n 10 /usr/share/dict/american-english
+shuf -n 10 american-english
 
 Barents
 zombies
@@ -49,6 +51,8 @@ So our first step is filtering it by removing all words:
 - apostrophised words (since there's no `'` on the game)
 
 additionally, we can remove all words with letters that are not on the daily roll.
+
+<aside>you could remove the plural of words that are already listed in the singular form using a library such as [pluralize](https://www.npmjs.com/package/pluralize), but i'm skipping it to keep things DIY.</aside>
 
 Say we have the initial letters `aaaa c eee f i l mm n o p rrrr s tt`.
 
@@ -356,13 +360,3 @@ class Node {
 ```
 
 At this point we only need a few simple methods: adding new child nodes under our current node, deleting a node directly beneath the current node, and finding our whether our current node has a child with a given name.
-
-TODO:
-
-- remove plural form of words? this might reduce possible combinations.
-
-  maybe add a call to .plural() from pluralize in line 64.
-
-```
-
-```

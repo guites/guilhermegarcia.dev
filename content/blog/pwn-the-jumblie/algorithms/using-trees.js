@@ -3,6 +3,7 @@ const fs = require("fs");
 
 const minWordLength = 4;
 const letters = "datagraphdividecalculus";
+const solution = ['data', 'graph', 'divide', 'calculus'];
 const suggestions = filter_dict(letters.split(""));
 
 class Node {
@@ -25,27 +26,19 @@ class Node {
     this.children.push(node);
     return node;
   }
-
-  removeChildByName(name) {
-    for (let i = 0; i < this.children.length; i++) {
-      const child = this.children[i];
-      if (name === child.name) {
-        this.children.splice(this.children.indexOf(child), 1);
-      }
-    }
-  }
 }
 
-const root = new Node("", []);
 
-for (let i = 0; i < suggestions.length; i++) {
-  if (i > 0) break;
-  const first = suggestions[i];
+function getWordTree(letters, suggestions) {
+  const root = new Node("", []);
+  const first = suggestions[0];
   const letterPool = createPool(letters);
-  if (!subtractFromPool(letterPool, first)) continue;
+
+  if (!subtractFromPool(letterPool, first)) return false;
+
   const poolLength = letters.length - first.length;
 
-  for (let j = i + 1; j < suggestions.length; j++) {
+  for (let j = 1; j < suggestions.length; j++) {
     const second = suggestions[j];
     const secondPoolLength = poolLength - second.length;
     if (secondPoolLength < 2 * minWordLength) continue;
@@ -65,6 +58,8 @@ for (let i = 0; i < suggestions.length; i++) {
         const fourthPool = thirdPool.slice(0);
         if (!subtractFromPool(fourthPool, fourth)) continue;
 
+	console.log(first, second, third, fourth);
+
         let firstNode = root.getChildByName(first);
         if (!firstNode) {
           firstNode = new Node(first, [
@@ -77,7 +72,7 @@ for (let i = 0; i < suggestions.length; i++) {
         let secondNode = firstNode.getChildByName(second);
         if (!secondNode) {
           secondNode = new Node(second, [new Node(third, [new Node(fourth)])]);
-          firstNode.addChild(firstNode);
+          firstNode.addChild(secondNode);
           continue;
         }
 
@@ -96,9 +91,44 @@ for (let i = 0; i < suggestions.length; i++) {
       }
     }
   }
+  return root;
 }
 
-console.log(root);
+while (suggestions.length > 0) {
+  const word = suggestions[0];
+  if (!solution.includes(word)) {
+    // remove current word from the pool of suggestions
+    suggestions.splice(0, 1);
+    continue;
+  }
+
+  // found an answer, remove it from the list of solutions
+  console.log("Matched " + word);
+  solution.splice(solution.indexOf(word), 1);
+
+  const root = getWordTree(letters, suggestions);
+  if (!root) {
+    throw new Error("Couldn't find combinations for word in solution!");
+  }
+
+  let currRoot = root.children[0];
+
+  while (solution.length > 0) {
+    console.log(currRoot);
+    if (currRoot.children.length == 0) throw new Error("Out of valid combinations!");
+    for (let j = 0; j < currRoot.children.length; j++) {
+      const child = currRoot.children[j];
+      console.log(solution);
+      if (solution.includes(child.name)) {
+	solution.splice(solution.indexOf(child.name), 1);
+	currRoot = child;
+	break;
+      }
+
+    }
+  }
+}
+
 
 // fs.writeFileSync(
 //   "post-filter-v1.json",
