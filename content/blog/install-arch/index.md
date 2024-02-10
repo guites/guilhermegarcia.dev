@@ -338,6 +338,37 @@ echo startx >> /home/new_user/.bash_profile # optional!
 ```
 
 Now you can safely reboot your machine and, this time, log in with your non root user.
+
+### Enabling audio
+
+After a fresh install, arch linux might have sound playback disabled.
+
+> The Advanced Linux Sound Architecture (ALSA) is the part of the Linux kernel that manages the sound devices on your system.
+
+The `alsa` related commands are installed with the `alsa-utils` package.
+
+```bash
+sudo pacman -S alsa-utils
+```
+
+After that, you can enable output with
+
+```bash
+amixer sset Master unmute
+amixer sset Speaker unmute
+amixer sset Headphone unmute
+```
+
+If you are still receiving no sound output, set up the volume with:
+
+```bash
+amixer sset Master 100%
+amixer sset Speaker 100%
+amixer sset Headphone 100%
+```
+
+source: <https://davidtsadler.com/posts/arch/2020-08-31/enabling-audio-in-arch-linux/>
+
 </details>
 
 ## Conclusão
