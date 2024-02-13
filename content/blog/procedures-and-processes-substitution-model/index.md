@@ -1,16 +1,16 @@
 +++
 title = "Procedimentos e processos - o modelo da substituição"
-date = "2024-02-09T22:13:34-03:00"
-description = ""
-tags = ['português', 'algoritmos', 'lisp']
-slug = 'procedimentos-e-processos-aula-1b'
+date = "2024-02-13T10:12:34-03:00"
+description = "Este post baseado na aula 'Procedures and processes; Substitution model' do curso MIT 6.001 Structure and Interpretation de 1986, fala sobre o uso do modelo da substituição na interpretação de algoritmos, classificando-os em processos iterativos ou recursivos."
+tags = ['português', 'algoritmos', 'lisp', 'python']
+slug = 'procedimentos-e-processos-modelo-substituicao'
 toc = true
 draft = false
 +++
 
 ## Introdução
 
-Este post é o meu resumo da aula "Procedures and processes - substitution model" do curso **MIT 6.001 Structure and Interpretation**, de 1986.
+Este post surgiu após assistir a aula "Lecture 1B: Procedures and processes; Substitution model" do curso **MIT 6.001 Structure and Interpretation**, de 1986.
 
 <a href="https://www.youtube.com/watch?v=V_7mmwpgJHU&list=PLE18841CABEA24090">
 
@@ -19,11 +19,11 @@ Este post é o meu resumo da aula "Procedures and processes - substitution model
 
 Se você não conhece, esse curso é baseado no livro [Structure and Interpretation of Computer Programs](https://web.mit.edu/6.001/6.037/sicp.pdf) e foi lecionado pelos próprios autores :).
 
-Nesta aula, vemos como utilizar o **modelo da substituição** (substituition model) para entender como um computador avalia uma aplicação.
+Na aula, vemos como utilizar o **modelo da substituição** (substituition model) para entender como um computador avalia uma aplicação, e, em especial, aplicações com implementações recursivas.
 
 ## Modelo da substituição
 
-Essas aplicações são algoritmos, ou conjunto de regras utilizadas para realizar cálculos e manipulações numéricas.
+Aplicações são algoritmos, ou conjunto de regras utilizadas para realizar cálculos e manipulações numéricas.
 
 Os algoritmos são compostos de diversas expressões:
 
@@ -72,9 +72,7 @@ vai ser apresentado com o operador primeiro:
 
 O exemplo inicial é a **soma de dois quadrados**: dados dois números, calcule a soma de seus quadrados.
 
-<aside>
-
-O _dialeto_ de lisp utilizado é o [Scheme](scheme.org). Você pode rodar Scheme usando interpretadores online, como o disponível [aqui](https://inst.eecs.berkeley.edu/~cs61a/fa14/assets/interpreter/scheme.html))
+<aside>O <em>dialeto</em> de lisp utilizado é o <a href="https://scheme.org">Scheme</a>. Você pode rodar Scheme usando interpretadores online, como o disponível <a href="https://inst.eecs.berkeley.edu/~cs61a/fa14/assets/interpreter/scheme.html">aqui</a>.
 </aside>
 
 ```lisp
@@ -275,7 +273,7 @@ Na nossa função `add`, o número de passos cresce linearmente com `x` (pois é
 
 ![Formas de visualizar operações iterativas vs. recursivas para o algoritmo de adição: na iterativa, as bolas (valores) são passados diretamente de uma pilha (x) para outra (y), enquanto na recursiva elas são primeiro enviadas para uma terceira pilha (operações deferidas), e depois dessa pilha para a pilha y.](./iter-vs-reccr.png)
 
-### Diferentes formas de recursão
+## Diferentes formas de recursão
 
 Acima vimos duas funções, `add` e `add_alt`. As duas chegam no mesmo resultado, agindo de forma recursiva (ambas chamam a si mesmas), mas com formatos de execução diferentes.
 
