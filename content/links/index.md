@@ -36,3 +36,4 @@ Get surfing!
 ## Web development
 
 - [Replace gifs with videos](https://web.dev/articles/replace-gifs-with-videos)
+- [So you think you know box shadows?](https://dgerrells.com/blog/how-not-to-use-box-shadows)
