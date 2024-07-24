@@ -32,6 +32,7 @@ Get surfing!
 ## Random
 
 - [Gritaria](https://guites.github.io/gritaria/)
+- [The Elegance of the ASCII Table](https://danq.me/2024/07/21/ascii/)
 
 ## Web development
 
