@@ -13,6 +13,10 @@ Get surfing!
 
 - [The elevator programming game](https://play.elevatorsaga.com)
 
+## Data Science
+
+- [Tensors](https://maharshi.bearblog.dev/tensors-from-scratch-part-1/) [from](https://maharshi.bearblog.dev/tensors-from-scratch-part-2/) scratch by Maharshi.
+
 ## Databases
 
 - [Database Design for Google Calendar: a tutorial](https://kb.databasedesignbook.com/posts/google-calendar/)
@@ -32,7 +36,7 @@ Get surfing!
 
 ## Random
 
-- [Gritaria](https://guites.github.io/gritaria/)
+- [Public Works by Cosmos](https://public.work/)
 - [The Elegance of the ASCII Table](https://danq.me/2024/07/21/ascii/)
 
 ## Web development
