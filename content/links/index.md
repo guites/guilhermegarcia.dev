@@ -1,6 +1,6 @@
 # Links I love
 
-These are some of my favorite pages I've bumped into while surfing the web, loosely categorized. They range from articles, tutorials, games, photography and plain silly stuff.
+These are some of my favorite pages I've bumped into while surfing the web, loosely categorized. They range from articles, tutorials, games, photography and other beautiful stuff.
 
 Get surfing!
 
@@ -25,10 +25,6 @@ Get surfing!
 
 - [Promises From The Ground Up](https://www.joshwcomeau.com/javascript/promises/)
 - [Micro-Frameworks and Micro-Libraries for Fun and Profit!](http://microjs.com/)
-
-## Philosophy
-
-- [O suicídio de Yukio Mishima](https://www.blogletras.com/2008/04/o-suicidio-de-yukio-mishima.html)
 
 ## Python
 
