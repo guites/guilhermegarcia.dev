@@ -4,6 +4,7 @@ date = "2024-01-25T12:47:34-03:00"
 description = "Neste post eu compartilho um pouco do conteúdo coberto no primeiro módulo do curso hackers do bem, que iniciou em 22/01/2024 (após alguns probleminhas no acesso), e que eu comecei a acompanhar no dia 23."
 tags = ['hackersdobem', 'cibersecurity', 'português']
 slug = 'hackers-do-bem-introd-ciberseguranca'
+draft = true
 +++
 
 Neste post eu compartilho um pouco do conteúdo coberto no primeiro módulo do curso [hackers do bem](https://hackersdobem.org.br), que iniciou em 22/01/2024 (após alguns probleminhas no acesso), e que eu comecei a acompanhar no dia 23.

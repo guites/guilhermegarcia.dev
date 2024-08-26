@@ -5,7 +5,7 @@ description = "Este post baseado na aula 'Procedures and processes; Substitution
 tags = ['português', 'algoritmos', 'lisp', 'python']
 slug = 'procedimentos-e-processos-modelo-substituicao'
 toc = true
-draft = false
+draft = true
 +++
 
 ## Introdução

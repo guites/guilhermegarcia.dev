@@ -4,6 +4,7 @@ date = "2024-02-01T07:45:06-03:00"
 slug = "hackers-do-bem-componentes-hardware"
 description = "Resumão do segundo módulo de nivelamento do curso hackers do bem: Identificar componentes de hardware de computador"
 tags = ["hackersdobem","português"]
+draft = true
 toc = true
 +++
 
