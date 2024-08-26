@@ -8,4 +8,10 @@ Esse FDS eu tive a oportunidade de apresentar um workshop curtinho sobre como us
 
 A apresentação foi no [matehackers](https://matehackers.org/) no dia 24/08/2024.
 
+<figure>
+  <img style="width: 225px;" src="./banner-1.jpg" alt="flier Computação e robótica educativa, com as datas, valor e local das oficinas">
+  <img style="width: 225px;" src="./banner-2.jpg" alt="flier com a programação das oficinas">
+  <figcaption>Flyers do evento</figcaption>
+</figure>
+
 Eu subi o material utilizado (slides) aqui: <https://guilhermegarcia.dev/slides/ai-in-browser>.
