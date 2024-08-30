@@ -3,7 +3,10 @@ title = "Workshop: servidores federados com Django"
 date = "2024-08-29T13:06:05-03:00"
 tags = ["português", "python"]
 draft = false
+toc = true
 +++
+
+## Proposta
 
 Eu estou trabalhando numa ideia pra um workshop de programação pra ser trabalhado num grupo pequeno, de até 5 pessoas.
 
@@ -18,6 +21,8 @@ O nível esperado dos participantes é iniciante (algum conhecimento em HTML e a
 Optei pelo framework [Django](https://www.djangoproject.com/) por já ter pronto coisas como conexão com o banco de dados (e usar sqlite3 como padrão, o que facilita o setup), gestão de usuários, login, cadastro, etc.
 
 ---
+
+## Problemática
 
 A problemática é o fechamento (hipotético) do twitter e os recentes problemas legais envolvendo o telegram pra discutir como podem ser estruturadas alternativas abertas para os meios de comunicação que hoje em dia são centralizados nas grandes empresas de tecnologia (big techs).
 
@@ -46,6 +51,46 @@ Se tivermos vários servidores independentes, cada um vai ter seu próprio banco
 Identificar o servidor de origem é um primeiro passo na identificação dos usuários. Mas esse método ainda está passível de falsificação de identidade.
 
 Para entendermos melhor, vamos analisar em maior detalhe como acontece o envio de mensagem entre os servidores.
+
+## Uma breve análise sobre servidores e HTTP
+
+Primeiro, vamos estabelecer que quando falamos "servidor", estamos falando na verdade de um conjunto de softwares conectados entre si.
+
+![Um bloco de diagrama escrito "servidor", no qual é dado zoom e mostra ser um banco de dados conectado num container python](./servidor-zoom-diagram.png)
+
+Em sua forma mais simples, cada servidor é composto por um banco de dados e uma aplicação. Essa aplicação lê e escreve no banco de dados (o "banckend") e, após processar os dados, disponibiliza-os para um usuário através do navegador ou aplicativo (o "frontend").
+
+Outra característica desses servidores é que são sistemas web: eles interagem com o usuário e entre si através de uma rede local ou internet.
+
+Por causa disso, é de se esperar que eles se comuniquem através da linguagem da rede: o protocolo HTTP.
+
+![Diagrama mostrando um navegador enviando pedindo dados de um usuário via GET (por favor, me mostre os posts dessa pessoa)](./diagrama-example-http-get.png)
+
+O protocolo HTTP estabelece padrões para realizar chamadas (requisições) para envio (POST) e recebimento (GET) de dados.
+
+![Diagrama mostrando um navegador enviando dados de login e senha via post (por favor, eu quero logar com esses dados)](./diagrama-example-http-post.png)
+
+### Uso do HTTP para login de usuários
+
+O protocolo HTTP vai ser usado tanto para a comunicação entre o usuário (pelo navegador) e o servidor como entre diferentes servidores.
+
+Quando um usuário faz login no seu servidor, o servidor lhe atribui um cookie. Esse cookie é passado pelo usuário de volta pro servidor em cada requisição, e serve como forma de identificação.
+
+![Diagrama de fluxo de login que vai o email e senha e retorna um cookie. Depois, o usuário faz uma requisição e envia junto o cookie. Daí o servidor consulta o banco de dados com o sessionId do cookie pra ver qual é o usuário.](./cookie-session-query.png)
+
+<aside>Nesse momento da apresentação, o desenvolvimento deve avançar até termos um fluxo de cadastro e login de usuários funcional.</aside>
+
+### Uso do HTTP para transferir mensagens entre servidores
+
+A comunicação entre o usuário, pelo navegador, e o servidor, é feita por HTTP, onde o servidor recebe dados ou pedidos de URL, e retorna HTML.
+
+Mas na comunicação entre dois servidores, não há necessidade de enviarmos HTML. Podemos envir os dados de forma mais simples e estruturada, num formato chamado JSON.
+
+```
+TODO: adc exemplos de json para lista de mensagens
+```
+
+<aside>Nesse momento da apresentação o desenvolvimento deve avançar até que cada aplicação tenha um endpoint que expõe uma listagem de suas mensagens. Esse endpoint deve ficar acessível para os outros computadores na rede local.</aside>
 
 **TODO:**
 
