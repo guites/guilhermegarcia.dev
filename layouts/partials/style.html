@@ -139,6 +139,15 @@
     margin-right: 5px;
   }
 
+  aside.warning {
+    border-color: #ffbb00;
+    background-color: rgb(255, 249, 231);
+  }
+
+  aside.warning::before {
+    color: #ffbb00;
+  }
+
   @media (prefers-color-scheme: dark) {
     body {
       background-color: #333;
@@ -170,6 +179,10 @@
 
     blockquote {
       color: #ccc;
+    }
+
+    aside.warning {
+        background-color: transparent;
     }
 
     textarea,
