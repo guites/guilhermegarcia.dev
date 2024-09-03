@@ -15,3 +15,5 @@ A apresentação foi no [matehackers](https://matehackers.org/) no dia 24/08/202
 </figure>
 
 Eu subi o material utilizado (slides) aqui: <https://guilhermegarcia.dev/slides/ai-in-browser>.
+
+[Este post](https://fotolog.matehackers.org/posts/oficina-computacao-robotica-educativa/) no fotolog do matehackers tem fotos e links sobre o evento.
