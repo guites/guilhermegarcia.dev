@@ -12,6 +12,8 @@ toc = true
 
 Veio a existir, no dia 31/08/2024, após [realização de oficina sobre programação em bash](https://fotolog.matehackers.org/posts/oficina-programa%C3%A7%C3%A3o-bash/), o Grupo de Estudos de Linha de Comando (**GELC**).
 
+<video src="./gelc-matehackers.mp4" style="max-width: 100%;" autoplay loop></video>
+
 O grupo é abrangente, reunindo **usuários de qualquer nível de experiência**, sobre
 **quaisquer tópicos que envolvam o uso do terminal**, para **fomentar a troca de conheci
 mento e criação de comunidade**. 
