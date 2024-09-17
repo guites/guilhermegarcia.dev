@@ -54,6 +54,10 @@ O primeiro encontro está agendado para 21/09/2024, das 14h às 16h.
 
 A temática será **Jogos como forma de aprender o uso do terminal**.
 
+<a title="Link para a inscrição" href="https://docs.google.com/forms/d/1XznjhSi4NWnkl9unEMp-CDSffZay0WjHCT9DuDfs9QE/viewform">
+<img src="./flyer.jpeg" alt="Flyer promocional do primeiro encontro" />
+</a>
+
 A proposta é explorarmos diferentes jogos, como [Terminus](https://web.mit.edu/mprat/Public/web/Terminus/Web/main.html), [Bashcrawl](https://gitlab.com/slackermedia/bashcrawl), [Command Line Mistery](https://github.com/veltman/clmystery) e [Bandit](https://overthewire.org/wargames/bandit/).
 
 Alguns jogos rodam direto no navegador, outros precisam ser instalados, alguns são mais lúdicos, enquanto outros são mais direcionados em simular o uso real dos comandos, então vamos introduzí-los um a um, e cada membro vai escolher qual (ou quais) jogar pelo resto do encontro. Daí, vamos ir nos ajudando a progredir no objetivo dos jogos, discutindo os comandos utilizados e tirando dúvidas.
