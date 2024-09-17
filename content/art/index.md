@@ -2,6 +2,7 @@
 
 Big ol' dump of stuff I've been creating lately!
 
+<img src="./link-rot-banner.png" alt="pixel art of two tombstones with 'link rot' written in the middle. the colors used are mainly red and black. The 'o' in 'rot' mimicks a veiny eye." />
 <img src="./user___green-fire-pc-fitted.gif" alt="computer with green fire" loading="lazy" />
 <img src="./user___40-days-banner.gif" alt="40 days banner" loading="lazy" />
 <img src="./35-to-life-banner.png" alt="35 to life banner" loading="lazy" />
