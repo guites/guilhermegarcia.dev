@@ -20,6 +20,7 @@ Get surfing!
 ## Databases
 
 - [Database Design for Google Calendar: a tutorial](https://kb.databasedesignbook.com/posts/google-calendar/)
+- [Use the index, Luke!](https://use-the-index-luke.com/)
 
 ## Javascript
 
