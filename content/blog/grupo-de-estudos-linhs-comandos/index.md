@@ -64,6 +64,8 @@ Alguns jogos rodam direto no navegador, outros precisam ser instalados, alguns s
 
 [Inscreva-se!!](https://docs.google.com/forms/d/1XznjhSi4NWnkl9unEMp-CDSffZay0WjHCT9DuDfs9QE/viewform)
 
+[Slides do primeiro encontro](https://guilhermegarcia.dev/slides/gelc-1).
+
 ---
 
 <details closed>
