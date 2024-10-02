@@ -138,3 +138,6 @@ Por fim, agradeço o tempo dedicado pra leitura desse manifesto. Eu acredito que
 O **Re**lançamento é porque esse projeto já teve dois inícios: a primeira iteração foi um script que eu rodava na minha máquina quando queria me organizar pra ir no cinema, e na segunda ele se tornou o portal, mas acabou tendo o desenvolvimento pausado por causa das enchentes de 2024 no Rio Grande do Sul.
 
 Mas, ei, talvez a terceira vez seja a da sorte? 🍀
+
+
+<small>ps. tem uma versão em slides desse post [neste link](/slides/cinemaempoa/), pra caso eu crie coragem de apresentar isso em algum lugar.</small>
