@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>cinemaempoa</title>
+
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/serif.css">
+	<style>
+		footer {
+			position: absolute;
+			bottom: 0;
+		}
+	</style>
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css">
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<h2>cinemaempoa</h2>
+				<small>(uma apresentação rápida)</small>
+			</section>
+			<section data-markdown>
+				<textarea data-template>
+						## Por que esse projeto?
+						
+						<p>
+							<img style="max-width: 700px; display: block; margin:0 auto;" src="./midias/cine-victoria-old.webp" alt="Fachada do cine victória em 1971">
+							<small>Fonte: <a href="https://www.correiodopovo.com.br/not%C3%ADcias/cidades/cine-vict%C3%B3ria-as-mem%C3%B3rias-de-quem-deu-nome-ao-cinema-de-rua-que-reabrir%C3%A1-em-julho-1.1058259">correio do povo</a></small>
+						</p>
+					</textarea>
+			</section>
+			<section data-markdown>
+				<textarea data-template>
+						- Uma homenagem as salas de cinema da cidade
+						- Uma forma de mostrar pras pessoas que esses locais existem
+						- Uma celebração aos filmes que estão fora do circuito comercial
+					</textarea>
+			</section>
+			<section data-markdown>
+				<textarea data-template>
+					## Aspecto histórico
+
+					<img src="./midias/um-e-pouco-verdes-anos.jpg">
+					
+					Debates sobre as diferenças geracionais
+					</textarea>
+			</section>
+			<section data-markdown>
+				<textarea data-template>
+					## Aspecto cultural
+
+					<img src="./midias/assex-bandound-apropos.jpg">
+
+					Conceitos de outridade
+				</textarea>
+			</section>
+			<section data-markdown>
+				<textarea data-template>
+					## Aspecto corrente
+
+					<img src="./midias/motel-destino-favela-do-papa-sem-coracao.jpg">
+
+					Filmes atuais que não tem porte comercial
+					pra competir com os blockbusters
+
+				</textarea>
+			</section>
+			<section data-markdown>
+				<textarea data-template>
+					## Aspecto democrático
+
+					As salas facilitam o acesso a cultura com **preços acessíveis**, um **constante convite
+					ao público**, uma **curadoria para o público infantil**.
+				</textarea>
+			</section>
+			<section data-markdown>
+				<textarea data-template>
+					## Qual a proposta?
+
+					É simples: **registrar em um único local** a **programação** dos cinemas
+					**alternativos** de Porto Alegre.
+				</textarea>
+			</section>
+			<section data-markdown>
+				<textarea data-template>
+					Essa ideia não é nova
+
+					- <https://cinemaempoa.wordpress.com/> <br/>(2015 -- 2019)
+					- <https://cinemaemcuritiba.wordpress.com/> <br/>(2013 -- 2019)
+				</textarea>
+			</section>
+			<section data-markdown>
+				<textarea data-template>
+					### O trabalho é ingrato
+
+					Análise, curadoria, registro, divulgação...
+				</textarea>
+			</section>
+			<section data-markdown>
+				<textarea data-template>
+						### O uso de automação
+
+						<img src="./midias/cinemaempoa-robot.jpeg">		
+					</textarea>
+			</section>
+			<section data-markdown>
+				<textarea data-template>
+					### Não basta registrar
+
+					A informação precisa ser **aberta**, de **fácil acesso**, **acessível** e **respeitar a privacidade** dos usuários.
+				</textarea>
+			</section>
+			<section data-markdown>
+				<textarea data-template>
+					### Informação Aberta
+
+					A visualização das programações não deve exigir nenhum tipo de cadastro.
+
+					> [...] hoje em dia a principal forma de divulgação dessas salas é através das **redes sociais**, controladas por empresas com fins
+					lucrativos [..]
+				</textarea>
+			</section>
+			<section data-markdown>
+				<textarea data-template>
+					### Fácil Acesso
+
+					Site de fácil utilização:
+
+					- Fornecer fonte do que é publicado;
+					- Instruções claras;
+					- Redução na quantidade de dados trafegados;
+					- Redução no processamento realizado;
+				</textarea>
+			</section>
+			<section data-markdown>
+				<textarea data-template>
+					### Acessível
+
+					Usar tecnologias que promovam o acesso de usuários com deficiências
+					ou limitações
+
+					- HTML semântico;
+					- Navegável pelo teclado;
+					- Descrição nas imagens;
+				</textarea>
+			</section>
+			<section data-markdown>
+				<textarea data-template>
+					### Privacidade
+
+					Coletar o mínimo de dados dos usuários.
+				</textarea>
+			</section>
+			<section data-markdown>
+				<textarea data-template>
+					### Do que é composto o projeto?
+
+					1. Um módulo de web scrapping
+						
+						<small>Requests + BeautifulSoup + muito, mas muito regex<sup style="vertical-align: super !important;">socorro</sup></small>
+					2. [Um site](https://cinemaempoa.com.br)
+						
+						<small>Flask + sqlite3 + htmlzinho e javascript basic</small>
+				</textarea>
+			</section>
+			<section data-markdown>
+				<textarea data-template>
+					## Escopo do projeto
+
+					Projeto **colaborativo**, guiado por **três frentes principais**.
+
+					1. Automação da coleta de dados
+					2. Desenvolvimento do portal
+					3. Análise dos dados
+				</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+					### Automação da coleta de dados
+
+					[Issues listados como **paulo amorim**, **sala redencao**, **cinebancarios** e **capitolio**](https://github.com/guites/cinemaempoa/issues?q=is%3Aopen+is%3Aissue+label%3Acinebancarios%2Cpaulo-amorim%2Csala-redencao)
+				</textarea>
+			</section>
+			<section data-markdown>
+				<textarea data-template>
+					### Desenvolvimento do portal
+
+					[Issues listados como **website**](https://github.com/guites/cinemaempoa/issues?q=is%3Aopen+is%3Aissue+label%3Awebsite)
+				</textarea>
+			</section>
+			<section data-markdown>
+				<textarea data-template>
+					### Análise dos dados
+
+					[Issues listados como **data-science**](https://github.com/guites/cinemaempoa/issues?q=is%3Aopen+is%3Aissue+label%3Adata-science)
+				</textarea>
+			</section>
+			<section data-markdown>
+				<textarea data-template>
+					## Próximos passos
+
+					<small>algumas ideias soltas</small>
+
+					- Definir um **plano de desenvolvimento do projeto**.
+					- Organizar os issues de forma lógica.
+					- Contactar pessoas que querem **escrever sobre cinema**.
+					- Disponibilizar os dados em forma de **dataset**.
+					- Promover análise dos dados pela comunidade.
+				</textarea>
+			</section>
+			<section>
+				<p>Obrigado</p>
+				<img style="max-width:420px;" src="./midias/flyer.jpg">
+				<p>pela atenção :)</p>
+			</section>
+		</div>
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			hash: true,
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+		});
+	</script>
+</body>
+
+</html>

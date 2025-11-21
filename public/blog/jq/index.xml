@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>jq on Blog do Guilherme</title>
+    <link>https://guilhermegarcia.dev/blog/jq/</link>
+    <description>Recent content in jq on Blog do Guilherme</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <copyright>Copyright © 2024, Guilherme Garcia.</copyright>
+    <lastBuildDate>Tue, 25 Oct 2022 22:50:34 -0300</lastBuildDate>
+    <atom:link href="https://guilhermegarcia.dev/blog/jq/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Comparando json na linha de comando</title>
+      <link>https://guilhermegarcia.dev/blog/comparando-json-na-linha-de-comando/</link>
+      <pubDate>Tue, 25 Oct 2022 22:50:34 -0300</pubDate>
+      <guid>https://guilhermegarcia.dev/blog/comparando-json-na-linha-de-comando/</guid>
+      <description>Comparando json na linha de comando&#xA;mg;nl: vamos usar o vimdiff e o jq para comparar arquivos json independente da formatação.&#xA;Comparar arquivos json parecidos pode ser complicado. Muitas vezes os arquivos foram formatados com espaçamentos diferentes, ou a diferença não ocorre no mesmo nível hierarquico.&#xA;Vamos criar um script simples pra comparar arquivos json diretamente pelo terminal, usando o programa jq e o vimdiff.&#xA;Vamos ver também como preparar um script bash pra lidar com erros conhecidos, como arquivos com json inválido ou de outro formato.</description>
+    </item>
+  </channel>
+</rss>

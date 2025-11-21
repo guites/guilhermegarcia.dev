@@ -9,7 +9,7 @@
 <title>404</title>
 <meta name="title" content="404 Page not found" />
 <meta name="description" content="Eu sou o Guilherme e esse é meu pequeno blog pessoal, onde escrevo sobre coisas que eu gosto, às vezes em pt-br, às vezes em inglês!" />
-<meta name="keywords" content="cibersecurity,english,hackersdobem,português,python," />
+<meta name="keywords" content="cli,english,jq,linux,português,python,vim," />
 
 
 <meta property="og:title" content="404 Page not found" />
@@ -157,6 +157,28 @@
     color: #8b6fcb;
   }
 
+  aside {
+    margin: 15px 5px;
+    padding: 5px 10px;
+    border: 1px dashed;
+    text-align: justify;
+    hyphens: auto;
+  }
+
+  aside::before {
+    content: " ᶘ ᵒᴥᵒᶅ ";
+    margin-right: 5px;
+  }
+
+  aside.warning {
+    border-color: #ffbb00;
+    background-color: rgb(255, 249, 231);
+  }
+
+  aside.warning::before {
+    color: #ffbb00;
+  }
+
   @media (prefers-color-scheme: dark) {
     body {
       background-color: #333;
@@ -190,6 +212,10 @@
       color: #ccc;
     }
 
+    aside.warning {
+        background-color: transparent;
+    }
+
     textarea,
     input {
       background-color: #252525;
@@ -200,7 +226,6 @@
       color: #aaa;
     }
   }
-
 </style>
 
 </head>
@@ -214,6 +239,8 @@
 
 <a href="/blog">Blog</a>
 
+<a href="/links">Links</a>
+<a href="/art">Art</a>
 </nav>
 </header>
   <main>

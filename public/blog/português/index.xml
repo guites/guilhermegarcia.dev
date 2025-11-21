@@ -7,14 +7,56 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Copyright © 2024, Guilherme Garcia.</copyright>
-    <lastBuildDate>Thu, 25 Jan 2024 12:47:34 -0300</lastBuildDate>
+    <lastBuildDate>Mon, 30 Sep 2024 20:18:05 -0300</lastBuildDate>
     <atom:link href="https://guilhermegarcia.dev/blog/portugu%C3%AAs/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Overview Hackers do Bem - Introd. à Cibersegurança</title>
-      <link>https://guilhermegarcia.dev/blog/hackers-do-bem-introd-ciberseguranca/</link>
-      <pubDate>Thu, 25 Jan 2024 12:47:34 -0300</pubDate>
-      <guid>https://guilhermegarcia.dev/blog/hackers-do-bem-introd-ciberseguranca/</guid>
-      <description>Neste post eu compartilho um pouco do conteúdo coberto no primeiro módulo do curso hackers do bem, que iniciou em 22/01/2024 (após alguns probleminhas no acesso), e que eu comecei a acompanhar no dia 23.&#xA;Pra quem ficou na dúvida sobre o nível do conteúdo, se deveria fazer o curso ou não, eu espero que esse post ajude a ter uma visão de como a cibersegurança vai ser abordada nesse projeto, que promete profissionalizar estudantes de qualquer nível de formação.</description>
+      <title>(Re)lançando o cinemaempoa</title>
+      <link>https://guilhermegarcia.dev/blog/lancando-o-cinemaempoa/</link>
+      <pubDate>Mon, 30 Sep 2024 20:18:05 -0300</pubDate>
+      <guid>https://guilhermegarcia.dev/blog/lancando-o-cinemaempoa/</guid>
+      <description>O https://cinemaempoa.com.br é um portal agregador dos filmes que passam nas casas de cinema de Porto Alegre.&#xA;Por que esse projeto? PoA tem vários cinemas comerciais (os cinemas de shopping), mas o que faz a cidade ser única são suas salas culturais, dedicadas a filmes diferentes: nem sempre são lançamentos, às vezes não passam nos ciclos comerciais, podem possuir maior teor experimental, podem ter marcado a história do cinema, podem ter registrado a história de um país.</description>
+    </item>
+    <item>
+      <title>Grupo de estudos de linha de comando</title>
+      <link>https://guilhermegarcia.dev/blog/grupo-de-estudos-linha-comando/</link>
+      <pubDate>Sat, 07 Sep 2024 10:06:05 -0300</pubDate>
+      <guid>https://guilhermegarcia.dev/blog/grupo-de-estudos-linha-comando/</guid>
+      <description>Quem somos Veio a existir, no dia 31/08/2024, após realização de oficina sobre programação em bash, o Grupo de Estudos de Linha de Comando (GELC).&#xA;O grupo é abrangente, reunindo usuários de qualquer nível de experiência, sobre quaisquer tópicos que envolvam o uso do terminal, para fomentar a troca de conheci mento e criação de comunidade.&#xA;Tópicos centrais Uso do terminal (bash, powershell e outros) Ferramentas típicas do terminal (ssh, sed, grep, curl e todas ferramentas do toolkit gnu/linux) Criação de scripts Automação de processos (crontab, inotify, &amp;hellip;) Sistemas operacionais Onde e quando Os encontros serão presenciais no espaço do Matehackers dentro do Vila Flores (Rua Hoffman, 447 - Floresta) em Porto Alegre.</description>
+    </item>
+    <item>
+      <title>Um manifesto pela depuração</title>
+      <link>https://guilhermegarcia.dev/blog/traducao-debugging-manifesto-b0rk/</link>
+      <pubDate>Thu, 05 Sep 2024 19:06:05 -0300</pubDate>
+      <guid>https://guilhermegarcia.dev/blog/traducao-debugging-manifesto-b0rk/</guid>
+      <description>Fiz uma tradução (de baixa fidelidade) de um poster da wizard zines que eu sempre curti. Ele mostra um pouco o estado de espírito que eu acho ideal pra programação: meio apavorado, mas instigado pelo desconhecido.&#xA;A autora é a Julia Evans e ela é muito fera em ensinar conceitos na área de tecnologia.&#xA;Caso você queira alterar alguma coisa, esse é o arquivo psd que eu utilizei: (clique para baixar).</description>
+    </item>
+    <item>
+      <title>Workshop: servidores federados com Django</title>
+      <link>https://guilhermegarcia.dev/blog/workshop-servidores-federados-django/</link>
+      <pubDate>Thu, 29 Aug 2024 13:06:05 -0300</pubDate>
+      <guid>https://guilhermegarcia.dev/blog/workshop-servidores-federados-django/</guid>
+      <description>Proposta Eu estou trabalhando numa ideia pra um workshop de programação pra ser trabalhado num grupo pequeno, de até 5 pessoas.&#xA;A ideia é abordar o tema de rede descentralizadas enquanto desenvolvemos uma PoC para trocar mensagens entre servidores conectados numa mesma rede.&#xA;A dinâmica é que, estando todos na mesma sala, vamos estar na mesma rede wifi, e os apps desenvolvidos vão interagir uns com os outros.&#xA;WIP!! Encare este post como um brainstorm de um futuro workshop.</description>
+    </item>
+    <item>
+      <title>Explorando IA no navegador</title>
+      <link>https://guilhermegarcia.dev/blog/explorando-ia-no-navegador/</link>
+      <pubDate>Mon, 26 Aug 2024 20:06:05 -0300</pubDate>
+      <guid>https://guilhermegarcia.dev/blog/explorando-ia-no-navegador/</guid>
+      <description>Esse FDS eu tive a oportunidade de apresentar um workshop curtinho sobre como usar o navegador pra explorar tópicos de inteligência artificial.&#xA;A apresentação foi no matehackers no dia 24/08/2024.&#xA;Flyers do evento Eu subi o material utilizado (slides) aqui: https://guilhermegarcia.dev/slides/ai-in-browser.&#xA;Este post no fotolog do matehackers tem fotos e links sobre o evento.</description>
+    </item>
+    <item>
+      <title>Revivendo um netbook com linux</title>
+      <link>https://guilhermegarcia.dev/blog/revivendo-um-netbook-com-linux/</link>
+      <pubDate>Sun, 04 Feb 2024 12:47:34 -0300</pubDate>
+      <guid>https://guilhermegarcia.dev/blog/revivendo-um-netbook-com-linux/</guid>
+      <description>Introdução No último final de semana, resolvi dar uma atenção pra um netbook que estava abandonado no hackerspace.&#xA;Eu já tinha visto ele funcionando (na época tava rodando um lubuntu) e lembro que tentei acessar alguns sites pelo firefox, mas estava tão lento que acabei abandonando.&#xA;Alguns meses depois, fui tentar ligá-lo novamente e ele não funcionava. Pelo visto tinha sido derrubado e deixado para morrer.&#xA;Resolvi dar uma nova chance pra esse Aspire One D270 - 1655 viver novos dias de glória.</description>
+    </item>
+    <item>
+      <title>Comparando json na linha de comando</title>
+      <link>https://guilhermegarcia.dev/blog/comparando-json-na-linha-de-comando/</link>
+      <pubDate>Tue, 25 Oct 2022 22:50:34 -0300</pubDate>
+      <guid>https://guilhermegarcia.dev/blog/comparando-json-na-linha-de-comando/</guid>
+      <description>Comparando json na linha de comando&#xA;mg;nl: vamos usar o vimdiff e o jq para comparar arquivos json independente da formatação.&#xA;Comparar arquivos json parecidos pode ser complicado. Muitas vezes os arquivos foram formatados com espaçamentos diferentes, ou a diferença não ocorre no mesmo nível hierarquico.&#xA;Vamos criar um script simples pra comparar arquivos json diretamente pelo terminal, usando o programa jq e o vimdiff.&#xA;Vamos ver também como preparar um script bash pra lidar com erros conhecidos, como arquivos com json inválido ou de outro formato.</description>
     </item>
   </channel>
 </rss>
