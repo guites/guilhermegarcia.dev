@@ -25,3 +25,5 @@ Clone the thing and create new files with either (for single .md pages):
 The project uses hugo 0.121.0.
 
 To deploy, build the public directory with `hugo buld` and push (content/, public/, static/, etc) to the hugo branch.
+
+There is a GH Action that will then deploy the thing.
