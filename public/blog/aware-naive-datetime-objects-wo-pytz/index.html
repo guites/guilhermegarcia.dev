@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="https://guilhermegarcia.dev/images/favicon.png" />
+<title>Aware and naive datetime objects without pytz | Blog do Guilherme</title>
+<meta name="title" content="Aware and naive datetime objects without pytz" />
+<meta name="description" content="How to compare offset naive and offset aware python datetime objects without using external libraries" />
+<meta name="keywords" content="python,english," />
+
+
+<meta property="og:title" content="Aware and naive datetime objects without pytz" />
+<meta property="og:description" content="How to compare offset naive and offset aware python datetime objects without using external libraries" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://guilhermegarcia.dev/blog/aware-naive-datetime-objects-wo-pytz/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2024-01-25T20:44:34-03:00" />
+<meta property="article:modified_time" content="2024-01-25T20:44:34-03:00" /><meta property="og:site_name" content="Blog do Guilherme" />
+
+
+
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Aware and naive datetime objects without pytz"/>
+<meta name="twitter:description" content="How to compare offset naive and offset aware python datetime objects without using external libraries"/>
+
+
+
+<meta itemprop="name" content="Aware and naive datetime objects without pytz">
+<meta itemprop="description" content="How to compare offset naive and offset aware python datetime objects without using external libraries"><meta itemprop="datePublished" content="2024-01-25T20:44:34-03:00" />
+<meta itemprop="dateModified" content="2024-01-25T20:44:34-03:00" />
+<meta itemprop="wordCount" content="390">
+<meta itemprop="keywords" content="python,english," />
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  body {
+    font-family: Verdana, sans-serif;
+    margin: auto;
+    padding: 20px;
+    max-width: 720px;
+    text-align: left;
+    background-color: #fff;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: #444;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  b {
+    color: #222;
+  }
+
+  a {
+    color: #3273dc;
+     
+  }
+
+  .title {
+    text-decoration: none;
+    border: 0;
+  }
+
+  .title span {
+    font-weight: 400;
+  }
+
+  nav a {
+    margin-right: 10px;
+  }
+
+  textarea {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  input {
+    font-size: 16px;
+  }
+
+  content {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    padding: 2px 5px;
+    background-color: #f2f2f2;
+  }
+
+  pre code {
+    color: #222;
+    display: block;
+    padding: 20px;
+    white-space: pre-wrap;
+    font-size: 14px;
+    overflow-x: auto;
+  }
+
+  div.highlight pre {
+    background-color: initial;
+    color: initial;
+  }
+
+  div.highlight code {
+    background-color: unset;
+    color: unset;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: #222;
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px;
+    text-align: center;
+  }
+
+  .helptext {
+    color: #777;
+    font-size: small;
+  }
+
+  .errorlist {
+    color: #eba613;
+    font-size: small;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: #8b6fcb;
+  }
+
+  aside {
+    margin: 15px 5px;
+    padding: 5px 10px;
+    border: 1px dashed;
+    text-align: justify;
+    hyphens: auto;
+  }
+
+  aside::before {
+    content: " ᶘ ᵒᴥᵒᶅ ";
+    margin-right: 5px;
+  }
+
+  aside.warning {
+    border-color: #ffbb00;
+    background-color: rgb(255, 249, 231);
+  }
+
+  aside.warning::before {
+    color: #ffbb00;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #333;
+      color: #ddd;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    strong,
+    b {
+      color: #eee;
+    }
+
+    a {
+      color: #8cc2dd;
+    }
+
+    code {
+      background-color: #777;
+    }
+
+    pre code {
+      color: #ddd;
+    }
+
+    blockquote {
+      color: #ccc;
+    }
+
+    aside.warning {
+        background-color: transparent;
+    }
+
+    textarea,
+    input {
+      background-color: #252525;
+      color: #ddd;
+    }
+
+    .helptext {
+      color: #aaa;
+    }
+  }
+</style>
+
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h2>Blog do Guilherme</h2>
+</a>
+<nav><a href="/">Home</a>
+
+
+<a href="/blog">Blog</a>
+
+<a href="/links">Links</a>
+<a href="/art">Art</a>
+</nav>
+</header>
+  <main>
+
+<h1>Aware and naive datetime objects without pytz</h1>
+<p>
+  <i>
+    <time datetime='2024-01-25' pubdate>
+      25 Jan, 2024
+    </time>
+  </i>
+</p>
+
+
+<content>
+  <p>tldr: use <a href="#replace"><code>.replace</code></a> or <a href="#astimezone"><code>.astimezone</code></a> on both datetime objects.</p>
+<p>Maybe you were trying to do a simple datetime comparison, and was met with the following:</p>
+<pre><code>TypeError: can't compare offset-naive and offset-aware datetimes
+</code></pre>
+<p>Most solutions (<a href="https://bobbyhadz.com/blog/typeerror-cant-compare-offset-naive-and-offset-aware-datetimes">1</a>, <a href="https://stackoverflow.com/questions/15307623/cant-compare-naive-and-aware-datetime-now-challenge-datetime-end">2</a>) will point you towards <a href="https://pypi.org/project/pytz/">pytz</a>, but the lib page at pypi mentions:</p>
+<blockquote>
+<p>Projects using Python 3.9 or later should be using the support now included as part of the standard library, and third party packages work with it such as tzdata</p>
+</blockquote>
+<p>Let&rsquo;s start by reproducing the problem.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> datetime
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>start_date<span style="color:#f92672">=</span>datetime<span style="color:#f92672">.</span>datetime<span style="color:#f92672">.</span>strptime(<span style="color:#e6db74">&#34;2022-01-01T22:03:30&#34;</span>, <span style="color:#e6db74">&#34;%Y-%m-</span><span style="color:#e6db74">%d</span><span style="color:#e6db74">T%H:%M:%S&#34;</span>)
+</span></span><span style="display:flex;"><span>end_date<span style="color:#f92672">=</span>datetime<span style="color:#f92672">.</span>datetime<span style="color:#f92672">.</span>strptime(<span style="color:#e6db74">&#34;2022-01-01T22:03:33Z&#34;</span>, <span style="color:#e6db74">&#34;%Y-%m-</span><span style="color:#e6db74">%d</span><span style="color:#e6db74">T%H:%M:%S%z&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> start_date <span style="color:#f92672">&gt;=</span> end_date:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">raise</span> <span style="color:#a6e22e">ValueError</span>(<span style="color:#e6db74">&#34;Cannot end before you begin!&#34;</span>)
+</span></span></code></pre></div><p>this block of code raises the <code>TypeError: can't compare offset-naive and offset-aware datetimes</code> message.</p>
+<p>The <a href="https://docs.python.org/3/library/datetime.html#aware-and-naive-objects">official docs for datetime</a> mentions</p>
+<blockquote>
+<p>Date and time objects may be categorized as “aware” or “naive” depending on whether or not they include timezone information.</p>
+</blockquote>
+<p>Well in our date strings (<code>&quot;2022-01-01T22:03:30&quot;</code> and <code>&quot;2022-01-01T22:03:33Z&quot;</code>), the first one happens to be naive: there&rsquo;s no timezone information included on it.</p>
+<p>Both of them include the T, which is just the default separator for <a href="https://stackoverflow.com/a/29282022/14427854">ISO 8601 combined date-time format</a>.</p>
+<p>The second one includes the <code>Z</code>, which tells us that its in the <a href="https://en.wikipedia.org/wiki/Time_zone#Notation">Zero timezone</a>, or with a zero UTC offset.</p>
+<blockquote>
+<p>An aware object represents a specific moment in time that is not open to interpretation.</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>print(start_date<span style="color:#f92672">.</span>tzinfo) <span style="color:#75715e"># None</span>
+</span></span><span style="display:flex;"><span>print(end_date<span style="color:#f92672">.</span>tzinfo) <span style="color:#75715e"># datetime.timezone.utc</span>
+</span></span></code></pre></div>
+
+<p id="replace">Cool. In this situation, we will have to assume that either the aware datetime object is wrong, or the naive object is wrong. Some information will be lost.</p>
+
+
+<p>Let&rsquo;s say we trust out UTC date is correct:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>start_date<span style="color:#f92672">.</span>replace(tzinfo<span style="color:#f92672">=</span>datetime<span style="color:#f92672">.</span>timezone<span style="color:#f92672">.</span>utc)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">...</span> <span style="color:#75715e"># rest of the code</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> start_date <span style="color:#f92672">&gt;=</span> end_date:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">raise</span> <span style="color:#a6e22e">ValueError</span>(<span style="color:#e6db74">&#34;Cannot end before you begin!&#34;</span>)
+</span></span></code></pre></div><p>It works! But we could also assume that our naive object is correct:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>end_date<span style="color:#f92672">.</span>replace(tzinfo<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">...</span> <span style="color:#75715e"># rest of the code</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> start_date <span style="color:#f92672">&gt;=</span> end_date:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">raise</span> <span style="color:#a6e22e">ValueError</span>(<span style="color:#e6db74">&#34;Cannot end before you begin!&#34;</span>)
+</span></span></code></pre></div><p>also works! But keep in mind that information could be lost. Consider the following:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> datetime <span style="color:#f92672">import</span> datetime, timezone
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>br_date <span style="color:#f92672">=</span> datetime<span style="color:#f92672">.</span>strptime(<span style="color:#e6db74">&#34;2022-01-01T22:03:30-03:00&#34;</span>, <span style="color:#e6db74">&#34;%Y-%m-</span><span style="color:#e6db74">%d</span><span style="color:#e6db74">T%H:%M:%S%z&#34;</span>)
+</span></span><span style="display:flex;"><span>ref_date <span style="color:#f92672">=</span> datetime<span style="color:#f92672">.</span>strptime(<span style="color:#e6db74">&#34;2022-01-01T22:03:30Z&#34;</span>, <span style="color:#e6db74">&#34;%Y-%m-</span><span style="color:#e6db74">%d</span><span style="color:#e6db74">T%H:%M:%S%z&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(br_date <span style="color:#f92672">&gt;</span> ref_date)  <span style="color:#75715e"># True</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>br_date_to_utc <span style="color:#f92672">=</span> br_date<span style="color:#f92672">.</span>replace(tzinfo<span style="color:#f92672">=</span>timezone<span style="color:#f92672">.</span>utc)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(br_date_to_utc <span style="color:#f92672">&gt;</span> ref_date)  <span style="color:#75715e"># False</span>
+</span></span></code></pre></div>
+
+<p id="astimezone">An option to respect existing timezone information whilst converting naive objects would be to use `.astimezone()`:</p>
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> datetime <span style="color:#f92672">import</span> datetime, timezone
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>br_date <span style="color:#f92672">=</span> datetime<span style="color:#f92672">.</span>strptime(<span style="color:#e6db74">&#34;2022-01-01T22:03:30-03:00&#34;</span>, <span style="color:#e6db74">&#34;%Y-%m-</span><span style="color:#e6db74">%d</span><span style="color:#e6db74">T%H:%M:%S%z&#34;</span>)
+</span></span><span style="display:flex;"><span>ref_date <span style="color:#f92672">=</span> datetime<span style="color:#f92672">.</span>strptime(<span style="color:#e6db74">&#34;2022-01-01T22:03:30Z&#34;</span>, <span style="color:#e6db74">&#34;%Y-%m-</span><span style="color:#e6db74">%d</span><span style="color:#e6db74">T%H:%M:%S%z&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(br_date <span style="color:#f92672">&gt;</span> ref_date)  <span style="color:#75715e"># True</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>br_date_as_utc <span style="color:#f92672">=</span> br_date<span style="color:#f92672">.</span>astimezone(tz<span style="color:#f92672">=</span>timezone<span style="color:#f92672">.</span>utc)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(br_date_as_utc <span style="color:#f92672">&gt;</span> ref_date)  <span style="color:#75715e"># True</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(br_date_as_utc<span style="color:#f92672">.</span>strftime(<span style="color:#e6db74">&#34;%Y-%m-</span><span style="color:#e6db74">%d</span><span style="color:#e6db74">T%H:%M:%S%z&#34;</span>))  <span style="color:#75715e"># &#39;2022-01-02T01:03:30+0000&#39;</span>
+</span></span></code></pre></div><p><img src="./days-since-last-tz-issue.webp" alt="paper sheet with &ldquo;days since last timezone issue&rdquo; written on it. theres a post it stating &ldquo;-1&rdquo;"></p>
+
+</content>
+<p>
+  
+  <a href="https://guilhermegarcia.dev/blog/python/">#python</a>
+  
+  <a href="https://guilhermegarcia.dev/blog/english/">#english</a>
+  
+</p>
+
+  </main>
+  <footer>
+</footer>
+
+    
+</body>
+
+</html>

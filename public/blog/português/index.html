@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="https://guilhermegarcia.dev/images/favicon.png" />
+<title>português | Blog do Guilherme</title>
+<meta name="title" content="português" />
+<meta name="description" content="Eu sou o Guilherme e esse é meu pequeno blog pessoal, onde escrevo sobre coisas que eu gosto, às vezes em pt-br, às vezes em inglês!" />
+<meta name="keywords" content="cli,english,jq,linux,português,python,vim," />
+
+
+<meta property="og:title" content="português" />
+<meta property="og:description" content="Eu sou o Guilherme e esse é meu pequeno blog pessoal, onde escrevo sobre coisas que eu gosto, às vezes em pt-br, às vezes em inglês!" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://guilhermegarcia.dev/blog/portugu%C3%AAs/" /><meta property="og:site_name" content="Blog do Guilherme" />
+
+
+
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="português"/>
+<meta name="twitter:description" content="Eu sou o Guilherme e esse é meu pequeno blog pessoal, onde escrevo sobre coisas que eu gosto, às vezes em pt-br, às vezes em inglês!"/>
+
+
+
+<meta itemprop="name" content="português">
+<meta itemprop="description" content="Eu sou o Guilherme e esse é meu pequeno blog pessoal, onde escrevo sobre coisas que eu gosto, às vezes em pt-br, às vezes em inglês!">
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <link rel="alternate" type="application/rss+xml" href="https://guilhermegarcia.dev/blog/portugu%C3%AAs/index.xml" title="Blog do Guilherme" />
+  <style>
+  body {
+    font-family: Verdana, sans-serif;
+    margin: auto;
+    padding: 20px;
+    max-width: 720px;
+    text-align: left;
+    background-color: #fff;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: #444;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  b {
+    color: #222;
+  }
+
+  a {
+    color: #3273dc;
+     
+  }
+
+  .title {
+    text-decoration: none;
+    border: 0;
+  }
+
+  .title span {
+    font-weight: 400;
+  }
+
+  nav a {
+    margin-right: 10px;
+  }
+
+  textarea {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  input {
+    font-size: 16px;
+  }
+
+  content {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    padding: 2px 5px;
+    background-color: #f2f2f2;
+  }
+
+  pre code {
+    color: #222;
+    display: block;
+    padding: 20px;
+    white-space: pre-wrap;
+    font-size: 14px;
+    overflow-x: auto;
+  }
+
+  div.highlight pre {
+    background-color: initial;
+    color: initial;
+  }
+
+  div.highlight code {
+    background-color: unset;
+    color: unset;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: #222;
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px;
+    text-align: center;
+  }
+
+  .helptext {
+    color: #777;
+    font-size: small;
+  }
+
+  .errorlist {
+    color: #eba613;
+    font-size: small;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: #8b6fcb;
+  }
+
+  aside {
+    margin: 15px 5px;
+    padding: 5px 10px;
+    border: 1px dashed;
+    text-align: justify;
+    hyphens: auto;
+  }
+
+  aside::before {
+    content: " ᶘ ᵒᴥᵒᶅ ";
+    margin-right: 5px;
+  }
+
+  aside.warning {
+    border-color: #ffbb00;
+    background-color: rgb(255, 249, 231);
+  }
+
+  aside.warning::before {
+    color: #ffbb00;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #333;
+      color: #ddd;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    strong,
+    b {
+      color: #eee;
+    }
+
+    a {
+      color: #8cc2dd;
+    }
+
+    code {
+      background-color: #777;
+    }
+
+    pre code {
+      color: #ddd;
+    }
+
+    blockquote {
+      color: #ccc;
+    }
+
+    aside.warning {
+        background-color: transparent;
+    }
+
+    textarea,
+    input {
+      background-color: #252525;
+      color: #ddd;
+    }
+
+    .helptext {
+      color: #aaa;
+    }
+  }
+</style>
+
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h2>Blog do Guilherme</h2>
+</a>
+<nav><a href="/">Home</a>
+
+
+<a href="/blog">Blog</a>
+
+<a href="/links">Links</a>
+<a href="/art">Art</a>
+</nav>
+</header>
+  <main>
+<content>
+  
+  <h3 style="margin-bottom:0">Filtering for "português"</h3>
+  <small>
+    <a href="/blog">Remove filter</a>
+  </small>
+  
+  <ul class="blog-posts">
+    
+    <li>
+      <span>
+        <i>
+          <time datetime='2024-09-30' pubdate>
+            30 Sep, 2024
+          </time>
+        </i>
+      </span>
+      <a href="https://guilhermegarcia.dev/blog/lancando-o-cinemaempoa/">(Re)lançando o cinemaempoa</a>
+    </li>
+    
+    <li>
+      <span>
+        <i>
+          <time datetime='2024-09-07' pubdate>
+            07 Sep, 2024
+          </time>
+        </i>
+      </span>
+      <a href="https://guilhermegarcia.dev/blog/grupo-de-estudos-linha-comando/">Grupo de estudos de linha de comando</a>
+    </li>
+    
+    <li>
+      <span>
+        <i>
+          <time datetime='2024-09-05' pubdate>
+            05 Sep, 2024
+          </time>
+        </i>
+      </span>
+      <a href="https://guilhermegarcia.dev/blog/traducao-debugging-manifesto-b0rk/">Um manifesto pela depuração</a>
+    </li>
+    
+    <li>
+      <span>
+        <i>
+          <time datetime='2024-08-29' pubdate>
+            29 Aug, 2024
+          </time>
+        </i>
+      </span>
+      <a href="https://guilhermegarcia.dev/blog/workshop-servidores-federados-django/">Workshop: servidores federados com Django</a>
+    </li>
+    
+    <li>
+      <span>
+        <i>
+          <time datetime='2024-08-26' pubdate>
+            26 Aug, 2024
+          </time>
+        </i>
+      </span>
+      <a href="https://guilhermegarcia.dev/blog/explorando-ia-no-navegador/">Explorando IA no navegador</a>
+    </li>
+    
+    <li>
+      <span>
+        <i>
+          <time datetime='2024-02-04' pubdate>
+            04 Feb, 2024
+          </time>
+        </i>
+      </span>
+      <a href="https://guilhermegarcia.dev/blog/revivendo-um-netbook-com-linux/">Revivendo um netbook com linux</a>
+    </li>
+    
+    <li>
+      <span>
+        <i>
+          <time datetime='2022-10-25' pubdate>
+            25 Oct, 2022
+          </time>
+        </i>
+      </span>
+      <a href="https://guilhermegarcia.dev/blog/comparando-json-na-linha-de-comando/">Comparando json na linha de comando</a>
+    </li>
+    
+  </ul>
+  
+  
+</content>
+
+  </main>
+  <footer>
+</footer>
+
+    
+</body>
+
+</html>

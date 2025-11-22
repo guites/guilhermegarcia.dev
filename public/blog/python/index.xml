@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>python on Blog do Guilherme</title>
+    <link>https://guilhermegarcia.dev/blog/python/</link>
+    <description>Recent content in python on Blog do Guilherme</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <copyright>Copyright © 2024, Guilherme Garcia.</copyright>
+    <lastBuildDate>Thu, 29 Aug 2024 13:06:05 -0300</lastBuildDate>
+    <atom:link href="https://guilhermegarcia.dev/blog/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Workshop: servidores federados com Django</title>
+      <link>https://guilhermegarcia.dev/blog/workshop-servidores-federados-django/</link>
+      <pubDate>Thu, 29 Aug 2024 13:06:05 -0300</pubDate>
+      <guid>https://guilhermegarcia.dev/blog/workshop-servidores-federados-django/</guid>
+      <description>Proposta Eu estou trabalhando numa ideia pra um workshop de programação pra ser trabalhado num grupo pequeno, de até 5 pessoas.&#xA;A ideia é abordar o tema de rede descentralizadas enquanto desenvolvemos uma PoC para trocar mensagens entre servidores conectados numa mesma rede.&#xA;A dinâmica é que, estando todos na mesma sala, vamos estar na mesma rede wifi, e os apps desenvolvidos vão interagir uns com os outros.&#xA;WIP!! Encare este post como um brainstorm de um futuro workshop.</description>
+    </item>
+    <item>
+      <title>Aware and naive datetime objects without pytz</title>
+      <link>https://guilhermegarcia.dev/blog/aware-naive-datetime-objects-wo-pytz/</link>
+      <pubDate>Thu, 25 Jan 2024 20:44:34 -0300</pubDate>
+      <guid>https://guilhermegarcia.dev/blog/aware-naive-datetime-objects-wo-pytz/</guid>
+      <description>tldr: use .replace or .astimezone on both datetime objects.&#xA;Maybe you were trying to do a simple datetime comparison, and was met with the following:&#xA;TypeError: can&#39;t compare offset-naive and offset-aware datetimes Most solutions (1, 2) will point you towards pytz, but the lib page at pypi mentions:&#xA;Projects using Python 3.9 or later should be using the support now included as part of the standard library, and third party packages work with it such as tzdata</description>
+    </item>
+  </channel>
+</rss>

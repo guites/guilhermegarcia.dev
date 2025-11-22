@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="https://guilhermegarcia.dev/images/favicon.png" />
+<title>Revivendo um netbook com linux | Blog do Guilherme</title>
+<meta name="title" content="Revivendo um netbook com linux" />
+<meta name="description" content="Descrevo o processo de encontrar um distro com boa performance para utilizar um netbook de 2011 como computador de uso pessoal diário." />
+<meta name="keywords" content="linux,português,english," />
+
+
+<meta property="og:title" content="Revivendo um netbook com linux" />
+<meta property="og:description" content="Descrevo o processo de encontrar um distro com boa performance para utilizar um netbook de 2011 como computador de uso pessoal diário." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://guilhermegarcia.dev/blog/revivendo-um-netbook-com-linux/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2024-02-04T12:47:34-03:00" />
+<meta property="article:modified_time" content="2024-02-04T12:47:34-03:00" /><meta property="og:site_name" content="Blog do Guilherme" />
+
+
+
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Revivendo um netbook com linux"/>
+<meta name="twitter:description" content="Descrevo o processo de encontrar um distro com boa performance para utilizar um netbook de 2011 como computador de uso pessoal diário."/>
+
+
+
+<meta itemprop="name" content="Revivendo um netbook com linux">
+<meta itemprop="description" content="Descrevo o processo de encontrar um distro com boa performance para utilizar um netbook de 2011 como computador de uso pessoal diário."><meta itemprop="datePublished" content="2024-02-04T12:47:34-03:00" />
+<meta itemprop="dateModified" content="2024-02-04T12:47:34-03:00" />
+<meta itemprop="wordCount" content="2340">
+<meta itemprop="keywords" content="linux,português,english," />
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  body {
+    font-family: Verdana, sans-serif;
+    margin: auto;
+    padding: 20px;
+    max-width: 720px;
+    text-align: left;
+    background-color: #fff;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: #444;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  b {
+    color: #222;
+  }
+
+  a {
+    color: #3273dc;
+     
+  }
+
+  .title {
+    text-decoration: none;
+    border: 0;
+  }
+
+  .title span {
+    font-weight: 400;
+  }
+
+  nav a {
+    margin-right: 10px;
+  }
+
+  textarea {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  input {
+    font-size: 16px;
+  }
+
+  content {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    padding: 2px 5px;
+    background-color: #f2f2f2;
+  }
+
+  pre code {
+    color: #222;
+    display: block;
+    padding: 20px;
+    white-space: pre-wrap;
+    font-size: 14px;
+    overflow-x: auto;
+  }
+
+  div.highlight pre {
+    background-color: initial;
+    color: initial;
+  }
+
+  div.highlight code {
+    background-color: unset;
+    color: unset;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: #222;
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px;
+    text-align: center;
+  }
+
+  .helptext {
+    color: #777;
+    font-size: small;
+  }
+
+  .errorlist {
+    color: #eba613;
+    font-size: small;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: #8b6fcb;
+  }
+
+  aside {
+    margin: 15px 5px;
+    padding: 5px 10px;
+    border: 1px dashed;
+    text-align: justify;
+    hyphens: auto;
+  }
+
+  aside::before {
+    content: " ᶘ ᵒᴥᵒᶅ ";
+    margin-right: 5px;
+  }
+
+  aside.warning {
+    border-color: #ffbb00;
+    background-color: rgb(255, 249, 231);
+  }
+
+  aside.warning::before {
+    color: #ffbb00;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #333;
+      color: #ddd;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    strong,
+    b {
+      color: #eee;
+    }
+
+    a {
+      color: #8cc2dd;
+    }
+
+    code {
+      background-color: #777;
+    }
+
+    pre code {
+      color: #ddd;
+    }
+
+    blockquote {
+      color: #ccc;
+    }
+
+    aside.warning {
+        background-color: transparent;
+    }
+
+    textarea,
+    input {
+      background-color: #252525;
+      color: #ddd;
+    }
+
+    .helptext {
+      color: #aaa;
+    }
+  }
+</style>
+
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h2>Blog do Guilherme</h2>
+</a>
+<nav><a href="/">Home</a>
+
+
+<a href="/blog">Blog</a>
+
+<a href="/links">Links</a>
+<a href="/art">Art</a>
+</nav>
+</header>
+  <main>
+
+<h1>Revivendo um netbook com linux</h1>
+<p>
+  <i>
+    <time datetime='2024-02-04' pubdate>
+      04 Feb, 2024
+    </time>
+  </i>
+</p>
+
+
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#introdução">Introdução</a></li>
+    <li><a href="#configurações-do-sistema">Configurações do sistema</a></li>
+    <li><a href="#inspecionando-o-hardware">Inspecionando o hardware</a></li>
+    <li><a href="#tentativas-iniciais">Tentativas iniciais</a></li>
+    <li><a href="#instalando-arch">Instalando Arch</a>
+      <ul>
+        <li><a href="#installation-steps">Installation steps</a></li>
+        <li><a href="#setting-up-the-environment">Setting up the environment</a></li>
+        <li><a href="#enabling-audio">Enabling audio</a></li>
+      </ul>
+    </li>
+    <li><a href="#conclusão">Conclusão</a></li>
+  </ul>
+</nav>
+
+<content>
+  <h2 id="introdução">Introdução</h2>
+<p>No último final de semana, resolvi dar uma atenção pra um netbook que estava abandonado no hackerspace.</p>
+<p>Eu já tinha visto ele funcionando (na época tava rodando um <a href="https://lubuntu.me">lubuntu</a>) e lembro que tentei acessar alguns sites pelo firefox, mas estava tão lento que acabei abandonando.</p>
+<p>Alguns meses depois, fui tentar ligá-lo novamente e ele não funcionava. Pelo visto tinha sido derrubado e deixado para morrer.</p>
+<p>Resolvi dar uma nova chance pra esse <em>Aspire One D270 - 1655</em> viver novos dias de glória.</p>
+<figure><img src="./archie-bancada-b4.jpg"
+         alt="Netbook na bancada antes do início da inspeção"/><figcaption>
+            <p>Netbook na bancada antes do início da inspeção.</p>
+        </figcaption>
+</figure>
+
+<p>Eu queria usar esse pc como um <em>daily driver</em>, e pra isso eu precisava que ele operasse softwares comuns (como navegador e editor de texto) com uma performance aceitável: isso significa que o boot da máquina tem que ocorrer num intervalo de &lt; 2min, conseguir renderizar páginas com javascript pesado, e rodar alguns projetos básicos em python sem travar.</p>
+<h2 id="configurações-do-sistema">Configurações do sistema</h2>
+<p>O computador tem uma configuração bem modesta, com ~4gb de ram e um processador Atom N2600, linha de 2011.</p>
+<figure><img src="./archey-output.png"
+         alt="Saída do comando screenfetch no terminal"/><figcaption>
+            <p>Saída do comando screenfetch no terminal</p>
+        </figcaption>
+</figure>
+
+<h2 id="inspecionando-o-hardware">Inspecionando o hardware</h2>
+<p>Pra descobrir o motivo do pc não ligar, começamos verificando o carregador e a bateria.</p>
+<p>O próximo passo foi a remoção do teclado pra ter acesso a placa mãe e componentes.</p>
+<figure>
+<img src="./teclado-removido-1.jpg" alt="Netbook após remoção do teclado"/>
+<img src="./teclado-removido-2.jpg" alt="Netbook após remoção do teclado, imagem com maior foco nos componentes"/>
+<figcaption>Netbook com o teclado removido</figcaption>
+</figure>
+<p>Removendo a bateria, a parte de baixo é exposta, dando acesso ao HD, memória ram, cooler do processador e placa de rede.</p>
+<figure><img src="./parte-baixo-exposta.jpg"
+         alt="Parte inferior do netbook com bateria desconectada e tampa removida"/><figcaption>
+            <p>Parte inferior do netbook com bateria desconectada e tampa removida</p>
+        </figcaption>
+</figure>
+
+<p>Depois, foi feita a troca do HD por um SSD que tinhamos com um distro instalado, e o pc resolveu ligar.</p>
+<figure><img src="./primeiro-boot.jpg"
+         alt="Netbook em processo de boot sem o teclado"/><figcaption>
+            <p>Netbook em processo de boot sem o teclado</p>
+        </figcaption>
+</figure>
+
+<p>A mensagem na tela (&ldquo;No bootable device - insert boot disk and press any key&rdquo;) indica uma característica dessa máquina: ela não suporta boot no modo UEFI, que é como esse SSD de teste foi configurado.</p>
+<p>Com o PC ligando, devolvemos o HD original. Colocar o teclado de volta foi uma função enorme.</p>
+<figure><img src="./ajustando-conector-teclado.jpg"
+         alt="Duas pessoas mexendo no netbook, um está com um adaptador de conector de teclado na mão, o outro segura o teclado"/><figcaption>
+            <p>Ajustando o conector do teclado</p>
+        </figcaption>
+</figure>
+
+<h2 id="tentativas-iniciais">Tentativas iniciais</h2>
+<p>Sabendo que uma instalação moderna de Ubuntu seria demais pra essa máquina, comecei tentando colocar um Debian desktop.</p>
+<figure>
+<img src="./boot-from-usb-1.jpg" alt="Netbook ligado na tela de seleção de boot com três opções: 1. HDD0 2. Network boot 3. USB HDD: Sandisk" />
+<img src="./debian-install-screen.jpg" alt="Netbook ligado na tela de instalação do Debian" />
+<figcaption>Netbook sendo iniciado via USB e tela de instalação do Debian desktop</figcaption>
+</figure>
+<p>Infelizmente durante a instalação já dava pra perceber que ia ficar pesado demais. Com o OS rodando, deu pra notar bastante lag no cursor e uma demora infernal pra abrir os apps.</p>
+<p>A segunda tentativa foi o <a href="https://puppylinux-woof-ce.github.io/">Puppy Linux</a>, um distro minimalista &ldquo;grandpa ready&rdquo;, pesando cerca de ~500mb, que usa um formato onde o distro é carregado via pendrive e copiado pra memória ram, e o usuário cria save files no disco rígido, que servem pra persistir dados e programas entre boots.</p>
+<figure><img src="./puppylinux-desktop.jpg"
+         alt="Netbook ligado mostrando o desktop do Puppy Linux"/><figcaption>
+            <p>Desktop padrão do Puppy Linux</p>
+        </figcaption>
+</figure>
+
+<p>O processo de instalação foi relativamente tranquilo, mas alguns pontos me fizeram desistir do Puppy Linux:</p>
+<ol>
+<li>
+<p>Os softwares instalados por padrão são muito antigos.</p>
+<p>O navegador padrão é o <a href="https://www.palemoon.org/">PaleMoon</a>, que não suporta algumas features modernas do javascript (como <code>Object.keys()</code>&hellip;) o que faz vários sites, como Mastodon, Github e Youtube se tornarem inutilizáveis.</p>
+</li>
+<li>
+<p>O distro é bastante instável.</p>
+<p>Algumas soluções necessárias a nível de GRUB, por exemplo, não funcionam todas as vezes. O boot tem grande chance de não funcionar se algum USB estiver conectado. O processo de iniciar o X (interface gráfica por trás do gerenciador de janelas) é um tiro no escuro, falhando aleatóriamente, precisando reiniciar a máquina várias vezes até funcionar.</p>
+</li>
+<li>
+<p>A documentação oficial é bem fraca e o conhecimento está espalhado em fóruns.</p>
+</li>
+</ol>
+<p>O distro em si tem uma ótima performance, mas eu fiquei com a sensação de que ele é feito pensando em usuários bem avançados de Linux, que conseguem depurar erros comuns sozinhos.</p>
+<p>A experiência de fuçar nos fóruns (o <a href="https://oldforum.puppylinux.com/">antigo</a> e o <a href="https://forum.puppylinux.com/">novo</a>) e depurar os erros encontrados foi interessante e esse é um distro que eu pretendo dar mais uma chance no futuro.</p>
+<figure><img src="./puppylinux-logo.jpeg"
+         alt="Logo do PuppyLinux"/><figcaption>
+            <p>A filosofia e estética do Puppy Linux são muito carismáticas</p>
+        </figcaption>
+</figure>
+
+<p>Por fim, resolvi tentar instalar o Arch Linux, confiante de que deve existir alguma combinação de GUI que exija pouco do computador.</p>
+<h2 id="instalando-arch">Instalando Arch</h2>
+<p>Instalar o Arch Linux é surpreendentemente tranquilo. A combinação de uma ótima wiki, que cobre 99% dos casos, com uma comunidade extremamente ativa, significa que tudo está ao alcance de uma busca do google.</p>
+<p>Abaixo eu relato os passos utilizados ao seguir o <a href="https://wiki.archlinux.org/title/Installation_guide">guia de instalação</a>, com alguns comentários adicionais em situações que precisei dar uma pesquisada.</p>
+<details closed>
+<summary>Passo a passo da instalação realizada (em inglês)</summary>
+<h3 id="installation-steps">Installation steps</h3>
+<ol>
+<li>
+<p>Download the image via torrent: <a href="https://archlinux.org/download/">https://archlinux.org/download/</a></p>
+</li>
+<li>
+<p>Flash to USB using the ISO as is: <a href="https://wiki.archlinux.org/title/USB_flash_installation_medium#Using_macOS_dd">https://wiki.archlinux.org/title/USB_flash_installation_medium#Using_macOS_dd</a></p>
+</li>
+<li>
+<p>Boot the live environment from the USB</p>
+<ul>
+<li>Inserted the pendrive, booted the PC and used F12 to select the pendrive as the boot device.</li>
+<li>At this step the screen went black after selecting &ldquo;Arch Linux Install medium&rdquo;</li>
+<li>Added <strong>nomodeset</strong> to the kernel parameter, as pointed out by <a href="https://unix.stackexchange.com/a/727978">https://unix.stackexchange.com/a/727978</a>. This is done, on the arch linux boot loader menu, by pressing <TAB> and writing <code>nomodeset</code>, then pressing enter.</li>
+</ul>
+</li>
+<li>
+<p>Set the console keyboard layout and font</p>
+<ul>
+<li><code>loadkeys br-abnt2</code></li>
+</ul>
+</li>
+<li>
+<p>Verify the boot mode</p>
+<ul>
+<li>the <code>/sys/firmware/efi/fw_platform_size</code> file does not exist, indicating that the system booted in BIOS (as expected).</li>
+</ul>
+</li>
+<li>
+<p>Connecting to the internet</p>
+<ul>
+<li>used <code>ip link</code> and verified that my wlan0 adapter is listed</li>
+<li>used <code>iwctl</code> to connect to wifi</li>
+</ul>
+</li>
+<li>
+<p>Update the system clock</p>
+<ul>
+<li>used <code>timedatectl set-timezone America/Sao_Paulo</code></li>
+</ul>
+</li>
+<li>
+<p>Partition the disks</p>
+<ul>
+<li>
+<p>I didn&rsquo;t have to to anything as my disk was already layed out as</p>
+<pre><code>  /dev/sda1 2G --&gt; Linux swap
+  /dev/sda2 976M --&gt; Extended
+  /dev/sda3 295G --&gt; Linux
+  /dev/sda5 976M --&gt; Linux swap
+</code></pre>
+<p>and I&rsquo;m going to install arch in sda3.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Formatting the partitions</p>
+<ul>
+<li>used <code>mkfs.ext4 /dev/sda3</code> and <code>mkswap /dev/sda1</code>.</li>
+</ul>
+</li>
+<li>
+<p>Mounting the file systems</p>
+<ul>
+<li>used <code>mount /dev/sda3</code> and <code>swapon /dev/sda1</code>.</li>
+</ul>
+</li>
+<li>
+<p>Install the base package, Linux kernel and firmware</p>
+<ul>
+<li>used <code>pacstrap -K /mnt base linux linux-firmware</code>.</li>
+<li>noticed my download speed was too slow (~200KiB/s)</li>
+<li><kbd>CTRL^C</kbd> to stop the current process (it will resume where stopped later on)</li>
+<li>ran <code>cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup</code></li>
+<li>ran <code>reflector --verbose --latest 5 --sort rate --save /etc/pacman.d/mirrorlist</code></li>
+<li>retry the downloads with <code>pacstrap -K /mnt base linux linux-firmware</code> with speeds closer to 2Mib/s</li>
+</ul>
+</li>
+<li>
+<p>Install vim with <code>packmang -S vim</code>.</p>
+</li>
+<li>
+<p>Generated an fstab file.</p>
+</li>
+<li>
+<p>Changed root to the new system.</p>
+</li>
+<li>
+<p>Set the timezone.</p>
+</li>
+<li>
+<p>Set the localization.</p>
+<ul>
+<li>Uncommented <code>en_US.UTF-8 UTF-8</code> and <code>pt_BR.UTF-8 UTF-8</code> lines</li>
+<li>ran <code>locale-gen</code></li>
+<li>created <code>/etc/locale.conf</code> with <code>LANG=en_US.UTF-8</code>.</li>
+<li>persist keyboard layout by creating <code>/etc/vconsole.conf</code> with <code>KEYMAP=br-abnt2</code></li>
+</ul>
+</li>
+<li>
+<p>Set the hostname with <code>echo whitearchie &gt; /etc/hostname</code>.</p>
+</li>
+<li>
+<p>Set the hostname in the /etc/hosts file.</p>
+<pre><code>127.0.0.1 localhost
+::1       localhost
+127.0.0.1 whitearchie.localdomain whitearchie
+</code></pre>
+</li>
+<li>
+<p>Complete the network configuration by installing <code>NetworkManager</code> with <code>pacman -S networkmanager</code> and <code>systemctl enable NetworkManager</code>.</p>
+</li>
+<li>
+<p>Set the root password with <code>passwd</code>.</p>
+</li>
+<li>
+<p>Configure the bootloader (assuming we are a non UEFI install, or MBR):</p>
+<ul>
+<li>
+<p>run <code>pacman -S grub</code></p>
+</li>
+<li>
+<p>run <code>grub-install --target=i386-pc /dev/sda</code></p>
+<blockquote>
+<p>where i386-pc is deliberately used regardless of your actual architecture, and /dev/sdX is the disk (not a partition) where GRUB is to be installed. For example /dev/sda or /dev/nvme0n1, or /dev/mmcblk0</p>
+</blockquote>
+</li>
+<li>
+<p>generate the grub configuration file with <code>grub-mkconfig -o /boot/grub/grub.cfg</code>.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Reboot the machine by</p>
+<ul>
+<li>exiting the chroot environment with <code>exit</code></li>
+<li>unmounting all the partitions with <code>umount -R /mnt</code></li>
+<li>reboot with <code>reboot</code></li>
+<li>remove the pendrive and turn computer on</li>
+<li>login with previously created root password</li>
+</ul>
+</li>
+<li>
+<p>Initial config is done!</p>
+</li>
+</ol>
+<p>Additional sources:</p>
+<ul>
+<li><a href="https://www.arcolinuxd.com/5-the-actual-installation-of-arch-linux-phase-1-uefi/">https://www.arcolinuxd.com/5-the-actual-installation-of-arch-linux-phase-1-uefi/</a></li>
+<li><a href="https://wiki.archlinux.org/title/GRUB#Master_Boot_Record_(MBR)_specific_instructions">https://wiki.archlinux.org/title/GRUB#Master_Boot_Record_(MBR)_specific_instructions</a></li>
+</ul>
+<h3 id="setting-up-the-environment">Setting up the environment</h3>
+<p>These are necessary house keeping tasks in order to run arch with an internet connection, graphical interface and non privileged user accounts.</p>
+<h4 id="parallel-downloads-for-pacman">Parallel downloads for pacman</h4>
+<p>We&rsquo;ll start by <strong>enabling parallel downloads</strong> with pacman. Edit the <code>/etc/pacman.conf</code> file and search for <code>ParallelDownloads</code> under <code>[options]</code>. To enable it, remove the comment (<code>#</code>) from the beginning of the line.</p>
+<p>I&rsquo;ve left the default value of 5.</p>
+<h4 id="setting-the-internet-connection-back">Setting the internet connection back</h4>
+<p>You will notice that after the first reboot, you won&rsquo;t be able to access <code>iwctl</code>, and won&rsquo;t have a connection.</p>
+<p>Since we installed <code>networkmanager</code>,  we have the <code>nmcli</code> utility installed.</p>
+<p>Start by making sure the <code>NetworkManager.service</code> is started and enabled:</p>
+<pre tabindex="0"><code>systemctl status NetworkManager
+# if not running
+systemctl start NetworkManager
+# if not enabled
+systemctl enable NetworkManager
+</code></pre><p>If you&rsquo;re not sure that network manager is the only network package you&rsquo;ve installed, you can check by running:</p>
+<pre tabindex="0"><code>systemctl --type=service
+</code></pre><p>and stopping any other network related service in order to avoid conflicts.</p>
+<p>List existing wifi networks with <code>nmcli device wifi list</code> and connect to your desired network with <code>nmcli device wifi connect SSDID password my_new_password</code>.</p>
+<h4 id="system-time-synchronization-via-ntp">System time synchronization via NTP</h4>
+<p>Check the current time settings with <code>timedatectl status</code>.</p>
+<p>If <strong>System clock synchronized</strong> shows <strong>no</strong>, activate it with</p>
+<pre tabindex="0"><code>timedatectl set-ntp true
+</code></pre><h4 id="setting-up-the-gui-with-i3">Setting up the GUI with i3</h4>
+<p>Turns out I love tilling window managers. They automatically allocate new windows by dividing existing screen space between applications.</p>
+<p>You can also switch between different workspaces, each with its own set of apps.</p>
+<p><a href="https://i3wm.org/">i3</a> is very similar to other TWM such as <a href="https://xmonad.org/">Xmonad</a>, <a href="https://awesomewm.org/">awesome</a> or <a href="https://github.com/koekeishiya/yabai">yabai</a> (for macOS).</p>
+<p>I&rsquo;ll be using i3 as its what I&rsquo;m used to on other distros such as Ubuntu, but most X compatible window managers should share the same steps for installation and setting up.</p>
+<aside>Also i3 comes at < 100mb against XMonad's 800mb. This is partly due to XMonad requiring most of haskell toolchain dependencies, and it might not be so much if you plan on doing Haskell coding on your pc.</aside> 
+<p>Since arch comes with only the cli by default, let&rsquo;s start by installing X, which is on the xorg-server package. We&rsquo;ll include the xorg-init package which contains the helper script <code>startx</code> which is used to start X on demand.</p>
+<pre tabindex="0"><code>pacman -S xorg-server xorg-xinit
+</code></pre><aside> If you receive errors about mirrors receiving status 404 when trying to download specific packages such as libxfont2, xorg-xkbcomp, etc, try updating the pacman cache with `packman -Syu` and then repeating the commands.</aside>
+<p>Now we add the i3 related packages with</p>
+<pre tabindex="0"><code>pacman -S i3-wm i3status dmenu xterm
+</code></pre><ul>
+<li>An application launcher (we&rsquo;ll use <a href="https://wiki.archlinux.org/title/dmenu">dmenu</a>)</li>
+<li>A terminal emulator (we&rsquo;ll use <a href="https://wiki.archlinux.org/title/Xterm">xterm</a>)</li>
+</ul>
+<p>&hellip;and that&rsquo;s about it.</p>
+<p>If prompted to choose a set of fonts, any will do (I&rsquo;m going with the default gnu-free-fonts).</p>
+<p>Now we need to inform our system to start X by default, and that X should load the i3 WM. This is done by creating a <code>~/.xinitrc</code> file with a single line stating <code>exec i3</code>.</p>
+<p>Start i3 by running <code>startx</code>.</p>
+<aside>
+    If you want to start i3 automatically on every session, you can add `startx` to your ~/.bash_profile or ~/.bashrc file!
+</aside>
+<p>On your first launch, you&rsquo;ll be prompted to generate a config file at <code> ~/.config/i3/config</code>. Press <kbd>enter</kbd> to accept it. you can also choose between the win (power) key and alt as your modifier (key used to run i3 commands).</p>
+<h4 id="setting-up-the-keyboard-layout-on-i3">Setting up the keyboard layout on i3</h4>
+<p>While previously we&rsquo;ve set the layout using /etc/vconsole.conf, in order to apply it to i3, we need to add the following to our i3 config file (defaults to <code>~/.config/i3/config</code>):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;exec &#34;setxkbmap -layout br,us&#34;&#39;</span> &gt;&gt; ~/.config/i3/config
+</span></span></code></pre></div><p>You can go back to the cli with <kbd> $mod + shift + e</kbd>.</p>
+<p>References:</p>
+<ul>
+<li><a href="https://www.debugpoint.com/xmonad-arch-linux-setup/">https://www.debugpoint.com/xmonad-arch-linux-setup/</a></li>
+<li><a href="https://bbs.archlinux.org/viewtopic.php?id=66701">https://bbs.archlinux.org/viewtopic.php?id=66701</a></li>
+<li><a href="https://suay.site/?p=610">https://suay.site/?p=610</a></li>
+<li><a href="https://wiki.archlinux.org/title/Xorg">https://wiki.archlinux.org/title/Xorg</a></li>
+<li><a href="https://wiki.archlinux.org/title/i3">https://wiki.archlinux.org/title/i3</a></li>
+<li><a href="https://bbs.archlinux.org/viewtopic.php?id=140448">https://bbs.archlinux.org/viewtopic.php?id=140448</a></li>
+</ul>
+<h4 id="setting-up-a-non-root-user">Setting up a non root user</h4>
+<p>It might be sensible to set up a non root user to perform day to day activities on the computer.</p>
+<p>In order to allow regular users to escalate privileges when necessary (such as installing a package), we need the <code>sudo</code> package.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pacman -S sudo
+</span></span></code></pre></div><p>Now we can add our new user by running</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>useradd -m -G wheel user_name
+</span></span></code></pre></div><p>The <code>-G wheel</code> option adds the newly created user to the <code>wheel</code> group.</p>
+<aside>The **wheel** group in arch acts as the **sudo** group in Ubuntu</aside>
+<p>We now need to allow users in the <code>wheel</code> group to run commands using <code>sudo</code>. This is done by uncommenting (removing the <code>#</code>) from the <code>/etc/sudoers</code> file.</p>
+<pre tabindex="0"><code>#%wheel ALL=(ALL:ALL) ALL
+</code></pre><aside><strong>Warning!</strong> do not edit the `/etc/sudoers` file directly. Any syntax errors would prevent you from running `sudo` commands and lead to great headache.
+<p>Instead, use <code>EDITOR=vim visudo /etc/sudoers</code> (change <code>vim</code> for your editor of choice, eg <code>nano</code>).</p>
+<p><code>visudo</code> checks for syntax errors before saving the file and prevents common typos from locking you out.</aside></p>
+<p>The last step is setting a password for your new user.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>passwd new_user
+</span></span></code></pre></div><p>Our last step is setting the default configuration files to our new user.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cp ~/.xinitrc /home/new_user/.xinitrc
+</span></span><span style="display:flex;"><span>mkdir -p /home/new_user/.config/i3
+</span></span><span style="display:flex;"><span>cp ~/.config/i3/config /home/new_user/.config/i3/config
+</span></span><span style="display:flex;"><span>echo startx &gt;&gt; /home/new_user/.bash_profile <span style="color:#75715e"># optional!</span>
+</span></span></code></pre></div><p>Now you can safely reboot your machine and, this time, log in with your non root user.</p>
+<h3 id="enabling-audio">Enabling audio</h3>
+<p>After a fresh install, arch linux might have sound playback disabled.</p>
+<blockquote>
+<p>The Advanced Linux Sound Architecture (ALSA) is the part of the Linux kernel that manages the sound devices on your system.</p>
+</blockquote>
+<p>The <code>alsa</code> related commands are installed with the <code>alsa-utils</code> package.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo pacman -S alsa-utils
+</span></span></code></pre></div><p>After that, you can enable output with</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>amixer sset Master unmute
+</span></span><span style="display:flex;"><span>amixer sset Speaker unmute
+</span></span><span style="display:flex;"><span>amixer sset Headphone unmute
+</span></span></code></pre></div><p>If you are still receiving no sound output, set up the volume with:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>amixer sset Master 100%
+</span></span><span style="display:flex;"><span>amixer sset Speaker 100%
+</span></span><span style="display:flex;"><span>amixer sset Headphone 100%
+</span></span></code></pre></div><p>source: <a href="https://davidtsadler.com/posts/arch/2020-08-31/enabling-audio-in-arch-linux/">https://davidtsadler.com/posts/arch/2020-08-31/enabling-audio-in-arch-linux/</a></p>
+</details>
+<h2 id="conclusão">Conclusão</h2>
+<p>Foi um processo árduo, mas eu tô surpreso com o quão utilizável é um computado antigo quando as escolhas de software levam em conta as limitações do hardware.</p>
+<figure><img src="./arch-running-apps.jpg"
+         alt="Netbook rodando archlinux com i3 mostrando um navegador lado a lado com um terminal"/><figcaption>
+            <p>Netbook rodando Arch, com uma performance surpreendentemente boa.</p>
+        </figcaption>
+</figure>
+
+<p>Com a instalação proposta no item anterior, o pc consegue fazer um boot do zero e ter um navegador rodando em cerca de 1m30s, oque é muito melhor do que eu esperava.</p>
+<p>Hoje em dia o maior desafio pra computadores antigos é o navegador, devido ao uso desenfreado de javascript pra fazer renderizações insanas que absolutamente destroem CPUs velhinhas e sticks de RAMs modestos.</p>
+<p>Eu não acho que o caminho seja utilizar navegadores limitados, ou desativar o uso do javascript, por exemplo, pois isso te exclui de uma parte enorme da internet.</p>
+<p>Eu espero que com o uso de server side rendering ganhando força novamente, os sites deixem de judiar tanto os usuários.</p>
+<figure><img src="./toot.png"
+         alt="QUE VONTADE DE INSTALAR UM DISTRO MINIMALISTA NUM COMPUTADOR DE 2005"/><figcaption>
+            <p>Dessa vez foi num de 2011, talvez na próxima, 2005.</p>
+        </figcaption>
+</figure>
+
+<p>De qualquer forma, espero que este post te deixe inspirado pra tirar aquele PC antigo do armário e botar ele pra rodar, seja com uma distro pronta, ou seja configurando um Arch Linux do zero.</p>
+<p>Abraço!</p>
+
+</content>
+<p>
+  
+  <a href="https://guilhermegarcia.dev/blog/linux/">#linux</a>
+  
+  <a href="https://guilhermegarcia.dev/blog/portugu%C3%AAs/">#português</a>
+  
+  <a href="https://guilhermegarcia.dev/blog/english/">#english</a>
+  
+</p>
+
+  </main>
+  <footer>
+</footer>
+
+    
+</body>
+
+</html>

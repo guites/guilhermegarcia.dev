@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Explorando IA no navegador</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+                <section data-markdown>
+                    ## Antes de mais nada
+
+                    [Uma demo!](https://guites.github.io/ai-collage/)
+
+                    Vamos ver um modelo de IA funcionando.
+
+                    !["wizzard snoopy"](./slide-imgs/wizznoopy.gif)
+                </section>
+				<section data-markdown>
+                    ## Explorando IA no navegador
+
+                    Por **Guilherme Garcia**
+
+                    !["Foto de rosto do apresentador"](./slide-imgs/gui-pixel-res.png)
+
+                    ```html
+                    .
+                    ├── [2015-2019] Licenciado-em-Física.txt
+                    ├── [2019-Presente] Desenvolvedor-de-software.txt
+                    └── [2022-Presente] Entusiasta-de-IA.txt
+                    ```
+                </section>
+                <section data-markdown>
+                    (slide pra eu lembrar de)
+
+                    - perguntar sobre vocês
+                    - lembrar que eu quero acabar a apresentação em uns 20min
+                </section>
+				<section data-markdown>
+                    ## Mas afinal o que é IA?
+
+                    Software que assimila padrões...
+
+                    De linguagem (NLP):
+
+                    !["chatgpt exemplo"](./slide-imgs/nlp-chatgpt-example.png)
+
+                </section>
+                <section data-markdown>
+                    De imagens (Computer vision):
+
+                    !["dogs exemplo"](./slide-imgs/dogs-crop.jpeg)
+                </section>
+                <section>
+                    <p>De regras de um sistema (jogos):</p>
+                    <div>
+                        <img src="https://raw.githubusercontent.com/patrickmetzner/AI_Practice/master/FSAI%20-%20Milestone%201/FSAI/images/FSAI_Training.gif" alt="">
+                        <img src="https://raw.githubusercontent.com/patrickmetzner/AI_Practice/master/FSAI%20-%20Milestone%201/FSAI/images/FSAI_Trained.gif" alt="">
+                    </div>
+                </section>
+                <section data-markdown>
+                    ## Mas tudo é IA?
+
+                    Nem toda forma de assimilar padrões é baseada em inteligência artificial
+
+                    [Por exemplo](https://www.expunctis.com/2019/03/07/Not-so-random.html)
+
+                    (tentem jogando até 100!)
+                </section>
+                <section data-markdown>
+                    ## Qual a diferença?
+
+                    Por que dizemos que alguns softwares aprendem?
+
+                    !["neuron example"](./slide-imgs/neuron-example.png)
+                </section>
+                <section data-markdown>
+                    ## Redes Neurais
+
+                    [Analogia entre neurônios e nodes](https://excalidraw.com/#json=5Ji0N3Ta6pkP2gYR6SEk8,dVbSLzGch9uanUgAlNoF4A)
+
+                    [Imagem, caso o link acima pare de funcionar](./slide-imgs/nn-exemplo-buts.png)
+
+                </section>
+                <section data-markdown>
+                    ## Tamanho dos modelos
+
+                    O modelo usado no início tem cerca de 30 camadas e ~4 milhões de parâmetros.
+
+                    !["comparação tamanho dos modelos"](./slide-imgs/model-size-comparison.png)
+                </section>
+                <section data-markdown>
+                    ## O aprendizado da máquina
+
+                    !["feedback loop for learning"](./slide-imgs/feedback-loop.png)
+                </section>
+                <section data-markdown>
+                    ## Com o que alimentamos os modelos?
+
+                    [Ver o dataset COCO-2017!](https://cocodataset.org/#explore)
+
+                    > Nota: na apresentação original, eu carreguei uma fração do dataset no software [FiftyOne](https://docs.voxel51.com/), pra facilitar a exploração dos dados.
+                </section>
+                <section data-markdown>
+                    ## Visão Computacional
+
+                    !["diferença entre tipos de visão computacional"](./slide-imgs/diff-computer-vision.webp)
+
+                </section>
+                <section data-markdown>
+                    ## O que o modelo aprende?
+
+                    Uma vantagem didática da visão computacional:
+
+                    - podemos traduzir os pesos de cada camada em imagens
+                </section>
+                <section data-markdown>
+                    (no próximo slide)
+
+                    No topo, as imagens reconstruidas dos pesos do modelo, e embaixo, fragmentos das imagens utilizadas que mais se aproximam dos valores.
+                </section>
+                <section data-markdown>
+                    !["Layer 1 visualização"](https://raw.githubusercontent.com/fastai/fastbook/e8baa81d89f0b7be816e35f1cc813ac02038db54/images/layer1.png)
+                </section>
+                <section data-markdown>
+                    !["Layer 2 visualização"](https://raw.githubusercontent.com/fastai/fastbook/e8baa81d89f0b7be816e35f1cc813ac02038db54/images/layer2.png)
+                </section>
+                <section data-markdown>
+                    !["Layer 3 visualização"](https://raw.githubusercontent.com/fastai/fastbook/e8baa81d89f0b7be816e35f1cc813ac02038db54/images/chapter2_layer3.PNG)
+                </section>
+                <section data-markdown>
+                    !["Layer 4 e 5 visualização"](https://raw.githubusercontent.com/fastai/fastbook/e8baa81d89f0b7be816e35f1cc813ac02038db54/images/chapter2_layer4and5.PNG)
+                </section>
+                <section data-markdown>
+                    O modelo analisado foi o AlexNet, que possuia apenas 5 camadas
+
+                    Era um dos melhores ali por 2012
+                </section>
+                <section data-markdown>
+                    Isso trás problemas de privacidade e também de viés
+
+                    ![Predictive models by xkcd](https://imgs.xkcd.com/comics/predictive_models.png)
+                </section>
+                <section data-markdown>
+                    Mão na massa
+
+                    [A máquina ensinável](https://teachablemachine.withgoogle.com/)
+
+                    !["wizzard snoopy"](https://c.tenor.com/tgajgPLa9M4AAAAC/tenor.gif)
+                </section>
+                <section data-markdown>
+                    ### Fontes
+
+                    (que não foram citadas no texto)
+
+                    - https://developers.google.com/machine-learning/glossary#feature-vector
+                    - https://community.cadence.com/cadence_blogs_8/b/breakfast-bytes/posts/linleyspr22
+                    - https://xkcd.com/2169/
+                    - https://github.com/patrickmetzner/AI_Practice
+                    - https://github.com/fastai/fastbook/blob/master/01_intro.ipynb
+                </section>
+                <section data-markdown>
+                    Obrigado pela atenção!
+                </section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+        <script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+        <script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>

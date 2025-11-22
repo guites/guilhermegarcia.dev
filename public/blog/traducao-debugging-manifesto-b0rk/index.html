@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="https://guilhermegarcia.dev/images/favicon.png" />
+<title>Um manifesto pela depuração | Blog do Guilherme</title>
+<meta name="title" content="Um manifesto pela depuração" />
+<meta name="description" content="Fiz uma tradução (de baixa fidelidade) de um poster da wizard zines que eu sempre curti. Ele mostra um pouco o estado de espírito que eu acho ideal pra programação: meio apavorado, mas instigado pelo desconhecido.
+A autora é a Julia Evans e ela é muito fera em ensinar conceitos na área de tecnologia.
+Caso você queira alterar alguma coisa, esse é o arquivo psd que eu utilizei: (clique para baixar)." />
+<meta name="keywords" content="português," />
+
+
+<meta property="og:title" content="Um manifesto pela depuração" />
+<meta property="og:description" content="Fiz uma tradução (de baixa fidelidade) de um poster da wizard zines que eu sempre curti. Ele mostra um pouco o estado de espírito que eu acho ideal pra programação: meio apavorado, mas instigado pelo desconhecido.
+A autora é a Julia Evans e ela é muito fera em ensinar conceitos na área de tecnologia.
+Caso você queira alterar alguma coisa, esse é o arquivo psd que eu utilizei: (clique para baixar)." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://guilhermegarcia.dev/blog/traducao-debugging-manifesto-b0rk/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2024-09-05T19:06:05-03:00" />
+<meta property="article:modified_time" content="2024-09-05T19:06:05-03:00" /><meta property="og:site_name" content="Blog do Guilherme" />
+
+
+
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Um manifesto pela depuração"/>
+<meta name="twitter:description" content="Fiz uma tradução (de baixa fidelidade) de um poster da wizard zines que eu sempre curti. Ele mostra um pouco o estado de espírito que eu acho ideal pra programação: meio apavorado, mas instigado pelo desconhecido.
+A autora é a Julia Evans e ela é muito fera em ensinar conceitos na área de tecnologia.
+Caso você queira alterar alguma coisa, esse é o arquivo psd que eu utilizei: (clique para baixar)."/>
+
+
+
+<meta itemprop="name" content="Um manifesto pela depuração">
+<meta itemprop="description" content="Fiz uma tradução (de baixa fidelidade) de um poster da wizard zines que eu sempre curti. Ele mostra um pouco o estado de espírito que eu acho ideal pra programação: meio apavorado, mas instigado pelo desconhecido.
+A autora é a Julia Evans e ela é muito fera em ensinar conceitos na área de tecnologia.
+Caso você queira alterar alguma coisa, esse é o arquivo psd que eu utilizei: (clique para baixar)."><meta itemprop="datePublished" content="2024-09-05T19:06:05-03:00" />
+<meta itemprop="dateModified" content="2024-09-05T19:06:05-03:00" />
+<meta itemprop="wordCount" content="98">
+<meta itemprop="keywords" content="português," />
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  body {
+    font-family: Verdana, sans-serif;
+    margin: auto;
+    padding: 20px;
+    max-width: 720px;
+    text-align: left;
+    background-color: #fff;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: #444;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  b {
+    color: #222;
+  }
+
+  a {
+    color: #3273dc;
+     
+  }
+
+  .title {
+    text-decoration: none;
+    border: 0;
+  }
+
+  .title span {
+    font-weight: 400;
+  }
+
+  nav a {
+    margin-right: 10px;
+  }
+
+  textarea {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  input {
+    font-size: 16px;
+  }
+
+  content {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    padding: 2px 5px;
+    background-color: #f2f2f2;
+  }
+
+  pre code {
+    color: #222;
+    display: block;
+    padding: 20px;
+    white-space: pre-wrap;
+    font-size: 14px;
+    overflow-x: auto;
+  }
+
+  div.highlight pre {
+    background-color: initial;
+    color: initial;
+  }
+
+  div.highlight code {
+    background-color: unset;
+    color: unset;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: #222;
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px;
+    text-align: center;
+  }
+
+  .helptext {
+    color: #777;
+    font-size: small;
+  }
+
+  .errorlist {
+    color: #eba613;
+    font-size: small;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: #8b6fcb;
+  }
+
+  aside {
+    margin: 15px 5px;
+    padding: 5px 10px;
+    border: 1px dashed;
+    text-align: justify;
+    hyphens: auto;
+  }
+
+  aside::before {
+    content: " ᶘ ᵒᴥᵒᶅ ";
+    margin-right: 5px;
+  }
+
+  aside.warning {
+    border-color: #ffbb00;
+    background-color: rgb(255, 249, 231);
+  }
+
+  aside.warning::before {
+    color: #ffbb00;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #333;
+      color: #ddd;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    strong,
+    b {
+      color: #eee;
+    }
+
+    a {
+      color: #8cc2dd;
+    }
+
+    code {
+      background-color: #777;
+    }
+
+    pre code {
+      color: #ddd;
+    }
+
+    blockquote {
+      color: #ccc;
+    }
+
+    aside.warning {
+        background-color: transparent;
+    }
+
+    textarea,
+    input {
+      background-color: #252525;
+      color: #ddd;
+    }
+
+    .helptext {
+      color: #aaa;
+    }
+  }
+</style>
+
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h2>Blog do Guilherme</h2>
+</a>
+<nav><a href="/">Home</a>
+
+
+<a href="/blog">Blog</a>
+
+<a href="/links">Links</a>
+<a href="/art">Art</a>
+</nav>
+</header>
+  <main>
+
+<h1>Um manifesto pela depuração</h1>
+<p>
+  <i>
+    <time datetime='2024-09-05' pubdate>
+      05 Sep, 2024
+    </time>
+  </i>
+</p>
+
+
+<content>
+  <p>Fiz uma tradução (de baixa fidelidade) de um poster da <a href="https://wizardzines.com/">wizard zines</a> que eu sempre curti. Ele mostra um pouco o estado de espírito que eu acho ideal pra programação: meio apavorado, mas instigado pelo desconhecido.</p>
+<p>A autora é a <a href="https://jvns.ca/">Julia Evans</a> e ela é muito fera em ensinar conceitos na área de tecnologia.</p>
+<p><img src="./debugging-manifesto-tradu%C3%A7%C3%A3o.png" alt="Poster traduzido &ldquo;um manifesto pela depuração&rdquo;"></p>
+<p>Caso você queira alterar alguma coisa, esse é o arquivo psd que eu utilizei: (<a href="./debugging-manifesto.psd">clique para baixar</a>).</p>
+<p>Eu peguei o .pdf original no site, transformei num png e carreguei no photopea pra editar.</p>
+<p>Agora é só distribuir, imprimir e colar pelas paredes. Boa depuração!</p>
+
+</content>
+<p>
+  
+  <a href="https://guilhermegarcia.dev/blog/portugu%C3%AAs/">#português</a>
+  
+</p>
+
+  </main>
+  <footer>
+</footer>
+
+    
+</body>
+
+</html>

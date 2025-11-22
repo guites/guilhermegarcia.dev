@@ -27,7 +27,6 @@
 			<section>
 				<h2>Do Regex a LLM</h2>
 				<p>Extraindo horários de cinema de páginas imprevisíveis</p>
-				<img style="display: block; margin: 20px auto; max-width: 320px; height: auto;" src="./midias/cinemaempoa-foil.png">
 				<small>(Um estudo de caso do cinemaempoa.com.br)</small>
 			</section>
 			<section data-markdown>
@@ -39,7 +38,7 @@
 					<div style="display: flex; align-items: start; justify-content: center;">
 						<img style="object-fit: contain; border-radius: 50%;" width="200" src="./midias/nilton-2.png">
 						<ul>
-							<li>Python Developer</li>
+							<li>Python Developer <small>PROCURANDO TRAMPO 🤣</small></li>
 							<li>Revisor Técnico
 								<ul>
 									<li>
@@ -106,6 +105,13 @@
 					<p style="margin-bottom: 0px;">Automatizar a coleta das programações dos cinemas.</p>
 
 					<img src="./midias/cinemaempoa-robot.jpeg">
+				</textarea>
+			</section>
+			<section data-markdown>
+				<textarea data-template>
+					## A ferramenta
+
+					<img src="./midias/scrapper-capitolio-output-example.png">
 				</textarea>
 			</section>
 			<section data-markdown>
@@ -298,6 +304,74 @@
 					As postagens são feitas em estilo "texto livre".
 				</textarea>
 			</section>
+			<section data-markdown>
+				<textarea data-template>
+					## Texto livre
+
+					Livre para ter o HTML que quiser (e nunca o mesmo)
+
+					- O editor digita em um campo WYSIWYG
+					- O software é responsável por gerar o HTML equivalente
+				</textarea>
+			</section>
+			<section data-markdown>
+				<textarea data-template>
+					## O editor do Blogspot
+
+					<img src="./midias/post-editor-blogger.png" >
+				</textarea>
+			</section>
+			<section>
+				<h3>HTML ... um pouco caótico</h3>
+				<pre><code data-line-numbers="|1|2,3|4|7" data-trim>
+					<div id="post-body-2529444150914052237" class="post-body entry-content float-container">
+						<p>&nbsp;Teste de postagem de blog!</p>
+						<p>Aqui vai um monte de imagens:</p>
+						<p>&nbsp;<br></p>
+						<div class="separator" style="clear: both; text-align: center;">
+							<a
+								href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgy1L1YjyLpK_UPrAiMJoehtw04QEmvNwITWuESrocB0vcRfNEZGXMn7cdxiFJplha0QimGtGxa9j29gZCLZV1dhi00qOLraJ5JI6MKs8PdLVawBvysaOmC03YQM3jKX1fFvbK7oNa78ROqDfGOFZniJZ658iHTUZSlMjg_g23AYCdIHVCSB_wyLX6Ro_U/s600/alice-junior-res.jpg"
+								imageanchor="1" style="margin-left: 1em; margin-right: 1em;">
+									<img border="0" data-original-height="600"
+										data-original-width="423" height="320"
+										src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgy1L1YjyLpK_UPrAiMJoehtw04QEmvNwITWuESrocB0vcRfNEZGXMn7cdxiFJplha0QimGtGxa9j29gZCLZV1dhi00qOLraJ5JI6MKs8PdLVawBvysaOmC03YQM3jKX1fFvbK7oNa78ROqDfGOFZniJZ658iHTUZSlMjg_g23AYCdIHVCSB_wyLX6Ro_U/s320/alice-junior-res.jpg"
+										width="226">
+							</a>
+						</div><br>
+						<div class="separator" style="clear: both; text-align: center;"><a
+								href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgzK5D5Zd6v2cRRtX3WRhDHbCwFeJL9sEsCG3bvIpcEzJ74dOjIBSgWoXB0qFL4BOrGwALz-TR3OoDI9SQrxbGsMKst4TE3ey8FpVWByjliVBZvOoz49tbn3N-HYS1X2m48RS9sOm8ZkScp-Ql2KGMm0WWH7kDd-nRyWTHufp24CzKuN6snXDIe40GWsU0/s600/os-piores-res.jpg"
+								imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="600"
+									data-original-width="400" height="320"
+									src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgzK5D5Zd6v2cRRtX3WRhDHbCwFeJL9sEsCG3bvIpcEzJ74dOjIBSgWoXB0qFL4BOrGwALz-TR3OoDI9SQrxbGsMKst4TE3ey8FpVWByjliVBZvOoz49tbn3N-HYS1X2m48RS9sOm8ZkScp-Ql2KGMm0WWH7kDd-nRyWTHufp24CzKuN6snXDIe40GWsU0/s320/os-piores-res.jpg"
+									width="213"></a></div><br>
+						<div class="separator" style="clear: both; text-align: center;"><a
+								href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiTcLhe5B9hsWxkBH2nS6C0Mbf8IdOZRxG4QwcTf2mzzi6nDg2JCu2jBR0O1DIVyEajLtTxhGyBICiwVeNPjoJQ3sJRnjy3pNxblHJ4d4WfBEi-nvbdaCb3LnAQcdGagSwp-UELOFCvkZVGzkGQvpi7LZogwAT5isImshm_OzuaHvqWpEXyr1omv2nzIqs/s500/memorias-de-ontem.png"
+								imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="500"
+									data-original-width="351" height="320"
+									src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiTcLhe5B9hsWxkBH2nS6C0Mbf8IdOZRxG4QwcTf2mzzi6nDg2JCu2jBR0O1DIVyEajLtTxhGyBICiwVeNPjoJQ3sJRnjy3pNxblHJ4d4WfBEi-nvbdaCb3LnAQcdGagSwp-UELOFCvkZVGzkGQvpi7LZogwAT5isImshm_OzuaHvqWpEXyr1omv2nzIqs/s320/memorias-de-ontem.png"
+									width="225"></a></div><br>
+						<div class="separator" style="clear: both; text-align: center;"><a
+								href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhnIucpStbStipi_jr8Di39Gyb4scih_th1__baer1RYUO0A9UFJMDiWJVy1SjVJyMI3x3ZjNYf7l0mx2XvZTYsGnqzxwPPaDSSQO1wgTk8d4u20I6S-Go1fSJq1abo00bC9Nuu8QaI_RSLsQp3AmpzWJhGrThgnhdLNjGZXglt75WPBOvDnQigPoTxBbc/s500/nausikaa.png"
+								imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="500"
+									data-original-width="357" height="320"
+									src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhnIucpStbStipi_jr8Di39Gyb4scih_th1__baer1RYUO0A9UFJMDiWJVy1SjVJyMI3x3ZjNYf7l0mx2XvZTYsGnqzxwPPaDSSQO1wgTk8d4u20I6S-Go1fSJq1abo00bC9Nuu8QaI_RSLsQp3AmpzWJhGrThgnhdLNjGZXglt75WPBOvDnQigPoTxBbc/s320/nausikaa.png"
+									width="228"></a></div><br>
+						<div class="separator" style="clear: both; text-align: center;"><a
+								href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi9Pu74OXX2V8VINsrnd3RluTh-8CbGuQAPqZGw-wFjcsN4w7tOdjwOA9QBgkZh_ey2reILb4xENXJerpoGd5z0UaKn5H7PqFWIpTQRuvzHNGwdJx1q-pt7pxeUVJGTRlbGJyNCT-jOOtlE3Rwv-cQKtLzIK2_rDBKBK0WwMN0Ftc1IWZKQYH6dx9itxlU/s600/thiago-e-isis-e-os-biomas-do-brasil-res.jpg"
+								imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="600"
+									data-original-width="399" height="320"
+									src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi9Pu74OXX2V8VINsrnd3RluTh-8CbGuQAPqZGw-wFjcsN4w7tOdjwOA9QBgkZh_ey2reILb4xENXJerpoGd5z0UaKn5H7PqFWIpTQRuvzHNGwdJx1q-pt7pxeUVJGTRlbGJyNCT-jOOtlE3Rwv-cQKtLzIK2_rDBKBK0WwMN0Ftc1IWZKQYH6dx9itxlU/s320/thiago-e-isis-e-os-biomas-do-brasil-res.jpg"
+									width="213"></a></div><br>
+						<div class="separator" style="clear: both; text-align: center;"><a
+								href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg2bRcNyC4Q-ddmbQBj6uIjhE8Ff4gTprWVLDkZholT_ASj8-Cda9d-tVSW0LnkpR2jkRau2Yvl3HdQa3GzzxLm72L_6StFP6lvzgEfwTmG5xz4EHI-A_HQcUpjzPH4WaraqRCuV6lbWIRrWizRftzM0PskmDBNpD-wwSahtcWS2NXOnu3B4MyUNxwRRk8/s600/razao-e-sensibilidade-res.jpg"
+								imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="600"
+									data-original-width="425" height="320"
+									src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg2bRcNyC4Q-ddmbQBj6uIjhE8Ff4gTprWVLDkZholT_ASj8-Cda9d-tVSW0LnkpR2jkRau2Yvl3HdQa3GzzxLm72L_6StFP6lvzgEfwTmG5xz4EHI-A_HQcUpjzPH4WaraqRCuV6lbWIRrWizRftzM0PskmDBNpD-wwSahtcWS2NXOnu3B4MyUNxwRRk8/s320/razao-e-sensibilidade-res.jpg"
+									width="227"></a></div><br>
+					</div>
+
+				</pre></code>
+			</section>
 			<section data-background-iframe="https://cinebancarios.blogspot.com/2023/08/retratos-fantasmas-e-o-acidente.html" data-background-interactive>
 				<div style="position: absolute;
 					width: 40%;
@@ -353,6 +427,27 @@
 			</section>
 			<section>
 				<h3>Um primeiro algoritmo</h3>
+				<p>(pseudo código)</p>
+				<pre><code class="language-plaintext" data-trim>
+					PARA cada elemento:
+
+						SE o texto começa com "Sinopse:":
+
+							definir cursor = elemento anterior
+
+							ENQUANTO cursor existir E
+								(cursor começa com "Direção:" OU cursor contém "min."):
+
+								mover cursor para o elemento anterior
+
+							SE cursor existir:
+								registrar cursor como título do filme
+
+					CONTINUAR até o final da lista de elementos
+				</code></pre>
+			</section>
+			<section>
+				<h3>Um primeiro algoritmo</h3>
 				<p>Implementação real (🍝): <img src="./midias/impl-1-repo.png"></p>
 			</section>
 			<section>
@@ -362,7 +457,8 @@
 					Esperamos que...
 					<li>adicionem o nome do diretor</li>
 					<li>adicionem informação de país, genero, ano</li>
-					<li><strong>exista uma sinopse para cada filme que está passando</strong></li>
+					<li><strong>o editor WYSIWYG faça a divisão das informações em elementos</strong></li>
+					<li>exista uma sinopse para cada filme que está passando</li>
 				</ul>
 			</section>
 			<section data-background-iframe="https://cinebancarios.blogspot.com/2023/09/cinebancarios-exibe-estreia-deangela-na.html" data-background-interactive>
@@ -455,9 +551,7 @@
 				<h2>Acessando Text Nodes</h2>
 				<div class="r-stack">
 					<img class="fragment" src="./midias/dom-nodes.png">
-					<img class="fragment" src="./midias/text-nodes-1.png">
-					<img class="fragment" src="./midias/text-nodes-2.png">
-					<img class="fragment" src="./midias/text-nodes-3.png">
+
 					<div class="fragment" style="
 					position: absolute;
 					right: 40%;
@@ -493,7 +587,7 @@
 			</section>
 			<section>
 				<h2>A saída do scrapper</h2>
-				<pre><code data-trim data-line-numbers="|9|19|29" class="language-json">
+				<pre><code data-trim data-line-numbers="|9|19|29|14|24|34" class="language-json">
 					[
 						{
 							"url": "https://cinebancarios.blogspot.com",
@@ -537,138 +631,44 @@
 			</section>
 			<section>
 				<h3>Oh god why</h3>
-				<div class="r-stack">
-					<img class="fragment" src="./midias/text-node-error-1.png">
-					<img class="fragment" src="./midias/text-node-error-2.png">
-					<img class="fragment" src="./midias/text-node-error-3.png">
-				</div>
+
+				<img src="./midias/error-text-node-1.png">
 			</section>
 			<section>
-				<h3>E com o tempo acabamos assim...</h3>
-				<div class="r-stack">
-					<img class="fragment" src="./midias/diagram-hell.png">
-					<img class="fragment" src="./midias/this-is-fine.gif">
-				</div>
+				<h3>Oh god why</h3>
+
+				<img src="./midias/error-text-node-2.png">
 			</section>
-			<section data-markdown data-autoslide="2000" data-transition="fade-out">
+			<section data-markdown>
 				<textarea data-template>
 					## Uma saída: LLMs
 
 					E se houvesse uma forma de pedir pra um modelo estruturar os dados?
-
-					<img src="./midias/html-hope-json.png">
 				</textarea>
 			</section>
-			<section data-markdown data-transition="fade-in">
+			<section>
+				<img src="./midias/llm-to-json.png">
+			</section>
+			<section>
+				<h2>A pipeline: coletando o histórico dos filmes</h2>
+
+				<img src="./midias/mermaid-diagram-2025-11-21-143320.png">
+			</section>
+			<section>
+				<h2>Prompting</h2>
+			</section>
+			<section data-markdown>
 				<textarea data-template>
-					## Uma saída: LLMs
+					## A criação de alertas
 
-					E se houvesse uma forma de pedir pra um modelo estruturar os dados?
+					TODO: Nilton the man
+				</textarea>
+			</section>
 
-					<img src="./midias/html-llm-json.png">
-				</textarea>
-			</section>
-			<section data-markdown>
-				<textarea data-template>
-					### A pipeline
-
-					<img class="r-stretch" src="./midias/mermaid-diagram-2025-11-21-160812.png">
-				</textarea>
-			</section>
 			<section>
-				<h2>Os resultados</h2>
-				<pre><code data-trim class="language-json">
-					{
-						"title": "Documentário Em busca de Iara segue em cartaz até dia 9",
-						"link": "http://cinebancarios.blogspot.com/2014/04/documentario-em-busca-de-iara-segue-em.html",
-						"pubDate": "2014-04-03T20:00:00+00:00",
-						"llm": "deepseek-chat",
-						"output": {
-							"movies": [
-								{
-									"title": "Em Busca de Iara",
-									"image_url": "https://blogger.googleusercontent.com/img/b/Iara+escadaria+Pacaembu_kinoscopio.jpg",
-									"general_info": "Brasil/documentário/2013/91min",
-									"director": "Flavio Frederico",
-									"classification": "Não informada",
-									"excerpt": "Documentário de Flavio Frederico que resgata a vida de Iara Iavelberg...",
-									"screening_dates": [
-										"2014-04-01 15:00",
-										"2014-04-01 17:00",
-										"2014-04-01 19:00",
-										"2014-04-09 15:00"
-									]
-								}
-							]
-						}
-					}
-				</code></pre>
-			</section>
-			<section>
-				<h2>Os resultados</h2>
-				<p>Parecem bons. Mas será que dá pra confiar?</p>
-				<p>Isso é uma cilada, Bino?</p>
-			</section>
-			<section data-markdown>
-				<textarea>
-				<h3>O Desafio (Mais um) - Inconsistência dos LLMs</h3>
-				<ul>
-					<li>LLMs diferentes interpretam o mesmo texto de maneiras diferentes. Isso leva a dados inconsistentes e conflitantes.</li>
-					<li>Um LLM pode "alucinar" uma sessão em um dia em que o cinema está normalmente fechado (ex: segundas-feiras).</li>
-				</ul>
-				</textarea>
-			</section>
-			<section data-markdown>
-				<textarea>
-				<h3>A Solução - Um Motor de Comparação Automatizado</h3>
-				<ul>
-					<li>Construímos um segundo pipeline que usa um LLM como "juiz" para comparar as saídas dos arquivos JSON criados anteriormente.</li>
-					<li>Mas como que é esse pipeline?</li>
-				</ul>
-				</textarea>
-			</section>
-			<section data-markdown>
-				<textarea>
-					<img src="./midias/mermaid-diagram-2025-11-21-232934.png">
-				</textarea>
-			</section>
-			<section data-markdown>
-				<textarea>
-				<h2>"Talk is cheap. Show me the code."</h2>
-				<h3>Linus Torvalds</h3>
-				</textarea>
-			</section>
-			<section data-markdown>
-				<textarea>
-				<h3>Desafios com LLMs</h3>
-				<ul>
-					<li>LLMs possuem janelas de contexto finitas. Textos muito longos podem ser truncados ou causar falha na extração.</li>
-					<li>LLMs utilizados frequentemente impõem limites de requisições ou sofrem com alta latência, levando a erros e interrupções no pipeline.</li>
-					<li>O uso massivo de APIs de LLM pode gerar custos significativos.</li>
-				</ul>
-				</textarea>
-			</section>
-			<section data-markdown>
-				<textarea>
-				<h3>Principais Aprendizados</h3>
-				<ul>
-					<li>A qualidade da saída de um LLM é diretamente proporcional à qualidade do prompt.</li>
-					<li>Prompts detalhados com regras, exemplos e lógica de negócio são essenciais para resultados consistentes.</li>
-				</ul>
-				</textarea>
-			</section>
-			<section data-markdown>
-				<textarea>
-				<h3>Próximos Passos</h3>
-				<ul>
-					<li>Evoluir o "LLM juiz" para não apenas comparar, mas também para corrigir e unificar as saídas em um único registro "ouro" confiável.</li>
-					<li>Investigar o uso de modelos de código aberto (open source) para reduzir a dependência de APIs pagas e otimizar os custos operacionais.</li>
-				</ul>
-				</textarea>
-			</section>
-			<section>
-				<p>🖤🖤🖤 Obrigado pela atenção 🖤🖤🖤</p>
-				<p>Participe do projeto: <a href="https://cinemaempoa.com.br">cinemaempoa.com.br</a></p>
+				<p>Obrigado</p>
+				<img style="max-width:420px;" src="./midias/flyer.jpg">
+				<p>pela atenção :)</p>
 			</section>
 		</div>
 	</div>

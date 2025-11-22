@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>linux on Blog do Guilherme</title>
+    <link>https://guilhermegarcia.dev/blog/linux/</link>
+    <description>Recent content in linux on Blog do Guilherme</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <copyright>Copyright © 2024, Guilherme Garcia.</copyright>
+    <lastBuildDate>Sun, 04 Feb 2024 12:47:34 -0300</lastBuildDate>
+    <atom:link href="https://guilhermegarcia.dev/blog/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Revivendo um netbook com linux</title>
+      <link>https://guilhermegarcia.dev/blog/revivendo-um-netbook-com-linux/</link>
+      <pubDate>Sun, 04 Feb 2024 12:47:34 -0300</pubDate>
+      <guid>https://guilhermegarcia.dev/blog/revivendo-um-netbook-com-linux/</guid>
+      <description>Introdução No último final de semana, resolvi dar uma atenção pra um netbook que estava abandonado no hackerspace.&#xA;Eu já tinha visto ele funcionando (na época tava rodando um lubuntu) e lembro que tentei acessar alguns sites pelo firefox, mas estava tão lento que acabei abandonando.&#xA;Alguns meses depois, fui tentar ligá-lo novamente e ele não funcionava. Pelo visto tinha sido derrubado e deixado para morrer.&#xA;Resolvi dar uma nova chance pra esse Aspire One D270 - 1655 viver novos dias de glória.</description>
+    </item>
+  </channel>
+</rss>
