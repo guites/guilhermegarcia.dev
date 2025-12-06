@@ -3,15 +3,21 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://guilhermegarcia.dev/</loc>
-    <lastmod>2024-09-30T20:18:05-03:00</lastmod>
-  </url><url>
-    <loc>https://guilhermegarcia.dev/blog/lancando-o-cinemaempoa/</loc>
-    <lastmod>2024-09-30T20:18:05-03:00</lastmod>
+    <lastmod>2025-11-22T19:06:05-03:00</lastmod>
   </url><url>
     <loc>https://guilhermegarcia.dev/blog/</loc>
-    <lastmod>2024-09-30T20:18:05-03:00</lastmod>
+    <lastmod>2025-11-22T19:06:05-03:00</lastmod>
+  </url><url>
+    <loc>https://guilhermegarcia.dev/blog/cinemaempoa-na-pythonsul/</loc>
+    <lastmod>2025-11-22T19:06:05-03:00</lastmod>
   </url><url>
     <loc>https://guilhermegarcia.dev/blog/portugu%C3%AAs/</loc>
+    <lastmod>2025-11-22T19:06:05-03:00</lastmod>
+  </url><url>
+    <loc>https://guilhermegarcia.dev/blog/python/</loc>
+    <lastmod>2025-11-22T19:06:05-03:00</lastmod>
+  </url><url>
+    <loc>https://guilhermegarcia.dev/blog/lancando-o-cinemaempoa/</loc>
     <lastmod>2024-09-30T20:18:05-03:00</lastmod>
   </url><url>
     <loc>https://guilhermegarcia.dev/blog/grupo-de-estudos-linha-comando/</loc>
@@ -19,9 +25,6 @@
   </url><url>
     <loc>https://guilhermegarcia.dev/blog/traducao-debugging-manifesto-b0rk/</loc>
     <lastmod>2024-09-05T19:06:05-03:00</lastmod>
-  </url><url>
-    <loc>https://guilhermegarcia.dev/blog/python/</loc>
-    <lastmod>2024-08-29T13:06:05-03:00</lastmod>
   </url><url>
     <loc>https://guilhermegarcia.dev/blog/workshop-servidores-federados-django/</loc>
     <lastmod>2024-08-29T13:06:05-03:00</lastmod>

@@ -7,8 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Copyright © 2024, Guilherme Garcia.</copyright>
-    <lastBuildDate>Mon, 30 Sep 2024 20:18:05 -0300</lastBuildDate>
+    <lastBuildDate>Sat, 22 Nov 2025 19:06:05 -0300</lastBuildDate>
     <atom:link href="https://guilhermegarcia.dev/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>cinemaempoa na pythonsul</title>
+      <link>https://guilhermegarcia.dev/blog/cinemaempoa-na-pythonsul/</link>
+      <pubDate>Sat, 22 Nov 2025 19:06:05 -0300</pubDate>
+      <guid>https://guilhermegarcia.dev/blog/cinemaempoa-na-pythonsul/</guid>
+      <description>Em 21 a 23 de Novembro de 2025 aconteceu o Python Sul 2025 em Porto Alegre.&#xA;Junto com o Nilton Pimentel, submeti uma palestra baseada na implementação do cinemaempoa pra fazer extração dos horários de filmes que passam no CineBancários.&#xA;A ideia foi usar duas LLMs diferentes pra processar as postagens do blog do cinema e retornar as exibições de filmes em forma estruturada (JSON).&#xA;O diferencial foi usar a comparação entre o resultado dos dois modelos pra criação de alertas: discordâncias entre os modelos são uma ótima métrica pra detectar erros de extração!</description>
+    </item>
     <item>
       <title>(Re)lançando o cinemaempoa</title>
       <link>https://guilhermegarcia.dev/blog/lancando-o-cinemaempoa/</link>
