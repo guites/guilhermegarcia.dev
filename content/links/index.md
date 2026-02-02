@@ -36,5 +36,6 @@ Get surfing!
 - [Cognitive load is what matters by Artem Zakirullin](https://minds.md/zakirullin/cognitive)
 - [nohello.net](https://nohello.net/)
 - [Choose Boring Technology](https://boringtechnology.club/)
+- [O que é indireção? em pt.stackoverflow.com](https://pt.stackoverflow.com/questions/181032/o-que-%c3%a9-indire%c3%a7%c3%a3o/181033#181033)
 
-<small>last updated at seg 02 fev 2026 17:13:37 -03</small>
+<small>last updated seg 02 fev 2026 17:26:46 -03</small>
