@@ -74,17 +74,10 @@
     </item>
     <item>
       <title></title>
-      <link>https://guilhermegarcia.dev/art/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://guilhermegarcia.dev/art/</guid>
-      <description>Art stuff Big ol&amp;rsquo; dump of stuff I&amp;rsquo;ve been creating lately!</description>
-    </item>
-    <item>
-      <title></title>
       <link>https://guilhermegarcia.dev/links/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://guilhermegarcia.dev/links/</guid>
-      <description>Links I love These are some of my favorite pages I&amp;rsquo;ve bumped into while surfing the web, loosely categorized. They range from articles, tutorials, games, photography and other beautiful stuff.&#xA;Get surfing!&#xA;Coding The elevator programming game Data Science Tensors from scratch by Maharshi. Databases Database Design for Google Calendar: a tutorial Use the index, Luke! Javascript Promises From The Ground Up Micro-Frameworks and Micro-Libraries for Fun and Profit! Python Why if TYPE_CHECKING?</description>
+      <description>Links I love These are some of my favorite pages on the web.&#xA;They range from articles, tutorials, games, photography and other beautiful stuff.&#xA;Get surfing!&#xA;The elevator programming game Tensors from scratch by Maharshi. Database Design for Google Calendar: a tutorial Use the index, Luke! Promises From The Ground Up Micro-Frameworks and Micro-Libraries for Fun and Profit! Why if TYPE_CHECKING? Public Works by Cosmos The Elegance of the ASCII Table Replace gifs with videos So you think you know box shadows?</description>
     </item>
   </channel>
 </rss>
