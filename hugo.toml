@@ -3,7 +3,7 @@ theme = 'hugo-bearblog'
 
 title = 'Blog do Guilherme'
 author = 'Guilherme Garcia'
-copyright = 'Copyright © 2024, Guilherme Garcia.'
+copyright = 'Copyright © 2024-2026, Guilherme Garcia.'
 languageCode = 'pt-br'
 
 tableOfContents = true
