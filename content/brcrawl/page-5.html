@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>BR Crawl</title>
+
+	<meta http-equiv="Content-Security-Policy" content="
+		default-src 'none';
+		base-uri 'self';
+		img-src 'self' data: ;
+		style-src 'nonce-89a281285709de17af43ff826458a30b' ;
+		script-src 'nonce-89a281285709de17af43ff826458a30b' 'strict-dynamic' ;
+	">
+	<meta name="application-name" content="brcrawl">
+	<meta name="description" content="Diretório da smallweb brasileira">
+	<meta name="referrer" content="same-origin">
+
+	<style nonce="89a281285709de17af43ff826458a30b">
+:root {
+    color-scheme: dark light;
+    --primary: #0AC8F5;
+    --secondary: #D2F00F;
+    --text: var(--txt, #cfcfcf);
+    --border: var(--bd, #c0c0c0);
+    --background: var(--bg, #1D1F21);
+    font-size: min(calc(.5rem + 0.75vw), 16px);
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --text: var(--txt, #444444);
+        --border: var(--bd, #333333);
+        --background: var(--bg, white);
+        --primary: #207D92;
+        --secondary: #6A7A06;
+    }
+}
+
+body {
+    font-family: Calibri, 'Trebuchet MS', 'Lucida Sans', Arial, sans-serif;
+    color: var(--text);
+    background: var(--background);
+    max-width: 50rem;
+    width: 100%;
+    margin: 0.5em auto 2em;
+    line-height: 1.25em;
+}
+
+header {
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 0.25em;
+}
+
+header > h1 {
+    display: inline-block;
+    padding: 0 0.5em;
+}
+
+h2 {
+    font-size: 1rem;
+    display: inline;
+}
+
+ol {
+    padding-left: 5ch;
+}
+
+li {
+    margin-block-start: 1em;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:link {
+    color: var(--primary);
+}
+
+a:visited {
+    color: var(--secondary);
+}
+
+a:hover {
+    opacity: 0.8;
+}
+
+small {
+    padding-top: 0.25rem;
+    font-size: 0.95rem;
+}
+
+small > a:link,
+small > a:visited {
+    color: var(--text);
+}
+
+footer {
+    padding: 1rem;
+    margin-top: 2rem;
+    border-top: 1px solid var(--border);
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    padding: 1em 0;
+    margin-top: 1em;
+}
+
+nav > a, nav > span {
+    padding: 0.25em 0.75em;
+}
+
+nav > span {
+    color: var(--border);
+}
+	</style>
+</head>
+
+<body>
+	<header>
+		<h1>BR Crawl</h1>
+		Diretório da smallweb brasileira
+	</header>
+	<main>
+		<ol start="201">
+			<li>
+				<a href="https://girassois.bearblog.dev/minhas-radios-favoritas/" target="_blank">
+					<h2>Minhas rádios favoritas</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-05-26">26/05/2024</time>
+					|
+					<a href="https://girassois.bearblog.dev" target="_blank">girassois.bearblog.dev</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://pinoinha.bearblog.dev/ideia-carne-doce/" target="_blank">
+					<h2>Ideia - Carne Doce</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-05-14">14/05/2024</time>
+					|
+					<a href="https://pinoinha.bearblog.dev" target="_blank">pinoinha.bearblog.dev</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://subug.bearblog.dev/new-post/" target="_blank">
+					<h2>:)</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-05-12">12/05/2024</time>
+					|
+					<a href="https://subug.bearblog.dev" target="_blank">subug.bearblog.dev</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://ravinska.bearblog.dev/apresentei-meu-primeiro-seminario/" target="_blank">
+					<h2>apresentei meu primeiro seminário</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-04-16">16/04/2024</time>
+					|
+					<a href="https://ravinska.bearblog.dev" target="_blank">ravinska.bearblog.dev</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://palavranagarrafa.bearblog.dev/sabado-071023-finalmente-sei-quem-sou/" target="_blank">
+					<h2>Sábado, 07/10/23. Finalmente sei quem sou.</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2023-10-12">12/10/2023</time>
+					|
+					<a href="https://palavranagarrafa.bearblog.dev" target="_blank">palavranagarrafa.bearblog.dev</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://desarranjos.bearblog.dev/uma-noite-sem-luz/" target="_blank">
+					<h2>Uma noite sem luz</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2023-10-11">11/10/2023</time>
+					|
+					<a href="https://desarranjos.bearblog.dev" target="_blank">desarranjos.bearblog.dev</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://fragmentos.bearblog.dev/conversar-sozinho/" target="_blank">
+					<h2>Conversar sozinho</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2023-08-11">11/08/2023</time>
+					|
+					<a href="https://fragmentos.bearblog.dev" target="_blank">fragmentos.bearblog.dev</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://olimaia.net/2023/integracao-com-o-fediverso/" target="_blank">
+					<h2>integração com o fediverso</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2023-08-10">10/08/2023</time>
+					|
+					<a href="https://olimaia.net" target="_blank">olimaia.net</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://eduardo.bearblog.dev/tudo-errado/" target="_blank">
+					<h2>Tudo errado!</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2023-07-01">01/07/2023</time>
+					|
+					<a href="https://eduardo.bearblog.dev" target="_blank">eduardo.bearblog.dev</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://dhexter.bearblog.dev/sobre-mim/" target="_blank">
+					<h2>Sobre mim</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2023-06-19">19/06/2023</time>
+					|
+					<a href="https://dhexter.bearblog.dev" target="_blank">dhexter.bearblog.dev</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://wilberhg.bearblog.dev/usando-python-sem-instalar-windows/" target="_blank">
+					<h2>Usando Python Sem &amp;#34;Instalar&amp;#34; (Windows)</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2023-05-03">03/05/2023</time>
+					|
+					<a href="https://wilberhg.bearblog.dev" target="_blank">wilberhg.bearblog.dev</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://blogdoprego.bearblog.dev/carta-fechada-ao-passado/" target="_blank">
+					<h2>Carta fechada ao passado</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2023-04-08">08/04/2023</time>
+					|
+					<a href="https://blogdoprego.bearblog.dev" target="_blank">blogdoprego.bearblog.dev</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://physis19.bearblog.dev/por-que-eu-uso-linux/" target="_blank">
+					<h2>Por que eu uso Linux ?</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2023-04-01">01/04/2023</time>
+					|
+					<a href="https://physis19.bearblog.dev" target="_blank">physis19.bearblog.dev</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://rp.bearblog.dev/ha-dias-em-que-acordo-com-a-sensacao-de-vazio-e-o-dia-e-vazio/" target="_blank">
+					<h2>Há dias em que acordo com a sensação de vazio. E o dia é vazio.</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2023-02-26">26/02/2023</time>
+					|
+					<a href="https://rp.bearblog.dev" target="_blank">rp.bearblog.dev</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://opcv.bearblog.dev/chuva-raymond-carver/" target="_blank">
+					<h2>chuva, por Raymond Carver</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2023-01-21">21/01/2023</time>
+					|
+					<a href="https://opcv.bearblog.dev" target="_blank">opcv.bearblog.dev</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://md1993.bearblog.dev/post-title/" target="_blank">
+					<h2>Post title</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2023-01-03">03/01/2023</time>
+					|
+					<a href="https://md1993.bearblog.dev" target="_blank">md1993.bearblog.dev</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://mariana.bearblog.dev/119856852/" target="_blank">
+					<h2>um teste</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2022-12-30">30/12/2022</time>
+					|
+					<a href="https://mariana.bearblog.dev" target="_blank">mariana.bearblog.dev</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://convergencias.bearblog.dev/eu-nao-quero-a-minha-via-do-cartao/" target="_blank">
+					<h2>Eu não quero a minha via do cartão</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2022-11-08">08/11/2022</time>
+					|
+					<a href="https://convergencias.bearblog.dev" target="_blank">convergencias.bearblog.dev</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://leo-micelio.bearblog.dev/o-nascimento-de-leticia/" target="_blank">
+					<h2>o nascimento de Letícia</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2022-10-11">11/10/2022</time>
+					|
+					<a href="https://leo-micelio.bearblog.dev" target="_blank">leo-micelio.bearblog.dev</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://filipe.bearblog.dev/othernet/" target="_blank">
+					<h2>a outra internet</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2022-09-27">27/09/2022</time>
+					|
+					<a href="https://filipe.bearblog.dev" target="_blank">filipe.bearblog.dev</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://anos.bearblog.dev/estantes-contra-caos/" target="_blank">
+					<h2>Estantes contra o caos</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2022-09-22">22/09/2022</time>
+					|
+					<a href="https://anos.bearblog.dev" target="_blank">anos.bearblog.dev</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://oha.bearblog.dev/002/" target="_blank">
+					<h2>#002</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2022-09-12">12/09/2022</time>
+					|
+					<a href="https://oha.bearblog.dev" target="_blank">oha.bearblog.dev</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://terramterreno.bearblog.dev/journal1/" target="_blank">
+					<h2>A simple journal</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2022-06-05">05/06/2022</time>
+					|
+					<a href="https://terramterreno.bearblog.dev" target="_blank">terramterreno.bearblog.dev</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://nadafazsentido.bearblog.dev/a-questao-ucrania/" target="_blank">
+					<h2>A Questão Ucrânia</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2022-03-24">24/03/2022</time>
+					|
+					<a href="https://nadafazsentido.bearblog.dev" target="_blank">nadafazsentido.bearblog.dev</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://bddwarriors.wordpress.com/2022/02/04/dinamicas-de-aprendizagem-temos/" target="_blank">
+					<h2>Dinâmicas de aprendizagem? Temos!</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2022-02-04">04/02/2022</time>
+					|
+					<a href="https://bddwarriors.wordpress.com" target="_blank">bddwarriors.wordpress.com</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://leob.bearblog.dev/criptomoedas/" target="_blank">
+					<h2>a revolucionária tecnologia das criptomoedas que vai triplicar os lucros da sua empresa</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2022-01-25">25/01/2022</time>
+					|
+					<a href="https://leob.bearblog.dev" target="_blank">leob.bearblog.dev</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://salodesigner.bearblog.dev/aniversario/" target="_blank">
+					<h2>ANIVERSÁRIO</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2022-01-20">20/01/2022</time>
+					|
+					<a href="https://salodesigner.bearblog.dev" target="_blank">salodesigner.bearblog.dev</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://pauloewerton.bearblog.dev/progressao-funcional/" target="_blank">
+					<h2>Progressão Funcional</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2022-01-13">13/01/2022</time>
+					|
+					<a href="https://pauloewerton.bearblog.dev" target="_blank">pauloewerton.bearblog.dev</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://atur.bearblog.dev/learn-in-public/" target="_blank">
+					<h2>Learn in public</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2021-12-24">24/12/2021</time>
+					|
+					<a href="https://atur.bearblog.dev" target="_blank">atur.bearblog.dev</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://lapsotrivial.bearblog.dev/sobre-cidades-afundam-dias-normais/" target="_blank">
+					<h2>Sobre Cidades que Afundam em Dias Normais</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2021-11-21">21/11/2021</time>
+					|
+					<a href="https://lapsotrivial.bearblog.dev" target="_blank">lapsotrivial.bearblog.dev</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://bittopia0.bearblog.dev/this-is-us/" target="_blank">
+					<h2>This is us</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2021-11-04">04/11/2021</time>
+					|
+					<a href="https://bittopia0.bearblog.dev" target="_blank">bittopia0.bearblog.dev</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://zerodiario.bearblog.dev/instagram-sem-anuncios/" target="_blank">
+					<h2>Instagram sem anúncios</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2021-10-20">20/10/2021</time>
+					|
+					<a href="https://zerodiario.bearblog.dev" target="_blank">zerodiario.bearblog.dev</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://croche.bearblog.dev/cthulhu-chibi/" target="_blank">
+					<h2>Especial Halloween: Cthulhu Chibi</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2021-10-18">18/10/2021</time>
+					|
+					<a href="https://croche.bearblog.dev" target="_blank">croche.bearblog.dev</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://descafeinado.bearblog.dev/ween-the-mollusk/" target="_blank">
+					<h2>Ween - The Mollusk</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2021-10-16">16/10/2021</time>
+					|
+					<a href="https://descafeinado.bearblog.dev" target="_blank">descafeinado.bearblog.dev</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://fulvius.bearblog.dev/assistirmaistarde/" target="_blank">
+					<h2>AssistirMaisTarde</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2021-10-09">09/10/2021</time>
+					|
+					<a href="https://fulvius.bearblog.dev" target="_blank">fulvius.bearblog.dev</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://ganbah-new.bearblog.dev/blog-a-moda-antiga/" target="_blank">
+					<h2>Blog a moda antiga</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2021-09-23">23/09/2021</time>
+					|
+					<a href="https://ganbah-new.bearblog.dev" target="_blank">ganbah-new.bearblog.dev</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://qtrnn.io/2021/05/25/game-development-001/" target="_blank">
+					<h2>Game Development: engines, libraries and frameworks</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2021-05-25">25/05/2021</time>
+					|
+					<a href="https://qtrnn.io" target="_blank">qtrnn.io</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://registrosdopensar.bearblog.dev/becoming-a-tattooist/" target="_blank">
+					<h2>transformation</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2021-02-24">24/02/2021</time>
+					|
+					<a href="https://registrosdopensar.bearblog.dev" target="_blank">registrosdopensar.bearblog.dev</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://danieltolentino.bearblog.dev/melhores-da-semana-1/" target="_blank">
+					<h2>Melhores da Semana #1</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2020-12-30">30/12/2020</time>
+					|
+					<a href="https://danieltolentino.bearblog.dev" target="_blank">danieltolentino.bearblog.dev</a>
+				</small>
+			</li>
+		</ol>
+		<nav>
+			<a href="page-4.html">&larr; Previous</a>
+			<span>Page 5 of 5</span>
+			<span>Next &rarr;</span>
+		</nav>
+	</main>
+	<footer>
+		<p>Atualizado em:
+			<time id="update-at" datetime="2026-02-09T15:11:44.275267+00:00">
+				Monday, 09/02/2026 15:11:44
+			</time>
+		</p>
+		<p><a href="about.html">Sobre</a> | <a href="sources.html">Fontes</a></p>
+	</footer>
+</body>
+
+<script type="module" nonce="89a281285709de17af43ff826458a30b">
+	const updatedAtElement = document.getElementById("update-at");
+	const date = new Date(updatedAtElement.dateTime);
+	updatedAtElement.innerText = date.toLocaleString(undefined, {
+		dateStyle: "full",
+		timeStyle: "medium",
+	})
+</script>
+
+</html>
