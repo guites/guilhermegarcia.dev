@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>BR Crawl</title>
+
+	<meta http-equiv="Content-Security-Policy" content="
+		default-src 'none';
+		base-uri 'self';
+		img-src 'self' data: ;
+		style-src 'nonce-9f88a3ca7cda547c1a33a989ec5ded62' ;
+		script-src 'nonce-9f88a3ca7cda547c1a33a989ec5ded62' 'strict-dynamic' ;
+	">
+	<meta name="application-name" content="brcrawl">
+	<meta name="description" content="Diretório da smallweb brasileira">
+	<meta name="referrer" content="same-origin">
+
+	<style nonce="9f88a3ca7cda547c1a33a989ec5ded62">
+:root {
+    color-scheme: dark light;
+    --primary: #0AC8F5;
+    --secondary: #D2F00F;
+    --text: var(--txt, #cfcfcf);
+    --border: var(--bd, #c0c0c0);
+    --background: var(--bg, #1D1F21);
+    font-size: min(calc(.5rem + 0.75vw), 16px);
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --text: var(--txt, #444444);
+        --border: var(--bd, #333333);
+        --background: var(--bg, white);
+        --primary: #207D92;
+        --secondary: #6A7A06;
+    }
+}
+
+body {
+    font-family: Calibri, 'Trebuchet MS', 'Lucida Sans', Arial, sans-serif;
+    color: var(--text);
+    background: var(--background);
+    max-width: 50rem;
+    width: 100%;
+    margin: 0.5em auto 2em;
+    line-height: 1.25em;
+}
+
+header {
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 0.25em;
+}
+
+header > h1 {
+    display: inline-block;
+    padding: 0 0.5em;
+}
+
+h2 {
+    font-size: 1rem;
+    display: inline;
+}
+
+ol {
+    padding-left: 5ch;
+}
+
+li {
+    margin-block-start: 1em;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:link {
+    color: var(--primary);
+}
+
+a:visited {
+    color: var(--secondary);
+}
+
+a:hover {
+    opacity: 0.8;
+}
+
+small {
+    padding-top: 0.25rem;
+    font-size: 0.95rem;
+}
+
+small > a:link,
+small > a:visited {
+    color: var(--text);
+}
+
+footer {
+    padding: 1rem;
+    margin-top: 2rem;
+    border-top: 1px solid var(--border);
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    padding: 1em 0;
+    margin-top: 1em;
+}
+
+nav > a, nav > span {
+    padding: 0.25em 0.75em;
+}
+
+nav > span {
+    color: var(--border);
+}
+	</style>
+</head>
+
+<body>
+	<header>
+		<h1>BR Crawl</h1>
+		Diretório da smallweb brasileira
+	</header>
+	<main>
+		<ol start="351">
+			<li>
+				<a href="https://shinsekai.bearblog.dev/sem-titulo/" target="_blank">
+					<h2>Sem título</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-10-09">09/10/2024</time>
+					|
+					<a href="https://shinsekai.bearblog.dev" target="_blank">shinsekai.bearblog.dev</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://alves.bearblog.dev/alvaro/" target="_blank">
+					<h2>Álvaro</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-10-03">03/10/2024</time>
+					|
+					<a href="https://alves.bearblog.dev" target="_blank">alves.bearblog.dev</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://thaistory.bearblog.dev/mariahcarey/" target="_blank">
+					<h2>Don&amp;#39;t forget about Mariah Carey</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-10-03">03/10/2024</time>
+					|
+					<a href="https://thaistory.bearblog.dev" target="_blank">thaistory.bearblog.dev</a>
+				</small>
+			</li>
+			<li>
+				<a href="http://tfmoralles.blogspot.com/2024/09/poesia-e-uma-carapuca-que-serve-no.html" target="_blank">
+					<h2>poesia é uma carapuça que serve no coração de quem lê.</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-09-16">16/09/2024</time>
+					|
+					<a href="https://tfmoralles.blogspot.com" target="_blank">tfmoralles.blogspot.com</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://quasemineira.com.br/aonde-voce-quer-chegar/" target="_blank">
+					<h2>É importante descobrir aonde você quer chegar</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-09-06">06/09/2024</time>
+					|
+					<a href="https://quasemineira.com.br" target="_blank">quasemineira.com.br</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://ddungeon.bearblog.dev/e-muito-mais-do-que-uma-simples-ideia/" target="_blank">
+					<h2>É muito mais do que uma simples ideia</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-09-06">06/09/2024</time>
+					|
+					<a href="https://ddungeon.bearblog.dev" target="_blank">ddungeon.bearblog.dev</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://blogpoetiza-te.blogspot.com/2024/09/redefinir-rotas-e-uma-dadiva.html" target="_blank">
+					<h2>Redefinir rotas é uma dádiva</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-09-03">03/09/2024</time>
+					|
+					<a href="https://blogpoetiza-te.blogspot.com" target="_blank">blogpoetiza-te.blogspot.com</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://pythonicheadbanger.blogspot.com/2024/09/a-quick-talk-on-working-with.html" target="_blank">
+					<h2>A quick talk on &amp;#34;Working with Bioinformatics&amp;#34;</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-09-01">01/09/2024</time>
+					|
+					<a href="https://pythonicheadbanger.blogspot.com" target="_blank">pythonicheadbanger.blogspot.com</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://ggteixeira.github.io/garden/01-historia-do-frontend/a-hist%C3%B3ria-do-front-end/" target="_blank">
+					<h2>A História do Front-End</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-08-18">18/08/2024</time>
+					|
+					<a href="https://ggteixeira.github.io" target="_blank">ggteixeira.github.io</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://hiperfocos.bearblog.dev/enciclopedia-das-drogas/" target="_blank">
+					<h2>Enciclopédia das Drogas</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-08-17">17/08/2024</time>
+					|
+					<a href="https://hiperfocos.bearblog.dev" target="_blank">hiperfocos.bearblog.dev</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://solitariachrysaliis.blogspot.com/2024/08/eu-perdi-o-meu-diario.html" target="_blank">
+					<h2>eu perdi o meu diário</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-08-11">11/08/2024</time>
+					|
+					<a href="https://solitariachrysaliis.blogspot.com" target="_blank">solitariachrysaliis.blogspot.com</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://focanotexto.wordpress.com/2024/07/25/reaprender-a-se-apaixonar/" target="_blank">
+					<h2>(re)APRENDER A SE APAIXONAR</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-07-25">25/07/2024</time>
+					|
+					<a href="https://focanotexto.wordpress.com" target="_blank">focanotexto.wordpress.com</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://edsonneto.bearblog.dev/abrir-e-fechar-uma-dissertacao-na-beira-do-mundo/" target="_blank">
+					<h2>Abrir e fechar uma dissertação na beira do mundo</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-06-30">30/06/2024</time>
+					|
+					<a href="https://edsonneto.bearblog.dev" target="_blank">edsonneto.bearblog.dev</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://thepiscesjournaler.blogspot.com/2024/06/novo-nome-e-novo-endereco.html" target="_blank">
+					<h2>Untitled</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-06-20">20/06/2024</time>
+					|
+					<a href="https://thepiscesjournaler.blogspot.com" target="_blank">thepiscesjournaler.blogspot.com</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://akaihoo.blogspot.com/2024/06/o-mes-mais-aflito-da-vida.html" target="_blank">
+					<h2>O mês mais aflito da vida</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-06-12">12/06/2024</time>
+					|
+					<a href="https://akaihoo.blogspot.com" target="_blank">akaihoo.blogspot.com</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://flordepassarinho.blogspot.com/2024/06/este-e-mais-um-texto-triste.html" target="_blank">
+					<h2>Este é mais um texto triste</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-06-08">08/06/2024</time>
+					|
+					<a href="https://flordepassarinho.blogspot.com" target="_blank">flordepassarinho.blogspot.com</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://tempotempo.bearblog.dev/fantasia/" target="_blank">
+					<h2>fantasia</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-06-03">03/06/2024</time>
+					|
+					<a href="https://tempotempo.bearblog.dev" target="_blank">tempotempo.bearblog.dev</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://longshi.bearblog.dev/pensando-na-noite-silenciosa/" target="_blank">
+					<h2>Pensando na noite silenciosa 靜夜思</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-05-29">29/05/2024</time>
+					|
+					<a href="https://longshi.bearblog.dev" target="_blank">longshi.bearblog.dev</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://noname.bearblog.dev/tox/" target="_blank">
+					<h2>Tox</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-05-29">29/05/2024</time>
+					|
+					<a href="https://noname.bearblog.dev" target="_blank">noname.bearblog.dev</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://girassois.bearblog.dev/minhas-radios-favoritas/" target="_blank">
+					<h2>Minhas rádios favoritas</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-05-26">26/05/2024</time>
+					|
+					<a href="https://girassois.bearblog.dev" target="_blank">girassois.bearblog.dev</a>
+				</small>
+			</li>
+			<li>
+				<a href="http://ritazerbinatti.blogspot.com/2024/05/primeiro-dia-no-terreiro-newsletter.html" target="_blank">
+					<h2>Primeiro dia no terreiro #newsletter</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-05-23">23/05/2024</time>
+					|
+					<a href="https://ritazerbinatti.blogspot.com" target="_blank">ritazerbinatti.blogspot.com</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://pinoinha.bearblog.dev/ideia-carne-doce/" target="_blank">
+					<h2>Ideia - Carne Doce</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-05-14">14/05/2024</time>
+					|
+					<a href="https://pinoinha.bearblog.dev" target="_blank">pinoinha.bearblog.dev</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://morimoonie.blogspot.com/2024/05/produzir-render-e-morrer.html" target="_blank">
+					<h2>Produzir, render e morrer.</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-05-13">13/05/2024</time>
+					|
+					<a href="https://morimoonie.blogspot.com" target="_blank">morimoonie.blogspot.com</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://subug.bearblog.dev/new-post/" target="_blank">
+					<h2>:)</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-05-12">12/05/2024</time>
+					|
+					<a href="https://subug.bearblog.dev" target="_blank">subug.bearblog.dev</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://ravinska.bearblog.dev/apresentei-meu-primeiro-seminario/" target="_blank">
+					<h2>apresentei meu primeiro seminário</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-04-16">16/04/2024</time>
+					|
+					<a href="https://ravinska.bearblog.dev" target="_blank">ravinska.bearblog.dev</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://ste-llar.blogspot.com/2024/04/absorto.html" target="_blank">
+					<h2>Absorto</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-04-04">04/04/2024</time>
+					|
+					<a href="https://ste-llar.blogspot.com" target="_blank">ste-llar.blogspot.com</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://inconstanciasdeleticia.blogspot.com/2024/03/6-acordar-5h-da-manha-e-estranhamente.html" target="_blank">
+					<h2>6: acordar 5h da manhã é estranhamente bom</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-03-20">20/03/2024</time>
+					|
+					<a href="https://inconstanciasdeleticia.blogspot.com" target="_blank">inconstanciasdeleticia.blogspot.com</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://naogostodesegundasfeiras.blogspot.com/2024/02/assisti-1-zona-de-interesse.html" target="_blank">
+					<h2>#Assisti 1: Zona de Interesse</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-02-28">28/02/2024</time>
+					|
+					<a href="https://naogostodesegundasfeiras.blogspot.com" target="_blank">naogostodesegundasfeiras.blogspot.com</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://eueminhaestupidez.blogspot.com/2024/02/a-solidao-explicada-atraves-dos-estudos.html" target="_blank">
+					<h2>A solidão explicada através dos estudos de Viviane Mosé</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-02-19">19/02/2024</time>
+					|
+					<a href="https://eueminhaestupidez.blogspot.com" target="_blank">eueminhaestupidez.blogspot.com</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://aluapelajanela.blogspot.com/2024/02/um-adeus.html" target="_blank">
+					<h2>Um adeus</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-02-09">09/02/2024</time>
+					|
+					<a href="https://aluapelajanela.blogspot.com" target="_blank">aluapelajanela.blogspot.com</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://lalandeblog.blogspot.com/2024/01/2024-e-necessidade-de-desacelerar.html" target="_blank">
+					<h2>2024 e a necessidade de desacelerar</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-01-28">28/01/2024</time>
+					|
+					<a href="https://lalandeblog.blogspot.com" target="_blank">lalandeblog.blogspot.com</a>
+				</small>
+			</li>
+			<li>
+				<a href="http://diariodaninnabueno.blogspot.com/2024/01/feliz-2024.html" target="_blank">
+					<h2>Feliz 2024</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-01-18">18/01/2024</time>
+					|
+					<a href="https://diariodaninnabueno.blogspot.com" target="_blank">diariodaninnabueno.blogspot.com</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://duasfridas.wordpress.com/2024/01/08/mudamos/" target="_blank">
+					<h2>Mudamos</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-01-08">08/01/2024</time>
+					|
+					<a href="https://duasfridas.wordpress.com" target="_blank">duasfridas.wordpress.com</a>
+				</small>
+			</li>
+			<li>
+				<a href="http://historias-com-mar-ao-fundo.blogspot.com/2023/12/para-os-que-regressam-cada-natal.html" target="_blank">
+					<h2>para os que regressam a cada natal</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2023-12-24">24/12/2023</time>
+					|
+					<a href="https://historias-com-mar-ao-fundo.blogspot.com" target="_blank">historias-com-mar-ao-fundo.blogspot.com</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://quaseinedita.com/e-2023-deu-o-que-falar/" target="_blank">
+					<h2>é, 2023 deu o que falar</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2023-12-22">22/12/2023</time>
+					|
+					<a href="https://quaseinedita.com" target="_blank">quaseinedita.com</a>
+				</small>
+			</li>
+			<li>
+				<a href="http://interesses-sutis.blogspot.com/2023/12/ideias-de-resolucoes-para-2024.html" target="_blank">
+					<h2>Ideias de resoluções para 2024</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2023-12-12">12/12/2023</time>
+					|
+					<a href="https://interesses-sutis.blogspot.com" target="_blank">interesses-sutis.blogspot.com</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://floreios-blog.blogspot.com/2022/08/ausencia.html" target="_blank">
+					<h2>Ausência</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2023-12-06">06/12/2023</time>
+					|
+					<a href="https://floreios-blog.blogspot.com" target="_blank">floreios-blog.blogspot.com</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://omundoeaminhacasa.com/2023/12/02/dia-do-samba/" target="_blank">
+					<h2>dia do samba</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2023-12-02">02/12/2023</time>
+					|
+					<a href="https://omundoeaminhacasa.com" target="_blank">omundoeaminhacasa.com</a>
+				</small>
+			</li>
+			<li>
+				<a href="http://www.cozyjournal.com/2023/12/come-lord-jesus.html" target="_blank">
+					<h2>Come, Lord Jesus</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2023-12-02">02/12/2023</time>
+					|
+					<a href="https://cozyjournal.com" target="_blank">cozyjournal.com</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://petitromantic.blogspot.com/2023/11/a-minha-eu-de-janeiro-nunca-acreditaria.html" target="_blank">
+					<h2>a minha eu de janeiro nunca acreditaria se eu dissesse que... (ano dois)</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2023-11-29">29/11/2023</time>
+					|
+					<a href="https://petitromantic.blogspot.com" target="_blank">petitromantic.blogspot.com</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://palavranagarrafa.bearblog.dev/sabado-071023-finalmente-sei-quem-sou/" target="_blank">
+					<h2>Sábado, 07/10/23. Finalmente sei quem sou.</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2023-10-12">12/10/2023</time>
+					|
+					<a href="https://palavranagarrafa.bearblog.dev" target="_blank">palavranagarrafa.bearblog.dev</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://desarranjos.bearblog.dev/uma-noite-sem-luz/" target="_blank">
+					<h2>Uma noite sem luz</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2023-10-11">11/10/2023</time>
+					|
+					<a href="https://desarranjos.bearblog.dev" target="_blank">desarranjos.bearblog.dev</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://fragmentos.bearblog.dev/conversar-sozinho/" target="_blank">
+					<h2>Conversar sozinho</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2023-08-11">11/08/2023</time>
+					|
+					<a href="https://fragmentos.bearblog.dev" target="_blank">fragmentos.bearblog.dev</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://olimaia.net/2023/integracao-com-o-fediverso/" target="_blank">
+					<h2>integração com o fediverso</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2023-08-10">10/08/2023</time>
+					|
+					<a href="https://olimaia.net" target="_blank">olimaia.net</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://dentrodelatem.blogspot.com/2023/08/voltando.html" target="_blank">
+					<h2>voltando</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2023-08-01">01/08/2023</time>
+					|
+					<a href="https://dentrodelatem.blogspot.com" target="_blank">dentrodelatem.blogspot.com</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://eduardo.bearblog.dev/tudo-errado/" target="_blank">
+					<h2>Tudo errado!</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2023-07-01">01/07/2023</time>
+					|
+					<a href="https://eduardo.bearblog.dev" target="_blank">eduardo.bearblog.dev</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://jardimsilencioso.blogspot.com/2023/06/brincando-de-poeta.html" target="_blank">
+					<h2>brincando de poeta</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2023-06-28">28/06/2023</time>
+					|
+					<a href="https://jardimsilencioso.blogspot.com" target="_blank">jardimsilencioso.blogspot.com</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://dhexter.bearblog.dev/sobre-mim/" target="_blank">
+					<h2>Sobre mim</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2023-06-19">19/06/2023</time>
+					|
+					<a href="https://dhexter.bearblog.dev" target="_blank">dhexter.bearblog.dev</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://aondes.com/annecy-franca-um-dia/?utm_source=rss&amp;amp;utm_medium=rss&amp;amp;utm_campaign=annecy-franca-um-dia" target="_blank">
+					<h2>Annecy: uma cidade de contos de fadas nos alpes franceses</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2023-05-21">21/05/2023</time>
+					|
+					<a href="https://aondes.com" target="_blank">aondes.com</a>
+				</small>
+			</li>
+			<li>
+				<a href="https://wilberhg.bearblog.dev/usando-python-sem-instalar-windows/" target="_blank">
+					<h2>Usando Python Sem &amp;#34;Instalar&amp;#34; (Windows)</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2023-05-03">03/05/2023</time>
+					|
+					<a href="https://wilberhg.bearblog.dev" target="_blank">wilberhg.bearblog.dev</a>
+				</small>
+			</li>
+		</ol>
+		<nav>
+			<a href="page-7.html">&larr; Previous</a>
+			<span>Page 8 of 9</span>
+			<a href="page-9.html">Next &rarr;</a>
+		</nav>
+	</main>
+	<footer>
+		<p>Atualizado em:
+			<time id="update-at" datetime="2026-02-10T15:36:17.776055+00:00">
+				Tuesday, 10/02/2026 15:36:17
+			</time>
+		</p>
+		<p><a href="index.html">BR Crawl</a> | <a href="about.html">Sobre</a> | <a href="sources.html">Fontes</a></p>
+	</footer>
+</body>
+
+<script type="module" nonce="9f88a3ca7cda547c1a33a989ec5ded62">
+	const updatedAtElement = document.getElementById("update-at");
+	const date = new Date(updatedAtElement.dateTime);
+	updatedAtElement.innerText = date.toLocaleString(undefined, {
+		dateStyle: "full",
+		timeStyle: "medium",
+	})
+</script>
+
+</html>
