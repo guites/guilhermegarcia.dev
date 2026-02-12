@@ -9,16 +9,17 @@
 
 	<meta http-equiv="Content-Security-Policy" content="
 		default-src 'none';
+		connect-src https://brcrawl.guilhermegarcia.dev;
 		base-uri 'self';
 		img-src 'self' data: ;
-		style-src 'nonce-899a242241ba714a87765dd933fcca26' ;
-		script-src 'nonce-899a242241ba714a87765dd933fcca26' 'strict-dynamic' ;
+		style-src 'nonce-11a74aeb5149334a77ca82f8a1d98c84' ;
+		script-src 'nonce-11a74aeb5149334a77ca82f8a1d98c84' 'strict-dynamic' ;
 	">
 	<meta name="application-name" content="brcrawl">
 	<meta name="description" content="Diretório da smallweb brasileira">
 	<meta name="referrer" content="same-origin">
 
-	<style nonce="899a242241ba714a87765dd933fcca26">
+	<style nonce="11a74aeb5149334a77ca82f8a1d98c84">
 :root {
     color-scheme: dark light;
     --primary: #0AC8F5;
@@ -119,6 +120,22 @@ nav > a, nav > span {
 nav > span {
     color: var(--border);
 }
+
+button.report, button.unreport, button.hide, button.show {
+    background: transparent;
+    border: 0px transparent;
+    padding: 0px;
+    margin: 0px;
+    display: inline;
+    box-sizing: border-box;
+    font: inherit;
+    color: inherit;
+}
+
+button.report:hover, button.unreport, button.hide:hover, button.show {
+    opacity: 0.8;
+    cursor: pointer;
+}
 	</style>
 </head>
 
@@ -130,6 +147,19 @@ nav > span {
 	<main>
 		<ol start="151">
 			<li>
+				<a href="http://sguenis.blogspot.com/2026/01/melhor.html" target="_blank">
+					<h2>Melhor</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2026-01-22">22/01/2026</time>
+					|
+					<a class="domain" href="https://sguenis.blogspot.com" target="_blank">sguenis.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
 				<a href="https://chaanoite.blogspot.com/2026/01/como-prometido-retornei-para-minhas.html" target="_blank">
 					<h2>Fim de ano e livros lidos de 2025</h2>
 				</a>
@@ -137,7 +167,9 @@ nav > span {
 				<small>
 					<time datetime="2026-01-20">20/01/2026</time>
 					|
-					<a href="https://chaanoite.blogspot.com" target="_blank">chaanoite.blogspot.com</a>
+					<a class="domain" href="https://chaanoite.blogspot.com" target="_blank">chaanoite.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -148,18 +180,22 @@ nav > span {
 				<small>
 					<time datetime="2026-01-20">20/01/2026</time>
 					|
-					<a href="https://gmgall.net" target="_blank">gmgall.net</a>
+					<a class="domain" href="https://gmgall.net" target="_blank">gmgall.net</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
-				<a href="https://notas.bearblog.dev/crescer-esperanca/" target="_blank">
-					<h2>Cresçamos na esperança</h2>
+				<a href="https://k-clairdelune.blogspot.com/2026/01/nota-mental-para-o-comeco-de-2026.html" target="_blank">
+					<h2>⟡ ˙🌱 ̟ Nota mental para o começo de 2026</h2>
 				</a>
 				<br>
 				<small>
-					<time datetime="2026-01-18">18/01/2026</time>
+					<time datetime="2026-01-20">20/01/2026</time>
 					|
-					<a href="https://notas.bearblog.dev" target="_blank">notas.bearblog.dev</a>
+					<a class="domain" href="https://k-clairdelune.blogspot.com" target="_blank">k-clairdelune.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -170,7 +206,22 @@ nav > span {
 				<small>
 					<time datetime="2026-01-18">18/01/2026</time>
 					|
-					<a href="https://baudecanto.blogspot.com" target="_blank">baudecanto.blogspot.com</a>
+					<a class="domain" href="https://baudecanto.blogspot.com" target="_blank">baudecanto.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://notas.bearblog.dev/crescer-esperanca/" target="_blank">
+					<h2>Cresçamos na esperança</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2026-01-18">18/01/2026</time>
+					|
+					<a class="domain" href="https://notas.bearblog.dev" target="_blank">notas.bearblog.dev</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -181,7 +232,9 @@ nav > span {
 				<small>
 					<time datetime="2026-01-17">17/01/2026</time>
 					|
-					<a href="https://riiku.fun" target="_blank">riiku.fun</a>
+					<a class="domain" href="https://riiku.fun" target="_blank">riiku.fun</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -192,7 +245,9 @@ nav > span {
 				<small>
 					<time datetime="2026-01-17">17/01/2026</time>
 					|
-					<a href="https://lidydutra.com" target="_blank">lidydutra.com</a>
+					<a class="domain" href="https://lidydutra.com" target="_blank">lidydutra.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -203,7 +258,9 @@ nav > span {
 				<small>
 					<time datetime="2026-01-16">16/01/2026</time>
 					|
-					<a href="https://umnovodestino.com.br" target="_blank">umnovodestino.com.br</a>
+					<a class="domain" href="https://umnovodestino.com.br" target="_blank">umnovodestino.com.br</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -214,7 +271,9 @@ nav > span {
 				<small>
 					<time datetime="2026-01-16">16/01/2026</time>
 					|
-					<a href="https://opequenolirio.com" target="_blank">opequenolirio.com</a>
+					<a class="domain" href="https://opequenolirio.com" target="_blank">opequenolirio.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -225,7 +284,9 @@ nav > span {
 				<small>
 					<time datetime="2026-01-15">15/01/2026</time>
 					|
-					<a href="https://explorator.dev" target="_blank">explorator.dev</a>
+					<a class="domain" href="https://explorator.dev" target="_blank">explorator.dev</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -236,7 +297,9 @@ nav > span {
 				<small>
 					<time datetime="2026-01-14">14/01/2026</time>
 					|
-					<a href="https://nunesdennis.vivaldi.net" target="_blank">nunesdennis.vivaldi.net</a>
+					<a class="domain" href="https://nunesdennis.vivaldi.net" target="_blank">nunesdennis.vivaldi.net</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -247,29 +310,9 @@ nav > span {
 				<small>
 					<time datetime="2026-01-13">13/01/2026</time>
 					|
-					<a href="https://cafedebeiradeestrada.com.br" target="_blank">cafedebeiradeestrada.com.br</a>
-				</small>
-			</li>
-			<li>
-				<a href="https://nasetet.blogspot.com/2026/01/dont-know-what-to-do.html" target="_blank">
-					<h2>Don&amp;#39;t know what to do</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2026-01-11">11/01/2026</time>
-					|
-					<a href="https://nasetet.blogspot.com" target="_blank">nasetet.blogspot.com</a>
-				</small>
-			</li>
-			<li>
-				<a href="https://saidaminhalente.com/entre-o-que-falta-e-o-que-continua/" target="_blank">
-					<h2>Entre o que falta e o que continua…</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2026-01-11">11/01/2026</time>
-					|
-					<a href="https://saidaminhalente.com" target="_blank">saidaminhalente.com</a>
+					<a class="domain" href="https://cafedebeiradeestrada.com.br" target="_blank">cafedebeiradeestrada.com.br</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -280,18 +323,35 @@ nav > span {
 				<small>
 					<time datetime="2026-01-11">11/01/2026</time>
 					|
-					<a href="https://felipetavares.bearblog.dev" target="_blank">felipetavares.bearblog.dev</a>
+					<a class="domain" href="https://felipetavares.bearblog.dev" target="_blank">felipetavares.bearblog.dev</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
-				<a href="https://lenajackblack.blogspot.com/2026/01/um-ano-novo-dificil.html" target="_blank">
-					<h2>Um ano novo difícil?</h2>
+				<a href="https://saidaminhalente.com/entre-o-que-falta-e-o-que-continua/" target="_blank">
+					<h2>Entre o que falta e o que continua…</h2>
 				</a>
 				<br>
 				<small>
-					<time datetime="2026-01-10">10/01/2026</time>
+					<time datetime="2026-01-11">11/01/2026</time>
 					|
-					<a href="https://lenajackblack.blogspot.com" target="_blank">lenajackblack.blogspot.com</a>
+					<a class="domain" href="https://saidaminhalente.com" target="_blank">saidaminhalente.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://nasetet.blogspot.com/2026/01/dont-know-what-to-do.html" target="_blank">
+					<h2>Don&amp;#39;t know what to do</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2026-01-11">11/01/2026</time>
+					|
+					<a class="domain" href="https://nasetet.blogspot.com" target="_blank">nasetet.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -302,29 +362,22 @@ nav > span {
 				<small>
 					<time datetime="2026-01-10">10/01/2026</time>
 					|
-					<a href="https://fluffy.com.br" target="_blank">fluffy.com.br</a>
+					<a class="domain" href="https://fluffy.com.br" target="_blank">fluffy.com.br</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
-				<a href="https://ao-domingo.blogspot.com/2026/01/altego-music-fate-of-ophelia-x-i-follow.html" target="_blank">
-					<h2>♫ altego music • the fate of ophelia x i follow rivers</h2>
+				<a href="https://lenajackblack.blogspot.com/2026/01/um-ano-novo-dificil.html" target="_blank">
+					<h2>Um ano novo difícil?</h2>
 				</a>
 				<br>
 				<small>
-					<time datetime="2026-01-09">09/01/2026</time>
+					<time datetime="2026-01-10">10/01/2026</time>
 					|
-					<a href="https://ao-domingo.blogspot.com" target="_blank">ao-domingo.blogspot.com</a>
-				</small>
-			</li>
-			<li>
-				<a href="http://www.endividadonuncamais.com.br/2026/01/atualizacao-do-dividometro.html" target="_blank">
-					<h2>Atualização do Dividômetro</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2026-01-09">09/01/2026</time>
-					|
-					<a href="https://endividadonuncamais.com.br" target="_blank">endividadonuncamais.com.br</a>
+					<a class="domain" href="https://lenajackblack.blogspot.com" target="_blank">lenajackblack.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -335,7 +388,35 @@ nav > span {
 				<small>
 					<time datetime="2026-01-09">09/01/2026</time>
 					|
-					<a href="https://julietheblog.blogspot.com" target="_blank">julietheblog.blogspot.com</a>
+					<a class="domain" href="https://julietheblog.blogspot.com" target="_blank">julietheblog.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://ao-domingo.blogspot.com/2026/01/altego-music-fate-of-ophelia-x-i-follow.html" target="_blank">
+					<h2>♫ altego music • the fate of ophelia x i follow rivers</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2026-01-09">09/01/2026</time>
+					|
+					<a class="domain" href="https://ao-domingo.blogspot.com" target="_blank">ao-domingo.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://www.endividadonuncamais.com.br/2026/01/atualizacao-do-dividometro.html" target="_blank">
+					<h2>Atualização do Dividômetro</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2026-01-09">09/01/2026</time>
+					|
+					<a class="domain" href="https://endividadonuncamais.com.br" target="_blank">endividadonuncamais.com.br</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -346,7 +427,9 @@ nav > span {
 				<small>
 					<time datetime="2026-01-08">08/01/2026</time>
 					|
-					<a href="https://marrrina.space" target="_blank">marrrina.space</a>
+					<a class="domain" href="https://marrrina.space" target="_blank">marrrina.space</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -357,7 +440,9 @@ nav > span {
 				<small>
 					<time datetime="2026-01-08">08/01/2026</time>
 					|
-					<a href="https://vaojogar.com.br" target="_blank">vaojogar.com.br</a>
+					<a class="domain" href="https://vaojogar.com.br" target="_blank">vaojogar.com.br</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -368,7 +453,9 @@ nav > span {
 				<small>
 					<time datetime="2026-01-07">07/01/2026</time>
 					|
-					<a href="https://site.pcora.eu" target="_blank">site.pcora.eu</a>
+					<a class="domain" href="https://site.pcora.eu" target="_blank">site.pcora.eu</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -379,7 +466,9 @@ nav > span {
 				<small>
 					<time datetime="2026-01-07">07/01/2026</time>
 					|
-					<a href="https://dvd.pika.page" target="_blank">dvd.pika.page</a>
+					<a class="domain" href="https://dvd.pika.page" target="_blank">dvd.pika.page</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -390,18 +479,9 @@ nav > span {
 				<small>
 					<time datetime="2026-01-06">06/01/2026</time>
 					|
-					<a href="https://garotadecanela.blogspot.com" target="_blank">garotadecanela.blogspot.com</a>
-				</small>
-			</li>
-			<li>
-				<a href="https://blog.ayom.media/felipe-siles/sobre-decisoes-coletivas" target="_blank">
-					<h2>Sobre decisões coletivas</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2026-01-05">05/01/2026</time>
-					|
-					<a href="https://blog.ayom.media" target="_blank">blog.ayom.media</a>
+					<a class="domain" href="https://garotadecanela.blogspot.com" target="_blank">garotadecanela.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -412,7 +492,22 @@ nav > span {
 				<small>
 					<time datetime="2026-01-05">05/01/2026</time>
 					|
-					<a href="https://apsv.bearblog.dev" target="_blank">apsv.bearblog.dev</a>
+					<a class="domain" href="https://apsv.bearblog.dev" target="_blank">apsv.bearblog.dev</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://blog.ayom.media/felipe-siles/sobre-decisoes-coletivas" target="_blank">
+					<h2>Sobre decisões coletivas</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2026-01-05">05/01/2026</time>
+					|
+					<a class="domain" href="https://blog.ayom.media" target="_blank">blog.ayom.media</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -423,7 +518,9 @@ nav > span {
 				<small>
 					<time datetime="2026-01-03">03/01/2026</time>
 					|
-					<a href="https://pensamentos-em-flor.blogspot.com" target="_blank">pensamentos-em-flor.blogspot.com</a>
+					<a class="domain" href="https://pensamentos-em-flor.blogspot.com" target="_blank">pensamentos-em-flor.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -434,18 +531,9 @@ nav > span {
 				<small>
 					<time datetime="2026-01-02">02/01/2026</time>
 					|
-					<a href="https://alineonline.bearblog.dev" target="_blank">alineonline.bearblog.dev</a>
-				</small>
-			</li>
-			<li>
-				<a href="https://rdenadai.dev/essay/30" target="_blank">
-					<h2>Expectations for 2026: What lies Ahead</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2026-01-02">02/01/2026</time>
-					|
-					<a href="https://rdenadai.dev" target="_blank">rdenadai.dev</a>
+					<a class="domain" href="https://alineonline.bearblog.dev" target="_blank">alineonline.bearblog.dev</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -456,18 +544,9 @@ nav > span {
 				<small>
 					<time datetime="2026-01-02">02/01/2026</time>
 					|
-					<a href="https://contraditoria.noblogs.org" target="_blank">contraditoria.noblogs.org</a>
-				</small>
-			</li>
-			<li>
-				<a href="https://www.dearlytay.com.br/2026/01/a-minha-palavra-do-ano-e-coragem.html" target="_blank">
-					<h2>A minha palavra do ano é: CORAGEM</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2026-01-01">01/01/2026</time>
-					|
-					<a href="https://dearlytay.com.br" target="_blank">dearlytay.com.br</a>
+					<a class="domain" href="https://contraditoria.noblogs.org" target="_blank">contraditoria.noblogs.org</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -478,7 +557,9 @@ nav > span {
 				<small>
 					<time datetime="2026-01-01">01/01/2026</time>
 					|
-					<a href="https://yasuda.dev.br" target="_blank">yasuda.dev.br</a>
+					<a class="domain" href="https://yasuda.dev.br" target="_blank">yasuda.dev.br</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -489,7 +570,22 @@ nav > span {
 				<small>
 					<time datetime="2026-01-01">01/01/2026</time>
 					|
-					<a href="https://seeucozinho.cromaqui.com" target="_blank">seeucozinho.cromaqui.com</a>
+					<a class="domain" href="https://seeucozinho.cromaqui.com" target="_blank">seeucozinho.cromaqui.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://www.dearlytay.com.br/2026/01/a-minha-palavra-do-ano-e-coragem.html" target="_blank">
+					<h2>A minha palavra do ano é: CORAGEM</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2026-01-01">01/01/2026</time>
+					|
+					<a class="domain" href="https://dearlytay.com.br" target="_blank">dearlytay.com.br</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -500,7 +596,9 @@ nav > span {
 				<small>
 					<time datetime="2026-01-01">01/01/2026</time>
 					|
-					<a href="https://pedipanoru.bearblog.dev" target="_blank">pedipanoru.bearblog.dev</a>
+					<a class="domain" href="https://pedipanoru.bearblog.dev" target="_blank">pedipanoru.bearblog.dev</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -511,7 +609,9 @@ nav > span {
 				<small>
 					<time datetime="2025-12-31">31/12/2025</time>
 					|
-					<a href="https://clandestini.org" target="_blank">clandestini.org</a>
+					<a class="domain" href="https://clandestini.org" target="_blank">clandestini.org</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -522,7 +622,9 @@ nav > span {
 				<small>
 					<time datetime="2025-12-31">31/12/2025</time>
 					|
-					<a href="https://chamegar.blogspot.com" target="_blank">chamegar.blogspot.com</a>
+					<a class="domain" href="https://chamegar.blogspot.com" target="_blank">chamegar.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -533,7 +635,9 @@ nav > span {
 				<small>
 					<time datetime="2025-12-31">31/12/2025</time>
 					|
-					<a href="https://tatilucindo.blogspot.com" target="_blank">tatilucindo.blogspot.com</a>
+					<a class="domain" href="https://tatilucindo.blogspot.com" target="_blank">tatilucindo.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -544,7 +648,9 @@ nav > span {
 				<small>
 					<time datetime="2025-12-31">31/12/2025</time>
 					|
-					<a href="https://viveremuitoperigoso.bearblog.dev" target="_blank">viveremuitoperigoso.bearblog.dev</a>
+					<a class="domain" href="https://viveremuitoperigoso.bearblog.dev" target="_blank">viveremuitoperigoso.bearblog.dev</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -555,29 +661,9 @@ nav > span {
 				<small>
 					<time datetime="2025-12-28">28/12/2025</time>
 					|
-					<a href="https://tirandoleitedepedro.bearblog.dev" target="_blank">tirandoleitedepedro.bearblog.dev</a>
-				</small>
-			</li>
-			<li>
-				<a href="http://www.barbaridades.net/2025/12/viagens-do-ano-2025.html" target="_blank">
-					<h2>Viagens do ano: 2025</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2025-12-28">28/12/2025</time>
-					|
-					<a href="https://barbaridades.net" target="_blank">barbaridades.net</a>
-				</small>
-			</li>
-			<li>
-				<a href="https://florcaracol.blogspot.com/2025/12/continue-andar-apesar-de-tudo.html" target="_blank">
-					<h2>continue a andar, apesar de tudo</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2025-12-27">27/12/2025</time>
-					|
-					<a href="https://florcaracol.blogspot.com" target="_blank">florcaracol.blogspot.com</a>
+					<a class="domain" href="https://tirandoleitedepedro.bearblog.dev" target="_blank">tirandoleitedepedro.bearblog.dev</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -588,7 +674,22 @@ nav > span {
 				<small>
 					<time datetime="2025-12-27">27/12/2025</time>
 					|
-					<a href="https://ideiasinertes.bearblog.dev" target="_blank">ideiasinertes.bearblog.dev</a>
+					<a class="domain" href="https://ideiasinertes.bearblog.dev" target="_blank">ideiasinertes.bearblog.dev</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://florcaracol.blogspot.com/2025/12/continue-andar-apesar-de-tudo.html" target="_blank">
+					<h2>continue a andar, apesar de tudo</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2025-12-27">27/12/2025</time>
+					|
+					<a class="domain" href="https://florcaracol.blogspot.com" target="_blank">florcaracol.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -599,7 +700,9 @@ nav > span {
 				<small>
 					<time datetime="2025-12-26">26/12/2025</time>
 					|
-					<a href="https://tomanotas.bearblog.dev" target="_blank">tomanotas.bearblog.dev</a>
+					<a class="domain" href="https://tomanotas.bearblog.dev" target="_blank">tomanotas.bearblog.dev</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -610,7 +713,9 @@ nav > span {
 				<small>
 					<time datetime="2025-12-25">25/12/2025</time>
 					|
-					<a href="https://thedailykiffcooking.bearblog.dev" target="_blank">thedailykiffcooking.bearblog.dev</a>
+					<a class="domain" href="https://thedailykiffcooking.bearblog.dev" target="_blank">thedailykiffcooking.bearblog.dev</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -621,7 +726,9 @@ nav > span {
 				<small>
 					<time datetime="2025-12-25">25/12/2025</time>
 					|
-					<a href="https://spirit.bearblog.dev" target="_blank">spirit.bearblog.dev</a>
+					<a class="domain" href="https://spirit.bearblog.dev" target="_blank">spirit.bearblog.dev</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -632,18 +739,9 @@ nav > span {
 				<small>
 					<time datetime="2025-12-21">21/12/2025</time>
 					|
-					<a href="https://meucantona-web.blogspot.com" target="_blank">meucantona-web.blogspot.com</a>
-				</small>
-			</li>
-			<li>
-				<a href="https://hillonomia.blogspot.com/2025/12/por-que-o-natal-parece-tao-mais-legal.html" target="_blank">
-					<h2>por que o natal parece tão mais legal agora</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2025-12-21">21/12/2025</time>
-					|
-					<a href="https://hillonomia.blogspot.com" target="_blank">hillonomia.blogspot.com</a>
+					<a class="domain" href="https://meucantona-web.blogspot.com" target="_blank">meucantona-web.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -654,7 +752,22 @@ nav > span {
 				<small>
 					<time datetime="2025-12-21">21/12/2025</time>
 					|
-					<a href="https://wings-of-fairy.blogspot.com" target="_blank">wings-of-fairy.blogspot.com</a>
+					<a class="domain" href="https://wings-of-fairy.blogspot.com" target="_blank">wings-of-fairy.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://hillonomia.blogspot.com/2025/12/por-que-o-natal-parece-tao-mais-legal.html" target="_blank">
+					<h2>por que o natal parece tão mais legal agora</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2025-12-21">21/12/2025</time>
+					|
+					<a class="domain" href="https://hillonomia.blogspot.com" target="_blank">hillonomia.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -665,7 +778,9 @@ nav > span {
 				<small>
 					<time datetime="2025-12-19">19/12/2025</time>
 					|
-					<a href="https://herebedragons.com.br" target="_blank">herebedragons.com.br</a>
+					<a class="domain" href="https://herebedragons.com.br" target="_blank">herebedragons.com.br</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -676,7 +791,9 @@ nav > span {
 				<small>
 					<time datetime="2025-12-19">19/12/2025</time>
 					|
-					<a href="https://herebedragons.com.br" target="_blank">herebedragons.com.br</a>
+					<a class="domain" href="https://herebedragons.com.br" target="_blank">herebedragons.com.br</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 		</ol>
@@ -688,21 +805,124 @@ nav > span {
 	</main>
 	<footer>
 		<p>Atualizado em:
-			<time id="update-at" datetime="2026-02-11T16:44:59.579917+00:00">
-				Wednesday, 11/02/2026 16:44:59
+			<time id="update-at" datetime="2026-02-12T03:09:58.929013+00:00">
+				Thursday, 12/02/2026 03:09:58
 			</time>
 		</p>
 		<p><a href="index.html">BR Crawl</a> | <a href="about.html">Sobre</a> | <a href="sources.html">Fontes</a></p>
 	</footer>
 </body>
 
-<script type="module" nonce="899a242241ba714a87765dd933fcca26">
+<script type="module" nonce="11a74aeb5149334a77ca82f8a1d98c84">
 	const updatedAtElement = document.getElementById("update-at");
 	const date = new Date(updatedAtElement.dateTime);
 	updatedAtElement.innerText = date.toLocaleString(undefined, {
 		dateStyle: "full",
 		timeStyle: "medium",
 	})
+</script>
+<script type="module" nonce="11a74aeb5149334a77ca82f8a1d98c84">
+var backend_url='https://brcrawl.guilhermegarcia.dev';
+function hide_feedback(domain) {
+    return `<div><small>Domínio <a href="https://${domain}">${domain}</a> escondido. | <button class="show">exibir</button></small></div>`;
+}
+
+function report_feedback(li) {
+    li.style.opacity = 0.5;
+    const btn = li.querySelector("button.report");
+    btn.textContent = "reportado";
+    btn.className = "unreport";
+}
+
+var reported = localStorage.getItem('reported') || '[]';
+reported = JSON.parse(reported);
+var hidden = localStorage.getItem('hidden') || '[]';
+hidden = JSON.parse(hidden);
+
+let domains = Array.from(document.getElementsByClassName("domain"));
+domains.forEach((domain) => {
+    if (reported.includes(domain.textContent)) {
+        const li = domain.closest("li");
+        report_feedback(li);
+    }
+    if (hidden.includes(domain.textContent)) {
+        domain.closest("li").innerHTML = hide_feedback(domain.textContent);
+    }
+});
+
+function report(btn) {
+    const li = btn.closest("li");
+    const articleDomain = li.querySelector("a.domain");
+    const domain = articleDomain.textContent;
+
+    if (reported.length == 0) {
+        const agreed = confirm("Reporte sites que não são blogs pessoais ou não estão em português. Confirme para não ver mais essa mensagem. Obrigado!");
+        if (!agreed) {
+            return;
+        }
+    }
+    fetch(`${backend_url}/report`, {
+        method: "POST",
+        body: JSON.stringify({ domain }),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+    reported.push(domain);
+    localStorage.setItem('reported', JSON.stringify(reported));
+    report_feedback(li);
+}
+
+function unreport(btn) {
+    const li = btn.closest("li");
+    const articleDomain = li.querySelector("a.domain");
+    const domain = articleDomain.textContent;
+    reported = reported.filter((d) => d != domain);
+    localStorage.setItem('reported', JSON.stringify(reported));
+    fetch(`${backend_url}/report`, {
+        method: "POST",
+        body: JSON.stringify({ domain }),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }).finally(() => {
+        window.location.reload();
+    });
+}
+
+function hide(btn) {
+    const li = btn.closest("li");
+    const articleDomain = li.querySelector("a.domain");
+    const domain = articleDomain.textContent;
+
+    hidden.push(domain);
+    localStorage.setItem('hidden', JSON.stringify(hidden));
+    li.innerHTML = hide_feedback(domain);
+}
+
+function show(btn) {
+    const li = btn.closest("li");
+    const articleDomain = li.querySelector("a");
+    const domain = articleDomain.textContent;
+    hidden = hidden.filter((d) => d != domain);
+    localStorage.setItem('hidden', JSON.stringify(hidden));
+    window.location.reload();
+}
+
+document.addEventListener("click", function(e) {
+    if (e.target.className == "report") {
+        return report(e.target);
+    }
+    if (e.target.className == "unreport") {
+        return unreport(e.target);
+    }
+    if (e.target.className == "hide") {
+        return hide(e.target);
+    }
+    if (e.target.className == "show") {
+        return show(e.target);
+    }
+});
 </script>
 
 </html>

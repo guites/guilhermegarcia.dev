@@ -9,16 +9,17 @@
 
 	<meta http-equiv="Content-Security-Policy" content="
 		default-src 'none';
+		connect-src https://brcrawl.guilhermegarcia.dev;
 		base-uri 'self';
 		img-src 'self' data: ;
-		style-src 'nonce-e8ef06ad46624cf5353b57e467bcae29' ;
-		script-src 'nonce-e8ef06ad46624cf5353b57e467bcae29' 'strict-dynamic' ;
+		style-src 'nonce-584bf29a73778a591820a243e5205dd5' ;
+		script-src 'nonce-584bf29a73778a591820a243e5205dd5' 'strict-dynamic' ;
 	">
 	<meta name="application-name" content="brcrawl">
 	<meta name="description" content="Diretório da smallweb brasileira">
 	<meta name="referrer" content="same-origin">
 
-	<style nonce="e8ef06ad46624cf5353b57e467bcae29">
+	<style nonce="584bf29a73778a591820a243e5205dd5">
 :root {
     color-scheme: dark light;
     --primary: #0AC8F5;
@@ -119,6 +120,22 @@ nav > a, nav > span {
 nav > span {
     color: var(--border);
 }
+
+button.report, button.unreport, button.hide, button.show {
+    background: transparent;
+    border: 0px transparent;
+    padding: 0px;
+    margin: 0px;
+    display: inline;
+    box-sizing: border-box;
+    font: inherit;
+    color: inherit;
+}
+
+button.report:hover, button.unreport, button.hide:hover, button.show {
+    opacity: 0.8;
+    cursor: pointer;
+}
 	</style>
 </head>
 
@@ -137,7 +154,9 @@ nav > span {
 				<small>
 					<time datetime="2023-02-27">27/02/2023</time>
 					|
-					<a href="https://necropsist.blogspot.com" target="_blank">necropsist.blogspot.com</a>
+					<a class="domain" href="https://necropsist.blogspot.com" target="_blank">necropsist.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -148,7 +167,9 @@ nav > span {
 				<small>
 					<time datetime="2023-02-26">26/02/2023</time>
 					|
-					<a href="https://rp.bearblog.dev" target="_blank">rp.bearblog.dev</a>
+					<a class="domain" href="https://rp.bearblog.dev" target="_blank">rp.bearblog.dev</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -159,18 +180,9 @@ nav > span {
 				<small>
 					<time datetime="2023-02-17">17/02/2023</time>
 					|
-					<a href="https://baudemiudezas.blogspot.com" target="_blank">baudemiudezas.blogspot.com</a>
-				</small>
-			</li>
-			<li>
-				<a href="https://opcv.bearblog.dev/chuva-raymond-carver/" target="_blank">
-					<h2>chuva, por Raymond Carver</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2023-01-21">21/01/2023</time>
-					|
-					<a href="https://opcv.bearblog.dev" target="_blank">opcv.bearblog.dev</a>
+					<a class="domain" href="https://baudemiudezas.blogspot.com" target="_blank">baudemiudezas.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -181,7 +193,22 @@ nav > span {
 				<small>
 					<time datetime="2023-01-21">21/01/2023</time>
 					|
-					<a href="https://julietincrisis.blogspot.com" target="_blank">julietincrisis.blogspot.com</a>
+					<a class="domain" href="https://julietincrisis.blogspot.com" target="_blank">julietincrisis.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://opcv.bearblog.dev/chuva-raymond-carver/" target="_blank">
+					<h2>chuva, por Raymond Carver</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2023-01-21">21/01/2023</time>
+					|
+					<a class="domain" href="https://opcv.bearblog.dev" target="_blank">opcv.bearblog.dev</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -192,7 +219,9 @@ nav > span {
 				<small>
 					<time datetime="2023-01-03">03/01/2023</time>
 					|
-					<a href="https://md1993.bearblog.dev" target="_blank">md1993.bearblog.dev</a>
+					<a class="domain" href="https://md1993.bearblog.dev" target="_blank">md1993.bearblog.dev</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -203,7 +232,9 @@ nav > span {
 				<small>
 					<time datetime="2022-12-30">30/12/2022</time>
 					|
-					<a href="https://mariana.bearblog.dev" target="_blank">mariana.bearblog.dev</a>
+					<a class="domain" href="https://mariana.bearblog.dev" target="_blank">mariana.bearblog.dev</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -214,7 +245,9 @@ nav > span {
 				<small>
 					<time datetime="2022-12-13">13/12/2022</time>
 					|
-					<a href="https://a-meninadanca.blogspot.com" target="_blank">a-meninadanca.blogspot.com</a>
+					<a class="domain" href="https://a-meninadanca.blogspot.com" target="_blank">a-meninadanca.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -225,7 +258,9 @@ nav > span {
 				<small>
 					<time datetime="2022-12-03">03/12/2022</time>
 					|
-					<a href="https://salateando.com.br" target="_blank">salateando.com.br</a>
+					<a class="domain" href="https://salateando.com.br" target="_blank">salateando.com.br</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -236,7 +271,9 @@ nav > span {
 				<small>
 					<time datetime="2022-11-26">26/11/2022</time>
 					|
-					<a href="https://b-adangel.blogspot.com" target="_blank">b-adangel.blogspot.com</a>
+					<a class="domain" href="https://b-adangel.blogspot.com" target="_blank">b-adangel.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -247,7 +284,9 @@ nav > span {
 				<small>
 					<time datetime="2022-11-13">13/11/2022</time>
 					|
-					<a href="https://jayamagalhaes.com.br" target="_blank">jayamagalhaes.com.br</a>
+					<a class="domain" href="https://jayamagalhaes.com.br" target="_blank">jayamagalhaes.com.br</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -258,7 +297,9 @@ nav > span {
 				<small>
 					<time datetime="2022-11-08">08/11/2022</time>
 					|
-					<a href="https://convergencias.bearblog.dev" target="_blank">convergencias.bearblog.dev</a>
+					<a class="domain" href="https://convergencias.bearblog.dev" target="_blank">convergencias.bearblog.dev</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -269,7 +310,9 @@ nav > span {
 				<small>
 					<time datetime="2022-10-14">14/10/2022</time>
 					|
-					<a href="https://euahri.blogspot.com" target="_blank">euahri.blogspot.com</a>
+					<a class="domain" href="https://euahri.blogspot.com" target="_blank">euahri.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -280,7 +323,9 @@ nav > span {
 				<small>
 					<time datetime="2022-10-11">11/10/2022</time>
 					|
-					<a href="https://leo-micelio.bearblog.dev" target="_blank">leo-micelio.bearblog.dev</a>
+					<a class="domain" href="https://leo-micelio.bearblog.dev" target="_blank">leo-micelio.bearblog.dev</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -291,7 +336,9 @@ nav > span {
 				<small>
 					<time datetime="2022-09-27">27/09/2022</time>
 					|
-					<a href="https://filipe.bearblog.dev" target="_blank">filipe.bearblog.dev</a>
+					<a class="domain" href="https://filipe.bearblog.dev" target="_blank">filipe.bearblog.dev</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -302,7 +349,9 @@ nav > span {
 				<small>
 					<time datetime="2022-09-22">22/09/2022</time>
 					|
-					<a href="https://anos.bearblog.dev" target="_blank">anos.bearblog.dev</a>
+					<a class="domain" href="https://anos.bearblog.dev" target="_blank">anos.bearblog.dev</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -313,7 +362,9 @@ nav > span {
 				<small>
 					<time datetime="2022-09-12">12/09/2022</time>
 					|
-					<a href="https://oha.bearblog.dev" target="_blank">oha.bearblog.dev</a>
+					<a class="domain" href="https://oha.bearblog.dev" target="_blank">oha.bearblog.dev</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -324,7 +375,9 @@ nav > span {
 				<small>
 					<time datetime="2022-08-10">10/08/2022</time>
 					|
-					<a href="https://donarafinha.blogspot.com" target="_blank">donarafinha.blogspot.com</a>
+					<a class="domain" href="https://donarafinha.blogspot.com" target="_blank">donarafinha.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -335,7 +388,9 @@ nav > span {
 				<small>
 					<time datetime="2022-07-07">07/07/2022</time>
 					|
-					<a href="https://at0mheart.wordpress.com" target="_blank">at0mheart.wordpress.com</a>
+					<a class="domain" href="https://at0mheart.wordpress.com" target="_blank">at0mheart.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -346,7 +401,9 @@ nav > span {
 				<small>
 					<time datetime="2022-06-05">05/06/2022</time>
 					|
-					<a href="https://terramterreno.bearblog.dev" target="_blank">terramterreno.bearblog.dev</a>
+					<a class="domain" href="https://terramterreno.bearblog.dev" target="_blank">terramterreno.bearblog.dev</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -357,7 +414,9 @@ nav > span {
 				<small>
 					<time datetime="2022-04-28">28/04/2022</time>
 					|
-					<a href="https://mulhervitrola.com.br" target="_blank">mulhervitrola.com.br</a>
+					<a class="domain" href="https://mulhervitrola.com.br" target="_blank">mulhervitrola.com.br</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -368,7 +427,9 @@ nav > span {
 				<small>
 					<time datetime="2022-04-22">22/04/2022</time>
 					|
-					<a href="https://eucontoversos.blogspot.com" target="_blank">eucontoversos.blogspot.com</a>
+					<a class="domain" href="https://eucontoversos.blogspot.com" target="_blank">eucontoversos.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -379,7 +440,9 @@ nav > span {
 				<small>
 					<time datetime="2022-04-13">13/04/2022</time>
 					|
-					<a href="https://gabcritic.com" target="_blank">gabcritic.com</a>
+					<a class="domain" href="https://gabcritic.com" target="_blank">gabcritic.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -390,7 +453,9 @@ nav > span {
 				<small>
 					<time datetime="2022-03-24">24/03/2022</time>
 					|
-					<a href="https://nadafazsentido.bearblog.dev" target="_blank">nadafazsentido.bearblog.dev</a>
+					<a class="domain" href="https://nadafazsentido.bearblog.dev" target="_blank">nadafazsentido.bearblog.dev</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -401,7 +466,9 @@ nav > span {
 				<small>
 					<time datetime="2022-02-04">04/02/2022</time>
 					|
-					<a href="https://bddwarriors.wordpress.com" target="_blank">bddwarriors.wordpress.com</a>
+					<a class="domain" href="https://bddwarriors.wordpress.com" target="_blank">bddwarriors.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -412,7 +479,9 @@ nav > span {
 				<small>
 					<time datetime="2022-01-25">25/01/2022</time>
 					|
-					<a href="https://leob.bearblog.dev" target="_blank">leob.bearblog.dev</a>
+					<a class="domain" href="https://leob.bearblog.dev" target="_blank">leob.bearblog.dev</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -423,7 +492,9 @@ nav > span {
 				<small>
 					<time datetime="2022-01-20">20/01/2022</time>
 					|
-					<a href="https://salodesigner.bearblog.dev" target="_blank">salodesigner.bearblog.dev</a>
+					<a class="domain" href="https://salodesigner.bearblog.dev" target="_blank">salodesigner.bearblog.dev</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -434,7 +505,9 @@ nav > span {
 				<small>
 					<time datetime="2022-01-13">13/01/2022</time>
 					|
-					<a href="https://pauloewerton.bearblog.dev" target="_blank">pauloewerton.bearblog.dev</a>
+					<a class="domain" href="https://pauloewerton.bearblog.dev" target="_blank">pauloewerton.bearblog.dev</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -445,7 +518,9 @@ nav > span {
 				<small>
 					<time datetime="2021-12-24">24/12/2021</time>
 					|
-					<a href="https://atur.bearblog.dev" target="_blank">atur.bearblog.dev</a>
+					<a class="domain" href="https://atur.bearblog.dev" target="_blank">atur.bearblog.dev</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -456,7 +531,9 @@ nav > span {
 				<small>
 					<time datetime="2021-11-21">21/11/2021</time>
 					|
-					<a href="https://lapsotrivial.bearblog.dev" target="_blank">lapsotrivial.bearblog.dev</a>
+					<a class="domain" href="https://lapsotrivial.bearblog.dev" target="_blank">lapsotrivial.bearblog.dev</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -467,7 +544,9 @@ nav > span {
 				<small>
 					<time datetime="2021-11-04">04/11/2021</time>
 					|
-					<a href="https://bittopia0.bearblog.dev" target="_blank">bittopia0.bearblog.dev</a>
+					<a class="domain" href="https://bittopia0.bearblog.dev" target="_blank">bittopia0.bearblog.dev</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -478,7 +557,9 @@ nav > span {
 				<small>
 					<time datetime="2021-10-20">20/10/2021</time>
 					|
-					<a href="https://zerodiario.bearblog.dev" target="_blank">zerodiario.bearblog.dev</a>
+					<a class="domain" href="https://zerodiario.bearblog.dev" target="_blank">zerodiario.bearblog.dev</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -489,7 +570,9 @@ nav > span {
 				<small>
 					<time datetime="2021-10-18">18/10/2021</time>
 					|
-					<a href="https://croche.bearblog.dev" target="_blank">croche.bearblog.dev</a>
+					<a class="domain" href="https://croche.bearblog.dev" target="_blank">croche.bearblog.dev</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -500,7 +583,9 @@ nav > span {
 				<small>
 					<time datetime="2021-10-16">16/10/2021</time>
 					|
-					<a href="https://descafeinado.bearblog.dev" target="_blank">descafeinado.bearblog.dev</a>
+					<a class="domain" href="https://descafeinado.bearblog.dev" target="_blank">descafeinado.bearblog.dev</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -511,7 +596,9 @@ nav > span {
 				<small>
 					<time datetime="2021-10-09">09/10/2021</time>
 					|
-					<a href="https://fulvius.bearblog.dev" target="_blank">fulvius.bearblog.dev</a>
+					<a class="domain" href="https://fulvius.bearblog.dev" target="_blank">fulvius.bearblog.dev</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -522,7 +609,9 @@ nav > span {
 				<small>
 					<time datetime="2021-09-23">23/09/2021</time>
 					|
-					<a href="https://ganbah-new.bearblog.dev" target="_blank">ganbah-new.bearblog.dev</a>
+					<a class="domain" href="https://ganbah-new.bearblog.dev" target="_blank">ganbah-new.bearblog.dev</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -533,7 +622,9 @@ nav > span {
 				<small>
 					<time datetime="2021-05-25">25/05/2021</time>
 					|
-					<a href="https://qtrnn.io" target="_blank">qtrnn.io</a>
+					<a class="domain" href="https://qtrnn.io" target="_blank">qtrnn.io</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -544,7 +635,9 @@ nav > span {
 				<small>
 					<time datetime="2021-02-24">24/02/2021</time>
 					|
-					<a href="https://registrosdopensar.bearblog.dev" target="_blank">registrosdopensar.bearblog.dev</a>
+					<a class="domain" href="https://registrosdopensar.bearblog.dev" target="_blank">registrosdopensar.bearblog.dev</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -555,7 +648,9 @@ nav > span {
 				<small>
 					<time datetime="2020-12-30">30/12/2020</time>
 					|
-					<a href="https://danieltolentino.bearblog.dev" target="_blank">danieltolentino.bearblog.dev</a>
+					<a class="domain" href="https://danieltolentino.bearblog.dev" target="_blank">danieltolentino.bearblog.dev</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
@@ -566,7 +661,9 @@ nav > span {
 				<small>
 					<time datetime="2020-05-07">07/05/2020</time>
 					|
-					<a href="https://marinaribacki.com" target="_blank">marinaribacki.com</a>
+					<a class="domain" href="https://marinaribacki.com" target="_blank">marinaribacki.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 		</ol>
@@ -578,21 +675,124 @@ nav > span {
 	</main>
 	<footer>
 		<p>Atualizado em:
-			<time id="update-at" datetime="2026-02-11T16:44:59.583383+00:00">
-				Wednesday, 11/02/2026 16:44:59
+			<time id="update-at" datetime="2026-02-12T03:09:58.932552+00:00">
+				Thursday, 12/02/2026 03:09:58
 			</time>
 		</p>
 		<p><a href="index.html">BR Crawl</a> | <a href="about.html">Sobre</a> | <a href="sources.html">Fontes</a></p>
 	</footer>
 </body>
 
-<script type="module" nonce="e8ef06ad46624cf5353b57e467bcae29">
+<script type="module" nonce="584bf29a73778a591820a243e5205dd5">
 	const updatedAtElement = document.getElementById("update-at");
 	const date = new Date(updatedAtElement.dateTime);
 	updatedAtElement.innerText = date.toLocaleString(undefined, {
 		dateStyle: "full",
 		timeStyle: "medium",
 	})
+</script>
+<script type="module" nonce="584bf29a73778a591820a243e5205dd5">
+var backend_url='https://brcrawl.guilhermegarcia.dev';
+function hide_feedback(domain) {
+    return `<div><small>Domínio <a href="https://${domain}">${domain}</a> escondido. | <button class="show">exibir</button></small></div>`;
+}
+
+function report_feedback(li) {
+    li.style.opacity = 0.5;
+    const btn = li.querySelector("button.report");
+    btn.textContent = "reportado";
+    btn.className = "unreport";
+}
+
+var reported = localStorage.getItem('reported') || '[]';
+reported = JSON.parse(reported);
+var hidden = localStorage.getItem('hidden') || '[]';
+hidden = JSON.parse(hidden);
+
+let domains = Array.from(document.getElementsByClassName("domain"));
+domains.forEach((domain) => {
+    if (reported.includes(domain.textContent)) {
+        const li = domain.closest("li");
+        report_feedback(li);
+    }
+    if (hidden.includes(domain.textContent)) {
+        domain.closest("li").innerHTML = hide_feedback(domain.textContent);
+    }
+});
+
+function report(btn) {
+    const li = btn.closest("li");
+    const articleDomain = li.querySelector("a.domain");
+    const domain = articleDomain.textContent;
+
+    if (reported.length == 0) {
+        const agreed = confirm("Reporte sites que não são blogs pessoais ou não estão em português. Confirme para não ver mais essa mensagem. Obrigado!");
+        if (!agreed) {
+            return;
+        }
+    }
+    fetch(`${backend_url}/report`, {
+        method: "POST",
+        body: JSON.stringify({ domain }),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+    reported.push(domain);
+    localStorage.setItem('reported', JSON.stringify(reported));
+    report_feedback(li);
+}
+
+function unreport(btn) {
+    const li = btn.closest("li");
+    const articleDomain = li.querySelector("a.domain");
+    const domain = articleDomain.textContent;
+    reported = reported.filter((d) => d != domain);
+    localStorage.setItem('reported', JSON.stringify(reported));
+    fetch(`${backend_url}/report`, {
+        method: "POST",
+        body: JSON.stringify({ domain }),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }).finally(() => {
+        window.location.reload();
+    });
+}
+
+function hide(btn) {
+    const li = btn.closest("li");
+    const articleDomain = li.querySelector("a.domain");
+    const domain = articleDomain.textContent;
+
+    hidden.push(domain);
+    localStorage.setItem('hidden', JSON.stringify(hidden));
+    li.innerHTML = hide_feedback(domain);
+}
+
+function show(btn) {
+    const li = btn.closest("li");
+    const articleDomain = li.querySelector("a");
+    const domain = articleDomain.textContent;
+    hidden = hidden.filter((d) => d != domain);
+    localStorage.setItem('hidden', JSON.stringify(hidden));
+    window.location.reload();
+}
+
+document.addEventListener("click", function(e) {
+    if (e.target.className == "report") {
+        return report(e.target);
+    }
+    if (e.target.className == "unreport") {
+        return unreport(e.target);
+    }
+    if (e.target.className == "hide") {
+        return hide(e.target);
+    }
+    if (e.target.className == "show") {
+        return show(e.target);
+    }
+});
 </script>
 
 </html>
