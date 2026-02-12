@@ -12,14 +12,14 @@
 		connect-src https://brcrawl.guilhermegarcia.dev;
 		base-uri 'self';
 		img-src 'self' data: ;
-		style-src 'nonce-27d608d86935136a8f3a6d95eb51b616' ;
-		script-src 'nonce-27d608d86935136a8f3a6d95eb51b616' 'strict-dynamic' ;
+		style-src 'nonce-a949576accf1b00073cc3eb1ea64fa22' ;
+		script-src 'nonce-a949576accf1b00073cc3eb1ea64fa22' 'strict-dynamic' ;
 	">
 	<meta name="application-name" content="brcrawl">
 	<meta name="description" content="Diretório da smallweb brasileira">
 	<meta name="referrer" content="same-origin">
 
-	<style nonce="27d608d86935136a8f3a6d95eb51b616">
+	<style nonce="a949576accf1b00073cc3eb1ea64fa22">
 :root {
     color-scheme: dark light;
     --primary: #0AC8F5;
@@ -151,27 +151,33 @@ button.report:hover, button.unreport, button.hide:hover, button.show {
 <p>
     Para adicionar (ou remover) o seu blog, entre em contato comigo por <a href="mailto:hello@guilhermegarcia.dev">aqui</a>.
 </p>
+<h2>Sobre</h2>
+<p>O BR Crawl é um agregador de blogs brasileiros. O foco são blogs pessoais, sem objetivos comerciais, escritos em português.</p>
+<p>Todos os dias a listagem é atualizada com a <strong>última postagem</strong> de cada blog. Apenas um post por blog cadastrado.</p>
+<p>O agregador aumenta de forma automática: um robô visita os blogs e tenta encontrar links que apontem para outros blogs pessoais em português. Por causa disso, erros podem acontencer: se você encontrar algum blog que não deveria estar na lista (como um blog em inglês ou um site aleatório), pode ajudar clicando em <strong>reportar</strong> logo abaixo do título da postagem.</p>
 <h2>Atualizações</h2>
 <p>
     <ul>
         <li>08/02/2026: 173 blogs encontrados no <a href="https://bearblog.dev/discover/?newest=true">feed público do bearblog em português</a></li>
         <li>09/02/2026: 261 blogs (<a href="https://bolha.one/@cadusilva/115825643492248122">1</a>, <a href="https://cosmoliko.com/blogroll-newsletters-escritores-e-sites-recomendados/">2</a>, <a href="https://cosmoliko.com/feeds-rss-de-autores-do-mastodon/">3</a>, <a href="https://cosmoliko.com/feeds-rss-de-autores-do-bluesky/">4</a>)</li>
-        <li>10/02/2026: 475 blogs (<3 <a href="https://blogueirosraiz.blogspot.com/p/todos-os-blogs-a-z.html">Blogueiros Raiz</a>)</li>
+        <li>10/02/2026: 467 blogs (<3 <a href="https://blogueirosraiz.blogspot.com/p/todos-os-blogs-a-z.html">Blogueiros Raiz</a>)</li>
+	<li>11/02/2026: adição dos botões <strong>esconder</strong> e <strong>reportar</strong></li>
+	<li>12/02/2026: +43 blogs através de scrapping automático e curadoria manual</li>
     </ul>
 </p>
 
 	</main>
 	<footer>
 		<p>Atualizado em:
-			<time id="update-at" datetime="2026-02-12T03:09:58.933610+00:00">
-				Thursday, 12/02/2026 03:09:58
+			<time id="update-at" datetime="2026-02-12T15:04:40.058031+00:00">
+				Thursday, 12/02/2026 15:04:40
 			</time>
 		</p>
 		<p><a href="index.html">BR Crawl</a> | <a href="about.html">Sobre</a> | <a href="sources.html">Fontes</a></p>
 	</footer>
 </body>
 
-<script type="module" nonce="27d608d86935136a8f3a6d95eb51b616">
+<script type="module" nonce="a949576accf1b00073cc3eb1ea64fa22">
 	const updatedAtElement = document.getElementById("update-at");
 	const date = new Date(updatedAtElement.dateTime);
 	updatedAtElement.innerText = date.toLocaleString(undefined, {
@@ -179,7 +185,7 @@ button.report:hover, button.unreport, button.hide:hover, button.show {
 		timeStyle: "medium",
 	})
 </script>
-<script type="module" nonce="27d608d86935136a8f3a6d95eb51b616">
+<script type="module" nonce="a949576accf1b00073cc3eb1ea64fa22">
 var backend_url='https://brcrawl.guilhermegarcia.dev';
 function hide_feedback(domain) {
     return `<div><small>Domínio <a href="https://${domain}">${domain}</a> escondido. | <button class="show">exibir</button></small></div>`;
