@@ -9,16 +9,17 @@
 
 	<meta http-equiv="Content-Security-Policy" content="
 		default-src 'none';
+		connect-src https://brcrawl.guilhermegarcia.dev;
 		base-uri 'self';
 		img-src 'self' data: ;
-		style-src 'nonce-caaa463a82a08a0d2fa6a9e41cf277bb' ;
-		script-src 'nonce-caaa463a82a08a0d2fa6a9e41cf277bb' 'strict-dynamic' ;
+		style-src 'nonce-7842309ca744e23a9f54e6de6cad2bcf' ;
+		script-src 'nonce-7842309ca744e23a9f54e6de6cad2bcf' 'strict-dynamic' ;
 	">
 	<meta name="application-name" content="brcrawl">
 	<meta name="description" content="Diretório da smallweb brasileira">
 	<meta name="referrer" content="same-origin">
 
-	<style nonce="caaa463a82a08a0d2fa6a9e41cf277bb">
+	<style nonce="7842309ca744e23a9f54e6de6cad2bcf">
 :root {
     color-scheme: dark light;
     --primary: #0AC8F5;
@@ -119,6 +120,22 @@ nav > a, nav > span {
 nav > span {
     color: var(--border);
 }
+
+button.report, button.unreport, button.hide, button.show {
+    background: transparent;
+    border: 0px transparent;
+    padding: 0px;
+    margin: 0px;
+    display: inline;
+    box-sizing: border-box;
+    font: inherit;
+    color: inherit;
+}
+
+button.report:hover, button.unreport, button.hide:hover, button.show {
+    opacity: 0.8;
+    cursor: pointer;
+}
 	</style>
 </head>
 
@@ -130,579 +147,782 @@ nav > span {
 	<main>
 		<ol start="1">
 			<li>
-				<a href="https://ivanjeronimo.com.br/2026/02/09/o-esporte-menos-instagramavel-do-mundo/" target="_blank">
-					<h2>O esporte menos instagramável do mundo</h2>
+				<a href="https://vladcampos.com/2026/02/15/my-brain-perception-vs-openais.html" target="_blank">
+					<h2>My brain perception vs. OpenAI’s new privacy policy</h2>
 				</a>
 				<br>
 				<small>
-					<time datetime="2026-02-10">10/02/2026</time>
+					<time datetime="2026-02-15">15/02/2026</time>
 					|
-					<a href="https://ivanjeronimo.com.br" target="_blank">ivanjeronimo.com.br</a>
+					<a class="domain" href="https://vladcampos.com" target="_blank">vladcampos.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
-				<a href="https://localghost.dev/blog/stop-generating-start-thinking/" target="_blank">
-					<h2>Cool Link: Stop generating, start thinking</h2>
+				<a href="https://aterraeredonda.com.br/uruguai-juventude-militancia-e-a-questao-do-conflito/" target="_blank">
+					<h2>Uruguai: juventude, militância e a questão do conflito</h2>
 				</a>
 				<br>
 				<small>
-					<time datetime="2026-02-10">10/02/2026</time>
+					<time datetime="2026-02-15">15/02/2026</time>
 					|
-					<a href="https://localghost.dev" target="_blank">localghost.dev</a>
+					<a class="domain" href="https://aterraeredonda.com.br" target="_blank">aterraeredonda.com.br</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
-				<a href="https://manualdousuario.net/text-ia-folha-natalia-beauty-ombudsman/" target="_blank">
-					<h2>Por que tanta gente odeia texto de IA, mesmo quando ele pode ser bom?</h2>
+				<a href="https://rothbardbrasil.com/por-que-os-politicos-odeiam-produtividade-e-robos/" target="_blank">
+					<h2>Por que os políticos odeiam produtividade (e robôs)</h2>
 				</a>
 				<br>
 				<small>
-					<time datetime="2026-02-10">10/02/2026</time>
+					<time datetime="2026-02-15">15/02/2026</time>
 					|
-					<a href="https://manualdousuario.net" target="_blank">manualdousuario.net</a>
+					<a class="domain" href="https://rothbardbrasil.com" target="_blank">rothbardbrasil.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
-				<a href="https://luri.substack.com/p/sobre-comecar-continuar-e-saber-a" target="_blank">
-					<h2>Sobre começar, continuar e saber a hora de parar</h2>
+				<a href="https://catarinavoltouaescrever.wordpress.com/2026/02/14/essa-e-minha-casa-com-minha-gente/" target="_blank">
+					<h2>essa é minha casa com minha gente</h2>
 				</a>
 				<br>
 				<small>
-					<time datetime="2026-02-10">10/02/2026</time>
+					<time datetime="2026-02-15">15/02/2026</time>
 					|
-					<a href="https://luri.substack.com" target="_blank">luri.substack.com</a>
+					<a class="domain" href="https://catarinavoltouaescrever.wordpress.com" target="_blank">catarinavoltouaescrever.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
-				<a href="https://cinemacomcritica.com.br/2026/02/descontrole-carolina-dieckmann-em-drama-sobre-recaida-alcoolismo-e-a-ilusao-de-controle/" target="_blank">
-					<h2>(DES)CONTROLE | Carolina Dieckmann em drama sobre recaída, alcoolismo e a ilusão de controle</h2>
+				<a href="https://www.algumasobservacoes.com/2026/02/os-ventos-do-carnaval-nao-movem-moinhos.html" target="_blank">
+					<h2>Os ventos do carnaval não movem moinhos</h2>
 				</a>
 				<br>
 				<small>
-					<time datetime="2026-02-10">10/02/2026</time>
+					<time datetime="2026-02-15">15/02/2026</time>
 					|
-					<a href="https://cinemacomcritica.com.br" target="_blank">cinemacomcritica.com.br</a>
+					<a class="domain" href="https://algumasobservacoes.com" target="_blank">algumasobservacoes.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
-				<a href="https://prazerwillian.blogspot.com/2026/02/caderneta-de-bolso-02.html" target="_blank">
-					<h2>CADERNETA DE BOLSO #02</h2>
+				<a href="https://aventurasnahistoria.com.br/noticias/desventuras/a-regiao-francesa-que-protegeu-os-tesouros-do-louvre-durante-a-segunda-guerra-mundial.phtml" target="_blank">
+					<h2>A região francesa que protegeu os tesouros do Louvre durante a Segunda Guerra Mundial</h2>
 				</a>
 				<br>
 				<small>
-					<time datetime="2026-02-10">10/02/2026</time>
+					<time datetime="2026-02-15">15/02/2026</time>
 					|
-					<a href="https://prazerwillian.blogspot.com" target="_blank">prazerwillian.blogspot.com</a>
+					<a class="domain" href="https://aventurasnahistoria.com.br" target="_blank">aventurasnahistoria.com.br</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
-				<a href="https://infoamazonia.org/2026/02/10/brasil-quer-liderar-fim-dos-fosseis-mas-patina-para-ter-plano-nacional-proprio/" target="_blank">
-					<h2>Brasil quer liderar fim dos fósseis, mas patina para ter plano nacional próprio</h2>
+				<a href="https://ambivalentabout.bearblog.dev/review-trails-through-daybreak-malditas-criancas-e-um-cachorro/" target="_blank">
+					<h2>[Review] Trails through Daybreak, malditas crianças e um cachorro</h2>
 				</a>
 				<br>
 				<small>
-					<time datetime="2026-02-10">10/02/2026</time>
+					<time datetime="2026-02-15">15/02/2026</time>
 					|
-					<a href="https://infoamazonia.org" target="_blank">infoamazonia.org</a>
+					<a class="domain" href="https://ambivalentabout.bearblog.dev" target="_blank">ambivalentabout.bearblog.dev</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
-				<a href="https://avidasegundoag.blogspot.com/2026/02/a-mesa-da-vida.html" target="_blank">
-					<h2>À mesa da vida</h2>
+				<a href="https://vladcampos.com/2026/02/15/my-brain-perception-vs-openais.html" target="_blank">
+					<h2>My brain perception vs. OpenAI’s new privacy policy</h2>
 				</a>
 				<br>
 				<small>
-					<time datetime="2026-02-10">10/02/2026</time>
+					<time datetime="2026-02-15">15/02/2026</time>
 					|
-					<a href="https://avidasegundoag.blogspot.com" target="_blank">avidasegundoag.blogspot.com</a>
+					<a class="domain" href="https://vladcampos.com" target="_blank">vladcampos.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
-				<a href="https://bigtofu93.bearblog.dev/retro-semanal-2/" target="_blank">
-					<h2>retro semanal #2: a segunda vez a gente quase esquece</h2>
+				<a href="https://breno.bearblog.dev/the-weights-in-study-on-fixing-the-initial-loss/" target="_blank">
+					<h2>The weights in study on fixing the initial loss</h2>
 				</a>
 				<br>
 				<small>
-					<time datetime="2026-02-10">10/02/2026</time>
+					<time datetime="2026-02-15">15/02/2026</time>
 					|
-					<a href="https://bigtofu93.bearblog.dev" target="_blank">bigtofu93.bearblog.dev</a>
+					<a class="domain" href="https://breno.bearblog.dev" target="_blank">breno.bearblog.dev</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
-				<a href="https://kikacastro.com.br/2026/02/10/donald-trump-ataques-imprensa-cronologia/" target="_blank">
-					<h2>Primeiro ano do retorno de Donald Trump tem 46 ações contra a imprensa; veja cronologia</h2>
+				<a href="https://folkmoss.bearblog.dev/open-web-fun/" target="_blank">
+					<h2>A.N. | Open Web Fun</h2>
 				</a>
 				<br>
 				<small>
-					<time datetime="2026-02-10">10/02/2026</time>
+					<time datetime="2026-02-15">15/02/2026</time>
 					|
-					<a href="https://kikacastro.com.br" target="_blank">kikacastro.com.br</a>
+					<a class="domain" href="https://folkmoss.bearblog.dev" target="_blank">folkmoss.bearblog.dev</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
-				<a href="http://devaneiosedesvarios.blogspot.com/2026/02/nomes-e-escolhas.html" target="_blank">
-					<h2>Nomes e escolhas</h2>
+				<a href="https://lenajackblack.blogspot.com/2026/02/o-que-tens-feito-de-bom.html" target="_blank">
+					<h2>O que tens feito de bom?</h2>
 				</a>
 				<br>
 				<small>
-					<time datetime="2026-02-10">10/02/2026</time>
+					<time datetime="2026-02-15">15/02/2026</time>
 					|
-					<a href="https://devaneiosedesvarios.blogspot.com" target="_blank">devaneiosedesvarios.blogspot.com</a>
+					<a class="domain" href="https://lenajackblack.blogspot.com" target="_blank">lenajackblack.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
-				<a href="https://ilhadeconcreto.wordpress.com/2026/02/10/tapes-ii/" target="_blank">
-					<h2>Tapes (II)</h2>
+				<a href="https://apublica.org/2026/02/porque-eu-era-mulher-nao-me-deixaram-ir-pra-avenida-entrevista-com-eliana-de-lima/" target="_blank">
+					<h2>“Porque eu era mulher, não me deixaram ir pra avenida”: entrevista com Eliana de Lima</h2>
 				</a>
 				<br>
 				<small>
-					<time datetime="2026-02-10">10/02/2026</time>
+					<time datetime="2026-02-15">15/02/2026</time>
 					|
-					<a href="https://ilhadeconcreto.wordpress.com" target="_blank">ilhadeconcreto.wordpress.com</a>
+					<a class="domain" href="https://apublica.org" target="_blank">apublica.org</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
-				<a href="https://www.felipefagundes.com.br/2026/02/os-dioguinhos-046.html" target="_blank">
-					<h2>Os Dioguinhos #046</h2>
+				<a href="http://i-ndie.blogspot.com/2026/02/nao-me-perguntem-nada-sobre-mim-pois.html" target="_blank">
+					<h2>Não me perguntem nada sobre mim, pois não me conheço</h2>
 				</a>
 				<br>
 				<small>
-					<time datetime="2026-02-10">10/02/2026</time>
+					<time datetime="2026-02-15">15/02/2026</time>
 					|
-					<a href="https://felipefagundes.com.br" target="_blank">felipefagundes.com.br</a>
+					<a class="domain" href="https://i-ndie.blogspot.com" target="_blank">i-ndie.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
-				<a href="https://vladcampos.com/2026/02/10/redes-sociais-baseadas-em-algoritmo.html" target="_blank">
-					<h2>Redes sociais baseadas em algoritmo interferem em todos os aspectos da sua vida!</h2>
+				<a href="https://cinemacomcritica.com.br/2026/02/the-other-side-of-the-sun-um-filme-sobre-a-prisao-e-a-tortura-que-o-diretor-nao-consegue-lembrar/" target="_blank">
+					<h2>THE OTHER SIDE OF THE SUN | Um filme sobre a prisão e a tortura que o diretor não consegue lembrar</h2>
 				</a>
 				<br>
 				<small>
-					<time datetime="2026-02-10">10/02/2026</time>
+					<time datetime="2026-02-15">15/02/2026</time>
 					|
-					<a href="https://vladcampos.com" target="_blank">vladcampos.com</a>
+					<a class="domain" href="https://cinemacomcritica.com.br" target="_blank">cinemacomcritica.com.br</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
-				<a href="https://cadu.cc/blog/como-integrar-um-nobreak-ragtech-ao-home-assistant.html" target="_blank">
-					<h2>Como integrar um nobreak RagTech ao Home Assistant</h2>
+				<a href="https://www.ailhaemcirce.com/2026/02/15-2.html" target="_blank">
+					<h2>Mais das andanças</h2>
 				</a>
 				<br>
 				<small>
-					<time datetime="2026-02-09">09/02/2026</time>
+					<time datetime="2026-02-15">15/02/2026</time>
 					|
-					<a href="https://cadu.cc" target="_blank">cadu.cc</a>
+					<a class="domain" href="https://ailhaemcirce.com" target="_blank">ailhaemcirce.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
-				<a href="https://folkmoss.bearblog.dev/new-lists-for-2026/" target="_blank">
-					<h2>New lists for 2026</h2>
+				<a href="https://www.anica.com.br/2026/02/13/atrasada-para-a-festa/" target="_blank">
+					<h2>Atrasada para a festa</h2>
 				</a>
 				<br>
 				<small>
-					<time datetime="2026-02-09">09/02/2026</time>
+					<time datetime="2026-02-14">14/02/2026</time>
 					|
-					<a href="https://folkmoss.bearblog.dev" target="_blank">folkmoss.bearblog.dev</a>
+					<a class="domain" href="https://anica.com.br" target="_blank">anica.com.br</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
-				<a href="https://sol2070.in/2026/02/filme-enterramos-os-mortos/" target="_blank">
-					<h2>A grande zumbificação humana</h2>
+				<a href="https://pedro.dalbo.me/blog/arrumando-tempo-pra-mim/" target="_blank">
+					<h2>Tempo para mim</h2>
 				</a>
 				<br>
 				<small>
-					<time datetime="2026-02-09">09/02/2026</time>
+					<time datetime="2026-02-14">14/02/2026</time>
 					|
-					<a href="https://sol2070.in" target="_blank">sol2070.in</a>
+					<a class="domain" href="https://pedro.dalbo.me" target="_blank">pedro.dalbo.me</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
-				<a href="https://piggy-sakura.blogspot.com/2026/02/kiyomis-notes-30-dezembro-e-saimos-vivos.html" target="_blank">
-					<h2>Kiyomi&amp;#39;s Notes #30 - Dezembro e saímos vivos</h2>
+				<a href="https://www.marcal.dev/media-pulse-agora-serve-as-minhas-leituras" target="_blank">
+					<h2>Media Pulse agora serve as minhas leituras</h2>
 				</a>
 				<br>
 				<small>
-					<time datetime="2026-02-09">09/02/2026</time>
+					<time datetime="2026-02-14">14/02/2026</time>
 					|
-					<a href="https://piggy-sakura.blogspot.com" target="_blank">piggy-sakura.blogspot.com</a>
+					<a class="domain" href="https://marcal.dev" target="_blank">marcal.dev</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
-				<a href="https://curadoria.bearblog.dev/leitura-intermitente/" target="_blank">
-					<h2>Leitura Intermitente</h2>
+				<a href="https://roomintrovert.blogspot.com/2026/02/coisas-simples-que-trazem-micro.html" target="_blank">
+					<h2>Coisas simples que trazem micro-felicidade ฅ^&amp;gt;⩊&amp;lt;^ ฅ₊˚⊹♡</h2>
 				</a>
 				<br>
 				<small>
-					<time datetime="2026-02-09">09/02/2026</time>
+					<time datetime="2026-02-14">14/02/2026</time>
 					|
-					<a href="https://curadoria.bearblog.dev" target="_blank">curadoria.bearblog.dev</a>
+					<a class="domain" href="https://roomintrovert.blogspot.com" target="_blank">roomintrovert.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
-				<a href="https://www.meutedio.com/2026/02/sobre-o-que-cabe-na-rotina.html" target="_blank">
-					<h2>⏳️ O que cabe na rotina e as negociações com o tempo</h2>
+				<a href="https://avidasegundoag.blogspot.com/2026/02/raso.html" target="_blank">
+					<h2>Raso</h2>
 				</a>
 				<br>
 				<small>
-					<time datetime="2026-02-09">09/02/2026</time>
+					<time datetime="2026-02-14">14/02/2026</time>
 					|
-					<a href="https://meutedio.com" target="_blank">meutedio.com</a>
+					<a class="domain" href="https://avidasegundoag.blogspot.com" target="_blank">avidasegundoag.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
-				<a href="https://lulylage.com/exposicao-yoshitaka-amano-alem-da-fantasia-no-ccbb-bh/?utm_source=rss&amp;amp;utm_medium=rss&amp;amp;utm_campaign=exposicao-yoshitaka-amano-alem-da-fantasia-no-ccbb-bh" target="_blank">
-					<h2>Exposição Yoshitaka Amano – Além da Fantasia, no CCBB BH</h2>
+				<a href="https://felipetavares.me/2026/02/14/voltando-ao-the-new-abnormal.html" target="_blank">
+					<h2>Untitled</h2>
 				</a>
 				<br>
 				<small>
-					<time datetime="2026-02-09">09/02/2026</time>
+					<time datetime="2026-02-14">14/02/2026</time>
 					|
-					<a href="https://lulylage.com" target="_blank">lulylage.com</a>
+					<a class="domain" href="https://felipetavares.me" target="_blank">felipetavares.me</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
-				<a href="http://withsarti.blogspot.com/2026/02/o-que-tem-na-minha-bolsa.html" target="_blank">
-					<h2>O Que Tem na Minha Bolsa?</h2>
+				<a href="https://depokafe.wordpress.com/2026/02/14/o-traficante/" target="_blank">
+					<h2>O traficante</h2>
 				</a>
 				<br>
 				<small>
-					<time datetime="2026-02-09">09/02/2026</time>
+					<time datetime="2026-02-14">14/02/2026</time>
 					|
-					<a href="https://withsarti.blogspot.com" target="_blank">withsarti.blogspot.com</a>
+					<a class="domain" href="https://depokafe.wordpress.com" target="_blank">depokafe.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
-				<a href="https://roomintrovert.blogspot.com/2026/02/devagar-e-sempre.html" target="_blank">
-					<h2>Devagar e sempre ༉‧₊˚.</h2>
+				<a href="https://fantinel.dev/quick-reviews/if-i-had-legs-id-kick-you" target="_blank">
+					<h2>Quick Review: If I Had Legs I’d Kick You</h2>
 				</a>
 				<br>
 				<small>
-					<time datetime="2026-02-09">09/02/2026</time>
+					<time datetime="2026-02-14">14/02/2026</time>
 					|
-					<a href="https://roomintrovert.blogspot.com" target="_blank">roomintrovert.blogspot.com</a>
+					<a class="domain" href="https://fantinel.dev" target="_blank">fantinel.dev</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
-				<a href="http://www.pensamentosvalemouro.com.br/2026/02/literatura-arte-ciencia-e-vida-quando.html" target="_blank">
-					<h2>Estado Literário: quando a palavra habita</h2>
+				<a href="https://paulamaria.substack.com/p/confetes-e-serpentinas" target="_blank">
+					<h2>Confetes e serpentinas</h2>
 				</a>
 				<br>
 				<small>
-					<time datetime="2026-02-09">09/02/2026</time>
+					<time datetime="2026-02-14">14/02/2026</time>
 					|
-					<a href="https://pensamentosvalemouro.com.br" target="_blank">pensamentosvalemouro.com.br</a>
+					<a class="domain" href="https://paulamaria.substack.com" target="_blank">paulamaria.substack.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
-				<a href="https://slippyy.blogspot.com/2026/02/toffee-ice-cream-brownie-bars.html" target="_blank">
-					<h2>Toffee Ice Cream Brownie Bars</h2>
+				<a href="https://cristaos.org/novas/verdade-mostra/" target="_blank">
+					<h2>3 coisas a verdade da palavra de Deus mostrará a você</h2>
 				</a>
 				<br>
 				<small>
-					<time datetime="2026-02-09">09/02/2026</time>
+					<time datetime="2026-02-14">14/02/2026</time>
 					|
-					<a href="https://slippyy.blogspot.com" target="_blank">slippyy.blogspot.com</a>
+					<a class="domain" href="https://cristaos.org" target="_blank">cristaos.org</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
-				<a href="https://catarinavoltouaescrever.wordpress.com/2026/02/09/31-talvez-de-minha-sombra-surjam-fatais-e-ilusorios-os-dias/" target="_blank">
-					<h2>31 | Talvez de minha sombra surjam, fatais e ilusórios, os dias…</h2>
+				<a href="https://antonioaugusto.net/2026/02/14/algo-grandioso-esta-acontecendo-por-matt-shumer/" target="_blank">
+					<h2>Algo grandioso está acontecendo por Matt Shumer</h2>
 				</a>
 				<br>
 				<small>
-					<time datetime="2026-02-09">09/02/2026</time>
+					<time datetime="2026-02-14">14/02/2026</time>
 					|
-					<a href="https://catarinavoltouaescrever.wordpress.com" target="_blank">catarinavoltouaescrever.wordpress.com</a>
+					<a class="domain" href="https://antonioaugusto.net" target="_blank">antonioaugusto.net</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
-				<a href="http://www.igormedeiroz.com/2026/02/controle.html" target="_blank">
-					<h2>Controle</h2>
+				<a href="https://eurisko.com.br/ia-ajuda-a-recriar-as-regras-perdidas-de-jogos-da-roma-antiga/" target="_blank">
+					<h2>IA ajuda a recriar as regras perdidas de jogos da Roma Antiga</h2>
 				</a>
 				<br>
 				<small>
-					<time datetime="2026-02-09">09/02/2026</time>
+					<time datetime="2026-02-14">14/02/2026</time>
 					|
-					<a href="https://igormedeiroz.com" target="_blank">igormedeiroz.com</a>
+					<a class="domain" href="https://eurisko.com.br" target="_blank">eurisko.com.br</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
-				<a href="https://violentacadencia.blogspot.com/2026/02/citando-alguns-nervosismos-e-medos.html" target="_blank">
-					<h2>citando alguns nervosismos e medos</h2>
+				<a href="https://euproveienaogostei.blogspot.com/2026/02/de-caseirissima-nao-tem-nada-farofa-de.html" target="_blank">
+					<h2>de caseiríssima não tem nada: farofa de banana Yoki</h2>
 				</a>
 				<br>
 				<small>
-					<time datetime="2026-02-09">09/02/2026</time>
+					<time datetime="2026-02-14">14/02/2026</time>
 					|
-					<a href="https://violentacadencia.blogspot.com" target="_blank">violentacadencia.blogspot.com</a>
+					<a class="domain" href="https://euproveienaogostei.blogspot.com" target="_blank">euproveienaogostei.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
-				<a href="https://ambivalentabout.bearblog.dev/eu-preciso-da-saga-completa/" target="_blank">
-					<h2>Eu preciso da saga completa</h2>
+				<a href="https://pequenajornalista.com/2026/02/14/1o-book-haul-de-2026-%e2%99%a5/?utm_source=rss&amp;amp;utm_medium=rss&amp;amp;utm_campaign=1o-book-haul-de-2026-%25e2%2599%25a5&amp;amp;utm_source=rss&amp;amp;utm_medium=rss&amp;amp;utm_campaign=1o-book-haul-de-2026-%25e2%2599%25a5" target="_blank">
+					<h2>* 1º Book Haul de 2026! ♥</h2>
 				</a>
 				<br>
 				<small>
-					<time datetime="2026-02-09">09/02/2026</time>
+					<time datetime="2026-02-14">14/02/2026</time>
 					|
-					<a href="https://ambivalentabout.bearblog.dev" target="_blank">ambivalentabout.bearblog.dev</a>
+					<a class="domain" href="https://pequenajornalista.com" target="_blank">pequenajornalista.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
-				<a href="https://buttondown.com/trem/archive/trensletter-24-de-01-a-07-de-fevereiro/" target="_blank">
-					<h2>Trensletter #24  - De 01 a 07 de Fevereiro</h2>
+				<a href="https://www.meutedio.com/2026/02/como-instalei-tahoma-no-linux-mint.html" target="_blank">
+					<h2>🔡 Como instalei Tahoma no Linux Mint</h2>
 				</a>
 				<br>
 				<small>
-					<time datetime="2026-02-09">09/02/2026</time>
+					<time datetime="2026-02-14">14/02/2026</time>
 					|
-					<a href="https://buttondown.com" target="_blank">buttondown.com</a>
+					<a class="domain" href="https://meutedio.com" target="_blank">meutedio.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
-				<a href="https://ththoughtz.bearblog.dev/tem-parada-estranha-ai-irmao-bad-bunny-no-super-bowl/" target="_blank">
-					<h2>Tem parada estranha aí irmão - Bad Bunny no Super Bowl</h2>
+				<a href="https://slippyy.blogspot.com/2026/02/red-velvet-pancakes-with-raspberry.html" target="_blank">
+					<h2>Red Velvet Pancakes with Raspberry Butter Topping</h2>
 				</a>
 				<br>
 				<small>
-					<time datetime="2026-02-09">09/02/2026</time>
+					<time datetime="2026-02-14">14/02/2026</time>
 					|
-					<a href="https://ththoughtz.bearblog.dev" target="_blank">ththoughtz.bearblog.dev</a>
+					<a class="domain" href="https://slippyy.blogspot.com" target="_blank">slippyy.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
-				<a href="https://falaserioemi.blogspot.com/2026/02/recap-2025.html" target="_blank">
-					<h2>Recap 2025</h2>
+				<a href="https://oieuoshi.blogspot.com/2026/02/porque-eu-fiz-uma-extensao-pra-salvar.html" target="_blank">
+					<h2>Porque eu fiz uma extensão pra salvar textos destacados</h2>
 				</a>
 				<br>
 				<small>
-					<time datetime="2026-02-09">09/02/2026</time>
+					<time datetime="2026-02-14">14/02/2026</time>
 					|
-					<a href="https://falaserioemi.blogspot.com" target="_blank">falaserioemi.blogspot.com</a>
+					<a class="domain" href="https://oieuoshi.blogspot.com" target="_blank">oieuoshi.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
-				<a href="https://leandromaciel.blog/como-tirar-ursinho-bear-blog-post/" target="_blank">
-					<h2>Como tirar o ursinho do Bear Blog no link do post</h2>
+				<a href="http://www.pensamentosvalemouro.com.br/2026/02/letramento-por-que-ler-exige-esforco-e.html" target="_blank">
+					<h2>Letramento: por que ler exige esforço e produz sentido</h2>
 				</a>
 				<br>
 				<small>
-					<time datetime="2026-02-08">08/02/2026</time>
+					<time datetime="2026-02-14">14/02/2026</time>
 					|
-					<a href="https://leandromaciel.blog" target="_blank">leandromaciel.blog</a>
+					<a class="domain" href="https://pensamentosvalemouro.com.br" target="_blank">pensamentosvalemouro.com.br</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
-				<a href="https://seufelipe.blog/posts/o-taxista-turco" target="_blank">
-					<h2>o taxista turco</h2>
+				<a href="https://cafecomsociologia.com/pensamento-critico-e-letramento-sociologico/" target="_blank">
+					<h2>Pensamento crítico, alfabetização sociológica e letramento sociológico</h2>
 				</a>
 				<br>
 				<small>
-					<time datetime="2026-02-08">08/02/2026</time>
+					<time datetime="2026-02-14">14/02/2026</time>
 					|
-					<a href="https://seufelipe.blog" target="_blank">seufelipe.blog</a>
+					<a class="domain" href="https://cafecomsociologia.com" target="_blank">cafecomsociologia.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
-				<a href="https://msmelo.blog/posts/motor-de-tramas/" target="_blank">
-					<h2>O Motor de Tramas</h2>
+				<a href="https://fetobloigo.blogspot.com/2026/02/cena-interessante-do-filme-il-etait-une.html" target="_blank">
+					<h2>Cena interessante do filme  &amp;#34;Il était une fois le Diable&amp;#34; (1986)</h2>
 				</a>
 				<br>
 				<small>
-					<time datetime="2026-02-08">08/02/2026</time>
+					<time datetime="2026-02-14">14/02/2026</time>
 					|
-					<a href="https://msmelo.blog" target="_blank">msmelo.blog</a>
+					<a class="domain" href="https://fetobloigo.blogspot.com" target="_blank">fetobloigo.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
-				<a href="https://www.tristezinhascotidianas.com.br/2026/02/nunca-vou-esquecer.html" target="_blank">
-					<h2>Nunca vou esquecer</h2>
+				<a href="https://snkrgirl.cfd/blog/posts/2026-02-13-melissa.html" target="_blank">
+					<h2>Meet Melissa, if you haven&amp;#39;t already</h2>
 				</a>
 				<br>
 				<small>
-					<time datetime="2026-02-08">08/02/2026</time>
+					<time datetime="2026-02-13">13/02/2026</time>
 					|
-					<a href="https://tristezinhascotidianas.com.br" target="_blank">tristezinhascotidianas.com.br</a>
+					<a class="domain" href="https://snkrgirl.cfd" target="_blank">snkrgirl.cfd</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
-				<a href="https://bianaaf.medium.com/o-capitalismo-na-era-digital-e-as-perguntas-que-o-marxismo-precisa-enfrentar-6aab5af8b423?source=rss-d86e6527824f------2" target="_blank">
-					<h2>O capitalismo na era digital e as perguntas que o marxismo precisa enfrentar</h2>
+				<a href="https://ilhadeconcreto.wordpress.com/2026/02/13/encontro-ou-reencontro/" target="_blank">
+					<h2>Encontro ou reencontro</h2>
 				</a>
 				<br>
 				<small>
-					<time datetime="2026-02-08">08/02/2026</time>
+					<time datetime="2026-02-13">13/02/2026</time>
 					|
-					<a href="https://bianaaf.medium.com" target="_blank">bianaaf.medium.com</a>
+					<a class="domain" href="https://ilhadeconcreto.wordpress.com" target="_blank">ilhadeconcreto.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
-				<a href="https://pedro.dalbo.me/blog/novas-paginas-de-dicas/" target="_blank">
-					<h2>Novas páginas de dicas</h2>
+				<a href="https://manualdominotauro.blogspot.com/2026/02/puta-day-2015-acho.html" target="_blank">
+					<h2>Puta day, 2015 (acho)</h2>
 				</a>
 				<br>
 				<small>
-					<time datetime="2026-02-08">08/02/2026</time>
+					<time datetime="2026-02-13">13/02/2026</time>
 					|
-					<a href="https://pedro.dalbo.me" target="_blank">pedro.dalbo.me</a>
+					<a class="domain" href="https://manualdominotauro.blogspot.com" target="_blank">manualdominotauro.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
-				<a href="https://blogdoth.com.br/caso-epstein-blogs-e-livros/" target="_blank">
-					<h2>Como seguir vivendo quando tudo parece errado</h2>
+				<a href="https://lulylage.com/tbt-exposicao-a-ecologia-de-monet-no-masp/?utm_source=rss&amp;amp;utm_medium=rss&amp;amp;utm_campaign=tbt-exposicao-a-ecologia-de-monet-no-masp" target="_blank">
+					<h2>#TBT Exposição A Ecologia de Monet, no MASP</h2>
 				</a>
 				<br>
 				<small>
-					<time datetime="2026-02-08">08/02/2026</time>
+					<time datetime="2026-02-13">13/02/2026</time>
 					|
-					<a href="https://blogdoth.com.br" target="_blank">blogdoth.com.br</a>
+					<a class="domain" href="https://lulylage.com" target="_blank">lulylage.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
-				<a href="https://snkrgirl.cfd/blog/2026-02-08-ai-propaganda.html" target="_blank">
-					<h2>I am not immune to AI propaganda</h2>
+				<a href="https://www.memedecarbono.com.br/tecnologia/software/para-o-marketing-nao-ler-a-sua-mente/" target="_blank">
+					<h2>Para o marketing não “ler a sua mente”</h2>
 				</a>
 				<br>
 				<small>
-					<time datetime="2026-02-08">08/02/2026</time>
+					<time datetime="2026-02-13">13/02/2026</time>
 					|
-					<a href="https://snkrgirl.cfd" target="_blank">snkrgirl.cfd</a>
+					<a class="domain" href="https://memedecarbono.com.br" target="_blank">memedecarbono.com.br</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
-				<a href="https://blogdoth.com.br/caso-epstein-blogs-e-livros/" target="_blank">
-					<h2>Como seguir vivendo quando tudo parece errado</h2>
+				<a href="https://kikacastro.com.br/2026/02/13/sonhos-de-trem-resenha-trailer/" target="_blank">
+					<h2>Sonhos de Trem: leia minha resenha e veja o trailer do filme</h2>
 				</a>
 				<br>
 				<small>
-					<time datetime="2026-02-08">08/02/2026</time>
+					<time datetime="2026-02-13">13/02/2026</time>
 					|
-					<a href="https://blogdoth.com.br" target="_blank">blogdoth.com.br</a>
+					<a class="domain" href="https://kikacastro.com.br" target="_blank">kikacastro.com.br</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
-				<a href="https://notadiamond.bearblog.dev/uma-receita-de-cookies/" target="_blank">
-					<h2>uma receita de cookies 🍪</h2>
+				<a href="https://piggy-sakura.blogspot.com/2026/02/especial-emporio-20-anos-conhecendo.html" target="_blank">
+					<h2>[Especial Emporio 20 Anos] Conhecendo a Blogueira</h2>
 				</a>
 				<br>
 				<small>
-					<time datetime="2026-02-08">08/02/2026</time>
+					<time datetime="2026-02-13">13/02/2026</time>
 					|
-					<a href="https://notadiamond.bearblog.dev" target="_blank">notadiamond.bearblog.dev</a>
+					<a class="domain" href="https://piggy-sakura.blogspot.com" target="_blank">piggy-sakura.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
-				<a href="https://www.gustavobelo.com/red-dead-redemption-1/" target="_blank">
-					<h2>Red Dead Redemption 1</h2>
+				<a href="https://infoamazonia.org/2026/02/13/mpf-abre-investigacao-apos-reportagem-da-infoamazonia-revelar-sobreposicao-de-bloco-de-gas-em-territorio-indigena-no-maranhao/" target="_blank">
+					<h2>MPF abre investigação após reportagem da InfoAmazonia revelar sobreposição de bloco de gás em território indígena no Maranhão</h2>
 				</a>
 				<br>
 				<small>
-					<time datetime="2026-02-08">08/02/2026</time>
+					<time datetime="2026-02-13">13/02/2026</time>
 					|
-					<a href="https://gustavobelo.com" target="_blank">gustavobelo.com</a>
+					<a class="domain" href="https://infoamazonia.org" target="_blank">infoamazonia.org</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
-				<a href="https://blogdoth.com.br/caso-epstein-blogs-e-livros/" target="_blank">
-					<h2>Como seguir vivendo quando tudo parece errado</h2>
+				<a href="https://feitoporelas.com.br/o-morro-dos-ventos-uivantes-2026/" target="_blank">
+					<h2>O Morro dos Ventos Uivantes (“Wuthering Heights”, 2026)</h2>
 				</a>
 				<br>
 				<small>
-					<time datetime="2026-02-08">08/02/2026</time>
+					<time datetime="2026-02-13">13/02/2026</time>
 					|
-					<a href="https://blogdoth.com.br" target="_blank">blogdoth.com.br</a>
+					<a class="domain" href="https://feitoporelas.com.br" target="_blank">feitoporelas.com.br</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
-				<a href="https://jeniffergeraldine.com/notas-da-vida-janeiro-de-2026/" target="_blank">
-					<h2>Notas da Vida: janeiro de 2026</h2>
+				<a href="https://sol2070.in/2026/02/critica-enshittification-bostificacao/" target="_blank">
+					<h2>Crítica à teoria da bostificação</h2>
 				</a>
 				<br>
 				<small>
-					<time datetime="2026-02-08">08/02/2026</time>
+					<time datetime="2026-02-13">13/02/2026</time>
 					|
-					<a href="https://jeniffergeraldine.com" target="_blank">jeniffergeraldine.com</a>
+					<a class="domain" href="https://sol2070.in" target="_blank">sol2070.in</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
-				<a href="https://litorais.blogspot.com/2026/02/dois-anos-no-litoral.html" target="_blank">
-					<h2>Dois anos no litoral</h2>
+				<a href="http://www.igormedeiroz.com/2026/02/13-livros.html" target="_blank">
+					<h2>13 livros</h2>
 				</a>
 				<br>
 				<small>
-					<time datetime="2026-02-08">08/02/2026</time>
+					<time datetime="2026-02-13">13/02/2026</time>
 					|
-					<a href="https://litorais.blogspot.com" target="_blank">litorais.blogspot.com</a>
+					<a class="domain" href="https://igormedeiroz.com" target="_blank">igormedeiroz.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
-				<a href="https://www.quebreiamaquinadeescrever.com.br/2026/02/um-ensaio-de-debutante.html" target="_blank">
-					<h2>Um ensaio de debutante</h2>
+				<a href="http://devaneiosedesvarios.blogspot.com/2026/02/1-imagem-140-caracteres-635.html" target="_blank">
+					<h2>1 Imagem, 140 Caracteres #635</h2>
 				</a>
 				<br>
 				<small>
-					<time datetime="2026-02-07">07/02/2026</time>
+					<time datetime="2026-02-13">13/02/2026</time>
 					|
-					<a href="https://quebreiamaquinadeescrever.com.br" target="_blank">quebreiamaquinadeescrever.com.br</a>
+					<a class="domain" href="https://devaneiosedesvarios.blogspot.com" target="_blank">devaneiosedesvarios.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
-				<a href="https://iasdvsm.com/visao-ezequiel-gloria-deus/" target="_blank">
-					<h2>A Visão de Ezequiel</h2>
+				<a href="https://jeniffergeraldine.com/conheca-a-blogueira/" target="_blank">
+					<h2>Conheça a blogueira</h2>
 				</a>
 				<br>
 				<small>
-					<time datetime="2026-02-07">07/02/2026</time>
+					<time datetime="2026-02-13">13/02/2026</time>
 					|
-					<a href="https://iasdvsm.com" target="_blank">iasdvsm.com</a>
+					<a class="domain" href="https://jeniffergeraldine.com" target="_blank">jeniffergeraldine.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
-				<a href="https://cafenasnuvens.com.br/?p=982" target="_blank">
-					<h2>Meus livros livres para download</h2>
+				<a href="https://ararinhaaazul.bearblog.dev/fillerdays/" target="_blank">
+					<h2>木ノ葉の午後</h2>
 				</a>
 				<br>
 				<small>
-					<time datetime="2026-02-07">07/02/2026</time>
+					<time datetime="2026-02-13">13/02/2026</time>
 					|
-					<a href="https://cafenasnuvens.com.br" target="_blank">cafenasnuvens.com.br</a>
+					<a class="domain" href="https://ararinhaaazul.bearblog.dev" target="_blank">ararinhaaazul.bearblog.dev</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
-				<a href="https://depokafe.wordpress.com/2026/02/07/o-viajante/" target="_blank">
-					<h2>O viajante</h2>
+				<a href="https://aflowerwasborn.blogspot.com/2026/02/favoritos-de-janeiro.html" target="_blank">
+					<h2>Favoritos de Janeiro</h2>
 				</a>
 				<br>
 				<small>
-					<time datetime="2026-02-07">07/02/2026</time>
+					<time datetime="2026-02-13">13/02/2026</time>
 					|
-					<a href="https://depokafe.wordpress.com" target="_blank">depokafe.wordpress.com</a>
+					<a class="domain" href="https://aflowerwasborn.blogspot.com" target="_blank">aflowerwasborn.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
 				</small>
 			</li>
 		</ol>
 		<nav>
 			<span>&larr; Previous</span>
-			<span>Page 1 of 9</span>
+			<span>Page 1 of 10</span>
 			<a href="page-2.html">Next &rarr;</a>
 		</nav>
 	</main>
 	<footer>
 		<p>Atualizado em:
-			<time id="update-at" datetime="2026-02-10T15:36:17.772046+00:00">
-				Tuesday, 10/02/2026 15:36:17
+			<time id="update-at" datetime="2026-02-15T16:43:53.704893+00:00">
+				Sunday, 15/02/2026 16:43:53
 			</time>
 		</p>
 		<p><a href="index.html">BR Crawl</a> | <a href="about.html">Sobre</a> | <a href="sources.html">Fontes</a></p>
 	</footer>
 </body>
 
-<script type="module" nonce="caaa463a82a08a0d2fa6a9e41cf277bb">
+<script type="module" nonce="7842309ca744e23a9f54e6de6cad2bcf">
 	const updatedAtElement = document.getElementById("update-at");
 	const date = new Date(updatedAtElement.dateTime);
 	updatedAtElement.innerText = date.toLocaleString(undefined, {
 		dateStyle: "full",
 		timeStyle: "medium",
 	})
+</script>
+<script type="module" nonce="7842309ca744e23a9f54e6de6cad2bcf">
+var backend_url='https://brcrawl.guilhermegarcia.dev';
+function hide_feedback(domain) {
+    return `<div><small>Domínio <a href="https://${domain}">${domain}</a> escondido. | <button class="show">exibir</button></small></div>`;
+}
+
+function report_feedback(li) {
+    li.style.opacity = 0.5;
+    const btn = li.querySelector("button.report");
+    btn.textContent = "reportado";
+    btn.className = "unreport";
+}
+
+var reported = localStorage.getItem('reported') || '[]';
+reported = JSON.parse(reported);
+var hidden = localStorage.getItem('hidden') || '[]';
+hidden = JSON.parse(hidden);
+
+let domains = Array.from(document.getElementsByClassName("domain"));
+domains.forEach((domain) => {
+    if (reported.includes(domain.textContent)) {
+        const li = domain.closest("li");
+        report_feedback(li);
+    }
+    if (hidden.includes(domain.textContent)) {
+        domain.closest("li").innerHTML = hide_feedback(domain.textContent);
+    }
+});
+
+function report(btn) {
+    const li = btn.closest("li");
+    const articleDomain = li.querySelector("a.domain");
+    const domain = articleDomain.textContent;
+
+    if (reported.length == 0) {
+        const agreed = confirm("Reporte sites que não são blogs pessoais ou não estão em português. Confirme para não ver mais essa mensagem. Obrigado!");
+        if (!agreed) {
+            return;
+        }
+    }
+    fetch(`${backend_url}/report`, {
+        method: "POST",
+        body: JSON.stringify({ domain }),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+    reported.push(domain);
+    localStorage.setItem('reported', JSON.stringify(reported));
+    report_feedback(li);
+}
+
+function unreport(btn) {
+    const li = btn.closest("li");
+    const articleDomain = li.querySelector("a.domain");
+    const domain = articleDomain.textContent;
+    reported = reported.filter((d) => d != domain);
+    localStorage.setItem('reported', JSON.stringify(reported));
+    fetch(`${backend_url}/report`, {
+        method: "POST",
+        body: JSON.stringify({ domain }),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }).finally(() => {
+        window.location.reload();
+    });
+}
+
+function hide(btn) {
+    const li = btn.closest("li");
+    const articleDomain = li.querySelector("a.domain");
+    const domain = articleDomain.textContent;
+
+    hidden.push(domain);
+    localStorage.setItem('hidden', JSON.stringify(hidden));
+    li.innerHTML = hide_feedback(domain);
+}
+
+function show(btn) {
+    const li = btn.closest("li");
+    const articleDomain = li.querySelector("a");
+    const domain = articleDomain.textContent;
+    hidden = hidden.filter((d) => d != domain);
+    localStorage.setItem('hidden', JSON.stringify(hidden));
+    window.location.reload();
+}
+
+document.addEventListener("click", function(e) {
+    if (e.target.className == "report") {
+        return report(e.target);
+    }
+    if (e.target.className == "unreport") {
+        return unreport(e.target);
+    }
+    if (e.target.className == "hide") {
+        return hide(e.target);
+    }
+    if (e.target.className == "show") {
+        return show(e.target);
+    }
+});
 </script>
 
 </html>
