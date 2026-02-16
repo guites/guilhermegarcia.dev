@@ -12,14 +12,14 @@
 		connect-src https://brcrawl.guilhermegarcia.dev;
 		base-uri 'self';
 		img-src 'self' data: ;
-		style-src 'nonce-e2ba1c64da2fb929754fc9aedce9e432' ;
-		script-src 'nonce-e2ba1c64da2fb929754fc9aedce9e432' 'strict-dynamic' ;
+		style-src 'nonce-d18c9e4c4cc1043b206f1cad40dad7a2' ;
+		script-src 'nonce-d18c9e4c4cc1043b206f1cad40dad7a2' 'strict-dynamic' ;
 	">
 	<meta name="application-name" content="brcrawl">
 	<meta name="description" content="Diretório da smallweb brasileira">
 	<meta name="referrer" content="same-origin">
 
-	<style nonce="e2ba1c64da2fb929754fc9aedce9e432">
+	<style nonce="d18c9e4c4cc1043b206f1cad40dad7a2">
 :root {
     color-scheme: dark light;
     --primary: #0AC8F5;
@@ -27,7 +27,7 @@
     --text: var(--txt, #cfcfcf);
     --border: var(--bd, #c0c0c0);
     --background: var(--bg, #1D1F21);
-    font-size: min(calc(.5rem + 0.75vw), 16px);
+    font-size: min(calc(.75rem + 0.75vw), 16px);
 }
 
 @media (prefers-color-scheme: light) {
@@ -136,16 +136,77 @@ button.report:hover, button.unreport, button.hide:hover, button.show {
     opacity: 0.8;
     cursor: pointer;
 }
+
+.title-br { display: none; }
+
+@media screen and (max-width: 470px) {
+    header { text-align: center; }
+    .title-br { display: initial; }
+    .title-span { margin: 10px 0px; display: inline-block; }
+}
 	</style>
 </head>
 
 <body>
 	<header>
 		<h1>BR Crawl</h1>
-		Diretório da smallweb brasileira
+		<br class="title-br"/>
+		<span class="title-span">Diretório da smallweb brasileira</span>
 	</header>
 	<main>
 		<ol start="101">
+			<li>
+				<a href="https://notadiamond.bearblog.dev/uma-receita-de-cookies/" target="_blank">
+					<h2>uma receita de cookies 🍪</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2026-02-08">08/02/2026</time>
+					|
+					<a class="domain" href="https://notadiamond.bearblog.dev" target="_blank">notadiamond.bearblog.dev</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://msmelo.blog/posts/motor-de-tramas/" target="_blank">
+					<h2>O Motor de Tramas</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2026-02-08">08/02/2026</time>
+					|
+					<a class="domain" href="https://msmelo.blog" target="_blank">msmelo.blog</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://www.gustavobelo.com/red-dead-redemption-1/" target="_blank">
+					<h2>Red Dead Redemption 1</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2026-02-08">08/02/2026</time>
+					|
+					<a class="domain" href="https://gustavobelo.com" target="_blank">gustavobelo.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://litorais.blogspot.com/2026/02/dois-anos-no-litoral.html" target="_blank">
+					<h2>Dois anos no litoral</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2026-02-08">08/02/2026</time>
+					|
+					<a class="domain" href="https://litorais.blogspot.com" target="_blank">litorais.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
 			<li>
 				<a href="https://iasdvsm.com/visao-ezequiel-gloria-deus/" target="_blank">
 					<h2>A Visão de Ezequiel</h2>
@@ -173,14 +234,27 @@ button.report:hover, button.unreport, button.hide:hover, button.show {
 				</small>
 			</li>
 			<li>
-				<a href="https://hidinginfrills.blogspot.com/2026/02/valentines-day-in-dresden.html" target="_blank">
-					<h2>Valentine&amp;#39;s Day in Dresden ♡</h2>
+				<a href="https://cafenasnuvens.com.br/?p=982" target="_blank">
+					<h2>Meus livros livres para download</h2>
 				</a>
 				<br>
 				<small>
 					<time datetime="2026-02-07">07/02/2026</time>
 					|
-					<a class="domain" href="https://hidinginfrills.blogspot.com" target="_blank">hidinginfrills.blogspot.com</a> | 
+					<a class="domain" href="https://cafenasnuvens.com.br" target="_blank">cafenasnuvens.com.br</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://www.quebreiamaquinadeescrever.com.br/2026/02/um-ensaio-de-debutante.html" target="_blank">
+					<h2>Um ensaio de debutante</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2026-02-07">07/02/2026</time>
+					|
+					<a class="domain" href="https://quebreiamaquinadeescrever.com.br" target="_blank">quebreiamaquinadeescrever.com.br</a> | 
 					<button class="hide">esconder</button> | 
 					<button class="report">reportar</button>
 				</small>
@@ -199,27 +273,14 @@ button.report:hover, button.unreport, button.hide:hover, button.show {
 				</small>
 			</li>
 			<li>
-				<a href="https://agoraoyoititemumblog.blogspot.com/2026/02/viagem-pro-japao-2025-capitulo-7.html" target="_blank">
-					<h2>Viagem pro Japão 2025: Capítulo 7</h2>
+				<a href="https://anelua2.blogspot.com/2026/02/alimentacao-saudavel-batata-doce.html" target="_blank">
+					<h2>Alimentação Saudável: batata-doce</h2>
 				</a>
 				<br>
 				<small>
 					<time datetime="2026-02-06">06/02/2026</time>
 					|
-					<a class="domain" href="https://agoraoyoititemumblog.blogspot.com" target="_blank">agoraoyoititemumblog.blogspot.com</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
-				<a href="https://gouveiamariana.wordpress.com/2026/02/06/6-on-6-road-trip-urbano/" target="_blank">
-					<h2>6 on 6 – road trip urbano</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2026-02-06">06/02/2026</time>
-					|
-					<a class="domain" href="https://gouveiamariana.wordpress.com" target="_blank">gouveiamariana.wordpress.com</a> | 
+					<a class="domain" href="https://anelua2.blogspot.com" target="_blank">anelua2.blogspot.com</a> | 
 					<button class="hide">esconder</button> | 
 					<button class="report">reportar</button>
 				</small>
@@ -238,19 +299,6 @@ button.report:hover, button.unreport, button.hide:hover, button.show {
 				</small>
 			</li>
 			<li>
-				<a href="https://anelua2.blogspot.com/2026/02/alimentacao-saudavel-batata-doce.html" target="_blank">
-					<h2>Alimentação Saudável: batata-doce</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2026-02-06">06/02/2026</time>
-					|
-					<a class="domain" href="https://anelua2.blogspot.com" target="_blank">anelua2.blogspot.com</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
 				<a href="https://obduliono.blog/2026/02/06/06-02-2026-trip-road-urbano/" target="_blank">
 					<h2>06 / 02 / 2026 / Projeto Fotográfico 6 On 6 / Trip Road Urbano</h2>
 				</a>
@@ -264,14 +312,40 @@ button.report:hover, button.unreport, button.hide:hover, button.show {
 				</small>
 			</li>
 			<li>
-				<a href="https://www.inventandoassunto.com/2026/02/6-on-6-momentos-de-descanso.html" target="_blank">
-					<h2>6 on 6 - Momentos de Descanso</h2>
+				<a href="https://gouveiamariana.wordpress.com/2026/02/06/6-on-6-road-trip-urbano/" target="_blank">
+					<h2>6 on 6 – road trip urbano</h2>
 				</a>
 				<br>
 				<small>
 					<time datetime="2026-02-06">06/02/2026</time>
 					|
-					<a class="domain" href="https://inventandoassunto.com" target="_blank">inventandoassunto.com</a> | 
+					<a class="domain" href="https://gouveiamariana.wordpress.com" target="_blank">gouveiamariana.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://agoraoyoititemumblog.blogspot.com/2026/02/viagem-pro-japao-2025-capitulo-7.html" target="_blank">
+					<h2>Viagem pro Japão 2025: Capítulo 7</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2026-02-06">06/02/2026</time>
+					|
+					<a class="domain" href="https://agoraoyoititemumblog.blogspot.com" target="_blank">agoraoyoititemumblog.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://puertoark.bearblog.dev/e-dificil-caminhar-na-rua-as-vezes/" target="_blank">
+					<h2>É difícil caminhar na rua (as vezes)</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2026-02-05">05/02/2026</time>
+					|
+					<a class="domain" href="https://puertoark.bearblog.dev" target="_blank">puertoark.bearblog.dev</a> | 
 					<button class="hide">esconder</button> | 
 					<button class="report">reportar</button>
 				</small>
@@ -285,6 +359,45 @@ button.report:hover, button.unreport, button.hide:hover, button.show {
 					<time datetime="2026-02-05">05/02/2026</time>
 					|
 					<a class="domain" href="https://techdemo.com.br" target="_blank">techdemo.com.br</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://anamaria.bearblog.dev/prion-protein-overview/" target="_blank">
+					<h2>Prion protein overview</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2026-02-05">05/02/2026</time>
+					|
+					<a class="domain" href="https://anamaria.bearblog.dev" target="_blank">anamaria.bearblog.dev</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://techdemo.com.br/how-to-1/" target="_blank">
+					<h2>How-to #1 – Como deletar ou alterar tags de graça no Letterboxd</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2026-02-05">05/02/2026</time>
+					|
+					<a class="domain" href="https://techdemo.com.br" target="_blank">techdemo.com.br</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://liaamancio.com.br/2026/02/04/a-rede-social-que-nao-era/" target="_blank">
+					<h2>A rede social que não era</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2026-02-05">05/02/2026</time>
+					|
+					<a class="domain" href="https://liaamancio.com.br" target="_blank">liaamancio.com.br</a> | 
 					<button class="hide">esconder</button> | 
 					<button class="report">reportar</button>
 				</small>
@@ -316,45 +429,6 @@ button.report:hover, button.unreport, button.hide:hover, button.show {
 				</small>
 			</li>
 			<li>
-				<a href="https://techdemo.com.br/how-to-1/" target="_blank">
-					<h2>How-to #1 – Como deletar ou alterar tags de graça no Letterboxd</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2026-02-05">05/02/2026</time>
-					|
-					<a class="domain" href="https://techdemo.com.br" target="_blank">techdemo.com.br</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
-				<a href="https://puertoark.bearblog.dev/e-dificil-caminhar-na-rua-as-vezes/" target="_blank">
-					<h2>É difícil caminhar na rua (as vezes)</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2026-02-05">05/02/2026</time>
-					|
-					<a class="domain" href="https://puertoark.bearblog.dev" target="_blank">puertoark.bearblog.dev</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
-				<a href="https://anamaria.bearblog.dev/prion-protein-overview/" target="_blank">
-					<h2>Prion protein overview</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2026-02-05">05/02/2026</time>
-					|
-					<a class="domain" href="https://anamaria.bearblog.dev" target="_blank">anamaria.bearblog.dev</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
 				<a href="http://sguenis.blogspot.com/2026/02/nunca-me-faltou-assunto.html" target="_blank">
 					<h2>Nunca me faltou assunto</h2>
 				</a>
@@ -381,14 +455,14 @@ button.report:hover, button.unreport, button.hide:hover, button.show {
 				</small>
 			</li>
 			<li>
-				<a href="https://liaamancio.com.br/2026/02/04/a-rede-social-que-nao-era/" target="_blank">
-					<h2>A rede social que não era</h2>
+				<a href="https://janela.digital/posts/2026-02-04-koyaanisqatsi-5m/" target="_blank">
+					<h2>Koyaanisqatsi em 5 minutos</h2>
 				</a>
 				<br>
 				<small>
-					<time datetime="2026-02-05">05/02/2026</time>
+					<time datetime="2026-02-04">04/02/2026</time>
 					|
-					<a class="domain" href="https://liaamancio.com.br" target="_blank">liaamancio.com.br</a> | 
+					<a class="domain" href="https://janela.digital" target="_blank">janela.digital</a> | 
 					<button class="hide">esconder</button> | 
 					<button class="report">reportar</button>
 				</small>
@@ -407,58 +481,6 @@ button.report:hover, button.unreport, button.hide:hover, button.show {
 				</small>
 			</li>
 			<li>
-				<a href="https://nicolledulce.wordpress.com/2026/02/04/all-work-and-no-play-makes-jack-a-dull-boy/" target="_blank">
-					<h2>all work and no play makes jack a dull boy</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2026-02-04">04/02/2026</time>
-					|
-					<a class="domain" href="https://nicolledulce.wordpress.com" target="_blank">nicolledulce.wordpress.com</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
-				<a href="https://janela.tec.br/posts/2026-02-04-koyaanisqatsi-5m/" target="_blank">
-					<h2>Koyaanisqatsi em 5 minutos</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2026-02-04">04/02/2026</time>
-					|
-					<a class="domain" href="https://janela.tec.br" target="_blank">janela.tec.br</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
-				<a href="https://alinevalek.com.br/2026/02/04/quem-herdara-a-terra-ficcao-cientifica-com-uma-pitada-catolica/" target="_blank">
-					<h2>Quem herdará a Terra? Ficção Científica com uma pitada católica</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2026-02-04">04/02/2026</time>
-					|
-					<a class="domain" href="https://alinevalek.com.br" target="_blank">alinevalek.com.br</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
-				<a href="https://sfl.pro.br/blog/vem-2026.html" target="_blank">
-					<h2>Vem 2026</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2026-02-04">04/02/2026</time>
-					|
-					<a class="domain" href="https://sfl.pro.br" target="_blank">sfl.pro.br</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
 				<a href="https://www.roney.com.br/humanidades/cine_video/resenha-tudo-culpa-dela-all-her-fault/" target="_blank">
 					<h2>Resenha: Tudo Culpa Dela (All Her Fault)</h2>
 				</a>
@@ -467,19 +489,6 @@ button.report:hover, button.unreport, button.hide:hover, button.show {
 					<time datetime="2026-02-04">04/02/2026</time>
 					|
 					<a class="domain" href="https://roney.com.br" target="_blank">roney.com.br</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
-				<a href="https://janela.digital/posts/2026-02-04-koyaanisqatsi-5m/" target="_blank">
-					<h2>Koyaanisqatsi em 5 minutos</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2026-02-04">04/02/2026</time>
-					|
-					<a class="domain" href="https://janela.digital" target="_blank">janela.digital</a> | 
 					<button class="hide">esconder</button> | 
 					<button class="report">reportar</button>
 				</small>
@@ -537,6 +546,32 @@ button.report:hover, button.unreport, button.hide:hover, button.show {
 				</small>
 			</li>
 			<li>
+				<a href="https://alinevalek.com.br/2026/02/04/quem-herdara-a-terra-ficcao-cientifica-com-uma-pitada-catolica/" target="_blank">
+					<h2>Quem herdará a Terra? Ficção Científica com uma pitada católica</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2026-02-04">04/02/2026</time>
+					|
+					<a class="domain" href="https://alinevalek.com.br" target="_blank">alinevalek.com.br</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://janela.tec.br/posts/2026-02-04-koyaanisqatsi-5m/" target="_blank">
+					<h2>Koyaanisqatsi em 5 minutos</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2026-02-04">04/02/2026</time>
+					|
+					<a class="domain" href="https://janela.tec.br" target="_blank">janela.tec.br</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
 				<a href="https://rabiscoisas.blogspot.com/2026/02/ponto-final.html" target="_blank">
 					<h2>Ponto final</h2>
 				</a>
@@ -550,14 +585,14 @@ button.report:hover, button.unreport, button.hide:hover, button.show {
 				</small>
 			</li>
 			<li>
-				<a href="https://claraaoliveira.blogspot.com/2026/02/carta-aberta-para-2026.html" target="_blank">
-					<h2>Carta aberta para 2026</h2>
+				<a href="https://sfl.pro.br/blog/vem-2026.html" target="_blank">
+					<h2>Vem 2026</h2>
 				</a>
 				<br>
 				<small>
-					<time datetime="2026-02-03">03/02/2026</time>
+					<time datetime="2026-02-04">04/02/2026</time>
 					|
-					<a class="domain" href="https://claraaoliveira.blogspot.com" target="_blank">claraaoliveira.blogspot.com</a> | 
+					<a class="domain" href="https://sfl.pro.br" target="_blank">sfl.pro.br</a> | 
 					<button class="hide">esconder</button> | 
 					<button class="report">reportar</button>
 				</small>
@@ -571,6 +606,19 @@ button.report:hover, button.unreport, button.hide:hover, button.show {
 					<time datetime="2026-02-03">03/02/2026</time>
 					|
 					<a class="domain" href="https://rcapitao.com" target="_blank">rcapitao.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://claraaoliveira.blogspot.com/2026/02/carta-aberta-para-2026.html" target="_blank">
+					<h2>Carta aberta para 2026</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2026-02-03">03/02/2026</time>
+					|
+					<a class="domain" href="https://claraaoliveira.blogspot.com" target="_blank">claraaoliveira.blogspot.com</a> | 
 					<button class="hide">esconder</button> | 
 					<button class="report">reportar</button>
 				</small>
@@ -602,19 +650,6 @@ button.report:hover, button.unreport, button.hide:hover, button.show {
 				</small>
 			</li>
 			<li>
-				<a href="https://keliv1.tumblr.com/post/807440430656602112" target="_blank">
-					<h2>Revista LiteraLivre</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2026-02-02">02/02/2026</time>
-					|
-					<a class="domain" href="https://keliv1.tumblr.com" target="_blank">keliv1.tumblr.com</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
 				<a href="https://ugabuga-br.bearblog.dev/filmes-poster/" target="_blank">
 					<h2>Filmes que eu decidi assistir por causa do pôster</h2>
 				</a>
@@ -628,27 +663,27 @@ button.report:hover, button.unreport, button.hide:hover, button.show {
 				</small>
 			</li>
 			<li>
-				<a href="https://www.karolinibarbara.com.br/2026/02/nasty-gal-ascencao-e-falencia-de-sophia.html" target="_blank">
-					<h2>NASTY GAL: A ASCENÇÃO E FALÊNCIA DE SOPHIA AMORUSO</h2>
+				<a href="https://keliv1.tumblr.com/post/807440430656602112" target="_blank">
+					<h2>Revista LiteraLivre</h2>
 				</a>
 				<br>
 				<small>
-					<time datetime="2026-02-01">01/02/2026</time>
+					<time datetime="2026-02-02">02/02/2026</time>
 					|
-					<a class="domain" href="https://karolinibarbara.com.br" target="_blank">karolinibarbara.com.br</a> | 
+					<a class="domain" href="https://keliv1.tumblr.com" target="_blank">keliv1.tumblr.com</a> | 
 					<button class="hide">esconder</button> | 
 					<button class="report">reportar</button>
 				</small>
 			</li>
 			<li>
-				<a href="https://trilux.org/2026/02/rigidez-cognitiva-no-autismo-como-funciona-pra-mim.html" target="_blank">
-					<h2>Rigidez cognitiva no autismo: como funciona pra mim</h2>
+				<a href="https://pratofundo.com/11279/receita-base-sorvete-vegano/" target="_blank">
+					<h2>Receita Base: Sorvete Vegano (sem ovo e lactose)</h2>
 				</a>
 				<br>
 				<small>
 					<time datetime="2026-02-01">01/02/2026</time>
 					|
-					<a class="domain" href="https://trilux.org" target="_blank">trilux.org</a> | 
+					<a class="domain" href="https://pratofundo.com" target="_blank">pratofundo.com</a> | 
 					<button class="hide">esconder</button> | 
 					<button class="report">reportar</button>
 				</small>
@@ -680,14 +715,14 @@ button.report:hover, button.unreport, button.hide:hover, button.show {
 				</small>
 			</li>
 			<li>
-				<a href="https://pratofundo.com/11279/receita-base-sorvete-vegano/" target="_blank">
-					<h2>Receita Base: Sorvete Vegano (sem ovo e lactose)</h2>
+				<a href="https://trilux.org/2026/02/rigidez-cognitiva-no-autismo-como-funciona-pra-mim.html" target="_blank">
+					<h2>Rigidez cognitiva no autismo: como funciona pra mim</h2>
 				</a>
 				<br>
 				<small>
 					<time datetime="2026-02-01">01/02/2026</time>
 					|
-					<a class="domain" href="https://pratofundo.com" target="_blank">pratofundo.com</a> | 
+					<a class="domain" href="https://trilux.org" target="_blank">trilux.org</a> | 
 					<button class="hide">esconder</button> | 
 					<button class="report">reportar</button>
 				</small>
@@ -706,27 +741,14 @@ button.report:hover, button.unreport, button.hide:hover, button.show {
 				</small>
 			</li>
 			<li>
-				<a href="http://www.blogflorescer.com/2026/01/escolhidos-do-pinterest-tops-de-croche.html" target="_blank">
-					<h2>Escolhidos do Pinterest ♡ Tops de Crochê</h2>
+				<a href="https://www.karolinibarbara.com.br/2026/02/nasty-gal-ascencao-e-falencia-de-sophia.html" target="_blank">
+					<h2>NASTY GAL: A ASCENÇÃO E FALÊNCIA DE SOPHIA AMORUSO</h2>
 				</a>
 				<br>
 				<small>
-					<time datetime="2026-01-31">31/01/2026</time>
+					<time datetime="2026-02-01">01/02/2026</time>
 					|
-					<a class="domain" href="https://blogflorescer.com" target="_blank">blogflorescer.com</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
-				<a href="https://devadreams.bearblog.dev/eu-seria-uma-crianca-de-roblox/" target="_blank">
-					<h2>Eu seria uma criança de Roblox</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2026-01-31">31/01/2026</time>
-					|
-					<a class="domain" href="https://devadreams.bearblog.dev" target="_blank">devadreams.bearblog.dev</a> | 
+					<a class="domain" href="https://karolinibarbara.com.br" target="_blank">karolinibarbara.com.br</a> | 
 					<button class="hide">esconder</button> | 
 					<button class="report">reportar</button>
 				</small>
@@ -745,6 +767,32 @@ button.report:hover, button.unreport, button.hide:hover, button.show {
 				</small>
 			</li>
 			<li>
+				<a href="https://devadreams.bearblog.dev/eu-seria-uma-crianca-de-roblox/" target="_blank">
+					<h2>Eu seria uma criança de Roblox</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2026-01-31">31/01/2026</time>
+					|
+					<a class="domain" href="https://devadreams.bearblog.dev" target="_blank">devadreams.bearblog.dev</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://www.blogflorescer.com/2026/01/escolhidos-do-pinterest-tops-de-croche.html" target="_blank">
+					<h2>Escolhidos do Pinterest ♡ Tops de Crochê</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2026-01-31">31/01/2026</time>
+					|
+					<a class="domain" href="https://blogflorescer.com" target="_blank">blogflorescer.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
 				<a href="https://cosmoliko.com/4-mpox-de-fim-de-ano/" target="_blank">
 					<h2>#4 Mpox de Fim de Ano</h2>
 				</a>
@@ -757,63 +805,24 @@ button.report:hover, button.unreport, button.hide:hover, button.show {
 					<button class="report">reportar</button>
 				</small>
 			</li>
-			<li>
-				<a href="https://piovepato.blogspot.com/2026/01/dormir-sonhar-e-acordar-de-novo.html" target="_blank">
-					<h2>Dormir, sonhar e acordar de novo.</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2026-01-30">30/01/2026</time>
-					|
-					<a class="domain" href="https://piovepato.blogspot.com" target="_blank">piovepato.blogspot.com</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
-				<a href="http://dudaescrevealgonaointeressante.blogspot.com/2026/01/vinte-e-cinco.html" target="_blank">
-					<h2>vinte e cinco</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2026-01-30">30/01/2026</time>
-					|
-					<a class="domain" href="https://dudaescrevealgonaointeressante.blogspot.com" target="_blank">dudaescrevealgonaointeressante.blogspot.com</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
-				<a href="https://thiagojorge.com/filme-jumpin-jack-flash/" target="_blank">
-					<h2>Filme Jumpin’ Jack Flash</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2026-01-29">29/01/2026</time>
-					|
-					<a class="domain" href="https://thiagojorge.com" target="_blank">thiagojorge.com</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
 		</ol>
 		<nav>
-			<a href="page-2.html">&larr; Previous</a>
-			<span>Page 3 of 10</span>
-			<a href="page-4.html">Next &rarr;</a>
+			<a href="page-2.html">&larr; Voltar</a>
+			<span>Página 3 de 10</span>
+			<a href="page-4.html">Avançar &rarr;</a>
 		</nav>
 	</main>
 	<footer>
 		<p>Atualizado em:
-			<time id="update-at" datetime="2026-02-15T16:43:53.706619+00:00">
-				Sunday, 15/02/2026 16:43:53
+			<time id="update-at" datetime="2026-02-16T16:44:17.219556+00:00">
+				Monday, 16/02/2026 16:44:17
 			</time>
 		</p>
 		<p><a href="index.html">BR Crawl</a> | <a href="about.html">Sobre</a> | <a href="sources.html">Fontes</a></p>
 	</footer>
 </body>
 
-<script type="module" nonce="e2ba1c64da2fb929754fc9aedce9e432">
+<script type="module" nonce="d18c9e4c4cc1043b206f1cad40dad7a2">
 	const updatedAtElement = document.getElementById("update-at");
 	const date = new Date(updatedAtElement.dateTime);
 	updatedAtElement.innerText = date.toLocaleString(undefined, {
@@ -821,7 +830,7 @@ button.report:hover, button.unreport, button.hide:hover, button.show {
 		timeStyle: "medium",
 	})
 </script>
-<script type="module" nonce="e2ba1c64da2fb929754fc9aedce9e432">
+<script type="module" nonce="d18c9e4c4cc1043b206f1cad40dad7a2">
 var backend_url='https://brcrawl.guilhermegarcia.dev';
 function hide_feedback(domain) {
     return `<div><small>Domínio <a href="https://${domain}">${domain}</a> escondido. | <button class="show">exibir</button></small></div>`;

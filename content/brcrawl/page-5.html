@@ -12,14 +12,14 @@
 		connect-src https://brcrawl.guilhermegarcia.dev;
 		base-uri 'self';
 		img-src 'self' data: ;
-		style-src 'nonce-226cffe51d3e0d3b16b24b018aecd7c9' ;
-		script-src 'nonce-226cffe51d3e0d3b16b24b018aecd7c9' 'strict-dynamic' ;
+		style-src 'nonce-7cf83e924c6d5f03df109544c0598ec7' ;
+		script-src 'nonce-7cf83e924c6d5f03df109544c0598ec7' 'strict-dynamic' ;
 	">
 	<meta name="application-name" content="brcrawl">
 	<meta name="description" content="Diretório da smallweb brasileira">
 	<meta name="referrer" content="same-origin">
 
-	<style nonce="226cffe51d3e0d3b16b24b018aecd7c9">
+	<style nonce="7cf83e924c6d5f03df109544c0598ec7">
 :root {
     color-scheme: dark light;
     --primary: #0AC8F5;
@@ -27,7 +27,7 @@
     --text: var(--txt, #cfcfcf);
     --border: var(--bd, #c0c0c0);
     --background: var(--bg, #1D1F21);
-    font-size: min(calc(.5rem + 0.75vw), 16px);
+    font-size: min(calc(.75rem + 0.75vw), 16px);
 }
 
 @media (prefers-color-scheme: light) {
@@ -136,16 +136,38 @@ button.report:hover, button.unreport, button.hide:hover, button.show {
     opacity: 0.8;
     cursor: pointer;
 }
+
+.title-br { display: none; }
+
+@media screen and (max-width: 470px) {
+    header { text-align: center; }
+    .title-br { display: initial; }
+    .title-span { margin: 10px 0px; display: inline-block; }
+}
 	</style>
 </head>
 
 <body>
 	<header>
 		<h1>BR Crawl</h1>
-		Diretório da smallweb brasileira
+		<br class="title-br"/>
+		<span class="title-span">Diretório da smallweb brasileira</span>
 	</header>
 	<main>
 		<ol start="201">
+			<li>
+				<a href="https://dvd.pika.page/posts/divagando-sobre-meu-primeiro-causo-amoroso" target="_blank">
+					<h2>Divagando sobre meu primeiro causo amoroso</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2026-01-07">07/01/2026</time>
+					|
+					<a class="domain" href="https://dvd.pika.page" target="_blank">dvd.pika.page</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
 			<li>
 				<a href="https://garotadecanela.blogspot.com/2026/01/a-louca-dos-gatos.html" target="_blank">
 					<h2>A Louca dos Gatos</h2>
@@ -160,19 +182,6 @@ button.report:hover, button.unreport, button.hide:hover, button.show {
 				</small>
 			</li>
 			<li>
-				<a href="https://blog.ayom.media/felipe-siles/sobre-decisoes-coletivas" target="_blank">
-					<h2>Sobre decisões coletivas</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2026-01-05">05/01/2026</time>
-					|
-					<a class="domain" href="https://blog.ayom.media" target="_blank">blog.ayom.media</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
 				<a href="https://apsv.bearblog.dev/lightcone-forecast-2025-october/" target="_blank">
 					<h2>Forecasts for 2025 - how&amp;#39;d we do? (part)</h2>
 				</a>
@@ -181,6 +190,19 @@ button.report:hover, button.unreport, button.hide:hover, button.show {
 					<time datetime="2026-01-05">05/01/2026</time>
 					|
 					<a class="domain" href="https://apsv.bearblog.dev" target="_blank">apsv.bearblog.dev</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://blog.ayom.media/felipe-siles/sobre-decisoes-coletivas" target="_blank">
+					<h2>Sobre decisões coletivas</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2026-01-05">05/01/2026</time>
+					|
+					<a class="domain" href="https://blog.ayom.media" target="_blank">blog.ayom.media</a> | 
 					<button class="hide">esconder</button> | 
 					<button class="report">reportar</button>
 				</small>
@@ -212,19 +234,6 @@ button.report:hover, button.unreport, button.hide:hover, button.show {
 				</small>
 			</li>
 			<li>
-				<a href="https://contraditoria.noblogs.org/2026/01/02/o-abuso-e-a-norma/" target="_blank">
-					<h2>O abuso é a norma</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2026-01-02">02/01/2026</time>
-					|
-					<a class="domain" href="https://contraditoria.noblogs.org" target="_blank">contraditoria.noblogs.org</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
 				<a href="https://alineonline.bearblog.dev/i-like-bears-new-new-new-new-new-new-new-new-new-new/" target="_blank">
 					<h2>Primeira banda nova do ano</h2>
 				</a>
@@ -238,14 +247,14 @@ button.report:hover, button.unreport, button.hide:hover, button.show {
 				</small>
 			</li>
 			<li>
-				<a href="https://seeucozinho.cromaqui.com/2025-12-31/" target="_blank">
-					<h2>Quarta-feira, 31 de dezembro de 2025</h2>
+				<a href="https://contraditoria.noblogs.org/2026/01/02/o-abuso-e-a-norma/" target="_blank">
+					<h2>O abuso é a norma</h2>
 				</a>
 				<br>
 				<small>
-					<time datetime="2026-01-01">01/01/2026</time>
+					<time datetime="2026-01-02">02/01/2026</time>
 					|
-					<a class="domain" href="https://seeucozinho.cromaqui.com" target="_blank">seeucozinho.cromaqui.com</a> | 
+					<a class="domain" href="https://contraditoria.noblogs.org" target="_blank">contraditoria.noblogs.org</a> | 
 					<button class="hide">esconder</button> | 
 					<button class="report">reportar</button>
 				</small>
@@ -264,19 +273,6 @@ button.report:hover, button.unreport, button.hide:hover, button.show {
 				</small>
 			</li>
 			<li>
-				<a href="https://pedipanoru.bearblog.dev/textao-ano-novo/" target="_blank">
-					<h2>Textão de Ano Novo</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2026-01-01">01/01/2026</time>
-					|
-					<a class="domain" href="https://pedipanoru.bearblog.dev" target="_blank">pedipanoru.bearblog.dev</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
 				<a href="https://www.dearlytay.com.br/2026/01/a-minha-palavra-do-ano-e-coragem.html" target="_blank">
 					<h2>A minha palavra do ano é: CORAGEM</h2>
 				</a>
@@ -290,14 +286,27 @@ button.report:hover, button.unreport, button.hide:hover, button.show {
 				</small>
 			</li>
 			<li>
-				<a href="http://chamegar.blogspot.com/2025/12/notas-mentais-segunda-parte-do-ano-de.html" target="_blank">
-					<h2>Notas mentais - segunda parte do ano de 2025</h2>
+				<a href="https://seeucozinho.cromaqui.com/2025-12-31/" target="_blank">
+					<h2>Quarta-feira, 31 de dezembro de 2025</h2>
 				</a>
 				<br>
 				<small>
-					<time datetime="2025-12-31">31/12/2025</time>
+					<time datetime="2026-01-01">01/01/2026</time>
 					|
-					<a class="domain" href="https://chamegar.blogspot.com" target="_blank">chamegar.blogspot.com</a> | 
+					<a class="domain" href="https://seeucozinho.cromaqui.com" target="_blank">seeucozinho.cromaqui.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://pedipanoru.bearblog.dev/textao-ano-novo/" target="_blank">
+					<h2>Textão de Ano Novo</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2026-01-01">01/01/2026</time>
+					|
+					<a class="domain" href="https://pedipanoru.bearblog.dev" target="_blank">pedipanoru.bearblog.dev</a> | 
 					<button class="hide">esconder</button> | 
 					<button class="report">reportar</button>
 				</small>
@@ -342,6 +351,19 @@ button.report:hover, button.unreport, button.hide:hover, button.show {
 				</small>
 			</li>
 			<li>
+				<a href="http://chamegar.blogspot.com/2025/12/notas-mentais-segunda-parte-do-ano-de.html" target="_blank">
+					<h2>Notas mentais - segunda parte do ano de 2025</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2025-12-31">31/12/2025</time>
+					|
+					<a class="domain" href="https://chamegar.blogspot.com" target="_blank">chamegar.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
 				<a href="https://tirandoleitedepedro.bearblog.dev/um-subito-gesto-de-ferias-a-dama-do-lotacao-1978-e-vicky-cristina-barcelona-2008/" target="_blank">
 					<h2>um súbito gesto de férias: A Dama do Lotação (1978) e Vicky Cristina Barcelona (2008)</h2>
 				</a>
@@ -355,19 +377,6 @@ button.report:hover, button.unreport, button.hide:hover, button.show {
 				</small>
 			</li>
 			<li>
-				<a href="https://ideiasinertes.bearblog.dev/meu-top-10-jogos-de-2025/" target="_blank">
-					<h2>Meu top 10 jogos de 2025</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2025-12-27">27/12/2025</time>
-					|
-					<a class="domain" href="https://ideiasinertes.bearblog.dev" target="_blank">ideiasinertes.bearblog.dev</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
 				<a href="https://florcaracol.blogspot.com/2025/12/continue-andar-apesar-de-tudo.html" target="_blank">
 					<h2>continue a andar, apesar de tudo</h2>
 				</a>
@@ -376,6 +385,19 @@ button.report:hover, button.unreport, button.hide:hover, button.show {
 					<time datetime="2025-12-27">27/12/2025</time>
 					|
 					<a class="domain" href="https://florcaracol.blogspot.com" target="_blank">florcaracol.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://ideiasinertes.bearblog.dev/meu-top-10-jogos-de-2025/" target="_blank">
+					<h2>Meu top 10 jogos de 2025</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2025-12-27">27/12/2025</time>
+					|
+					<a class="domain" href="https://ideiasinertes.bearblog.dev" target="_blank">ideiasinertes.bearblog.dev</a> | 
 					<button class="hide">esconder</button> | 
 					<button class="report">reportar</button>
 				</small>
@@ -420,32 +442,6 @@ button.report:hover, button.unreport, button.hide:hover, button.show {
 				</small>
 			</li>
 			<li>
-				<a href="https://meucantona-web.blogspot.com/2025/12/o-que-quero-para-2026.html" target="_blank">
-					<h2>📅 - o que quero para 2026</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2025-12-21">21/12/2025</time>
-					|
-					<a class="domain" href="https://meucantona-web.blogspot.com" target="_blank">meucantona-web.blogspot.com</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
-				<a href="https://wings-of-fairy.blogspot.com/2025/12/alone-on-map.html" target="_blank">
-					<h2>Alone on the Map</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2025-12-21">21/12/2025</time>
-					|
-					<a class="domain" href="https://wings-of-fairy.blogspot.com" target="_blank">wings-of-fairy.blogspot.com</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
 				<a href="https://hillonomia.blogspot.com/2025/12/por-que-o-natal-parece-tao-mais-legal.html" target="_blank">
 					<h2>por que o natal parece tão mais legal agora</h2>
 				</a>
@@ -454,6 +450,19 @@ button.report:hover, button.unreport, button.hide:hover, button.show {
 					<time datetime="2025-12-21">21/12/2025</time>
 					|
 					<a class="domain" href="https://hillonomia.blogspot.com" target="_blank">hillonomia.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://meucantona-web.blogspot.com/2025/12/o-que-quero-para-2026.html" target="_blank">
+					<h2>📅 - o que quero para 2026</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2025-12-21">21/12/2025</time>
+					|
+					<a class="domain" href="https://meucantona-web.blogspot.com" target="_blank">meucantona-web.blogspot.com</a> | 
 					<button class="hide">esconder</button> | 
 					<button class="report">reportar</button>
 				</small>
@@ -524,19 +533,6 @@ button.report:hover, button.unreport, button.hide:hover, button.show {
 				</small>
 			</li>
 			<li>
-				<a href="https://ruber-rosis.blogspot.com/2025/12/mini-update-e-novo-hiperfoco.html" target="_blank">
-					<h2>Mini update e novo hiperfoco</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2025-12-11">11/12/2025</time>
-					|
-					<a class="domain" href="https://ruber-rosis.blogspot.com" target="_blank">ruber-rosis.blogspot.com</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
 				<a href="https://maia.bearblog.dev/saudades-do-meu-pai/" target="_blank">
 					<h2>Saudades do meu pai</h2>
 				</a>
@@ -545,6 +541,19 @@ button.report:hover, button.unreport, button.hide:hover, button.show {
 					<time datetime="2025-12-11">11/12/2025</time>
 					|
 					<a class="domain" href="https://maia.bearblog.dev" target="_blank">maia.bearblog.dev</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://ruber-rosis.blogspot.com/2025/12/mini-update-e-novo-hiperfoco.html" target="_blank">
+					<h2>Mini update e novo hiperfoco</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2025-12-11">11/12/2025</time>
+					|
+					<a class="domain" href="https://ruber-rosis.blogspot.com" target="_blank">ruber-rosis.blogspot.com</a> | 
 					<button class="hide">esconder</button> | 
 					<button class="report">reportar</button>
 				</small>
@@ -693,19 +702,6 @@ button.report:hover, button.unreport, button.hide:hover, button.show {
 				</small>
 			</li>
 			<li>
-				<a href="https://acanoah.blog/blogs-redes/" target="_blank">
-					<h2>blogs, redes sociais e mainstream.</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2025-11-26">26/11/2025</time>
-					|
-					<a class="domain" href="https://acanoah.blog" target="_blank">acanoah.blog</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
 				<a href="https://www.brenshelf.com.br/2025/11/o-feminismo-de-margaret-carolline-sganeff.html" target="_blank">
 					<h2>O feminismo de Margaret Atwood, Carolline Sardá e S. Ganeff</h2>
 				</a>
@@ -719,19 +715,6 @@ button.report:hover, button.unreport, button.hide:hover, button.show {
 				</small>
 			</li>
 			<li>
-				<a href="https://arquiteturaemnotas.com/2025/11/23/casas-grandes/" target="_blank">
-					<h2>casas grandes</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2025-11-23">23/11/2025</time>
-					|
-					<a class="domain" href="https://arquiteturaemnotas.com" target="_blank">arquiteturaemnotas.com</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
 				<a href="/2025/11/23/vibe-coding.html" target="_blank">
 					<h2>Programar não é a parte difícil</h2>
 				</a>
@@ -740,6 +723,19 @@ button.report:hover, button.unreport, button.hide:hover, button.show {
 					<time datetime="2025-11-23">23/11/2025</time>
 					|
 					<a class="domain" href="https://" target="_blank"></a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://arquiteturaemnotas.com/2025/11/23/casas-grandes/" target="_blank">
+					<h2>casas grandes</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2025-11-23">23/11/2025</time>
+					|
+					<a class="domain" href="https://arquiteturaemnotas.com" target="_blank">arquiteturaemnotas.com</a> | 
 					<button class="hide">esconder</button> | 
 					<button class="report">reportar</button>
 				</small>
@@ -796,24 +792,37 @@ button.report:hover, button.unreport, button.hide:hover, button.show {
 					<button class="report">reportar</button>
 				</small>
 			</li>
+			<li>
+				<a href="https://leozitoarts.bearblog.dev/comunidades-blogs-e-nintendo-ds-3ds/" target="_blank">
+					<h2>comunidades, blogs e nintendo DS/3DS?</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2025-11-18">18/11/2025</time>
+					|
+					<a class="domain" href="https://leozitoarts.bearblog.dev" target="_blank">leozitoarts.bearblog.dev</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
 		</ol>
 		<nav>
-			<a href="page-4.html">&larr; Previous</a>
-			<span>Page 5 of 10</span>
-			<a href="page-6.html">Next &rarr;</a>
+			<a href="page-4.html">&larr; Voltar</a>
+			<span>Página 5 de 10</span>
+			<a href="page-6.html">Avançar &rarr;</a>
 		</nav>
 	</main>
 	<footer>
 		<p>Atualizado em:
-			<time id="update-at" datetime="2026-02-15T16:43:53.708059+00:00">
-				Sunday, 15/02/2026 16:43:53
+			<time id="update-at" datetime="2026-02-16T16:44:17.221093+00:00">
+				Monday, 16/02/2026 16:44:17
 			</time>
 		</p>
 		<p><a href="index.html">BR Crawl</a> | <a href="about.html">Sobre</a> | <a href="sources.html">Fontes</a></p>
 	</footer>
 </body>
 
-<script type="module" nonce="226cffe51d3e0d3b16b24b018aecd7c9">
+<script type="module" nonce="7cf83e924c6d5f03df109544c0598ec7">
 	const updatedAtElement = document.getElementById("update-at");
 	const date = new Date(updatedAtElement.dateTime);
 	updatedAtElement.innerText = date.toLocaleString(undefined, {
@@ -821,7 +830,7 @@ button.report:hover, button.unreport, button.hide:hover, button.show {
 		timeStyle: "medium",
 	})
 </script>
-<script type="module" nonce="226cffe51d3e0d3b16b24b018aecd7c9">
+<script type="module" nonce="7cf83e924c6d5f03df109544c0598ec7">
 var backend_url='https://brcrawl.guilhermegarcia.dev';
 function hide_feedback(domain) {
     return `<div><small>Domínio <a href="https://${domain}">${domain}</a> escondido. | <button class="show">exibir</button></small></div>`;

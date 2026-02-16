@@ -12,14 +12,14 @@
 		connect-src https://brcrawl.guilhermegarcia.dev;
 		base-uri 'self';
 		img-src 'self' data: ;
-		style-src 'nonce-2a4d6370df24303df618c4b478b28970' ;
-		script-src 'nonce-2a4d6370df24303df618c4b478b28970' 'strict-dynamic' ;
+		style-src 'nonce-c95534a70b71b597a57aa03a081ba708' ;
+		script-src 'nonce-c95534a70b71b597a57aa03a081ba708' 'strict-dynamic' ;
 	">
 	<meta name="application-name" content="brcrawl">
 	<meta name="description" content="Diretório da smallweb brasileira">
 	<meta name="referrer" content="same-origin">
 
-	<style nonce="2a4d6370df24303df618c4b478b28970">
+	<style nonce="c95534a70b71b597a57aa03a081ba708">
 :root {
     color-scheme: dark light;
     --primary: #0AC8F5;
@@ -27,7 +27,7 @@
     --text: var(--txt, #cfcfcf);
     --border: var(--bd, #c0c0c0);
     --background: var(--bg, #1D1F21);
-    font-size: min(calc(.5rem + 0.75vw), 16px);
+    font-size: min(calc(.75rem + 0.75vw), 16px);
 }
 
 @media (prefers-color-scheme: light) {
@@ -136,29 +136,25 @@ button.report:hover, button.unreport, button.hide:hover, button.show {
     opacity: 0.8;
     cursor: pointer;
 }
+
+.title-br { display: none; }
+
+@media screen and (max-width: 470px) {
+    header { text-align: center; }
+    .title-br { display: initial; }
+    .title-span { margin: 10px 0px; display: inline-block; }
+}
 	</style>
 </head>
 
 <body>
 	<header>
 		<h1>BR Crawl</h1>
-		Diretório da smallweb brasileira
+		<br class="title-br"/>
+		<span class="title-span">Diretório da smallweb brasileira</span>
 	</header>
 	<main>
 		<ol start="301">
-			<li>
-				<a href="https://crieaporradeum.blog/posts/feed-completo-e-estilizado/" target="_blank">
-					<h2>Feed Completo e Estilizado</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2025-08-26">26/08/2025</time>
-					|
-					<a class="domain" href="https://crieaporradeum.blog" target="_blank">crieaporradeum.blog</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
 			<li>
 				<a href="https://lacra.ia.br/muitapata/apertos" target="_blank">
 					<h2>Alguns meses atrás me encontrei em posição de fazer uma coisa que mal tinha...</h2>
@@ -602,19 +598,6 @@ button.report:hover, button.unreport, button.hide:hover, button.show {
 				</small>
 			</li>
 			<li>
-				<a href="http://www.blogdomath.com.br/2025/04/como-montar-album-de-fotos-afetivo-personalizado-envelopes-para-imprimir-blogdomath.html" target="_blank">
-					<h2>Inspirações para montar um Álbum de Fotos Criativo &amp;#43; Evento Especial para Assinantes</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2025-04-24">24/04/2025</time>
-					|
-					<a class="domain" href="https://blogdomath.com.br" target="_blank">blogdomath.com.br</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
 				<a href="http://violets-for-roses.blogspot.com/2025/04/todas-as-musicas-classicas-dos-filmes.html" target="_blank">
 					<h2>Todas as Músicas Clássicas dos Filmes da Barbie</h2>
 				</a>
@@ -623,6 +606,19 @@ button.report:hover, button.unreport, button.hide:hover, button.show {
 					<time datetime="2025-04-24">24/04/2025</time>
 					|
 					<a class="domain" href="https://violets-for-roses.blogspot.com" target="_blank">violets-for-roses.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://www.blogdomath.com.br/2025/04/como-montar-album-de-fotos-afetivo-personalizado-envelopes-para-imprimir-blogdomath.html" target="_blank">
+					<h2>Inspirações para montar um Álbum de Fotos Criativo &amp;#43; Evento Especial para Assinantes</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2025-04-24">24/04/2025</time>
+					|
+					<a class="domain" href="https://blogdomath.com.br" target="_blank">blogdomath.com.br</a> | 
 					<button class="hide">esconder</button> | 
 					<button class="report">reportar</button>
 				</small>
@@ -693,19 +689,6 @@ button.report:hover, button.unreport, button.hide:hover, button.show {
 				</small>
 			</li>
 			<li>
-				<a href="https://hello-im-tired.blogspot.com/2025/03/uma-coisa-com-qual-eu-nao-sei-lidar.html" target="_blank">
-					<h2>Uma coisa com a qual eu não sei lidar</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2025-03-24">24/03/2025</time>
-					|
-					<a class="domain" href="https://hello-im-tired.blogspot.com" target="_blank">hello-im-tired.blogspot.com</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
 				<a href="https://tadrel.desescritorio.art.br/CC/blog/blog#Postagem_AAAA" target="_blank">
 					<h2>Postagem Pré-Inaugural</h2>
 				</a>
@@ -714,6 +697,19 @@ button.report:hover, button.unreport, button.hide:hover, button.show {
 					<time datetime="2025-03-24">24/03/2025</time>
 					|
 					<a class="domain" href="https://tadrel.desescritorio.art.br" target="_blank">tadrel.desescritorio.art.br</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://hello-im-tired.blogspot.com/2025/03/uma-coisa-com-qual-eu-nao-sei-lidar.html" target="_blank">
+					<h2>Uma coisa com a qual eu não sei lidar</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2025-03-24">24/03/2025</time>
+					|
+					<a class="domain" href="https://hello-im-tired.blogspot.com" target="_blank">hello-im-tired.blogspot.com</a> | 
 					<button class="hide">esconder</button> | 
 					<button class="report">reportar</button>
 				</small>
@@ -784,6 +780,19 @@ button.report:hover, button.unreport, button.hide:hover, button.show {
 				</small>
 			</li>
 			<li>
+				<a href="https://focarafa.bearblog.dev/fui-no-pagode/" target="_blank">
+					<h2>Fui no pagode</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2025-02-23">23/02/2025</time>
+					|
+					<a class="domain" href="https://focarafa.bearblog.dev" target="_blank">focarafa.bearblog.dev</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
 				<a href="https://eraumamae.blogspot.com/2025/02/nosferatu-e-intuicao-feminina-silenciada.html" target="_blank">
 					<h2>Nosferatu e a intuição feminina silenciada</h2>
 				</a>
@@ -798,22 +807,22 @@ button.report:hover, button.unreport, button.hide:hover, button.show {
 			</li>
 		</ol>
 		<nav>
-			<a href="page-6.html">&larr; Previous</a>
-			<span>Page 7 of 10</span>
-			<a href="page-8.html">Next &rarr;</a>
+			<a href="page-6.html">&larr; Voltar</a>
+			<span>Página 7 de 10</span>
+			<a href="page-8.html">Avançar &rarr;</a>
 		</nav>
 	</main>
 	<footer>
 		<p>Atualizado em:
-			<time id="update-at" datetime="2026-02-15T16:43:53.709498+00:00">
-				Sunday, 15/02/2026 16:43:53
+			<time id="update-at" datetime="2026-02-16T16:44:17.222678+00:00">
+				Monday, 16/02/2026 16:44:17
 			</time>
 		</p>
 		<p><a href="index.html">BR Crawl</a> | <a href="about.html">Sobre</a> | <a href="sources.html">Fontes</a></p>
 	</footer>
 </body>
 
-<script type="module" nonce="2a4d6370df24303df618c4b478b28970">
+<script type="module" nonce="c95534a70b71b597a57aa03a081ba708">
 	const updatedAtElement = document.getElementById("update-at");
 	const date = new Date(updatedAtElement.dateTime);
 	updatedAtElement.innerText = date.toLocaleString(undefined, {
@@ -821,7 +830,7 @@ button.report:hover, button.unreport, button.hide:hover, button.show {
 		timeStyle: "medium",
 	})
 </script>
-<script type="module" nonce="2a4d6370df24303df618c4b478b28970">
+<script type="module" nonce="c95534a70b71b597a57aa03a081ba708">
 var backend_url='https://brcrawl.guilhermegarcia.dev';
 function hide_feedback(domain) {
     return `<div><small>Domínio <a href="https://${domain}">${domain}</a> escondido. | <button class="show">exibir</button></small></div>`;

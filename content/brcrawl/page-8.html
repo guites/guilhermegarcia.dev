@@ -12,14 +12,14 @@
 		connect-src https://brcrawl.guilhermegarcia.dev;
 		base-uri 'self';
 		img-src 'self' data: ;
-		style-src 'nonce-1baaf22b21b76c5c99cff026851f8da2' ;
-		script-src 'nonce-1baaf22b21b76c5c99cff026851f8da2' 'strict-dynamic' ;
+		style-src 'nonce-6caf59908adca3f1ca2a35ff9475cce2' ;
+		script-src 'nonce-6caf59908adca3f1ca2a35ff9475cce2' 'strict-dynamic' ;
 	">
 	<meta name="application-name" content="brcrawl">
 	<meta name="description" content="Diretório da smallweb brasileira">
 	<meta name="referrer" content="same-origin">
 
-	<style nonce="1baaf22b21b76c5c99cff026851f8da2">
+	<style nonce="6caf59908adca3f1ca2a35ff9475cce2">
 :root {
     color-scheme: dark light;
     --primary: #0AC8F5;
@@ -27,7 +27,7 @@
     --text: var(--txt, #cfcfcf);
     --border: var(--bd, #c0c0c0);
     --background: var(--bg, #1D1F21);
-    font-size: min(calc(.5rem + 0.75vw), 16px);
+    font-size: min(calc(.75rem + 0.75vw), 16px);
 }
 
 @media (prefers-color-scheme: light) {
@@ -136,29 +136,25 @@ button.report:hover, button.unreport, button.hide:hover, button.show {
     opacity: 0.8;
     cursor: pointer;
 }
+
+.title-br { display: none; }
+
+@media screen and (max-width: 470px) {
+    header { text-align: center; }
+    .title-br { display: initial; }
+    .title-span { margin: 10px 0px; display: inline-block; }
+}
 	</style>
 </head>
 
 <body>
 	<header>
 		<h1>BR Crawl</h1>
-		Diretório da smallweb brasileira
+		<br class="title-br"/>
+		<span class="title-span">Diretório da smallweb brasileira</span>
 	</header>
 	<main>
 		<ol start="351">
-			<li>
-				<a href="https://focarafa.bearblog.dev/fui-no-pagode/" target="_blank">
-					<h2>Fui no pagode</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2025-02-23">23/02/2025</time>
-					|
-					<a class="domain" href="https://focarafa.bearblog.dev" target="_blank">focarafa.bearblog.dev</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
 			<li>
 				<a href="https://mondejarwrites.bearblog.dev/primeiro-post/" target="_blank">
 					<h2>Primeiro post</h2>
@@ -212,19 +208,6 @@ button.report:hover, button.unreport, button.hide:hover, button.show {
 				</small>
 			</li>
 			<li>
-				<a href="https://wuwei.bearblog.dev/sob-o-signo-do-tecnofascismo/" target="_blank">
-					<h2>Sob o signo do tecnofascismo</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2025-02-13">13/02/2025</time>
-					|
-					<a class="domain" href="https://wuwei.bearblog.dev" target="_blank">wuwei.bearblog.dev</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
 				<a href="https://sinapse.bearblog.dev/a-musica-no-cerebro-processamento-local-e-redes-distribuidas/" target="_blank">
 					<h2>A música no cérebro - processamento local e redes distribuídas</h2>
 				</a>
@@ -233,6 +216,19 @@ button.report:hover, button.unreport, button.hide:hover, button.show {
 					<time datetime="2025-02-13">13/02/2025</time>
 					|
 					<a class="domain" href="https://sinapse.bearblog.dev" target="_blank">sinapse.bearblog.dev</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://wuwei.bearblog.dev/sob-o-signo-do-tecnofascismo/" target="_blank">
+					<h2>Sob o signo do tecnofascismo</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2025-02-13">13/02/2025</time>
+					|
+					<a class="domain" href="https://wuwei.bearblog.dev" target="_blank">wuwei.bearblog.dev</a> | 
 					<button class="hide">esconder</button> | 
 					<button class="report">reportar</button>
 				</small>
@@ -550,19 +546,6 @@ button.report:hover, button.unreport, button.hide:hover, button.show {
 				</small>
 			</li>
 			<li>
-				<a href="https://alves.bearblog.dev/alvaro/" target="_blank">
-					<h2>Álvaro</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2024-10-03">03/10/2024</time>
-					|
-					<a class="domain" href="https://alves.bearblog.dev" target="_blank">alves.bearblog.dev</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
 				<a href="https://thaistory.bearblog.dev/mariahcarey/" target="_blank">
 					<h2>Don&amp;#39;t forget about Mariah Carey</h2>
 				</a>
@@ -571,6 +554,19 @@ button.report:hover, button.unreport, button.hide:hover, button.show {
 					<time datetime="2024-10-03">03/10/2024</time>
 					|
 					<a class="domain" href="https://thaistory.bearblog.dev" target="_blank">thaistory.bearblog.dev</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://alves.bearblog.dev/alvaro/" target="_blank">
+					<h2>Álvaro</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-10-03">03/10/2024</time>
+					|
+					<a class="domain" href="https://alves.bearblog.dev" target="_blank">alves.bearblog.dev</a> | 
 					<button class="hide">esconder</button> | 
 					<button class="report">reportar</button>
 				</small>
@@ -796,24 +792,37 @@ button.report:hover, button.unreport, button.hide:hover, button.show {
 					<button class="report">reportar</button>
 				</small>
 			</li>
+			<li>
+				<a href="http://ritazerbinatti.blogspot.com/2024/05/primeiro-dia-no-terreiro-newsletter.html" target="_blank">
+					<h2>Primeiro dia no terreiro #newsletter</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-05-23">23/05/2024</time>
+					|
+					<a class="domain" href="https://ritazerbinatti.blogspot.com" target="_blank">ritazerbinatti.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
 		</ol>
 		<nav>
-			<a href="page-7.html">&larr; Previous</a>
-			<span>Page 8 of 10</span>
-			<a href="page-9.html">Next &rarr;</a>
+			<a href="page-7.html">&larr; Voltar</a>
+			<span>Página 8 de 10</span>
+			<a href="page-9.html">Avançar &rarr;</a>
 		</nav>
 	</main>
 	<footer>
 		<p>Atualizado em:
-			<time id="update-at" datetime="2026-02-15T16:43:53.710229+00:00">
-				Sunday, 15/02/2026 16:43:53
+			<time id="update-at" datetime="2026-02-16T16:44:17.223505+00:00">
+				Monday, 16/02/2026 16:44:17
 			</time>
 		</p>
 		<p><a href="index.html">BR Crawl</a> | <a href="about.html">Sobre</a> | <a href="sources.html">Fontes</a></p>
 	</footer>
 </body>
 
-<script type="module" nonce="1baaf22b21b76c5c99cff026851f8da2">
+<script type="module" nonce="6caf59908adca3f1ca2a35ff9475cce2">
 	const updatedAtElement = document.getElementById("update-at");
 	const date = new Date(updatedAtElement.dateTime);
 	updatedAtElement.innerText = date.toLocaleString(undefined, {
@@ -821,7 +830,7 @@ button.report:hover, button.unreport, button.hide:hover, button.show {
 		timeStyle: "medium",
 	})
 </script>
-<script type="module" nonce="1baaf22b21b76c5c99cff026851f8da2">
+<script type="module" nonce="6caf59908adca3f1ca2a35ff9475cce2">
 var backend_url='https://brcrawl.guilhermegarcia.dev';
 function hide_feedback(domain) {
     return `<div><small>Domínio <a href="https://${domain}">${domain}</a> escondido. | <button class="show">exibir</button></small></div>`;
