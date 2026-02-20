@@ -12,14 +12,14 @@
 		connect-src https://brcrawl.guilhermegarcia.dev;
 		base-uri 'self';
 		img-src 'self' data: ;
-		style-src 'nonce-c35c7d2c67a38e76e16548430a25dfdb' ;
-		script-src 'nonce-c35c7d2c67a38e76e16548430a25dfdb' 'strict-dynamic' ;
+		style-src 'nonce-f06753e32ad337de4bd9eb669eb18f9f' ;
+		script-src 'nonce-f06753e32ad337de4bd9eb669eb18f9f' 'strict-dynamic' ;
 	">
 	<meta name="application-name" content="brcrawl">
 	<meta name="description" content="Diretório da smallweb brasileira">
 	<meta name="referrer" content="same-origin">
 
-	<style nonce="c35c7d2c67a38e76e16548430a25dfdb">
+	<style nonce="f06753e32ad337de4bd9eb669eb18f9f">
 :root {
     color-scheme: dark light;
     --primary: #0AC8F5;
@@ -155,6 +155,19 @@ button.report:hover, button.unreport, button.hide:hover, button.show {
 	</header>
 	<main>
 		<ol start="451">
+			<li>
+				<a href="http://donarafinha.blogspot.com/2022/08/quatro-meses-sem-voce.html" target="_blank">
+					<h2>quatro meses sem você</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2022-08-10">10/08/2022</time>
+					|
+					<a class="domain" href="https://donarafinha.blogspot.com" target="_blank">donarafinha.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
 			<li>
 				<a href="https://at0mheart.wordpress.com/2022/07/06/thank-you-for-asking/" target="_blank">
 					<h2>thank you for asking</h2>
@@ -541,15 +554,15 @@ button.report:hover, button.unreport, button.hide:hover, button.show {
 	</main>
 	<footer>
 		<p>Atualizado em:
-			<time id="update-at" datetime="2026-02-19T16:44:45.204271+00:00">
-				Thursday, 19/02/2026 16:44:45
+			<time id="update-at" datetime="2026-02-20T16:44:30.446317+00:00">
+				Friday, 20/02/2026 16:44:30
 			</time>
 		</p>
 		<p><a href="index.html">BR Crawl</a> | <a href="about.html">Sobre</a> | <a href="sources.html">Fontes</a></p>
 	</footer>
 </body>
 
-<script type="module" nonce="c35c7d2c67a38e76e16548430a25dfdb">
+<script type="module" nonce="f06753e32ad337de4bd9eb669eb18f9f">
 	const updatedAtElement = document.getElementById("update-at");
 	const date = new Date(updatedAtElement.dateTime);
 	updatedAtElement.innerText = date.toLocaleString(undefined, {
@@ -557,7 +570,7 @@ button.report:hover, button.unreport, button.hide:hover, button.show {
 		timeStyle: "medium",
 	})
 </script>
-<script type="module" nonce="c35c7d2c67a38e76e16548430a25dfdb">
+<script type="module" nonce="f06753e32ad337de4bd9eb669eb18f9f">
 var backend_url='https://brcrawl.guilhermegarcia.dev';
 function hide_feedback(domain) {
     return `<div><small>Domínio <a href="https://${domain}">${domain}</a> escondido. | <button class="show">exibir</button></small></div>`;
