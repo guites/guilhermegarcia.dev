@@ -12,14 +12,14 @@
 		connect-src https://brcrawl.guilhermegarcia.dev;
 		base-uri 'self';
 		img-src 'self' data: ;
-		style-src 'nonce-e2f1e9bde09c12c792b0171fcda092e6' ;
-		script-src 'nonce-e2f1e9bde09c12c792b0171fcda092e6' 'strict-dynamic' ;
+		style-src 'nonce-c35c7d2c67a38e76e16548430a25dfdb' ;
+		script-src 'nonce-c35c7d2c67a38e76e16548430a25dfdb' 'strict-dynamic' ;
 	">
 	<meta name="application-name" content="brcrawl">
 	<meta name="description" content="Diretório da smallweb brasileira">
 	<meta name="referrer" content="same-origin">
 
-	<style nonce="e2f1e9bde09c12c792b0171fcda092e6">
+	<style nonce="c35c7d2c67a38e76e16548430a25dfdb">
 :root {
     color-scheme: dark light;
     --primary: #0AC8F5;
@@ -27,7 +27,7 @@
     --text: var(--txt, #cfcfcf);
     --border: var(--bd, #c0c0c0);
     --background: var(--bg, #1D1F21);
-    font-size: min(calc(.5rem + 0.75vw), 16px);
+    font-size: min(calc(.75rem + 0.75vw), 16px);
 }
 
 @media (prefers-color-scheme: light) {
@@ -136,68 +136,25 @@ button.report:hover, button.unreport, button.hide:hover, button.show {
     opacity: 0.8;
     cursor: pointer;
 }
+
+.title-br { display: none; }
+
+@media screen and (max-width: 470px) {
+    header { text-align: center; }
+    .title-br { display: initial; }
+    .title-span { margin: 10px 0px; display: inline-block; }
+}
 	</style>
 </head>
 
 <body>
 	<header>
 		<h1>BR Crawl</h1>
-		Diretório da smallweb brasileira
+		<br class="title-br"/>
+		<span class="title-span">Diretório da smallweb brasileira</span>
 	</header>
 	<main>
 		<ol start="451">
-			<li>
-				<a href="https://filipe.bearblog.dev/othernet/" target="_blank">
-					<h2>a outra internet</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2022-09-27">27/09/2022</time>
-					|
-					<a class="domain" href="https://filipe.bearblog.dev" target="_blank">filipe.bearblog.dev</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
-				<a href="https://anos.bearblog.dev/estantes-contra-caos/" target="_blank">
-					<h2>Estantes contra o caos</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2022-09-22">22/09/2022</time>
-					|
-					<a class="domain" href="https://anos.bearblog.dev" target="_blank">anos.bearblog.dev</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
-				<a href="https://oha.bearblog.dev/002/" target="_blank">
-					<h2>#002</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2022-09-12">12/09/2022</time>
-					|
-					<a class="domain" href="https://oha.bearblog.dev" target="_blank">oha.bearblog.dev</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
-				<a href="http://donarafinha.blogspot.com/2022/08/quatro-meses-sem-voce.html" target="_blank">
-					<h2>quatro meses sem você</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2022-08-10">10/08/2022</time>
-					|
-					<a class="domain" href="https://donarafinha.blogspot.com" target="_blank">donarafinha.blogspot.com</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
 			<li>
 				<a href="https://at0mheart.wordpress.com/2022/07/06/thank-you-for-asking/" target="_blank">
 					<h2>thank you for asking</h2>
@@ -577,22 +534,22 @@ button.report:hover, button.unreport, button.hide:hover, button.show {
 			</li>
 		</ol>
 		<nav>
-			<a href="page-9.html">&larr; Previous</a>
-			<span>Page 10 of 10</span>
-			<span>Next &rarr;</span>
+			<a href="page-9.html">&larr; Voltar</a>
+			<span>Página 10 de 10</span>
+			<span>Avançar &rarr;</span>
 		</nav>
 	</main>
 	<footer>
 		<p>Atualizado em:
-			<time id="update-at" datetime="2026-02-15T16:43:53.711445+00:00">
-				Sunday, 15/02/2026 16:43:53
+			<time id="update-at" datetime="2026-02-19T16:44:45.204271+00:00">
+				Thursday, 19/02/2026 16:44:45
 			</time>
 		</p>
 		<p><a href="index.html">BR Crawl</a> | <a href="about.html">Sobre</a> | <a href="sources.html">Fontes</a></p>
 	</footer>
 </body>
 
-<script type="module" nonce="e2f1e9bde09c12c792b0171fcda092e6">
+<script type="module" nonce="c35c7d2c67a38e76e16548430a25dfdb">
 	const updatedAtElement = document.getElementById("update-at");
 	const date = new Date(updatedAtElement.dateTime);
 	updatedAtElement.innerText = date.toLocaleString(undefined, {
@@ -600,7 +557,7 @@ button.report:hover, button.unreport, button.hide:hover, button.show {
 		timeStyle: "medium",
 	})
 </script>
-<script type="module" nonce="e2f1e9bde09c12c792b0171fcda092e6">
+<script type="module" nonce="c35c7d2c67a38e76e16548430a25dfdb">
 var backend_url='https://brcrawl.guilhermegarcia.dev';
 function hide_feedback(domain) {
     return `<div><small>Domínio <a href="https://${domain}">${domain}</a> escondido. | <button class="show">exibir</button></small></div>`;
