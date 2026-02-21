@@ -12,14 +12,14 @@
 		connect-src https://brcrawl.guilhermegarcia.dev;
 		base-uri 'self';
 		img-src 'self' data: ;
-		style-src 'nonce-02392726c79c5ec88505de5cd5ed696a' ;
-		script-src 'nonce-02392726c79c5ec88505de5cd5ed696a' 'strict-dynamic' ;
+		style-src 'nonce-741b7d6267c3b276d97e7e943d4579c1' ;
+		script-src 'nonce-741b7d6267c3b276d97e7e943d4579c1' 'strict-dynamic' ;
 	">
 	<meta name="application-name" content="brcrawl">
 	<meta name="description" content="Diretório da smallweb brasileira">
 	<meta name="referrer" content="same-origin">
 
-	<style nonce="02392726c79c5ec88505de5cd5ed696a">
+	<style nonce="741b7d6267c3b276d97e7e943d4579c1">
 :root {
     color-scheme: dark light;
     --primary: #0AC8F5;
@@ -172,21 +172,22 @@ button.report:hover, button.unreport, button.hide:hover, button.show {
         <li>10/02/2026: 467 blogs (<3 <a href="https://blogueirosraiz.blogspot.com/p/todos-os-blogs-a-z.html">Blogueiros Raiz</a>)</li>
 	<li>11/02/2026: adição dos botões <strong>esconder</strong> e <strong>reportar</strong></li>
 	<li>12/02/2026: +43 blogs através de scrapping automático e curadoria manual</li>
+    <li>20/02/2026: primeira rodada do pipeline autônomo: total de 1360 blogs registrados! 🖤</li>
     </ul>
 </p>
 
 	</main>
 	<footer>
 		<p>Atualizado em:
-			<time id="update-at" datetime="2026-02-20T19:25:28.845074+00:00">
-				Friday, 20/02/2026 19:25:28
+			<time id="update-at" datetime="2026-02-21T16:48:54.972713+00:00">
+				Saturday, 21/02/2026 16:48:54
 			</time>
 		</p>
 		<p><a href="index.html">BR Crawl</a> | <a href="about.html">Sobre</a> | <a href="sources.html">Fontes</a></p>
 	</footer>
 </body>
 
-<script type="module" nonce="02392726c79c5ec88505de5cd5ed696a">
+<script type="module" nonce="741b7d6267c3b276d97e7e943d4579c1">
 	const updatedAtElement = document.getElementById("update-at");
 	const date = new Date(updatedAtElement.dateTime);
 	updatedAtElement.innerText = date.toLocaleString(undefined, {
@@ -194,7 +195,7 @@ button.report:hover, button.unreport, button.hide:hover, button.show {
 		timeStyle: "medium",
 	})
 </script>
-<script type="module" nonce="02392726c79c5ec88505de5cd5ed696a">
+<script type="module" nonce="741b7d6267c3b276d97e7e943d4579c1">
 var backend_url='https://brcrawl.guilhermegarcia.dev';
 function hide_feedback(domain) {
     return `<div><small>Domínio <a href="https://${domain}">${domain}</a> escondido. | <button class="show">exibir</button></small></div>`;
