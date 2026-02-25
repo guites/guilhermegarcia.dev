@@ -12,14 +12,14 @@
 		connect-src https://brcrawl.guilhermegarcia.dev;
 		base-uri 'self';
 		img-src 'self' data: ;
-		style-src 'nonce-89a53d667209ee467f9fb652780b4aa6' ;
-		script-src 'nonce-89a53d667209ee467f9fb652780b4aa6' 'strict-dynamic' ;
+		style-src 'nonce-cbe1ec09844cf20503648c56fd0a7b97' ;
+		script-src 'nonce-cbe1ec09844cf20503648c56fd0a7b97' 'strict-dynamic' ;
 	">
 	<meta name="application-name" content="brcrawl">
 	<meta name="description" content="Diretório da smallweb brasileira">
 	<meta name="referrer" content="same-origin">
 
-	<style nonce="89a53d667209ee467f9fb652780b4aa6">
+	<style nonce="cbe1ec09844cf20503648c56fd0a7b97">
 :root {
     color-scheme: dark light;
     --primary: #0AC8F5;
@@ -177,19 +177,20 @@ button.report:hover, button.unreport, button.hide:hover, button.show {
 <li>22/02/2026: +173 blogs encontrados</li>
 <li>23/02/2026: +1702 blogs encontrados</li>
 <li>24/02/2026: +1380 blogs encontrados</li>
+<li>25/02/2026: +233 blogs encontrados</li>
 
 	</main>
 	<footer>
 		<p>Atualizado em:
-			<time id="update-at" datetime="2026-02-24T16:20:28.203870+00:00">
-				Tuesday, 24/02/2026 16:20:28
+			<time id="update-at" datetime="2026-02-25T16:17:38.966861+00:00">
+				Wednesday, 25/02/2026 16:17:38
 			</time>
 		</p>
 		<p><a href="index.html">BR Crawl</a> | <a href="about.html">Sobre</a> | <a href="sources.html">Fontes</a></p>
 	</footer>
 </body>
 
-<script type="module" nonce="89a53d667209ee467f9fb652780b4aa6">
+<script type="module" nonce="cbe1ec09844cf20503648c56fd0a7b97">
 	const updatedAtElement = document.getElementById("update-at");
 	const date = new Date(updatedAtElement.dateTime);
 	updatedAtElement.innerText = date.toLocaleString(undefined, {
@@ -197,7 +198,7 @@ button.report:hover, button.unreport, button.hide:hover, button.show {
 		timeStyle: "medium",
 	})
 </script>
-<script type="module" nonce="89a53d667209ee467f9fb652780b4aa6">
+<script type="module" nonce="cbe1ec09844cf20503648c56fd0a7b97">
 var backend_url='https://brcrawl.guilhermegarcia.dev';
 function hide_feedback(domain) {
     return `<div><small>Domínio <a href="https://${domain}">${domain}</a> escondido. | <button class="show">exibir</button></small></div>`;
