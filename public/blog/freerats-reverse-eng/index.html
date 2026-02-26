@@ -282,7 +282,7 @@
 <p>Como não existe uma versão web onde eu possa inspecionar as requisições com o devtools (e automatizar o export dos meus dados com um ou dois <code>curl</code>s via linha de comando), tive que mergulhar de cabeça no labirinto que é mapeaer as requisições feitas por um aplicativo Android.</p>
 <p><strong>tldr</strong>: consegui montar as requisições necessárias para fazer login e extrair o .json com os dados pessoais. <a href="#script-com-o-fluxo-completo">Clique aqui para ver o fluxo completo</a>.</p>
 <h2 id="primeira-tentativa-http-toolkit">Primeira tentativa: HTTP Toolkit</h2>
-<p>Fiz a instalão do HTTP Toolkit no meu Ubuntu através do arquivo .deb, e depois, <a href="https://httptoolkit.com/docs/guides/android/">seguindo esse tutorial</a>, subi o HTTP Toolkit como um VPS.</p>
+<p>Fiz a instalação do HTTP Toolkit no meu Ubuntu através do arquivo .deb, e depois, <a href="https://httptoolkit.com/docs/guides/android/">seguindo esse tutorial</a>, subi o HTTP Toolkit como um VPS.</p>
 <p>Pelo celular, fiz a conexão pela leitura do QRCode, que me instruiu a instalar o aplicativo. Patinei um pouco (o celular dizia que não conseguia estabelecer conexão com o computador) até me dar conta de que o Ubuntu vem com a porta 8000 fechada, então o celular não conseguia conversar com o computador mesmo estando na mesma rede.</p>
 <p>Consegui resolver com um <code>sudo ufw enable 8000</code>; lembre-se de fechar a porta ao sair com <code>sudo ufw disable 8000</code>.</p>
 <p>Consegui interceptar o tráfego, mas o app do GymRats não aceita certificados SSL auto assinados (que é o caso do cert usado pelo VPS do HTTP Toolkit), então as requisições acabavam sendo abortadas, e eu não conseguia ver nem as URLs acessadas pelo painel do toolkit.</p>

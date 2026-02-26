@@ -20,7 +20,7 @@ Como não existe uma versão web onde eu possa inspecionar as requisições com 
 
 ## Primeira tentativa: HTTP Toolkit
 
-Fiz a instalão do HTTP Toolkit no meu Ubuntu através do arquivo .deb, e depois, [seguindo esse tutorial](https://httptoolkit.com/docs/guides/android/), subi o HTTP Toolkit como um VPS. 
+Fiz a instalação do HTTP Toolkit no meu Ubuntu através do arquivo .deb, e depois, [seguindo esse tutorial](https://httptoolkit.com/docs/guides/android/), subi o HTTP Toolkit como um VPS. 
 
 Pelo celular, fiz a conexão pela leitura do QRCode, que me instruiu a instalar o aplicativo. Patinei um pouco (o celular dizia que não conseguia estabelecer conexão com o computador) até me dar conta de que o Ubuntu vem com a porta 8000 fechada, então o celular não conseguia conversar com o computador mesmo estando na mesma rede.
 
