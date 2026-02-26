@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>BR Crawl</title>
+
+	<meta http-equiv="Content-Security-Policy" content="
+		default-src 'none';
+		connect-src https://brcrawl.guilhermegarcia.dev;
+		base-uri 'self';
+		img-src 'self' data: ;
+		style-src 'nonce-810a56b68432de15626871e318a8fcbd' ;
+		script-src 'nonce-810a56b68432de15626871e318a8fcbd' 'strict-dynamic' ;
+	">
+	<meta name="application-name" content="brcrawl">
+	<meta name="description" content="Diretório da smallweb brasileira">
+	<meta name="referrer" content="same-origin">
+
+	<style nonce="810a56b68432de15626871e318a8fcbd">
+:root {
+    color-scheme: dark light;
+    --primary: #0AC8F5;
+    --secondary: #D2F00F;
+    --text: var(--txt, #cfcfcf);
+    --border: var(--bd, #c0c0c0);
+    --background: var(--bg, #1D1F21);
+    font-size: min(calc(.75rem + 0.75vw), 16px);
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --text: var(--txt, #444444);
+        --border: var(--bd, #333333);
+        --background: var(--bg, white);
+        --primary: #207D92;
+        --secondary: #6A7A06;
+    }
+}
+
+body {
+    font-family: Calibri, 'Trebuchet MS', 'Lucida Sans', Arial, sans-serif;
+    color: var(--text);
+    background: var(--background);
+    max-width: 50rem;
+    width: 100%;
+    margin: 0.5em auto 2em;
+    line-height: 1.25em;
+}
+
+header {
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 0.25em;
+}
+
+header > h1 {
+    display: inline-block;
+    padding: 0 0.5em;
+}
+
+h2 {
+    font-size: 1rem;
+    display: inline;
+}
+
+ol {
+    padding-left: 5ch;
+}
+
+li {
+    margin-block-start: 1em;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:link {
+    color: var(--primary);
+}
+
+a:visited {
+    color: var(--secondary);
+}
+
+a:hover {
+    opacity: 0.8;
+}
+
+small {
+    padding-top: 0.25rem;
+    font-size: 0.95rem;
+}
+
+small > a:link,
+small > a:visited {
+    color: var(--text);
+}
+
+footer {
+    padding: 1rem;
+    margin-top: 2rem;
+    border-top: 1px solid var(--border);
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    padding: 1em 0;
+    margin-top: 1em;
+}
+
+nav > a, nav > span {
+    padding: 0.25em 0.75em;
+}
+
+nav > span {
+    color: var(--border);
+}
+
+button.report, button.unreport, button.hide, button.show {
+    background: transparent;
+    border: 0px transparent;
+    padding: 0px;
+    margin: 0px;
+    display: inline;
+    box-sizing: border-box;
+    font: inherit;
+    color: inherit;
+}
+
+button.report:hover, button.unreport, button.hide:hover, button.show {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.title-br { display: none; }
+
+@media screen and (max-width: 470px) {
+    header { text-align: center; }
+    .title-br { display: initial; }
+    .title-span { margin: 10px 0px; display: inline-block; }
+}
+	</style>
+</head>
+
+<body>
+	<header>
+		<h1>BR Crawl</h1>
+		<br class="title-br"/>
+		<span class="title-span">Diretório da smallweb brasileira</span>
+	</header>
+	<main>
+		<ol start="1801">
+			<li>
+				<a href="http://marifriend.blogspot.com/2019/02/texto-meu-desejo-aos-desamores.html" target="_blank">
+					<h2>[Texto] Meu Desejo aos Desamores</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2020-12-05">05/12/2020</time>
+					|
+					<a class="domain" href="https://marifriend.blogspot.com" target="_blank">marifriend.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://daniquedisse.com.br/2020/12/voce-conhece-o-calendario-do-advento.html" target="_blank">
+					<h2>Você conhece o Calendário do Advento?</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2020-12-02">02/12/2020</time>
+					|
+					<a class="domain" href="https://daniquedisse.com.br" target="_blank">daniquedisse.com.br</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://roldeleituras.blogspot.com/2020/12/10-aniversario-do-rol-de-leituras-um.html" target="_blank">
+					<h2>10º Aniversário do &amp;#34;Rol de Leituras&amp;#34; - um Adeus em Festa!</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2020-12-01">01/12/2020</time>
+					|
+					<a class="domain" href="https://roldeleituras.blogspot.com" target="_blank">roldeleituras.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://inquietar.wordpress.com/2020/11/30/um-dia-estranho/" target="_blank">
+					<h2>Um dia estranho</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2020-11-30">30/11/2020</time>
+					|
+					<a class="domain" href="https://inquietar.wordpress.com" target="_blank">inquietar.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://manjogome.wordpress.com/2020/11/28/a-viagem-de-cruzeiro/" target="_blank">
+					<h2>A viagem de cruzeiro!</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2020-11-28">28/11/2020</time>
+					|
+					<a class="domain" href="https://manjogome.wordpress.com" target="_blank">manjogome.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://porcaeparafuso.blogspot.com/2020/11/para-nao-esquecer-foi-num-tempo.html" target="_blank">
+					<h2>Untitled</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2020-11-27">27/11/2020</time>
+					|
+					<a class="domain" href="https://porcaeparafuso.blogspot.com" target="_blank">porcaeparafuso.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://flagrantedelicia.com/cheesecakes/receita-de-cheesecake-frio-de-chocolate-branco-e-figos/" target="_blank">
+					<h2>Receita de Cheesecake Frio de Chocolate Branco e Figos.</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2020-11-27">27/11/2020</time>
+					|
+					<a class="domain" href="https://flagrantedelicia.com" target="_blank">flagrantedelicia.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://fabytsukino.blogspot.com/2019/08/sadado-doce-sadado.html" target="_blank">
+					<h2>LONGA PAUSA...</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2020-11-27">27/11/2020</time>
+					|
+					<a class="domain" href="https://fabytsukino.blogspot.com" target="_blank">fabytsukino.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://expressoesliterarias.art.blog/2020/11/25/por-que-ler-biografias-1-video-do-canal-expressoes-literarias/" target="_blank">
+					<h2>POR QUE LER BIOGRAFIAS – 1° Vídeo do Canal Expressões Literárias</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2020-11-25">25/11/2020</time>
+					|
+					<a class="domain" href="https://expressoesliterarias.art.blog" target="_blank">expressoesliterarias.art.blog</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://toqsutil.wordpress.com/2020/11/24/resenha-a-onda/" target="_blank">
+					<h2>#resenha| A Onda</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2020-11-24">24/11/2020</time>
+					|
+					<a class="domain" href="https://toqsutil.wordpress.com" target="_blank">toqsutil.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://manofernandes.wordpress.com/2020/11/20/nem-sempre-mas/" target="_blank">
+					<h2>NEM SEMPRE, MAS …</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2020-11-21">21/11/2020</time>
+					|
+					<a class="domain" href="https://manofernandes.wordpress.com" target="_blank">manofernandes.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://veronicamichetti.wordpress.com/2020/11/21/os-diarios-de-amora-volume-1-o-zoologico-petrificado-aurelie-neyret-e-joris-chamblain/" target="_blank">
+					<h2>Os diários de amora – Volume 1: O zoológico petrificado (Aurélie Neyret e Joris Chamblain)</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2020-11-21">21/11/2020</time>
+					|
+					<a class="domain" href="https://veronicamichetti.wordpress.com" target="_blank">veronicamichetti.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://classicostraduzidos.com/2020/11/20/dica-o-velho-e-o-mar-de-ernest-hemingway/" target="_blank">
+					<h2>Dica – O velho e o mar, de Ernest Hemingway</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2020-11-20">20/11/2020</time>
+					|
+					<a class="domain" href="https://classicostraduzidos.com" target="_blank">classicostraduzidos.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://grdias.wordpress.com/2020/11/18/desafio-dos-23-arautos-de-jake-gyllenhaall-e-o-segredo-de-brokeback-mountain/" target="_blank">
+					<h2>Desafio dos 23 arautos de Jake Gyllenhaall e o segredo de Brokeback mountain</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2020-11-19">19/11/2020</time>
+					|
+					<a class="domain" href="https://grdias.wordpress.com" target="_blank">grdias.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://umpontodeconvergencia.wordpress.com/2020/11/18/1/" target="_blank">
+					<h2>1</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2020-11-18">18/11/2020</time>
+					|
+					<a class="domain" href="https://umpontodeconvergencia.wordpress.com" target="_blank">umpontodeconvergencia.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://marcelinofreire.wordpress.com/2020/11/17/ensaios-de-improviso-36/" target="_blank">
+					<h2>ENSAIOS DE IMPROVISO</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2020-11-17">17/11/2020</time>
+					|
+					<a class="domain" href="https://marcelinofreire.wordpress.com" target="_blank">marcelinofreire.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://gramatologia.blogspot.com/2016/12/blog-post.html" target="_blank">
+					<h2>Ruth Wolf-Rehfeldt</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2020-11-17">17/11/2020</time>
+					|
+					<a class="domain" href="https://gramatologia.blogspot.com" target="_blank">gramatologia.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://afantasticaestantedarafa.wordpress.com/2020/11/12/resenha-quase-uma-rockstar-opiniao-sobre-o-filme-da-netflix/" target="_blank">
+					<h2>Resenha: “Quase uma Rockstar” &amp;#43; Opinião sobre o filme da Netflix</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2020-11-12">12/11/2020</time>
+					|
+					<a class="domain" href="https://afantasticaestantedarafa.wordpress.com" target="_blank">afantasticaestantedarafa.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://flabbergasted2.wordpress.com/2020/11/10/diario-da-italia-10/" target="_blank">
+					<h2>DIÁRIO DA ITALIA 10</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2020-11-10">10/11/2020</time>
+					|
+					<a class="domain" href="https://flabbergasted2.wordpress.com" target="_blank">flabbergasted2.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://jewelcamp.blogspot.com/2020/11/emojis.html" target="_blank">
+					<h2>Emojis</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2020-11-08">08/11/2020</time>
+					|
+					<a class="domain" href="https://jewelcamp.blogspot.com" target="_blank">jewelcamp.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://iniciodeconversa.blogspot.com/2019/06/resenha-do-livro-mulher-silenciosa.html" target="_blank">
+					<h2>Resenha do Livro: A Mulher Silenciosa</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2020-11-06">06/11/2020</time>
+					|
+					<a class="domain" href="https://iniciodeconversa.blogspot.com" target="_blank">iniciodeconversa.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://virandoamor.blogspot.com/2020/11/onde-encontrar-cupons-de-desconto.html" target="_blank">
+					<h2>Onde encontrar cupons de desconto</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2020-11-06">06/11/2020</time>
+					|
+					<a class="domain" href="https://virandoamor.blogspot.com" target="_blank">virandoamor.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://elsios.blogspot.com/2020/11/blog-post_6.html" target="_blank">
+					<h2>Untitled</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2020-11-06">06/11/2020</time>
+					|
+					<a class="domain" href="https://elsios.blogspot.com" target="_blank">elsios.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://vivitrola.blogspot.com/2020/11/desconfinados.html" target="_blank">
+					<h2>Desconfi(n)ados</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2020-11-03">03/11/2020</time>
+					|
+					<a class="domain" href="https://vivitrola.blogspot.com" target="_blank">vivitrola.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://heeeymaria.blogspot.com/2020/11/um-belo-dia-resolvi-voltar.html" target="_blank">
+					<h2>Um belo dia resolvi voltar</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2020-11-02">02/11/2020</time>
+					|
+					<a class="domain" href="https://heeeymaria.blogspot.com" target="_blank">heeeymaria.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://blogbrasigringa.blogspot.com/2020/11/um-longo-caminho.html" target="_blank">
+					<h2>{ Um longo caminho }</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2020-11-01">01/11/2020</time>
+					|
+					<a class="domain" href="https://blogbrasigringa.blogspot.com" target="_blank">blogbrasigringa.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://almatua.blogspot.com/2020/10/sem-passados-nao-conto-mais-passados.html" target="_blank">
+					<h2>Untitled</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2020-10-26">26/10/2020</time>
+					|
+					<a class="domain" href="https://almatua.blogspot.com" target="_blank">almatua.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://hermesveras.wordpress.com/2020/10/18/os-nove-pentes-dafrica-cidinha-da-silva-ilustracoes-de-ilea-ferraz-2009-belo-horizonte-mazza-edicoes/" target="_blank">
+					<h2>Os nove pentes d’África – Cidinha da Silva / Ilustrações de Iléa Ferraz – 2009 – Belo Horizonte: Mazza Edições.</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2020-10-19">19/10/2020</time>
+					|
+					<a class="domain" href="https://hermesveras.wordpress.com" target="_blank">hermesveras.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://loucurasaovento.blogspot.com/2020/10/acesse-o-novo-blog.html" target="_blank">
+					<h2>Acesse o novo blog!</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2020-10-19">19/10/2020</time>
+					|
+					<a class="domain" href="https://loucurasaovento.blogspot.com" target="_blank">loucurasaovento.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://www.raphaeldraccon.com/blog/?p=6002" target="_blank">
+					<h2>E com vocês enfim: DRAGÕES DE ÉTER – ESTANDARTES DE NÉVOA &amp;#43; Novo box</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2020-10-17">17/10/2020</time>
+					|
+					<a class="domain" href="https://raphaeldraccon.com" target="_blank">raphaeldraccon.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://duaslivreiras.blogspot.com/2020/10/resenha-carrie-estranha-stephen-king.html" target="_blank">
+					<h2>[Resenha] Carrie, a estranha | Stephen King</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2020-10-16">16/10/2020</time>
+					|
+					<a class="domain" href="https://duaslivreiras.blogspot.com" target="_blank">duaslivreiras.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://diario-grafico.blogspot.com/2020/10/caderno-de-retratos-memorias-imperfeitas.html" target="_blank">
+					<h2>Caderno de Retratos - Memórias Imperfeitas</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2020-10-14">14/10/2020</time>
+					|
+					<a class="domain" href="https://diario-grafico.blogspot.com" target="_blank">diario-grafico.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://projeto-c.blogspot.com/2015/04/para-inspirar.html" target="_blank">
+					<h2>Para inspirar</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2020-10-14">14/10/2020</time>
+					|
+					<a class="domain" href="https://projeto-c.blogspot.com" target="_blank">projeto-c.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://minimalizo.blogspot.com/2020/10/novos-posts-no-minimalizo-parte-11.html" target="_blank">
+					<h2>Novos posts no minimalizo, parte 11</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2020-10-12">12/10/2020</time>
+					|
+					<a class="domain" href="https://minimalizo.blogspot.com" target="_blank">minimalizo.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://cyberstalking-pt.blogspot.com/2020/10/aumento-dos-casos-de-perseguicao.html" target="_blank">
+					<h2>Aumento dos casos de perseguição virtual (&amp;#34;Cyberstalking&amp;#34;), no Reino Unido, durante o período de confinamento da pandemia COVID-19</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2020-10-12">12/10/2020</time>
+					|
+					<a class="domain" href="https://cyberstalking-pt.blogspot.com" target="_blank">cyberstalking-pt.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://s-weethome.blogspot.com/2020/10/melancia-amarela.html" target="_blank">
+					<h2>Melancia Amarela??</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2020-10-11">11/10/2020</time>
+					|
+					<a class="domain" href="https://s-weethome.blogspot.com" target="_blank">s-weethome.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://pobreleitora.blogspot.com/2020/10/resenha-pistas-submersas-maria-adolfsson.html" target="_blank">
+					<h2>RESENHA: PISTAS SUBMERSAS - MARIA ADOLFSSON</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2020-10-09">09/10/2020</time>
+					|
+					<a class="domain" href="https://pobreleitora.blogspot.com" target="_blank">pobreleitora.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://fabioaureliocastilho.blogspot.com/2020/10/todos-os-dias-uma-infinidade-de.html" target="_blank">
+					<h2>Untitled</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2020-10-09">09/10/2020</time>
+					|
+					<a class="domain" href="https://fabioaureliocastilho.blogspot.com" target="_blank">fabioaureliocastilho.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://fabiomayer.blogspot.com/2020/10/coritiba-o-medo-do-futuro.html" target="_blank">
+					<h2>CORITIBA: O MEDO DO FUTURO.</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2020-10-05">05/10/2020</time>
+					|
+					<a class="domain" href="https://fabiomayer.blogspot.com" target="_blank">fabiomayer.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://simpatiaeesculacho.blogspot.com/2020/10/eis-copia-do-e-mail-que-enviei-todos-os.html" target="_blank">
+					<h2>Untitled</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2020-10-04">04/10/2020</time>
+					|
+					<a class="domain" href="https://simpatiaeesculacho.blogspot.com" target="_blank">simpatiaeesculacho.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://josenussbaum.blogspot.com/2020/10/desmistificando-queda-de-um-ovni-no.html" target="_blank">
+					<h2>Desmistificando a queda de um Óvni no canal Miguel da Cunha em Rio Grande (RS)</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2020-10-03">03/10/2020</time>
+					|
+					<a class="domain" href="https://josenussbaum.blogspot.com" target="_blank">josenussbaum.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://lau-ufrj.blogspot.com/2016/10/projeto-antropologia-e-desenho-2011-2016_31.html" target="_blank">
+					<h2>Projeto Antropologia e Desenho</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2020-10-02">02/10/2020</time>
+					|
+					<a class="domain" href="https://lau-ufrj.blogspot.com" target="_blank">lau-ufrj.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://luciana.misura.org/2020/09/29/coronavirus-em-orlando-29-de-setembro-de-2020/" target="_blank">
+					<h2>Coronavírus em Orlando – 29 de setembro de 2020</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2020-09-29">29/09/2020</time>
+					|
+					<a class="domain" href="https://luciana.misura.org" target="_blank">luciana.misura.org</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://unhasclassicasemodernas.blogspot.com/2020/09/meu-esmalte-favorito-da-atualidade-com.html" target="_blank">
+					<h2>Meu Esmalte Favorito da Atualidade com a mybest Brasil</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2020-09-28">28/09/2020</time>
+					|
+					<a class="domain" href="https://unhasclassicasemodernas.blogspot.com" target="_blank">unhasclassicasemodernas.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://kamibicalho.blogspot.com/2020/09/poesia-66-fim-sem-comeco.html" target="_blank">
+					<h2>#Poesia 66 - Fim sem começo</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2020-09-26">26/09/2020</time>
+					|
+					<a class="domain" href="https://kamibicalho.blogspot.com" target="_blank">kamibicalho.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://blogcoud.blogspot.com/2020/09/ost-de-anime.html" target="_blank">
+					<h2>OST de anime!</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2020-09-22">22/09/2020</time>
+					|
+					<a class="domain" href="https://blogcoud.blogspot.com" target="_blank">blogcoud.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://dropsdafal.wordpress.com/2020/09/20/mudar-verbo-que-transita/" target="_blank">
+					<h2>Mudar, verbo que transita</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2020-09-20">20/09/2020</time>
+					|
+					<a class="domain" href="https://dropsdafal.wordpress.com" target="_blank">dropsdafal.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://lenaspetals.blogspot.com/2020/09/sun-kissed.html" target="_blank">
+					<h2>Sun Kissed</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2020-09-18">18/09/2020</time>
+					|
+					<a class="domain" href="https://lenaspetals.blogspot.com" target="_blank">lenaspetals.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://vicioseliteratura.blogspot.com/2020/09/eu-li-o-desafio-missao-2.html" target="_blank">
+					<h2>Eu li - O Desafio (A Missão #2)</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2020-09-09">09/09/2020</time>
+					|
+					<a class="domain" href="https://vicioseliteratura.blogspot.com" target="_blank">vicioseliteratura.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://mentirasbemcontadas.blogspot.com/2020/09/fotografia-manipulada-por-kharil-osman.html" target="_blank">
+					<h2>Fotografia manipulada - por Kharil Osman (Desktopography)</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2020-09-05">05/09/2020</time>
+					|
+					<a class="domain" href="https://mentirasbemcontadas.blogspot.com" target="_blank">mentirasbemcontadas.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+		</ol>
+		<nav>
+			<a href="page-36.html">&larr; Voltar</a>
+			<span>Página 37 de 75</span>
+			<a href="page-38.html">Avançar &rarr;</a>
+		</nav>
+	</main>
+	<footer>
+		<p>Atualizado em:
+			<time id="update-at" datetime="2026-02-25T16:17:38.932936+00:00">
+				Wednesday, 25/02/2026 16:17:38
+			</time>
+		</p>
+		<p><a href="index.html">BR Crawl</a> | <a href="about.html">Sobre</a> | <a href="sources.html">Fontes</a></p>
+	</footer>
+</body>
+
+<script type="module" nonce="810a56b68432de15626871e318a8fcbd">
+	const updatedAtElement = document.getElementById("update-at");
+	const date = new Date(updatedAtElement.dateTime);
+	updatedAtElement.innerText = date.toLocaleString(undefined, {
+		dateStyle: "full",
+		timeStyle: "medium",
+	})
+</script>
+<script type="module" nonce="810a56b68432de15626871e318a8fcbd">
+var backend_url='https://brcrawl.guilhermegarcia.dev';
+function hide_feedback(domain) {
+    return `<div><small>Domínio <a href="https://${domain}">${domain}</a> escondido. | <button class="show">exibir</button></small></div>`;
+}
+
+function report_feedback(li) {
+    li.style.opacity = 0.5;
+    const btn = li.querySelector("button.report");
+    btn.textContent = "reportado";
+    btn.className = "unreport";
+}
+
+var reported = localStorage.getItem('reported') || '[]';
+reported = JSON.parse(reported);
+var hidden = localStorage.getItem('hidden') || '[]';
+hidden = JSON.parse(hidden);
+
+let domains = Array.from(document.getElementsByClassName("domain"));
+domains.forEach((domain) => {
+    if (reported.includes(domain.textContent)) {
+        const li = domain.closest("li");
+        report_feedback(li);
+    }
+    if (hidden.includes(domain.textContent)) {
+        domain.closest("li").innerHTML = hide_feedback(domain.textContent);
+    }
+});
+
+function report(btn) {
+    const li = btn.closest("li");
+    const articleDomain = li.querySelector("a.domain");
+    const domain = articleDomain.textContent;
+
+    if (reported.length == 0) {
+        const agreed = confirm("Reporte sites que não são blogs pessoais ou não estão em português. Confirme para não ver mais essa mensagem. Obrigado!");
+        if (!agreed) {
+            return;
+        }
+    }
+    fetch(`${backend_url}/report`, {
+        method: "POST",
+        body: JSON.stringify({ domain }),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+    reported.push(domain);
+    localStorage.setItem('reported', JSON.stringify(reported));
+    report_feedback(li);
+}
+
+function unreport(btn) {
+    const li = btn.closest("li");
+    const articleDomain = li.querySelector("a.domain");
+    const domain = articleDomain.textContent;
+    reported = reported.filter((d) => d != domain);
+    localStorage.setItem('reported', JSON.stringify(reported));
+    fetch(`${backend_url}/report`, {
+        method: "POST",
+        body: JSON.stringify({ domain }),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }).finally(() => {
+        window.location.reload();
+    });
+}
+
+function hide(btn) {
+    const li = btn.closest("li");
+    const articleDomain = li.querySelector("a.domain");
+    const domain = articleDomain.textContent;
+
+    hidden.push(domain);
+    localStorage.setItem('hidden', JSON.stringify(hidden));
+    li.innerHTML = hide_feedback(domain);
+}
+
+function show(btn) {
+    const li = btn.closest("li");
+    const articleDomain = li.querySelector("a");
+    const domain = articleDomain.textContent;
+    hidden = hidden.filter((d) => d != domain);
+    localStorage.setItem('hidden', JSON.stringify(hidden));
+    window.location.reload();
+}
+
+document.addEventListener("click", function(e) {
+    if (e.target.className == "report") {
+        return report(e.target);
+    }
+    if (e.target.className == "unreport") {
+        return unreport(e.target);
+    }
+    if (e.target.className == "hide") {
+        return hide(e.target);
+    }
+    if (e.target.className == "show") {
+        return show(e.target);
+    }
+});
+</script>
+
+</html>

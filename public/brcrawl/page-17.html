@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>BR Crawl</title>
+
+	<meta http-equiv="Content-Security-Policy" content="
+		default-src 'none';
+		connect-src https://brcrawl.guilhermegarcia.dev;
+		base-uri 'self';
+		img-src 'self' data: ;
+		style-src 'nonce-599e0f6a28e496eb7341d6fa8b50bedd' ;
+		script-src 'nonce-599e0f6a28e496eb7341d6fa8b50bedd' 'strict-dynamic' ;
+	">
+	<meta name="application-name" content="brcrawl">
+	<meta name="description" content="Diretório da smallweb brasileira">
+	<meta name="referrer" content="same-origin">
+
+	<style nonce="599e0f6a28e496eb7341d6fa8b50bedd">
+:root {
+    color-scheme: dark light;
+    --primary: #0AC8F5;
+    --secondary: #D2F00F;
+    --text: var(--txt, #cfcfcf);
+    --border: var(--bd, #c0c0c0);
+    --background: var(--bg, #1D1F21);
+    font-size: min(calc(.75rem + 0.75vw), 16px);
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --text: var(--txt, #444444);
+        --border: var(--bd, #333333);
+        --background: var(--bg, white);
+        --primary: #207D92;
+        --secondary: #6A7A06;
+    }
+}
+
+body {
+    font-family: Calibri, 'Trebuchet MS', 'Lucida Sans', Arial, sans-serif;
+    color: var(--text);
+    background: var(--background);
+    max-width: 50rem;
+    width: 100%;
+    margin: 0.5em auto 2em;
+    line-height: 1.25em;
+}
+
+header {
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 0.25em;
+}
+
+header > h1 {
+    display: inline-block;
+    padding: 0 0.5em;
+}
+
+h2 {
+    font-size: 1rem;
+    display: inline;
+}
+
+ol {
+    padding-left: 5ch;
+}
+
+li {
+    margin-block-start: 1em;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:link {
+    color: var(--primary);
+}
+
+a:visited {
+    color: var(--secondary);
+}
+
+a:hover {
+    opacity: 0.8;
+}
+
+small {
+    padding-top: 0.25rem;
+    font-size: 0.95rem;
+}
+
+small > a:link,
+small > a:visited {
+    color: var(--text);
+}
+
+footer {
+    padding: 1rem;
+    margin-top: 2rem;
+    border-top: 1px solid var(--border);
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    padding: 1em 0;
+    margin-top: 1em;
+}
+
+nav > a, nav > span {
+    padding: 0.25em 0.75em;
+}
+
+nav > span {
+    color: var(--border);
+}
+
+button.report, button.unreport, button.hide, button.show {
+    background: transparent;
+    border: 0px transparent;
+    padding: 0px;
+    margin: 0px;
+    display: inline;
+    box-sizing: border-box;
+    font: inherit;
+    color: inherit;
+}
+
+button.report:hover, button.unreport, button.hide:hover, button.show {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.title-br { display: none; }
+
+@media screen and (max-width: 470px) {
+    header { text-align: center; }
+    .title-br { display: initial; }
+    .title-span { margin: 10px 0px; display: inline-block; }
+}
+	</style>
+</head>
+
+<body>
+	<header>
+		<h1>BR Crawl</h1>
+		<br class="title-br"/>
+		<span class="title-span">Diretório da smallweb brasileira</span>
+	</header>
+	<main>
+		<ol start="801">
+			<li>
+				<a href="https://www.purestyle.com.br/2025/12/manga-pixel-art-e-fanzines-integram.html" target="_blank">
+					<h2>Mangá, pixel art e fanzines integram programação do POW Festival</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2025-12-02">02/12/2025</time>
+					|
+					<a class="domain" href="https://purestyle.com.br" target="_blank">purestyle.com.br</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://naneteblog.wordpress.com/2025/12/01/em-busca-de-si/" target="_blank">
+					<h2>Em busca de si</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2025-12-01">01/12/2025</time>
+					|
+					<a class="domain" href="https://naneteblog.wordpress.com" target="_blank">naneteblog.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://papiropapirus.wordpress.com/2025/12/01/circulo-da-fotografia-a-fechar-se/" target="_blank">
+					<h2>Círculo da Fotografia a fechar-se…</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2025-12-01">01/12/2025</time>
+					|
+					<a class="domain" href="https://papiropapirus.wordpress.com" target="_blank">papiropapirus.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://www.balaiodebabados.com.br/2025/12/intercambio-literario-124-dezembro2025.html" target="_blank">
+					<h2>Intercâmbio Literário #124: Dezembro/2025</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2025-12-01">01/12/2025</time>
+					|
+					<a class="domain" href="https://balaiodebabados.com.br" target="_blank">balaiodebabados.com.br</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://api.follow.it/track-rss-story-click/v3/mgHdZOGWey8kTeeyWowryS2qH8mln-IZ" target="_blank">
+					<h2>Meu novo livro está à venda!</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2025-12-01">01/12/2025</time>
+					|
+					<a class="domain" href="https://api.follow.it" target="_blank">api.follow.it</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://nerdbooksblog.wordpress.com/2025/11/30/%f0%9f%93%96-resenha-a-empregada-the-housemaid-freida-mcfadden/" target="_blank">
+					<h2>📖 #Resenha: A Empregada (The Housemaid) | Freida McFadden</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2025-11-30">30/11/2025</time>
+					|
+					<a class="domain" href="https://nerdbooksblog.wordpress.com" target="_blank">nerdbooksblog.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://blogdospoetas.com.br/o-ninho/" target="_blank">
+					<h2>O Ninho</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2025-11-30">30/11/2025</time>
+					|
+					<a class="domain" href="https://blogdospoetas.com.br" target="_blank">blogdospoetas.com.br</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://nana-view.blogspot.com/2025/11/3824-caracteres.html" target="_blank">
+					<h2>3.824 caracteres</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2025-11-30">30/11/2025</time>
+					|
+					<a class="domain" href="https://nana-view.blogspot.com" target="_blank">nana-view.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://atelieradrianaavila.blogspot.com/2025/11/natal.html" target="_blank">
+					<h2>Natal</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2025-11-30">30/11/2025</time>
+					|
+					<a class="domain" href="https://atelieradrianaavila.blogspot.com" target="_blank">atelieradrianaavila.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://httpsdesafectos.bearblog.dev/novo-post-novo-novo-novo-novo-novo-novo-novo-novo-novo-novo-novo-novo-novo-novo-novo-novo-novo-novo-novo-novo-novo/" target="_blank">
+					<h2>New post</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2025-11-30">30/11/2025</time>
+					|
+					<a class="domain" href="https://httpsdesafectos.bearblog.dev" target="_blank">httpsdesafectos.bearblog.dev</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://thedolcedays.com/guirlanda-guizos-diy/" target="_blank">
+					<h2>Guirlanda de Guizos Fácil – DIY de Natal</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2025-11-28">28/11/2025</time>
+					|
+					<a class="domain" href="https://thedolcedays.com" target="_blank">thedolcedays.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://conthistd.blogspot.com/2025/11/a-nova-capa-do-meu-celular.html" target="_blank">
+					<h2>A nova capa do meu celular</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2025-11-28">28/11/2025</time>
+					|
+					<a class="domain" href="https://conthistd.blogspot.com" target="_blank">conthistd.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://pitangadigital.wordpress.com/2025/11/28/quando-o-debate-sai-de-orbita-linguagem-ciencia-e-violencia-simbolica-no-embate-entre-ciro-gomes-e-anielle-franco/" target="_blank">
+					<h2>Quando o debate sai de órbita: linguagem, ciência e violência simbólica no embate entre Ciro Gomes e Anielle Franco</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2025-11-28">28/11/2025</time>
+					|
+					<a class="domain" href="https://pitangadigital.wordpress.com" target="_blank">pitangadigital.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://qwol.blogspot.com/2025/11/sonhos-das-cinzas.html" target="_blank">
+					<h2>Sonho das Cinzas</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2025-11-27">27/11/2025</time>
+					|
+					<a class="domain" href="https://qwol.blogspot.com" target="_blank">qwol.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://abarrigadeumarquitecto.blogspot.com/2025/11/o-prr-e-anomalia-do-mercado-da.html" target="_blank">
+					<h2>O PRR e a anomalia do mercado da construção em Portugal</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2025-11-27">27/11/2025</time>
+					|
+					<a class="domain" href="https://abarrigadeumarquitecto.blogspot.com" target="_blank">abarrigadeumarquitecto.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://deztreze.wordpress.com/2025/11/26/poema-234/" target="_blank">
+					<h2>poema 234</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2025-11-26">26/11/2025</time>
+					|
+					<a class="domain" href="https://deztreze.wordpress.com" target="_blank">deztreze.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://alfabetizadacriativa.wordpress.com/2025/11/25/o-sol-esta/" target="_blank">
+					<h2>O sol está…?</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2025-11-25">25/11/2025</time>
+					|
+					<a class="domain" href="https://alfabetizadacriativa.wordpress.com" target="_blank">alfabetizadacriativa.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://www.brenshelf.com.br/2025/11/o-feminismo-de-margaret-carolline-sganeff.html" target="_blank">
+					<h2>O feminismo de Margaret Atwood, Carolline Sardá e S. Ganeff</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2025-11-24">24/11/2025</time>
+					|
+					<a class="domain" href="https://brenshelf.com.br" target="_blank">brenshelf.com.br</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://blogcaroladami.blogspot.com/2025/11/tenho-sentido-vontade-de-compartilhar.html" target="_blank">
+					<h2>Untitled</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2025-11-24">24/11/2025</time>
+					|
+					<a class="domain" href="https://blogcaroladami.blogspot.com" target="_blank">blogcaroladami.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://www.bielsouza.com/2025/11/solucoes-video-resolume-novastar-h2.html" target="_blank">
+					<h2>SOLUÇÕES EM VÍDEO PARA GRANDES EVENTOS: OPERAÇÃO COM ARENA E H2</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2025-11-24">24/11/2025</time>
+					|
+					<a class="domain" href="https://bielsouza.com" target="_blank">bielsouza.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://ebrael.wordpress.com/2025/11/24/jung-abraxas-e-a-verdadeira-gnose/" target="_blank">
+					<h2>Jung, Abraxas e a verdadeira Gnose</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2025-11-24">24/11/2025</time>
+					|
+					<a class="domain" href="https://ebrael.wordpress.com" target="_blank">ebrael.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://livialamblet.com/arte/multiarte-2025-fios-invisiveis/" target="_blank">
+					<h2>MULTIARTE 2025 – FIOS INVISÍVEIS</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2025-11-24">24/11/2025</time>
+					|
+					<a class="domain" href="https://livialamblet.com" target="_blank">livialamblet.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://sweetconspiracyblog.blogspot.com/2025/11/so-chore-se-for-pra-erguer-cabeca-depois.html" target="_blank">
+					<h2>Só chore se for pra erguer a cabeça depois</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2025-11-23">23/11/2025</time>
+					|
+					<a class="domain" href="https://sweetconspiracyblog.blogspot.com" target="_blank">sweetconspiracyblog.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://bazarstoneage.blogspot.com/2025/11/venda-batmovel-hotwheelsshell-v-power.html" target="_blank">
+					<h2>Venda: Batmóvel - Hotwheels/Shell V-Power</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2025-11-19">19/11/2025</time>
+					|
+					<a class="domain" href="https://bazarstoneage.blogspot.com" target="_blank">bazarstoneage.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://daviramos.com/br/livros-de-sangue/" target="_blank">
+					<h2>Livros de Sangue: Volume 1 - Crítica</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2025-11-19">19/11/2025</time>
+					|
+					<a class="domain" href="https://daviramos.com" target="_blank">daviramos.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://danyscoffee.bearblog.dev/cabeca-de-produtor-usina-de-cultura-a-efervescencia-do-setor-cultural/" target="_blank">
+					<h2>Cabeça de Produtor, Usina de Cultura: a efervescência do setor cultural</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2025-11-19">19/11/2025</time>
+					|
+					<a class="domain" href="https://danyscoffee.bearblog.dev" target="_blank">danyscoffee.bearblog.dev</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://cdbm.bearblog.dev/o-agente-secreto-nira-izakaya-e-a-odisseia/" target="_blank">
+					<h2>O Agente Secreto, Nirá Izakaya e a Odisseia</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2025-11-18">18/11/2025</time>
+					|
+					<a class="domain" href="https://cdbm.bearblog.dev" target="_blank">cdbm.bearblog.dev</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://leozitoarts.bearblog.dev/comunidades-blogs-e-nintendo-ds-3ds/" target="_blank">
+					<h2>comunidades, blogs e nintendo DS/3DS?</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2025-11-18">18/11/2025</time>
+					|
+					<a class="domain" href="https://leozitoarts.bearblog.dev" target="_blank">leozitoarts.bearblog.dev</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://que-chegue-a-voce.blogspot.com/2025/11/10-coisas-que-todo-mundo-deveria-saber.html" target="_blank">
+					<h2>10 Coisas Que Todo Mundo Deveria Saber Sobre Transtorno Bipolar</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2025-11-18">18/11/2025</time>
+					|
+					<a class="domain" href="https://que-chegue-a-voce.blogspot.com" target="_blank">que-chegue-a-voce.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://pt.txra.dev/primeira-review-de-cinema-blue-moon/" target="_blank">
+					<h2>1ª review de cinema: Blue Moon</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2025-11-17">17/11/2025</time>
+					|
+					<a class="domain" href="https://pt.txra.dev" target="_blank">pt.txra.dev</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://jecogeo.eu/Ensaios/" target="_blank">
+					<h2>Ensaios</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2025-11-17">17/11/2025</time>
+					|
+					<a class="domain" href="https://jecogeo.eu" target="_blank">jecogeo.eu</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://sacudindoaspalavras.com.br/livro-pdf-aprendendo-a-jogar-poker-resenha-resumo-e-autor/" target="_blank">
+					<h2>Livro PDF – Aprendendo a Jogar Poker: Resenha, Resumo e Autor</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2025-11-15">15/11/2025</time>
+					|
+					<a class="domain" href="https://sacudindoaspalavras.com.br" target="_blank">sacudindoaspalavras.com.br</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://marcellocavalcanti.com.br/chegou-a-r6-mark-iii/" target="_blank">
+					<h2>Chegou a R6 Mark III</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2025-11-14">14/11/2025</time>
+					|
+					<a class="domain" href="https://marcellocavalcanti.com.br" target="_blank">marcellocavalcanti.com.br</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://diadefolga.com/livro-belo-mundo-onde-voce-esta/" target="_blank">
+					<h2>Livro: Belo mundo, onde você está</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2025-11-14">14/11/2025</time>
+					|
+					<a class="domain" href="https://diadefolga.com" target="_blank">diadefolga.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://natybecattini.com.br/fim-era-nomade-digital/" target="_blank">
+					<h2>O fim da era nômade digital: Por que me mudei para são Paulo</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2025-11-14">14/11/2025</time>
+					|
+					<a class="domain" href="https://natybecattini.com.br" target="_blank">natybecattini.com.br</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://viagens.bearblog.dev/um-rapaz-que-nao-consegue-ver/" target="_blank">
+					<h2>um rapaz que não consegue ver</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2025-11-12">12/11/2025</time>
+					|
+					<a class="domain" href="https://viagens.bearblog.dev" target="_blank">viagens.bearblog.dev</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://thvv.bearblog.dev/reflexao-sobre-o-discurso-da-esquerda-brasileira/" target="_blank">
+					<h2>Reflexão sobre o discurso da esquerda brasileira</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2025-11-12">12/11/2025</time>
+					|
+					<a class="domain" href="https://thvv.bearblog.dev" target="_blank">thvv.bearblog.dev</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://remisson.com.br/sem-coracao/" target="_blank">
+					<h2>SEM CORAÇÃO</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2025-11-11">11/11/2025</time>
+					|
+					<a class="domain" href="https://remisson.com.br" target="_blank">remisson.com.br</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://coxacreme.com.br/guacamole-receita-simples-e-deliciosa/" target="_blank">
+					<h2>🥑 5 Motivos para Amar Esta Receita de Guacamole Simples e Sem Frescura</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2025-11-11">11/11/2025</time>
+					|
+					<a class="domain" href="https://coxacreme.com.br" target="_blank">coxacreme.com.br</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://www.nanihumor.com/2025/11/blog-post.html" target="_blank">
+					<h2>Loja online NANI.</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2025-11-10">10/11/2025</time>
+					|
+					<a class="domain" href="https://nanihumor.com" target="_blank">nanihumor.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://cloudsincoffee.blogspot.com/2025/11/caos.html" target="_blank">
+					<h2>Caos</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2025-11-09">09/11/2025</time>
+					|
+					<a class="domain" href="https://cloudsincoffee.blogspot.com" target="_blank">cloudsincoffee.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://smol.janela.digital/1762516770" target="_blank">
+					<h2>Hipotetico leitor again.</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2025-11-07">07/11/2025</time>
+					|
+					<a class="domain" href="https://smol.janela.digital" target="_blank">smol.janela.digital</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://npa.bearblog.dev/mulheres-leem/" target="_blank">
+					<h2>Mulheres leem mais</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2025-11-07">07/11/2025</time>
+					|
+					<a class="domain" href="https://npa.bearblog.dev" target="_blank">npa.bearblog.dev</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://interruptedreamer.blogspot.com/2025/11/nanowrimo-novembro-chegou.html" target="_blank">
+					<h2>NaNoWriMo - Novembro chegou!</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2025-11-06">06/11/2025</time>
+					|
+					<a class="domain" href="https://interruptedreamer.blogspot.com" target="_blank">interruptedreamer.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://livingonfarm.blogspot.com/2025/11/fazendo-artes-rusticas-e-vintage-para-o.html" target="_blank">
+					<h2>Fazendo artes rústicas e vintage para o CHÁ da Sofia  # lifestyle</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2025-11-06">06/11/2025</time>
+					|
+					<a class="domain" href="https://livingonfarm.blogspot.com" target="_blank">livingonfarm.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://www.arantchans.com/2025/11/sobre-datilografia-clec-clec-e-ser.html" target="_blank">
+					<h2>sobre datilografia, clec-clec e ser muito velha pra aprender</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2025-11-05">05/11/2025</time>
+					|
+					<a class="domain" href="https://arantchans.com" target="_blank">arantchans.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://diadebrilho.com/the-power-of-body-shapers-enhance-your-natural-beauty-with-comfort-and-confidence/" target="_blank">
+					<h2>The Power of Body Shapers: Enhance Your Natural Beauty with Comfort and Confidence</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2025-11-04">04/11/2025</time>
+					|
+					<a class="domain" href="https://diadebrilho.com" target="_blank">diadebrilho.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://barueriemdia.wordpress.com/2025/11/03/prefeitura-de-barueri-paga-aditivos-faraonicos-para-%f0%9f%9f%a0%f0%9f%9f%a3contratada-associacao-beneficente-cisne-%f0%9f%94%ba%ef%b8%8f%f0%9f%98%b1%f0%9f%98%b1%f0%9f%98%b1r-40-904-77856/" target="_blank">
+					<h2>Prefeitura de Barueri Paga Aditivos Faraônicos para:  🟠🟣Contratada: ASSOCIAÇÃO BENEFICENTE CISNE 🔺️😱😱😱R$ 40.904.778,56🟠🟣 Contratada: S.A.S SUPPORT ADVANCED SECURITY EM TREINAMENTO PROFISSIONAL LTDA 🔺️😱😱😱R$ 840.565,00</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2025-11-03">03/11/2025</time>
+					|
+					<a class="domain" href="https://barueriemdia.wordpress.com" target="_blank">barueriemdia.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://diario-dagih.blogspot.com/2025/11/milagreeeee.html" target="_blank">
+					<h2>Milagreeeee!!!</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2025-11-03">03/11/2025</time>
+					|
+					<a class="domain" href="https://diario-dagih.blogspot.com" target="_blank">diario-dagih.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://boas-depapo.blogspot.com/2025/11/viciada-em-celular-ou-fugindo-de-mim.html" target="_blank">
+					<h2>Viciada em celular ou fugindo de mim mesma?</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2025-11-02">02/11/2025</time>
+					|
+					<a class="domain" href="https://boas-depapo.blogspot.com" target="_blank">boas-depapo.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+		</ol>
+		<nav>
+			<a href="page-16.html">&larr; Voltar</a>
+			<span>Página 17 de 75</span>
+			<a href="page-18.html">Avançar &rarr;</a>
+		</nav>
+	</main>
+	<footer>
+		<p>Atualizado em:
+			<time id="update-at" datetime="2026-02-25T16:17:38.918028+00:00">
+				Wednesday, 25/02/2026 16:17:38
+			</time>
+		</p>
+		<p><a href="index.html">BR Crawl</a> | <a href="about.html">Sobre</a> | <a href="sources.html">Fontes</a></p>
+	</footer>
+</body>
+
+<script type="module" nonce="599e0f6a28e496eb7341d6fa8b50bedd">
+	const updatedAtElement = document.getElementById("update-at");
+	const date = new Date(updatedAtElement.dateTime);
+	updatedAtElement.innerText = date.toLocaleString(undefined, {
+		dateStyle: "full",
+		timeStyle: "medium",
+	})
+</script>
+<script type="module" nonce="599e0f6a28e496eb7341d6fa8b50bedd">
+var backend_url='https://brcrawl.guilhermegarcia.dev';
+function hide_feedback(domain) {
+    return `<div><small>Domínio <a href="https://${domain}">${domain}</a> escondido. | <button class="show">exibir</button></small></div>`;
+}
+
+function report_feedback(li) {
+    li.style.opacity = 0.5;
+    const btn = li.querySelector("button.report");
+    btn.textContent = "reportado";
+    btn.className = "unreport";
+}
+
+var reported = localStorage.getItem('reported') || '[]';
+reported = JSON.parse(reported);
+var hidden = localStorage.getItem('hidden') || '[]';
+hidden = JSON.parse(hidden);
+
+let domains = Array.from(document.getElementsByClassName("domain"));
+domains.forEach((domain) => {
+    if (reported.includes(domain.textContent)) {
+        const li = domain.closest("li");
+        report_feedback(li);
+    }
+    if (hidden.includes(domain.textContent)) {
+        domain.closest("li").innerHTML = hide_feedback(domain.textContent);
+    }
+});
+
+function report(btn) {
+    const li = btn.closest("li");
+    const articleDomain = li.querySelector("a.domain");
+    const domain = articleDomain.textContent;
+
+    if (reported.length == 0) {
+        const agreed = confirm("Reporte sites que não são blogs pessoais ou não estão em português. Confirme para não ver mais essa mensagem. Obrigado!");
+        if (!agreed) {
+            return;
+        }
+    }
+    fetch(`${backend_url}/report`, {
+        method: "POST",
+        body: JSON.stringify({ domain }),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+    reported.push(domain);
+    localStorage.setItem('reported', JSON.stringify(reported));
+    report_feedback(li);
+}
+
+function unreport(btn) {
+    const li = btn.closest("li");
+    const articleDomain = li.querySelector("a.domain");
+    const domain = articleDomain.textContent;
+    reported = reported.filter((d) => d != domain);
+    localStorage.setItem('reported', JSON.stringify(reported));
+    fetch(`${backend_url}/report`, {
+        method: "POST",
+        body: JSON.stringify({ domain }),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }).finally(() => {
+        window.location.reload();
+    });
+}
+
+function hide(btn) {
+    const li = btn.closest("li");
+    const articleDomain = li.querySelector("a.domain");
+    const domain = articleDomain.textContent;
+
+    hidden.push(domain);
+    localStorage.setItem('hidden', JSON.stringify(hidden));
+    li.innerHTML = hide_feedback(domain);
+}
+
+function show(btn) {
+    const li = btn.closest("li");
+    const articleDomain = li.querySelector("a");
+    const domain = articleDomain.textContent;
+    hidden = hidden.filter((d) => d != domain);
+    localStorage.setItem('hidden', JSON.stringify(hidden));
+    window.location.reload();
+}
+
+document.addEventListener("click", function(e) {
+    if (e.target.className == "report") {
+        return report(e.target);
+    }
+    if (e.target.className == "unreport") {
+        return unreport(e.target);
+    }
+    if (e.target.className == "hide") {
+        return hide(e.target);
+    }
+    if (e.target.className == "show") {
+        return show(e.target);
+    }
+});
+</script>
+
+</html>

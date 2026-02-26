@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>BR Crawl</title>
+
+	<meta http-equiv="Content-Security-Policy" content="
+		default-src 'none';
+		connect-src https://brcrawl.guilhermegarcia.dev;
+		base-uri 'self';
+		img-src 'self' data: ;
+		style-src 'nonce-d7b928f39c0fa73469c9c8f89f5ca452' ;
+		script-src 'nonce-d7b928f39c0fa73469c9c8f89f5ca452' 'strict-dynamic' ;
+	">
+	<meta name="application-name" content="brcrawl">
+	<meta name="description" content="Diretório da smallweb brasileira">
+	<meta name="referrer" content="same-origin">
+
+	<style nonce="d7b928f39c0fa73469c9c8f89f5ca452">
+:root {
+    color-scheme: dark light;
+    --primary: #0AC8F5;
+    --secondary: #D2F00F;
+    --text: var(--txt, #cfcfcf);
+    --border: var(--bd, #c0c0c0);
+    --background: var(--bg, #1D1F21);
+    font-size: min(calc(.75rem + 0.75vw), 16px);
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --text: var(--txt, #444444);
+        --border: var(--bd, #333333);
+        --background: var(--bg, white);
+        --primary: #207D92;
+        --secondary: #6A7A06;
+    }
+}
+
+body {
+    font-family: Calibri, 'Trebuchet MS', 'Lucida Sans', Arial, sans-serif;
+    color: var(--text);
+    background: var(--background);
+    max-width: 50rem;
+    width: 100%;
+    margin: 0.5em auto 2em;
+    line-height: 1.25em;
+}
+
+header {
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 0.25em;
+}
+
+header > h1 {
+    display: inline-block;
+    padding: 0 0.5em;
+}
+
+h2 {
+    font-size: 1rem;
+    display: inline;
+}
+
+ol {
+    padding-left: 5ch;
+}
+
+li {
+    margin-block-start: 1em;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:link {
+    color: var(--primary);
+}
+
+a:visited {
+    color: var(--secondary);
+}
+
+a:hover {
+    opacity: 0.8;
+}
+
+small {
+    padding-top: 0.25rem;
+    font-size: 0.95rem;
+}
+
+small > a:link,
+small > a:visited {
+    color: var(--text);
+}
+
+footer {
+    padding: 1rem;
+    margin-top: 2rem;
+    border-top: 1px solid var(--border);
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    padding: 1em 0;
+    margin-top: 1em;
+}
+
+nav > a, nav > span {
+    padding: 0.25em 0.75em;
+}
+
+nav > span {
+    color: var(--border);
+}
+
+button.report, button.unreport, button.hide, button.show {
+    background: transparent;
+    border: 0px transparent;
+    padding: 0px;
+    margin: 0px;
+    display: inline;
+    box-sizing: border-box;
+    font: inherit;
+    color: inherit;
+}
+
+button.report:hover, button.unreport, button.hide:hover, button.show {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.title-br { display: none; }
+
+@media screen and (max-width: 470px) {
+    header { text-align: center; }
+    .title-br { display: initial; }
+    .title-span { margin: 10px 0px; display: inline-block; }
+}
+	</style>
+</head>
+
+<body>
+	<header>
+		<h1>BR Crawl</h1>
+		<br class="title-br"/>
+		<span class="title-span">Diretório da smallweb brasileira</span>
+	</header>
+	<main>
+		<ol start="1301">
+			<li>
+				<a href="https://suka-p.blogspot.com/2024/05/critica-garfield-fora-de-casa.html" target="_blank">
+					<h2>[Crítica] Garfield - Fora de Casa</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-05-01">01/05/2024</time>
+					|
+					<a class="domain" href="https://suka-p.blogspot.com" target="_blank">suka-p.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://malucaspor-romances.blogspot.com/2024/04/resenha-entre-livros-e-beijos-paula.html" target="_blank">
+					<h2>Resenha: Entre Livros e Beijos - Paula Faria</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-04-30">30/04/2024</time>
+					|
+					<a class="domain" href="https://malucaspor-romances.blogspot.com" target="_blank">malucaspor-romances.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://retromaggie.blogspot.com/2024/04/pudim-de-ovos.html" target="_blank">
+					<h2>Pudim de ovos</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-04-27">27/04/2024</time>
+					|
+					<a class="domain" href="https://retromaggie.blogspot.com" target="_blank">retromaggie.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://www.paraisodasideias.com/2024/04/cega-karin-slaugther.html" target="_blank">
+					<h2>Cega || Karin Slaugther</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-04-22">22/04/2024</time>
+					|
+					<a class="domain" href="https://paraisodasideias.com" target="_blank">paraisodasideias.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://peaoplayboy.blogspot.com/2024/04/um-grande-ponto-sobre-if.html" target="_blank">
+					<h2>Um grande ponto sobre a IF.</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-04-18">18/04/2024</time>
+					|
+					<a class="domain" href="https://peaoplayboy.blogspot.com" target="_blank">peaoplayboy.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://sofiasoter.com/o-legado-das-aguas/" target="_blank">
+					<h2>O legado das águas</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-04-18">18/04/2024</time>
+					|
+					<a class="domain" href="https://sofiasoter.com" target="_blank">sofiasoter.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://psicoativo.com/2024/04/como-tornar-o-ambiente-de-trabalho-mais-agradavel-veja-7-dicas-essenciais.html" target="_blank">
+					<h2>Como Tornar o Ambiente de Trabalho Mais Agradável? Veja 7 Dicas Essenciais!</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-04-17">17/04/2024</time>
+					|
+					<a class="domain" href="https://psicoativo.com" target="_blank">psicoativo.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://ravinska.bearblog.dev/apresentei-meu-primeiro-seminario/" target="_blank">
+					<h2>apresentei meu primeiro seminário</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-04-16">16/04/2024</time>
+					|
+					<a class="domain" href="https://ravinska.bearblog.dev" target="_blank">ravinska.bearblog.dev</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://silenciocontagiante.wordpress.com/2024/04/11/noiva-a-perfeicao-de-uma-historia-leve-e-deliciosa-de-amor-entre-uma-vampira-e-um-licano-%f0%9f%a6%87%e2%9d%a4%ef%b8%8f/" target="_blank">
+					<h2>Noiva, a perfeição de uma história leve e deliciosa de amor entre uma vampira e um licano 🦇❤️</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-04-11">11/04/2024</time>
+					|
+					<a class="domain" href="https://silenciocontagiante.wordpress.com" target="_blank">silenciocontagiante.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://thicoss.blogspot.com/2024/04/the-sunshine-court-nora-sakavic.html" target="_blank">
+					<h2>The Sunshine Court: O retorno de Nora Sakavic para o universo de The Foxhole Court</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-04-11">11/04/2024</time>
+					|
+					<a class="domain" href="https://thicoss.blogspot.com" target="_blank">thicoss.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://ste-llar.blogspot.com/2024/04/absorto.html" target="_blank">
+					<h2>Absorto</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-04-04">04/04/2024</time>
+					|
+					<a class="domain" href="https://ste-llar.blogspot.com" target="_blank">ste-llar.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://caos-s01.blogspot.com/2024/04/12.html" target="_blank">
+					<h2>*** 12 ***</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-04-02">02/04/2024</time>
+					|
+					<a class="domain" href="https://caos-s01.blogspot.com" target="_blank">caos-s01.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://orecadodosilencio.wordpress.com/2024/04/02/como-zona-de-interesse-nos-convida-a-pensar-sobre-a-natureza-escorregadia-do-mal/" target="_blank">
+					<h2>Como “Zona de Interesse” nos convida a pensar sobre a natureza escorregadia do mal.</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-04-02">02/04/2024</time>
+					|
+					<a class="domain" href="https://orecadodosilencio.wordpress.com" target="_blank">orecadodosilencio.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://www.jananogueira.com/glambox-abril-2024-pink-world-glam/" target="_blank">
+					<h2>Pink World Glam: Glambox de Abril 2024 &amp;#43; Cupom Exclusivo!</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-04-02">02/04/2024</time>
+					|
+					<a class="domain" href="https://jananogueira.com" target="_blank">jananogueira.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://vovoneuza.blogspot.com/2024/03/ultimo-texto.html" target="_blank">
+					<h2>ÚLTIMO TEXTO</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-03-27">27/03/2024</time>
+					|
+					<a class="domain" href="https://vovoneuza.blogspot.com" target="_blank">vovoneuza.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://momentosdelucidezenemtanto.blogspot.com/2024/03/momentos-de-nostalgia-aniversariantes_26.html" target="_blank">
+					<h2>MOMENTOS DE NOSTALGIA: ANIVERSARIANTES MARÇO - MÚSICA parte 2</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-03-26">26/03/2024</time>
+					|
+					<a class="domain" href="https://momentosdelucidezenemtanto.blogspot.com" target="_blank">momentosdelucidezenemtanto.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://aindaescrevo.blogspot.com/2024/03/das-coisas-que-voce-nao-ve.html" target="_blank">
+					<h2>Das coisas que você não vê</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-03-20">20/03/2024</time>
+					|
+					<a class="domain" href="https://aindaescrevo.blogspot.com" target="_blank">aindaescrevo.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://inconstanciasdeleticia.blogspot.com/2024/03/6-acordar-5h-da-manha-e-estranhamente.html" target="_blank">
+					<h2>6: acordar 5h da manhã é estranhamente bom</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-03-20">20/03/2024</time>
+					|
+					<a class="domain" href="https://inconstanciasdeleticia.blogspot.com" target="_blank">inconstanciasdeleticia.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://poemandopq.blogspot.com/2024/03/poemando-e-contando-historias.html" target="_blank">
+					<h2>Poemando e Contando Histórias</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-03-20">20/03/2024</time>
+					|
+					<a class="domain" href="https://poemandopq.blogspot.com" target="_blank">poemandopq.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://www.ducsamsterdam.com.br/onde-tirar-fotos-amsterdam/" target="_blank">
+					<h2>Onde tirar lindas fotos de Amsterdam</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-03-13">13/03/2024</time>
+					|
+					<a class="domain" href="https://ducsamsterdam.com.br" target="_blank">ducsamsterdam.com.br</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://www.felipetazzo.com.br/post/ser-%C3%A9-t%C3%A3o-mais-gostosinho-do-que-fazer" target="_blank">
+					<h2>Ser é tão mais gostosinho do que fazer...</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-03-06">06/03/2024</time>
+					|
+					<a class="domain" href="https://felipetazzo.com.br" target="_blank">felipetazzo.com.br</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://myruanda.wordpress.com/2024/03/04/982/" target="_blank">
+					<h2>Untitled</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-03-04">04/03/2024</time>
+					|
+					<a class="domain" href="https://myruanda.wordpress.com" target="_blank">myruanda.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://nurrumudomilhao.blogspot.com/2024/03/encerramento-do-blog.html" target="_blank">
+					<h2>Encerramento do Blog.</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-03-01">01/03/2024</time>
+					|
+					<a class="domain" href="https://nurrumudomilhao.blogspot.com" target="_blank">nurrumudomilhao.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://www.lacucinetta.com.br/2024/02/o-blog-nao-morreu-dois-livros-e-uma.html" target="_blank">
+					<h2>O blog não morreu - dois livros e uma sessão de autógrafos</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-02-29">29/02/2024</time>
+					|
+					<a class="domain" href="https://lacucinetta.com.br" target="_blank">lacucinetta.com.br</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://naogostodesegundasfeiras.blogspot.com/2024/02/assisti-1-zona-de-interesse.html" target="_blank">
+					<h2>#Assisti 1: Zona de Interesse</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-02-28">28/02/2024</time>
+					|
+					<a class="domain" href="https://naogostodesegundasfeiras.blogspot.com" target="_blank">naogostodesegundasfeiras.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://vodcabarata.blogspot.com/2024/02/xenia.html" target="_blank">
+					<h2>xenia</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-02-27">27/02/2024</time>
+					|
+					<a class="domain" href="https://vodcabarata.blogspot.com" target="_blank">vodcabarata.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://ocupacaovitoria.blogspot.com/2024/02/em-cuba-o-socialismo-democratico-segue.html" target="_blank">
+					<h2>Em Cuba o Socialismo democrático segue brilhando. Por frei Gilvander</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-02-27">27/02/2024</time>
+					|
+					<a class="domain" href="https://ocupacaovitoria.blogspot.com" target="_blank">ocupacaovitoria.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://yeah-dreamhigh.blogspot.com/2024/02/o-blog-mudou-de-endereco.html" target="_blank">
+					<h2>O blog mudou de endereço</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-02-26">26/02/2024</time>
+					|
+					<a class="domain" href="https://yeah-dreamhigh.blogspot.com" target="_blank">yeah-dreamhigh.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://akilf.wordpress.com/2024/02/24/meu-sonho/" target="_blank">
+					<h2>meu sonho</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-02-24">24/02/2024</time>
+					|
+					<a class="domain" href="https://akilf.wordpress.com" target="_blank">akilf.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://jocareinersterron.wordpress.com/2024/02/22/doze-teses-sobre-a-economia-dos-mortos-john-berger/" target="_blank">
+					<h2>Doze teses sobre a economia dos mortos, John Berger</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-02-22">22/02/2024</time>
+					|
+					<a class="domain" href="https://jocareinersterron.wordpress.com" target="_blank">jocareinersterron.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://lidycomisso.wordpress.com/2024/02/21/lidy-com-isso-23-higher-further-faster-e-cada-vez-mais-doida/" target="_blank">
+					<h2>Lidy com isso! #23 – Higher, further, faster e cada vez mais doida</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-02-21">21/02/2024</time>
+					|
+					<a class="domain" href="https://lidycomisso.wordpress.com" target="_blank">lidycomisso.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://su-romanticgirl.blogspot.com/2024/02/despedida.html" target="_blank">
+					<h2>Despedida!</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-02-20">20/02/2024</time>
+					|
+					<a class="domain" href="https://su-romanticgirl.blogspot.com" target="_blank">su-romanticgirl.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://eueminhaestupidez.blogspot.com/2024/02/a-solidao-explicada-atraves-dos-estudos.html" target="_blank">
+					<h2>A solidão explicada através dos estudos de Viviane Mosé</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-02-19">19/02/2024</time>
+					|
+					<a class="domain" href="https://eueminhaestupidez.blogspot.com" target="_blank">eueminhaestupidez.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://odaines.blogspot.com/2024/02/waffles-de-maca-e-canela.html" target="_blank">
+					<h2>Waffles de maçã e canela</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-02-16">16/02/2024</time>
+					|
+					<a class="domain" href="https://odaines.blogspot.com" target="_blank">odaines.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://avecpoivre.blogspot.com/2024/02/encontros.html" target="_blank">
+					<h2>Encontros</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-02-15">15/02/2024</time>
+					|
+					<a class="domain" href="https://avecpoivre.blogspot.com" target="_blank">avecpoivre.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://aprendendoirlandes.blogspot.com/2023/11/preposicao-ar-irlandes-expressar-sentimentos.html" target="_blank">
+					<h2>Sentir em irlandês é diferente</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-02-14">14/02/2024</time>
+					|
+					<a class="domain" href="https://aprendendoirlandes.blogspot.com" target="_blank">aprendendoirlandes.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://aluapelajanela.blogspot.com/2024/02/um-adeus.html" target="_blank">
+					<h2>Um adeus</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-02-09">09/02/2024</time>
+					|
+					<a class="domain" href="https://aluapelajanela.blogspot.com" target="_blank">aluapelajanela.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://elisblogpessoal.blogspot.com/2024/02/Gdansk%20em%203%20dias.html" target="_blank">
+					<h2>Gdansk - Roteiro de 3 dias</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-02-08">08/02/2024</time>
+					|
+					<a class="domain" href="https://elisblogpessoal.blogspot.com" target="_blank">elisblogpessoal.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://estou-sem.blogspot.com/2023/12/fotografia-fashion-belas-modelos-de-warren-g.html" target="_blank">
+					<h2>A fotografia fashion com belas modelos de Warren G.</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-02-05">05/02/2024</time>
+					|
+					<a class="domain" href="https://estou-sem.blogspot.com" target="_blank">estou-sem.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://pimentacomlimao.wordpress.com/2024/02/01/a-nausea-que-precede-a-fome/" target="_blank">
+					<h2>a náusea que precede a fome</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-02-01">01/02/2024</time>
+					|
+					<a class="domain" href="https://pimentacomlimao.wordpress.com" target="_blank">pimentacomlimao.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://quatrocaminhos.blogspot.com/2024/01/mafra-terreiro-djoao-v.html" target="_blank">
+					<h2>Mafra, Terreiro D.João V</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-01-30">30/01/2024</time>
+					|
+					<a class="domain" href="https://quatrocaminhos.blogspot.com" target="_blank">quatrocaminhos.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://lalandeblog.blogspot.com/2024/01/2024-e-necessidade-de-desacelerar.html" target="_blank">
+					<h2>2024 e a necessidade de desacelerar</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-01-28">28/01/2024</time>
+					|
+					<a class="domain" href="https://lalandeblog.blogspot.com" target="_blank">lalandeblog.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://nogueirajr.blogspot.com/2024/01/marielle-brasilia-estremece-capelli.html" target="_blank">
+					<h2>MARIELLE!!! BRASÍLIA ESTREMECE!!! CAPELLI CONFIRMA!!! PEGAMOS ELES!!!</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-01-22">22/01/2024</time>
+					|
+					<a class="domain" href="https://nogueirajr.blogspot.com" target="_blank">nogueirajr.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://www.elosnohorizonte.com/2024/01/enquanto-houver-poesia.html" target="_blank">
+					<h2>Enquanto houver poesia</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-01-20">20/01/2024</time>
+					|
+					<a class="domain" href="https://elosnohorizonte.com" target="_blank">elosnohorizonte.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://queroserplena.com.br/planner-de-estudos-2024/" target="_blank">
+					<h2>Planner de Estudos 2024</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-01-18">18/01/2024</time>
+					|
+					<a class="domain" href="https://queroserplena.com.br" target="_blank">queroserplena.com.br</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://diariodaninnabueno.blogspot.com/2024/01/feliz-2024.html" target="_blank">
+					<h2>Feliz 2024</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-01-18">18/01/2024</time>
+					|
+					<a class="domain" href="https://diariodaninnabueno.blogspot.com" target="_blank">diariodaninnabueno.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://abducoescorriqueiras.wordpress.com/2024/01/17/editando-a-realidade-dos-fatos/" target="_blank">
+					<h2>Editando a realidade dos fatos</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-01-17">17/01/2024</time>
+					|
+					<a class="domain" href="https://abducoescorriqueiras.wordpress.com" target="_blank">abducoescorriqueiras.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://grandemetamorphose.blogspot.com/2024/01/oi-luana-de-2015.html" target="_blank">
+					<h2>OI, LUANA DE 2015...</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-01-16">16/01/2024</time>
+					|
+					<a class="domain" href="https://grandemetamorphose.blogspot.com" target="_blank">grandemetamorphose.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://blog.licio.eti.br/2024/01/15/tudo-que-ninguem-nunca-contou-sobre-sucessao-patrimonial/" target="_blank">
+					<h2>Tudo que ninguém nunca contou sobre sucessão patrimonial</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-01-15">15/01/2024</time>
+					|
+					<a class="domain" href="https://blog.licio.eti.br" target="_blank">blog.licio.eti.br</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://lec.blogspot.com/2024/01/overthinking-back-to-future.html" target="_blank">
+					<h2>Overthinking Back to the future</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2024-01-10">10/01/2024</time>
+					|
+					<a class="domain" href="https://lec.blogspot.com" target="_blank">lec.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+		</ol>
+		<nav>
+			<a href="page-26.html">&larr; Voltar</a>
+			<span>Página 27 de 75</span>
+			<a href="page-28.html">Avançar &rarr;</a>
+		</nav>
+	</main>
+	<footer>
+		<p>Atualizado em:
+			<time id="update-at" datetime="2026-02-25T16:17:38.925528+00:00">
+				Wednesday, 25/02/2026 16:17:38
+			</time>
+		</p>
+		<p><a href="index.html">BR Crawl</a> | <a href="about.html">Sobre</a> | <a href="sources.html">Fontes</a></p>
+	</footer>
+</body>
+
+<script type="module" nonce="d7b928f39c0fa73469c9c8f89f5ca452">
+	const updatedAtElement = document.getElementById("update-at");
+	const date = new Date(updatedAtElement.dateTime);
+	updatedAtElement.innerText = date.toLocaleString(undefined, {
+		dateStyle: "full",
+		timeStyle: "medium",
+	})
+</script>
+<script type="module" nonce="d7b928f39c0fa73469c9c8f89f5ca452">
+var backend_url='https://brcrawl.guilhermegarcia.dev';
+function hide_feedback(domain) {
+    return `<div><small>Domínio <a href="https://${domain}">${domain}</a> escondido. | <button class="show">exibir</button></small></div>`;
+}
+
+function report_feedback(li) {
+    li.style.opacity = 0.5;
+    const btn = li.querySelector("button.report");
+    btn.textContent = "reportado";
+    btn.className = "unreport";
+}
+
+var reported = localStorage.getItem('reported') || '[]';
+reported = JSON.parse(reported);
+var hidden = localStorage.getItem('hidden') || '[]';
+hidden = JSON.parse(hidden);
+
+let domains = Array.from(document.getElementsByClassName("domain"));
+domains.forEach((domain) => {
+    if (reported.includes(domain.textContent)) {
+        const li = domain.closest("li");
+        report_feedback(li);
+    }
+    if (hidden.includes(domain.textContent)) {
+        domain.closest("li").innerHTML = hide_feedback(domain.textContent);
+    }
+});
+
+function report(btn) {
+    const li = btn.closest("li");
+    const articleDomain = li.querySelector("a.domain");
+    const domain = articleDomain.textContent;
+
+    if (reported.length == 0) {
+        const agreed = confirm("Reporte sites que não são blogs pessoais ou não estão em português. Confirme para não ver mais essa mensagem. Obrigado!");
+        if (!agreed) {
+            return;
+        }
+    }
+    fetch(`${backend_url}/report`, {
+        method: "POST",
+        body: JSON.stringify({ domain }),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+    reported.push(domain);
+    localStorage.setItem('reported', JSON.stringify(reported));
+    report_feedback(li);
+}
+
+function unreport(btn) {
+    const li = btn.closest("li");
+    const articleDomain = li.querySelector("a.domain");
+    const domain = articleDomain.textContent;
+    reported = reported.filter((d) => d != domain);
+    localStorage.setItem('reported', JSON.stringify(reported));
+    fetch(`${backend_url}/report`, {
+        method: "POST",
+        body: JSON.stringify({ domain }),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }).finally(() => {
+        window.location.reload();
+    });
+}
+
+function hide(btn) {
+    const li = btn.closest("li");
+    const articleDomain = li.querySelector("a.domain");
+    const domain = articleDomain.textContent;
+
+    hidden.push(domain);
+    localStorage.setItem('hidden', JSON.stringify(hidden));
+    li.innerHTML = hide_feedback(domain);
+}
+
+function show(btn) {
+    const li = btn.closest("li");
+    const articleDomain = li.querySelector("a");
+    const domain = articleDomain.textContent;
+    hidden = hidden.filter((d) => d != domain);
+    localStorage.setItem('hidden', JSON.stringify(hidden));
+    window.location.reload();
+}
+
+document.addEventListener("click", function(e) {
+    if (e.target.className == "report") {
+        return report(e.target);
+    }
+    if (e.target.className == "unreport") {
+        return unreport(e.target);
+    }
+    if (e.target.className == "hide") {
+        return hide(e.target);
+    }
+    if (e.target.className == "show") {
+        return show(e.target);
+    }
+});
+</script>
+
+</html>
