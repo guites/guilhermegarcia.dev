@@ -1,7 +1,7 @@
 baseURL = 'https://guilhermegarcia.dev/'
 theme = 'hugo-bearblog'
 
-title = 'Blog do Guilherme'
+title = 'Site do Guilherme'
 author = 'Guilherme Garcia'
 copyright = 'Copyright © 2024-2026, Guilherme Garcia.'
 languageCode = 'pt-br'
@@ -17,7 +17,7 @@ ignoreErrors = ["error-disable-taxonomy"]
 
 [params]
 
-    description = 'Eu sou o Guilherme e esse é meu pequeno blog pessoal, onde escrevo sobre coisas que eu gosto, às vezes em pt-br, às vezes em inglês!'
+    description = 'Eu sou o Guilherme e esse é meu pequeno site pessoal, onde escrevo sobre coisas que eu gosto, às vezes em pt-br, às vezes em inglês!'
     favicon = 'images/favicon.png'
     # see https://gohugo.io/templates/internal#open-graph and
     # https://gohugo.io/templates/internal#twitter-cards
