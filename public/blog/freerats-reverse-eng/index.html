@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="https://guilhermegarcia.dev/images/favicon.png" />
+<title>FreeRats: eng reversa da API do GymRats | Blog do Guilherme</title>
+<meta name="title" content="FreeRats: eng reversa da API do GymRats" />
+<meta name="description" content="Processo de engenharia reversa utilizado para automatizar o download dos dados de checkin realizados no aplicativo GymRats" />
+<meta name="keywords" content="português,api,reverse-engineering,mobile,cli," />
+
+
+<meta property="og:title" content="FreeRats: eng reversa da API do GymRats" />
+<meta property="og:description" content="Processo de engenharia reversa utilizado para automatizar o download dos dados de checkin realizados no aplicativo GymRats" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://guilhermegarcia.dev/blog/freerats-reverse-eng/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2026-02-25T15:52:19-03:00" />
+<meta property="article:modified_time" content="2026-02-25T15:52:19-03:00" /><meta property="og:site_name" content="Blog do Guilherme" />
+
+
+
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="FreeRats: eng reversa da API do GymRats"/>
+<meta name="twitter:description" content="Processo de engenharia reversa utilizado para automatizar o download dos dados de checkin realizados no aplicativo GymRats"/>
+
+
+
+<meta itemprop="name" content="FreeRats: eng reversa da API do GymRats">
+<meta itemprop="description" content="Processo de engenharia reversa utilizado para automatizar o download dos dados de checkin realizados no aplicativo GymRats"><meta itemprop="datePublished" content="2026-02-25T15:52:19-03:00" />
+<meta itemprop="dateModified" content="2026-02-25T15:52:19-03:00" />
+<meta itemprop="wordCount" content="4021">
+<meta itemprop="keywords" content="português,api,reverse-engineering,mobile,cli," />
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  body {
+    font-family: Verdana, sans-serif;
+    margin: auto;
+    padding: 20px;
+    max-width: 720px;
+    text-align: left;
+    background-color: #fff;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: #444;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  b {
+    color: #222;
+  }
+
+  a {
+    color: #3273dc;
+     
+  }
+
+  .title {
+    text-decoration: none;
+    border: 0;
+  }
+
+  .title span {
+    font-weight: 400;
+  }
+
+  nav a {
+    margin-right: 10px;
+  }
+
+  textarea {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  input {
+    font-size: 16px;
+  }
+
+  content {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    padding: 2px 5px;
+    background-color: #f2f2f2;
+  }
+
+  pre code {
+    color: #222;
+    display: block;
+    padding: 20px;
+    white-space: pre-wrap;
+    font-size: 14px;
+    overflow-x: auto;
+  }
+
+  div.highlight pre {
+    background-color: initial;
+    color: initial;
+  }
+
+  div.highlight code {
+    background-color: unset;
+    color: unset;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: #222;
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px;
+    text-align: center;
+  }
+
+  .helptext {
+    color: #777;
+    font-size: small;
+  }
+
+  .errorlist {
+    color: #eba613;
+    font-size: small;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: #8b6fcb;
+  }
+
+  aside {
+    margin: 15px 5px;
+    padding: 5px 10px;
+    border: 1px dashed;
+    text-align: justify;
+    hyphens: auto;
+  }
+
+  aside::before {
+    content: " ᶘ ᵒᴥᵒᶅ ";
+    margin-right: 5px;
+  }
+
+  aside.warning {
+    border-color: #ffbb00;
+    background-color: rgb(255, 249, 231);
+  }
+
+  aside.warning::before {
+    color: #ffbb00;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #333;
+      color: #ddd;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    strong,
+    b {
+      color: #eee;
+    }
+
+    a {
+      color: #8cc2dd;
+    }
+
+    code {
+      background-color: #777;
+    }
+
+    pre code {
+      color: #ddd;
+    }
+
+    blockquote {
+      color: #ccc;
+    }
+
+    aside.warning {
+        background-color: transparent;
+    }
+
+    textarea,
+    input {
+      background-color: #252525;
+      color: #ddd;
+    }
+
+    .helptext {
+      color: #aaa;
+    }
+  }
+</style>
+
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h2>Blog do Guilherme</h2>
+</a>
+<nav><a href="/">Home</a>
+
+
+<a href="/blog">Blog</a>
+
+<a href="/links">Links</a>
+<a href="/opensource">Open Source</a>
+</nav>
+</header>
+  <main>
+
+<h1>FreeRats: eng reversa da API do GymRats</h1>
+<p>
+  <i>
+    <time datetime='2026-02-25' pubdate>
+      25 Feb, 2026
+    </time>
+  </i>
+</p>
+
+
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#primeira-tentativa-http-toolkit">Primeira tentativa: HTTP Toolkit</a></li>
+    <li><a href="#segunda-tentativa-análise-estática">Segunda tentativa: análise estática</a></li>
+    <li><a href="#analisando-o-código-fonte-do-apk">Analisando o código fonte do apk</a></li>
+    <li><a href="#acessando-os-dados-após-login">Acessando os dados após login</a></li>
+    <li><a href="#script-com-o-fluxo-completo">Script com o fluxo completo</a></li>
+    <li><a href="#considerações-finais">Considerações finais</a>
+      <ul>
+        <li><a href="#algumas-técnicas-que-eu-tentei-utilizar-que-não-foram-pra-frente">Algumas técnicas que eu tentei utilizar que não foram pra frente</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+<content>
+  <img src="https://i.ibb.co/WpVV229G/rat.jpg" alt="Do your part, reverse eng a rat. fight for data ownership on the mobile ecosystem" border="0">
+<p>Escuta, eu quero usar apps sociais pra me manter engajado e acompanhar meus amigos. Mas são <strong>meus dados</strong> e o mínimo que eu espero é uma forma automatizada de extrair eles.</p>
+<p>Enquanto o GymRats tem uma funcionalidade muito boa de exportar um arquivo .json com os dados de utilização, ele só permite acesso via aplicativo.</p>
+<p>Como não existe uma versão web onde eu possa inspecionar as requisições com o devtools (e automatizar o export dos meus dados com um ou dois <code>curl</code>s via linha de comando), tive que mergulhar de cabeça no labirinto que é mapeaer as requisições feitas por um aplicativo Android.</p>
+<p><strong>tldr</strong>: consegui montar as requisições necessárias para fazer login e extrair o .json com os dados pessoais. <a href="#script-com-o-fluxo-completo">Clique aqui para ver o fluxo completo</a>.</p>
+<h2 id="primeira-tentativa-http-toolkit">Primeira tentativa: HTTP Toolkit</h2>
+<p>Fiz a instalão do HTTP Toolkit no meu Ubuntu através do arquivo .deb, e depois, <a href="https://httptoolkit.com/docs/guides/android/">seguindo esse tutorial</a>, subi o HTTP Toolkit como um VPS.</p>
+<p>Pelo celular, fiz a conexão pela leitura do QRCode, que me instruiu a instalar o aplicativo. Patinei um pouco (o celular dizia que não conseguia estabelecer conexão com o computador) até me dar conta de que o Ubuntu vem com a porta 8000 fechada, então o celular não conseguia conversar com o computador mesmo estando na mesma rede.</p>
+<p>Consegui resolver com um <code>sudo ufw enable 8000</code>; lembre-se de fechar a porta ao sair com <code>sudo ufw disable 8000</code>.</p>
+<p>Consegui interceptar o tráfego, mas o app do GymRats não aceita certificados SSL auto assinados (que é o caso do cert usado pelo VPS do HTTP Toolkit), então as requisições acabavam sendo abortadas, e eu não conseguia ver nem as URLs acessadas pelo painel do toolkit.</p>
+<p>Existem <a href="https://httptoolkit.com/docs/guides/android/#intercepting-traffic-from-3rd-party-android-apps">formas de burlar essa restrição</a>, mas elas envolvem fazer root no celular (não quero) ou usando emuladores.</p>
+<h2 id="segunda-tentativa-análise-estática">Segunda tentativa: análise estática</h2>
+<p>Buscando no <a href="https://apkpure.com">apkpure</a> consegui um arquivo .xapk do GymRats.</p>
+<p>Usei o <code>strings</code> pra fazer uma análise inicial no arquivo, e achei alguns resultados, mas eram majoritariamente URLs fixas tipo android.googlesource.com e w3.org:</p>
+<pre tabindex="0"><code>$ strings &#34;gymrats.xapk&#34; | grep -iE &#34;http|https&#34;
+Android (12027248, +pgo, +bolt, +lto, +mlgo, based on r522817) clang version 18.0.1 (https://android.googlesource.com/toolchain/llvm-project d8003a456d14a3deb8054cdaa529ffbf02d9b262)
+http://www.w3.org/2000/xmlns/
+http://www.w3.org/XML/1998/namespace
+http://ns.adobe.com/xap/1.0/
+xml=http://www.w3.org/XML/1998/namespace
+IEC http://www.iec.ch
+IEC http://www.iec.ch
+# ... um monte de coisa que eu não tô mostrando aqui
+https://github.com/react-native-community/cli/blob/master/docs/autolinking.md
+okhttp3/internal/publicsuffix/NOTICEM
+okhttp3/internal/publicsuffix/publicsuffixes.gz
+,,https://gymrats-1549569453212.firebaseio.com
+okhttp3/internal/publicsuffix/NOTICEPK
+okhttp3/internal/publicsuffix/publicsuffixes.gzPK
+</code></pre><p>Uma URL me chamou a atenção, <a href="https://gymrats-1549569453212.firebaseio.com">https://gymrats-1549569453212.firebaseio.com</a>, e de fato ela redireciona pra um <a href="https://console.firebase.google.com/project/gymrats-1549569453212/database/gymrats-1549569453212/data/">console do firebase</a>, mas não tem como saber se ele existe ou se eu não tenho permissão.</p>
+<p>O arquivo .xapk é um container (tipo um .zip) e pode ser extraído:</p>
+<pre tabindex="0"><code>$ unzip gymrats.xapk -d app_extracted
+...
+$ ls app_extracted
+com.hasz.gymrats.app.apk
+config.ar.apk
+config.arm64_v8a.apk
+config.de.apk
+config.en.apk
+config.es.apk
+config.fr.apk
+config.hi.apk
+config.in.apk
+config.it.apk
+config.ja.apk
+config.ko.apk
+config.my.apk
+config.pt.apk
+config.ru.apk
+config.th.apk
+config.tr.apk
+config.vi.apk
+config.xxhdpi.apk
+config.zh.apk
+icon.png
+manifest.json
+</code></pre><p>Aqui temos o apk de verdade (com.hasz.gymrats.app.apk) e vários arquivos de configuração.</p>
+<p>Na análise anterior eu tinha visto algumas urls que indicavam que o app era feito em React Native, e abrindo o .apk deu pra ter uma noção melhor do conteúdo:</p>
+<pre tabindex="0"><code>$ unzip com.hasz.gymrats.app.apk -d base_apk
+$ ls base_apk
+
+AndroidManifest.xml                        play-services-ads-api.properties
+androidsupportmultidexversion.txt          play-services-ads-identifier.properties
+assets                                     play-services-ads.properties
+billing.properties                         play-services-appset.properties
+classes2.dex                               play-services-auth-api-phone.properties
+classes3.dex                               play-services-auth-base.properties
+classes4.dex                               play-services-auth-blockstore.properties
+classes5.dex                               play-services-auth.properties
+classes6.dex                               play-services-basement.properties
+classes7.dex                               play-services-base.properties
+classes8.dex                               play-services-cloud-messaging.properties
+classes.dex                                play-services-fido.properties
+client_analytics.proto                     play-services-identity-credentials.properties
+core-common.properties                     play-services-location.properties
+DebugProbesKt.bin                          play-services-maps.properties
+firebase-analytics.properties              play-services-measurement-api.properties
+firebase-auth-interop.properties           play-services-measurement-base.properties
+firebase-encoders.properties               play-services-measurement-impl.properties
+firebase-encoders-proto.properties         play-services-measurement.properties
+firebase-iid-interop.properties            play-services-measurement-sdk-api.properties
+firebase-iid.properties                    play-services-measurement-sdk.properties
+firebase-measurement-connector.properties  play-services-stats.properties
+googleid.properties                        play-services-tasks.properties
+kotlin                                     res
+kotlin-tooling-metadata.json               resources.arsc
+messaging_event_extension.proto            review-ktx.properties
+messaging_event.proto                      review.properties
+META-INF                                   stamp-cert-sha256
+okhttp3                                    user-messaging-platform.properties
+org
+</code></pre><p>Ali em assets/ tem o arquivo index.android.bundle, e ele não é um arquivo de texto:</p>
+<pre tabindex="0"><code>$ file base_apk/assets/index.android.bundle
+base_apk/assets/index.android.bundle: Hermes JavaScript bytecode, version 96
+</code></pre><p><a href="https://reactnative.dev/docs/hermes">Hermes</a> é uma engine de javascript usada pra otimizar código React Native. Ele <a href="https://docs.expo.dev/guides/using-hermes/">compila o código para bytecode</a>, o que em termos práticos deixa ele obfuscado.</p>
+<p>Mesmo assim, com o <code>strings</code> dá pra ter acesso ao conteúdo, que dessa vez revelou bastante informação sobre a API:</p>
+<pre tabindex="0"><code>$ strings base_apk/assets/index.android.bundle | grep -iE &#34;login|auth|token|session|password|email&#34;
+... muito texto
+
+{groupCount} groupsFlipInYLeftFlipOutDataFlipOutYLeft[object Float64Array]Follow your device&#39;s settings automatically.FontSlantFontStyle_setUpdatePropsFor example, 3 miles will change to 4.82 km._updateHighlightFor example, 5 miles will change to 5 km._updatePropsFor groups that want stricter accountability with same-day check-ins only, while still allowing for verified library uploads.RNSVGForeignObjectIntlFormatErrorusePrettyFormattedListPartsisUtcOffsetFormattedPluralFree accounts have a maximum group limit of two.Friends leaderboardDescriptionbuildFrom deviceInfoEmitterFull controlEdgeToEdgeValuesGET /account/emailGET /challenges/:challengeId/activity_typesGET /challenges/:challengeId/admin/activity_typesGET /challenges/:challengeId/challenge_settingsGET /challenges/:challengeId/messagesGET /challenges/:challengeId/notification_settingsGET /challenges/:challengeId/scoring_limit_settingsGET /check_in_reviewsGET /personal_goals/:goalId/check_insGET /personal_goals/:goalId/statsContainerGeneralGive the first team a name and an optional team photo. Group members will be able to create their own teams or join an existing one.Give the team a name and an optional team photo.Give your group members daily workout plans.createGoal created.GoalCadenceDetailsScreenGoalDetailsScreenclearGoalFormScreenGoalSettingsScreenGoalTemplatesScreenGoneGravitySensortIndexGray_8Great, I would like to use kilometers.RNSVGGroup admins can now block retroactive posting and prevent using library uploads.Group notificationsGroup settingsGroup statsGridGroupPhotosScreenGrouped activities must be on the same day.HAS_REANIMATED_3HIGHLIGHTMLElementHScrollContentViewNativeComponentHScrollViewNativeComponentMIDNIGHTMLImageElementSCREEN_HEIGHTMLVideoElementHabitDetailsScreenHabitsSectionHard modefaultDrawDistanceHardLightSpeedOutLeftHealth Connect can be &lt;link&gt;downloaded from Google Play&lt;/link&gt;.Health Connect is Android&#39;s fitness data hub, letting you share workout information between different apps on your phone.
+
+... muito texto
+</code></pre><p>Passando o olho por cima notei alguns padrões, como</p>
+<ul>
+<li>GET /account/email</li>
+<li>GET /challenges/:challengeId/activity_types</li>
+<li>GET /challenges/:challengeId/admin/activity_types</li>
+<li>GET /challenges/:challengeId/challenge_settings</li>
+<li>GET /challenges/:challengeId/messages</li>
+<li>GET /challenges/:challengeId/notification_settings</li>
+<li>GET /challenges/:challengeId/scoring_limit_settings</li>
+<li>GET /check_in_reviews</li>
+<li>GET /personal_goals/:goalId/check_ins</li>
+<li>GET /personal_goals/:goalId/statsContainerGeneral</li>
+</ul>
+<p>E também em outras partes</p>
+<ul>
+<li>PUT /account/email_password_sign_interop</li>
+<li>POST /passwords/reset</li>
+<li>POST /token</li>
+<li>POST /accounts/email_confirmation</li>
+<li>POST /account/email/verify</li>
+<li>POST /account_notifications/read</li>
+</ul>
+<p>Dá pra refinar buscando pelo padrão <code>METHOD&lt;ESPAÇO&gt;BARRA</code>:</p>
+<pre tabindex="0"><code>
+$ strings base_apk/assets/index.android.bundle | grep -E &#34;GET|POST|PUT|HEAD /&#34;
+
+POST /account/email/verifyConfigMessagesturesToAttachildContextTypesPOST /account_notifications/read_allocateCallbackhand_index_pointing_down-right arrow curving downloadFile: Invalid value for property `background`registerCSSKeyframes` is not available in JSReanimated.POST /accounts/email_confirmationPOST /accounts/sign_interopRequireDefault settingsPOST /challenges/:challengeId/admin/activity_types/:activityTypeId/enablementionPickerContainerPOST /challenges/:challengeId/admin/common_activities/:platform_category_id/enablementionQueryPOST /challenges/:challengeId/messages/:messageId/reactionsLeftPOST /check_in_reviews/:workoutId/approverEvery time you perform a Fitbit activity, it will automatically be recorded as a check-in.POST /eventsullii {{count}} vahkurang dari {{count}} saattachHandlersPOST /feedbackspace-around-people wrestlingetEventPhaselectedTimelinePOST /media_contentAvailablePOST /membership_requestsulq54POST /membershipstereactNativeReanimated_EasingTs21FactoryPOST /passwords/resetHooksOnUnwind_chimenys de {{count}} segonsupportsResourcesPOST /personal_goals_enabledPOST /profile/stats/activity_time_seriesun behind cloud with lightning and rainitialSafeAreaInsetsContextShadowOffsetDefaultOptionsPOST /profile/stats/overviewCardPOST /profile/stats/time_seriesun behind large cloud with rainitialScrollIndexParamsPOST /tokensureRootIsScheduled workoutsPOST to bottom leftActionTranslatePPPP proksimume 1 jaroundToDecimalPlacesALLOWED_PROPS4PT0SOON arrowIndexPUT /account/email_password_sign_interopRequireWildcard file boxing glovestatusLabelTextPUT /challenges/:challengeId/admin/challenge_settingsun behind rain cloud with snow-capped mountain cablewayPUT /challenges/:challengeId/admin/scoring_limit_settingsun behind small cloud_with_lightning_and_rainitialTimelineBottomSheetGestureHandlersContextInputContainerPUT /challenges/:challengeId/admin/verification_settingsun with facePUT /challenges/:challengeId/notification_settingsun.PUT /personal_goals/:goalId
+
+GET /account_settingsUpdatesflag_thailandroid.permission.WRITE_EXTERNAL_STORAGET /bests/activity/days of the monthIndex^AGET /bests/habitsGrid^MGET /bests/metrics/check_ins_counterclockwise arrows buttonflag New Zealandroid.permission.READ_CALL_LOGET /bests/metrics/daily-streak-detailshowPaywallflag_scotlandroid.permission.WRITE_CALL_LOGET /bests/streaksGridANIMATION_EASINGET /challenges/:challengeId/verification_settingslipperson golfingetFindAllNodesFailureDescriptionBASE_PROPERTIES_CONFIGET /platform_activitiesTyperson_tipping_handleLayoutTransitionPROCESSING_INSTRUCTION_NODEFAULT_DYNAMIC_SIZINGET /posestd.DEFAULT_ENABLE_OVER_DRAGET /profile/check_installSetStateHooksDEFAULT_INTL_CONFIGET /profile/current_streakDescriptionEndedDailySingularDGET /profile/my_activitieslint-plugin-standard_verificationDOCUMENT_POSITION_FOLLOWINGET /profile/streaks/monthly/:streakType/check_instantCLOSEPARENDINGET /workouts/:workoutId
+
+GET /challenges/:challengeId/members
+
+DELETE /workouts/:workoutId
+POST /account_notifications/batch_delet
+GET /platform_categories
+GET /bests/check_ins/count
+</code></pre><p>Também consegui algumas URLs que podem ser a API acessada pelo app:</p>
+<pre tabindex="0"><code>$ strings base_apk/assets/index.android.bundle | grep -oE &#34;https?://[^\&#34;&#39; ]+&#34; | sort -u
+
+...
+https://gym-rats-api-pre-production.gigalixirapp.com
+</code></pre><p>Tudo indica que o app conversa com o servidor através de uma API REST bem padronizada, e, com sorte, usa o firebase pra requisições auxiliares ou analytics.</p>
+<p>Pra ir mais a fundo, utilizei um <a href="https://github.com/P1sec/hermes-dec">decompiler de Hermes pra javascript</a> apontando pro index.android.bundle:</p>
+<pre tabindex="0"><code>uv run hbc-decompiler base_apk/assets/index.android.bundle output.js
+</code></pre><p>No código gerado eu segui buscando alguns padrões sem muito sucesso, até que um chamou a atenção:</p>
+<pre tabindex="0"><code>grep -n &#34;email&#34; output.js
+
+276283:                            r2[&#39;email&#39;] = r1;
+276286:                            r1 = &#39;POST /accounts/email_confirmation&#39;;
+907338:                r6 = &#39;POST /accounts/email_confirmation&#39;;
+907490:                r4 = &#39;continue_with_email&#39;;
+907493:                r4 = &#39;email_password_sign_in&#39;;
+1173644:                r1 = &#39;GET /account/email&#39;;
+1173672:                    r2[&#39;email&#39;] = r1;
+1173687:                r2 = &#39;POST /account/email/verify&#39;;
+1173713:                    r2[&#39;email&#39;] = r1;
+1173728:                r0 = &#39;POST /account/email&#39;;
+1173733:                r5 = &#39;Your email is essential for account security and recovery.&#39;;
+1173740:                r1 = &#39;email&#39;;
+</code></pre><p>Utilizando o mesmo padrão anterior, aqui os resultados são mais fáceis de entender:</p>
+<pre tabindex="0"><code>$ grep -n &#34;POST /&#34; output.js
+232050:                r21 = &#39;POST /account_notifications/read_all&#39;;
+232124:                r5 = &#39;POST /account_notifications/batch_delete&#39;;
+276286:                            r1 = &#39;POST /accounts/email_confirmation&#39;;
+851223:            r2 = &#39;POST /challenges/:challengeId/messages&#39;;
+858157:                r12 = &#39;POST /challenges/:challengeId/messages/:messageId/reactions&#39;;
+891758:                        r2 = &#39;POST /media_content&#39;;
+907338:                r6 = &#39;POST /accounts/email_confirmation&#39;;
+907420:                r2 = &#39;POST /tokens&#39;;
+908886:                r1 = &#39;POST /passwords&#39;;
+909300:            r1 = &#39;POST /accounts/sign_in&#39;;
+914300:                r4 = &#39;POST /feedbacks&#39;;
+923190:                r4 = &#39;POST /personal_goals&#39;;
+971634:                r1 = &#39;POST /memberships&#39;;
+971676:                r1 = &#39;POST /membership_requests&#39;;
+971684:                r6 = &#39;POST /events&#39;;
+978050:                r0 = &#39;POST /feedbacks&#39;;
+984300:                r4 = &#39;POST /profile/stats/overview&#39;;
+984319:                r0 = &#39;POST /profile/stats/time_series&#39;;
+1151264:                r0 = &#39;POST /passwords/reset&#39;;
+1156634:            r6 = &#39;POST /challenges/:challengeId/admin/common_activities/:platform_category_id/enablement&#39;;
+1156671:            r4 = &#39;POST /challenges/:challengeId/admin/activity_types/:activityTypeId/enablement&#39;;
+1159780:                r0 = &#39;POST /check_in_reviews/:workoutId/approve&#39;;
+1163208:                r6 = &#39;POST /profile/stats/overview&#39;;
+1163239:                r1 = &#39;POST /profile/stats/time_series&#39;;
+1163265:                r0 = &#39;POST /profile/stats/activity_time_series&#39;;
+1173687:                r2 = &#39;POST /account/email/verify&#39;;
+1173728:                r0 = &#39;POST /account/email&#39;;
+</code></pre><p>Também tentei buscar alguns prefixos como &ldquo;/api&rdquo;, &ldquo;/v1&rdquo;, pra entender melhor a estrutura das URLs:</p>
+<pre tabindex="0"><code>$ grep /api output.js
+                r2 = &#39;&#34; as fallback. See https://formatjs.github.io/docs/react-intl/api#intlshape for more details&#39;;
+            r8 = &#39;/api&#39;;
+</code></pre><p>Combinando o prefixo /api com as URLs, parece que encontramos algo:</p>
+<pre tabindex="0"><code>$ curl -i -X POST $BASE_URL/api/events
+HTTP/2 401
+date: Fri, 20 Feb 2026 23:39:15 GMT
+content-type: application/json; charset=utf-8
+content-length: 74
+cache-control: max-age=0, private, must-revalidate
+strict-transport-security: max-age=31536000
+x-request-id: cec9e5365cd6e35d84b02da3583ef5cf
+x-robots-tag: noindex, nofollow
+
+{&#34;error&#34;:&#34;Something went wrong. Try signing in again.&#34;,&#34;status&#34;:&#34;failure&#34;}
+</code></pre><p>Isso é ótimo: a API parece estar rodando e validando requisições.</p>
+<p>Esses dois pareceram promissores: <code>POST /accounts/sign_in</code> e <code>POST /tokens</code>.</p>
+<pre tabindex="0"><code>$ curl -i -X POST $BASE_URL/api/accounts/sign_in -H &#34;Content-Type: application/json&#34; -d &#39;{&#34;email&#34;: &#34;test&#34;, &#34;password&#34;: &#34;teste&#34;}&#39;
+HTTP/2 400
+date: Fri, 20 Feb 2026 23:42:12 GMT
+content-type: application/json; charset=utf-8
+content-length: 13
+cache-control: max-age=0, private, must-revalidate
+strict-transport-security: max-age=31536000
+x-request-id: 518fe1349a6cfbccaf745a5d39b72a1f
+x-robots-tag: noindex, nofollow
+
+$ curl -i -X POST $BASE_URL/api/tokens -H &#34;Content-Type: application/json&#34; -d &#39;{&#34;email&#34;: &#34;test&#34;, &#34;password&#34;: &#34;teste&#34;}&#39;
+HTTP/2 422
+date: Fri, 20 Feb 2026 23:42:47 GMT
+content-type: application/json; charset=utf-8
+content-length: 80
+cache-control: max-age=0, private, must-revalidate
+strict-transport-security: max-age=31536000
+x-request-id: 7283318362e50beac75ade7a62efb293
+x-robots-tag: noindex, nofollow
+
+{&#34;error&#34;:&#34;That email and password combination did not work.&#34;,&#34;status&#34;:&#34;failure&#34;}
+</code></pre><p>O status <code>400</code> indica que eu provavelmente errei o formato do corpo da requisição, enquanto o 422 parece indicar que só falta utilizar um email e senha válidos :).</p>
+<p>O problema é que mesmo tentando com um login correto (que eu consigo usar pra acessar pelo app), o erro segue.</p>
+<p>Tentei alguns padrões no código decompilado pra tentar entender como funciona a lógica da página de login:</p>
+<pre tabindex="0"><code>$ grep -n &#34;LoginScreen&#34; output.js
+$ grep -n &#34;SignIn&#34; output.js
+276079:        r2[&#39;useEmailSignIn&#39;] = r0;
+276251:        r1 = function() { // Original name: useEmailSignIn, environment: r1
+276338:        r2[&#39;useEmailSignIn&#39;] = r1;
+904299:                    r1 = &#39;EmailSignInScreen&#39;;
+907206:        r3 = &#39;EmailSignInScreen&#39;;
+907723:                        r1 = &#39;EmailSignInScreen&#39;;
+976889:                r1 = &#39;EmailSignInScreen&#39;;
+1177255:                        r2 = &#39;EmailSignInScreen&#39;;
+1186371:        r1[&#39;EmailSignInScreen&#39;] = r3;
+</code></pre><p>Parece ter algo em torno da linha 907200:</p>
+<pre tabindex="0"><code>$ sed -n &#39;907200,907600p&#39; output.js
+...
+                r6 = function(a0, a1) { // Original name: onSuccess, environment: r8
+                    r0 = a0;
+                    r7 = r0.nonce;
+                    r0 = a1;
+                    r1 = r0.email;
+                    r3 = _closure1_slot0;
+                    r4 = _closure1_slot1;
+                    r0 = 12;
+                    r2 = r4[r0];
+                    r0 = undefined;
+                    r2 = r3.bind(r0)(r2);
+                    r6 = r2.bridge;
+                    r5 = r6.setAuth;
+                    r2 = &#39;signIn&#39;;
+                    r2 = r5.bind(r6)(r7, r2);
+                    r2 = 13;
+                    r2 = r4[r2];
+                    r2 = r3.bind(r0)(r2);
+                    r3 = r2.push;
+                    r2 = {};
+                    r2[&#39;email&#39;] = r1;
+                    r1 = &#39;CheckYourEmailScreen&#39;;
+                    r1 = r3.bind(r0)(r1, r2);
+                    return r0;
+                };
+                ...
+                r6 = &#39;POST /accounts/email_confirmation&#39;;
+                r21 = r11.bind(r3)(r6, r7);
+                var _closure2_slot13 = r21;
+                r2 = r4[r2];
+                r2 = r1.bind(r3)(r2);
+                r7 = r2.useAPIMutation;
+                r6 = {};
+                r2 = function() { // Environment: r8
+</code></pre><p>Essa definição de <code>r6</code> chama a atenção, pois junto com o <code>r0.email</code> temos a definição de <code>r0.nonce</code>.</p>
+<p>Isso bate com o fluxo do aplicativo: ao optar por login por e-mail o aplicativo envia um e-mail de confirmação (mesmo que tu já tenha confirmado o e-mail anteriormente). Só depois você passa pra tela de colocar a senha.</p>
+<p>Podemos validar que o endpoint de confirmação de e-mail retorna algo:</p>
+<pre tabindex="0"><code>$ curl -s -X POST &#34;$BASE_URL/api/accounts/email_confirmation&#34; \
+&gt;   -H &#34;Content-Type: application/json&#34; \
+&gt;   -H &#34;Accept: application/json&#34; \
+&gt;   -d &#34;{\&#34;email\&#34;:\&#34;$LOGIN_EMAIL\&#34;}&#34;
+{&#34;data&#34;:{&#34;nonce&#34;:&#34;Ql1i5Ta-0RI0FBEjZYUTJE_0SVV-taezBH2SfPSEklM&#34;},&#34;status&#34;:&#34;success&#34;}
+</code></pre><aside class="warning">E de fato eu recebi um e-mail de confirmação</aside>
+<p>E tentar enviar essa <code>nonce</code> junto com o payload do login:</p>
+<pre tabindex="0"><code>curl -i -X POST $BASE_URL/api/tokens   -H &#34;Content-Type: application/json&#34;   -H &#34;Accept: application/json&#34; \
+  -d &#34;{
+    \&#34;email\&#34;: \&#34;$LOGIN_EMAIL\&#34;,
+    \&#34;password\&#34;: \&#34;$LOGIN_PWD\&#34;,
+    \&#34;nonce\&#34;: \&#34;$NONCE\&#34;
+  }&#34;
+
+HTTP/2 422
+date: Fri, 20 Feb 2026 23:52:32 GMT
+content-type: application/json; charset=utf-8
+content-length: 80
+cache-control: max-age=0, private, must-revalidate
+strict-transport-security: max-age=31536000
+x-request-id: 543ca2e5ec2d26f0a1c2125bbca82975
+x-robots-tag: noindex, nofollow
+
+{&#34;error&#34;:&#34;That email and password combination did not work.&#34;,&#34;status&#34;:&#34;failure&#34;}
+</code></pre><p>Porém o problema persiste. Nesse ponto eu tenho duas teorias: ou existem campos a mais que precisam ser enviados ou existe algum tratamento sendo feito no campo da senha.</p>
+<p>Olhando mais de perto, a autenticação parece ser delagada a um método <code>setAuth</code>:</p>
+<pre tabindex="0"><code>r7 = r0.nonce;
+r1 = r0.email;
+r6 = r2.bridge;
+r5 = r6.setAuth;
+r2 = &#39;signIn&#39;;
+r2 = r5.bind(r6)(r7, r2);
+</code></pre><p>Buscar por <code>setAuth</code> no código descompilado não traz nenhuma definição (só atribuições), sempre próximas a atribuição de <code>bridge</code>.</p>
+<p>Uma <code>bridge</code> significa uma conexão entre o código react da aplicação e o código nativo do celular (geralmente Java ou Kotlin).</p>
+<p>Isso indica que a camada de autenticação (que define os cabeçalhos, ajusta os tokens, salva os valores recebidos) não vai estar disponível no código javascript.</p>
+<h2 id="analisando-o-código-fonte-do-apk">Analisando o código fonte do apk</h2>
+<aside class="warning">Daqui pra frente o código fica bem mais estruturado. Eu recomendo fortemente abrir os arquivos num editor de texto e analisá-los com calma. Mesmo que o jadx falhe em descompilar toda a implementação, geralmente o nome dos métodos e das classes nos dá um bom indicativo do que está sendo feito.</aside>
+<p>Usando o <a href="https://github.com/skylot/jadx">jadx</a>:</p>
+<pre tabindex="0"><code>jadx -d out com.hasz.gymrats.app.apk
+
+$ grep -Rl &#34;setAuth&#34; ./out
+./sources/com/google/firebase/installations/remote/AutoValue_InstallationResponse.java
+./sources/com/google/firebase/installations/remote/InstallationResponse.java
+./sources/com/google/firebase/installations/remote/FirebaseInstallationServiceClient.java
+./sources/com/google/firebase/installations/local/AutoValue_PersistedInstallationEntry.java
+./sources/com/google/firebase/installations/local/PersistedInstallationEntry.java
+./sources/com/google/firebase/installations/local/PersistedInstallation.java
+./sources/com/google/android/gms/fido/fido2/api/common/PublicKeyCredentialRequestOptions.java
+./sources/com/google/android/gms/fido/fido2/api/common/PublicKeyCredentialCreationOptions.java
+./sources/com/google/android/gms/fido/fido2/api/common/PublicKeyCredential.java
+./sources/com/hasz/gymrats/app/foundation/AppViewModel.java
+./sources/com/hasz/gymrats/app/domain/widget/RatWidget.java
+./sources/com/hasz/gymrats/app/domain/fitbit/FitbitConnectionViewModel.java
+./sources/com/hasz/gymrats/app/domain/rat_pack/social_links/SocialLinkSettingsViewModel.java
+./sources/com/hasz/gymrats/app/domain/react_native/GymRatsBridge.java
+./sources/com/hasz/gymrats/app/service/PushNotificationService.java
+./sources/androidx/core/app/NotificationCompat.java
+./sources/androidx/core/app/NotificationCompatBuilder.java
+./sources/androidx/biometric/BiometricViewModel.java
+./sources/androidx/biometric/BiometricFragment.java
+./sources/androidx/credentials/playservices/controllers/CreatePublicKeyCredential/PublicKeyCredentialControllerUtility.java
+./sources/androidx/credentials/provider/BeginGetCredentialResponse.java
+./sources/androidx/credentials/webauthn/PublicKeyCredentialCreationOptions.java
+./sources/androidx/credentials/webauthn/AuthenticatorAssertionResponse.java
+./sources/androidx/constraintlayout/core/widgets/analyzer/WidgetGroup.java
+./sources/okhttp3/OkHttpClient.java
+./resources/assets/index.android.bundle
+</code></pre><p>Focando no código próprio da aplicação (não libs externas), temos o <code>./sources/com/hasz/gymrats/app/domain/react_native/GymRatsBridge.java</code>:</p>
+<pre tabindex="0"><code>@ReactMethod(isBlockingSynchronousMethod = true)
+public final String setAuth(String nonce, String verificationType) {
+    Intrinsics.checkNotNullParameter(nonce, &#34;nonce&#34;);
+    Intrinsics.checkNotNullParameter(verificationType, &#34;verificationType&#34;);
+    this.authLinkService.setVerificationType(AuthLinkService.VerificationType.INSTANCE.fromRawValue(verificationType));
+    this.authLinkService.setNonce(nonce);
+    return &#34;ok&#34;;
+}
+</code></pre><p>Aqui aparece o &ldquo;nonce&rdquo; que recebemos na requisição do e-mail, e um novo parâmetro <code>verificationType</code>.</p>
+<p>Após a validação, a classe <code>authLinkService</code> salva o valor do nonce recebido.</p>
+<pre tabindex="0"><code>$ find . -name &#34;*AuthLinkService*&#34;
+./sources/com/hasz/gymrats/app/di/CoreModule_ProvidesAuthLinkServiceFactory.java
+./sources/com/hasz/gymrats/app/service/AuthLinkService$signIn$result$1.java
+./sources/com/hasz/gymrats/app/service/AuthLinkService_Factory.java
+./sources/com/hasz/gymrats/app/service/AuthLinkService$updateEmail$2$1.java
+./sources/com/hasz/gymrats/app/service/AuthLinkService.java
+./sources/com/hasz/gymrats/app/service/AuthLinkService$signIn$2$1.java
+./sources/com/hasz/gymrats/app/service/AuthLinkService$updateEmail$result$1.java
+</code></pre><p>A definição do setNone é uma chamada básica ao <code>SharedPreferences</code> que é algo semelhante ao <code>localStorage</code> no celular.</p>
+<pre tabindex="0"><code># em ./sources/com/hasz/gymrats/app/service/AuthLinkService.java
+
+public final void setNonce(String str) {
+    SharedPreferences.Editor editorEdit = this.sharedPreferences.edit();
+    editorEdit.putString(&#34;gr-nonce-sense&#34;, str);
+    editorEdit.apply();
+}
+</code></pre><p>Explorando mais esses dois arquivos, encontrei métodos como <code>login</code> no GymRatsBridge e <code>signIn</code> em AuthLinkService.</p>
+<p>Infelizmente o <code>signIn</code> não descompilou corretamente, e o código ficou inacessível.</p>
+<pre tabindex="0"><code># em ./sources/com/hasz/gymrats/app/service/AuthLinkService.java
+
+/* JADX INFO: Access modifiers changed from: private */
+/* JADX WARN: Code restructure failed: missing block: B:41:0x0105, code lost:
+
+    if (com.hasz.gymrats.app.navigation.Navigator.showSnackbar$default(r2, r0, null, false, null, r8, 14, null) == r11) goto L42;
+ */
+/* JADX WARN: Removed duplicated region for block: B:37:0x00e5  */
+/* JADX WARN: Removed duplicated region for block: B:7:0x0018  */
+/*
+    Code decompiled incorrectly, please refer to instructions dump.
+    To view partially-correct add &#39;--show-bad-code&#39; argument
+*/
+public final java.lang.Object signIn(java.lang.String r19, java.lang.String r20, java.lang.String r21, kotlin.coroutines.Continuation&lt;? super kotlin.Unit&gt; r22) {
+    /*
+        Method dump skipped, instruction units count: 267
+        To view this dump add &#39;--comments-level debug&#39; option
+    */
+    throw new UnsupportedOperationException(&#34;Method not decompiled: com.hasz.gymrats.app.service.AuthLinkService.signIn(java.lang.String, java.lang.String, java.lang.String, kotlin.coroutines.Continuation):java.lang.Object&#34;);
+    }
+</code></pre><p>Já o login tem uma sequência de chamadas que podemos analisar.</p>
+<pre tabindex="0"><code># em ./sources/com/hasz/gymrats/app/domain/react_native/GymRatsBridge.java
+
+@ReactMethod
+public final void login(String accountJSON, String onboardingVariant, Promise promise) {
+    Intrinsics.checkNotNullParameter(accountJSON, &#34;accountJSON&#34;);
+    Intrinsics.checkNotNullParameter(promise, &#34;promise&#34;);
+    this.authRepo.getOnboardingVariant().setValue(onboardingVariant);
+    updateCurrentAccount(accountJSON, promise);
+}
+
+
+
+@ReactMethod
+public final void updateCurrentAccount(String accountJSON, Promise promise) {
+    Intrinsics.checkNotNullParameter(accountJSON, &#34;accountJSON&#34;);
+    Intrinsics.checkNotNullParameter(promise, &#34;promise&#34;);
+    try {
+        BuildersKt__Builders_commonKt.launch$default(CoroutineScopeKt.CoroutineScope(Dispatchers.getMain()), null, null, new C09791((Account) this.gson.fromJson(accountJSON, Account.class), promise, null), 3, null);
+    } catch (Throwable th) {
+        promise.reject(th);
+    }
+}
+</code></pre><p>Esse método <code>updateCurrentAccount</code> parece estranho pois está preocupado com dados da conta do usuário. A classe <code>Account</code> tem a seguinte definição:</p>
+<pre tabindex="0"><code># em ./sources/com/hasz/gymrats/app/api/model/Account.java./sources/com/hasz/gymrats/app/api/model/Account.java
+
+public final /* data */ class Account implements Identifiable, Nameable, Picturable, Avatarable, Cachable {
+    private final boolean chat_message_notifications_enabled;
+    private final boolean comment_notifications_enabled;
+    private final Instant created_at;
+    private final String email;
+    private final Boolean email_verified;
+    private final String full_name;
+    private final int id;
+    private final String instagram;
+    private final boolean periodic_winners_notifications_enabled;
+    private final Boolean pro;
+    private final String profile_picture_url;
+    private final Challenge.MemberRole role;
+    private final String tik_tok;
+    private final String timezone;
+    private final String token;
+    private final String twitter;
+    private final String uuid;
+    private final boolean workout_notifications_enabled;
+    private final boolean workout_reaction_notifications_enabled;
+    ...
+</code></pre><p>Aqui eu optei por fazer uma nova busca e ver se existe alguma classe mais específica pra lidar com a camada de API. Fui filtrando as bibliotecas utilizadas e com esse padrão eu consegui encontrar um arquivo que implementa algumas chamadas:</p>
+<pre tabindex="0"><code>$ find . -name &#34;*Api*&#34; | grep -v androidx | grep -v kotlin | grep -v firebase | grep -v android
+
+./sources/com/google/errorprone/annotations/RestrictedApi.java
+./sources/com/google/crypto/tink/shaded/protobuf/ApiProto.java
+./sources/com/google/crypto/tink/shaded/protobuf/Api.java
+./sources/com/google/crypto/tink/shaded/protobuf/ExperimentalApi.java
+./sources/com/google/crypto/tink/shaded/protobuf/ApiOrBuilder.java
+./sources/com/google/accompanist/permissions/ExperimentalPermissionsApi.java
+./sources/com/facebook/soloader/Api18TraceUtils.java
+./sources/com/hasz/gymrats/app/api/GymRatsApi$demoteMemberFromMod$1.java
+./sources/com/hasz/gymrats/app/api/GymRatsApi$uploadMuxVideo$1.java
+./sources/com/hasz/gymrats/app/api/GymRatsApi$getBlockedAccounts$1.java
+./sources/com/hasz/gymrats/app/api/GymRatsApi$shareWorkouts$1.java
+./sources/com/hasz/gymrats/app/api/GymRatsApi$removeReaction$1.java
+./sources/com/hasz/gymrats/app/api/GymRatsApi$smallWorld$1.java
+./sources/com/hasz/gymrats/app/api/GymRatsApi$getSamsungHealthSettings$1.java
+./sources/com/hasz/gymrats/app/api/GymRatsApi$updateFitbitAutoSync$1.java
+./sources/com/hasz/gymrats/app/api/GymRatsApi$sponsoredChallenges$1.java
+./sources/com/hasz/gymrats/app/api/GymRatsApi$getMembership$1.java
+./sources/com/hasz/gymrats/app/api/GymRatsApi$removeTeam$1.java
+./sources/com/hasz/gymrats/app/api/GymRatsApi$unblockAccount$1.java
+./sources/com/hasz/gymrats/app/api/GymRatsApi$uploadWorkoutVideo$1.java
+./sources/com/hasz/gymrats/app/api/GymRatsApi$updateEmail$1.java
+</code></pre><p>GymRatsApi.java apareceu ali no meio, e abrindo ele, temos poucos métodos que descompilaram corretamente. Entre eles, um responsavel por ajustar um <code>Map</code> com os cabeçalhos comuns a todas as requisições:</p>
+<pre tabindex="0"><code># em ./sources/com/hasz/gymrats/app/api/GymRatsApi.java
+
+private final String getDeviceId() {
+    return this.idService.getDeviceId();
+}
+
+# ...
+
+public final void updateBaseHeaders(String token) {
+    Map&lt;String, String&gt; mapMapOf = MapsKt.mapOf(TuplesKt.to(&#34;rat-app-version&#34;, BuildConfig.VERSION_NAME), TuplesKt.to(&#34;rat-app-platform&#34;, &#34;Android&#34;), TuplesKt.to(&#34;rat-timezone&#34;, TimeZone.getDefault().getID()), TuplesKt.to(&#34;x-signature&#34;, getDeviceId()));
+    if (token != null) {
+        FuelManager.INSTANCE.getInstance().setBaseHeaders(MapsKt.plus(mapMapOf, MapsKt.mapOf(TuplesKt.to(&#34;Authorization&#34;, token))));
+    } else {
+        FuelManager.INSTANCE.getInstance().setBaseHeaders(mapMapOf);
+    }
+}
+</code></pre><p>Dois pontos importantes aqui são:</p>
+<ul>
+<li>a definição dos headers <code>rat-*</code> e <code>x-signature</code> que podem estar sendo utilizados pra avaliar a autenticidade da requisição e;</li>
+<li>O uso do token vai no cabeçalho <code>Authorization</code> (possivelmente como Bearer).</li>
+</ul>
+<p>Como ainda estamos lutando pra conseguir o token, vamos para a implementação do <code>getDeviceId()</code>.</p>
+<pre tabindex="0"><code># em ./sources/com/hasz/gymrats/app/service/IdService.java
+
+public final String getDeviceId() {
+    String string = this.sharedPreferences.getString(DEVICE_ID_KEY, null);
+    if (string != null) {
+        return string;
+    }
+    String string2 = UUID.randomUUID().toString();
+    Intrinsics.checkNotNullExpressionValue(string2, &#34;toString(...)&#34;);
+    SharedPreferences.Editor editorEdit = this.sharedPreferences.edit();
+    editorEdit.putString(DEVICE_ID_KEY, string2);
+    editorEdit.apply();
+    return string2;
+}
+</code></pre><p>É só um UUID :). Mas repare que ele é salvo nas sharedPreferences, ou seja, é o mesmo UUID enviado em todas as requisições de um mesmo aparelho.</p>
+<p>Agora, precisamos do formato do <code>rat-app-version</code>, que está definido em BuildConfig:</p>
+<pre tabindex="0"><code>$ find . -name &#34;*BuildConfig*&#34; | grep rat
+./sources/com/hasz/gymrats/app/BuildConfig.java
+
+
+# em ./sources/com/hasz/gymrats/app/BuildConfig.java
+
+package com.hasz.gymrats.app;
+
+/* JADX INFO: loaded from: classes7.dex */
+public final class BuildConfig {
+    public static final String API = &#34;https://www.gymrats.app/api&#34;;
+    public static final String APPLICATION_ID = &#34;com.hasz.gymrats.app&#34;;
+    public static final String BRANCH_MODE = &#34;live&#34;;
+    public static final String BUILD_TYPE = &#34;releaseProduction&#34;;
+    public static final boolean DEBUG = false;
+    public static final String GYM_RATS_ENV = &#34;production&#34;;
+    public static final String INVITE_URL = &#34;https://share.gymrats.app/join?code=&#34;;
+    public static final boolean IS_HERMES_ENABLED = true;
+    public static final boolean IS_NEW_ARCHITECTURE_ENABLED = true;
+    public static final String PRIVACY_URL = &#34;https://www.gymrats.app/privacy&#34;;
+    public static final String TERMS_URL = &#34;https://www.gymrats.app/terms&#34;;
+    public static final int VERSION_CODE = 20251227;
+    public static final String VERSION_NAME = &#34;2025.12.27&#34;;
+    public static final String WS = &#34;wss://www.gymrats.app/chat/websocket&#34;;
+}
+</code></pre><p>A version name é a data no formato YYYY.MM.DD da release.</p>
+<p>Mas você viu o mais importante? A URL da API é outra! O teste anterior foi feito na base de testes.</p>
+<pre tabindex="0"><code>BASE_URL=&#34;https://www.gymrats.app&#34;
+curl -i -X POST &#34;$BASE_URL/api/tokens&#34; \
+  -H &#34;Content-Type: application/json&#34; \
+  -H &#34;Accept: application/json&#34; \
+  -d &#34;{
+    \&#34;email\&#34;: \&#34;$LOGIN_EMAIL\&#34;,
+    \&#34;password\&#34;: \&#34;$LOGIN_PWD\&#34;
+  }&#34;
+
+
+HTTP/2 200
+date: Wed, 25 Feb 2026 19:04:42 GMT
+content-type: application/json; charset=utf-8
+content-length: 797
+cache-control: max-age=0, private, must-revalidate
+strict-transport-security: max-age=31536000
+x-request-id: b78c1e3cccf8bc9ea509b50cef7498e9
+cf-cache-status: DYNAMIC
+nel: {&#34;report_to&#34;:&#34;cf-nel&#34;,&#34;success_fraction&#34;:0.0,&#34;max_age&#34;:604800}
+report-to: {&#34;group&#34;:&#34;cf-nel&#34;,&#34;max_age&#34;:604800,&#34;endpoints&#34;:[{&#34;url&#34;:&#34;https://...&#34;}]}
+server: cloudflare
+cf-ray: 9d3870a60985f2d0-GRU
+
+{&#34;data&#34;:{&#34;id&#34;:11111112,&#34;twitter&#34;:null,&#34;timezone&#34;:&#34;America/Sao_Paulo&#34;,&#34;instagram&#34;:null,&#34;token&#34;:&#34;...&#34;,&#34;uuid&#34;:&#34;...&#34;,&#34;email&#34;:&#34;...&#34;,&#34;created_at&#34;:&#34;2026-02-20T05:13:22.374277Z&#34;,&#34;full_name&#34;:&#34;Teste&#34;,&#34;chat_message_notifications_enabled&#34;:true,&#34;comment_notifications_enabled&#34;:true,&#34;email_verified&#34;:true,&#34;periodic_winners_notifications_enabled&#34;: &#34;...&#34;}}
+</code></pre><aside class="warning">A pergunta que não quer calar é: se eu estava usando a URL de pre-produção, por que o disparo de e-mail estava funcionando? Por causa disso eu fiquei muito, muito tempo travado nessa parte. Eu tinha certeza de que aquela era a URL certa.</aside>
+<p>NICE! Repare que não foi preciso enviar nenhum dos cabeçalhos, nem o <code>nonce</code>! Outra coisa, a resposta é aquele objeto <code>Account</code> que encontramos.</p>
+<p>De grande importância é o nosso <code>token</code>, que vai ser usado pra acessar os dados da conta.</p>
+<h2 id="acessando-os-dados-após-login">Acessando os dados após login</h2>
+<p>Com o token registrado, podemos testar as URLs através de requisições GET simples.</p>
+<p>Alguns pontos a serem levados em conta:</p>
+<ul>
+<li>O UUID enviado como <code>x-signature</code> deve ser o mesmo entre todas as requisições</li>
+<li>O campo <code>Authorization</code> não usa o prefixo <code>Bearer</code>, apenas o valor do token</li>
+<li>Envio dos cabeçalhos <code>rat-</code></li>
+<li>Definição de content type pra envio e resposta (<code>application/json</code>)</li>
+</ul>
+<p>Pra fechar o objetivo desse estudo, vamos puxar o export da conta do usuário. Como a API é bem organizada, dá pra chutar que tem &ldquo;export&rdquo; na URL do endpoint:</p>
+<pre tabindex="0"><code>$ grep export output.js
+
+.... # muito texto
+
+        r1[&#39;exports&#39;] = r2;
+        r1[&#39;exports&#39;] = r2;
+        r0[&#39;exports&#39;] = r1;
+        r0[&#39;exports&#39;] = r1;
+        r0[&#39;exports&#39;] = r1;
+        r1[&#39;exports&#39;] = r2;
+        r1[&#39;exports&#39;] = r2;
+                                r3 = {&#39;endpoint&#39;: &#39;/account/export&#39;, &#39;format&#39;: null, &#39;fileName&#39;: &#39;account-data&#39;};
+                r4 = &#39;export_account_data&#39;;
+                        r10 = &#39;export&#39;;
+        r1[&#39;exports&#39;] = r2;
+
+.... # mais texto ainda
+</code></pre><p>Que tal /account/export? E pra melhorar, os parâmetros junto :).</p>
+<pre tabindex="0"><code>$ curl -i -X GET &#34;$BASE_URL/api/account/export?format=json&#34; \
+    -H &#34;Content-Type: application/json&#34; \
+    -H &#34;Accept: application/json&#34; \
+    -H &#34;Authorization: $TOKEN&#34; \
+    -H &#34;x-signature: $X_SIGNATURE&#34; \
+    -H &#34;rat-app-version: 2026.02.13&#34; \
+    -H &#34;rat-app-platform: Android&#34; \
+    -H &#34;rat-timezone: America/Sao_Paulo&#34;
+
+HTTP/2 200
+date: Wed, 25 Feb 2026 20:24:37 GMT
+content-type: application/json; charset=utf-8
+content-length: 452
+cache-control: max-age=0, private, must-revalidate
+strict-transport-security: max-age=31536000
+x-request-id: 35855d3158150e7a872d0a107ba390c7
+cf-cache-status: DYNAMIC
+nel: {&#34;report_to&#34;:&#34;cf-nel&#34;,&#34;success_fraction&#34;:0.0,&#34;max_age&#34;:604800}
+report-to: {&#34;group&#34;:&#34;cf-nel&#34;,&#34;max_age&#34;:604800,&#34;endpoints&#34;:[{&#34;url&#34;:&#34;https://...&#34;}]}
+server: cloudflare
+cf-ray: 9d393d98ec0d52d2-GRU
+
+{&#34;data&#34;:{&#34;messages&#34;:[],&#34;profile&#34;:{&#34;id&#34;:11113,&#34;twitter&#34;:null,&#34;timezone&#34;:&#34;America/Sao_Paulo&#34;,&#34;instagram&#34;:null,&#34;uuid&#34;:&#34;....&#34;,&#34;updated_at&#34;:&#34;2026-02-20T05:15:23.708860Z&#34;,&#34;email&#34;:&#34;....&#34;,&#34;created_at&#34;:&#34;2026-02-20T05:13:22.374277Z&#34;,&#34;full_name&#34;:&#34;Teste&#34;,&#34;profile_picture_url&#34;:null,&#34;pro&#34;:false,&#34;tik_tok&#34;:null},&#34;comments&#34;:[],&#34;reactions&#34;:[],&#34;challenges&#34;:[],&#34;check_ins&#34;:[],&#34;device_activities&#34;:[]},&#34;status&#34;:&#34;success&#34;}
+</code></pre><h2 id="script-com-o-fluxo-completo">Script com o fluxo completo</h2>
+<p>O fluxo de login + exportar dados fica assim:</p>
+<pre tabindex="0"><code>#!/bin/bash
+
+set -u
+set -e
+
+BASE_URL=&#34;https://www.gymrats.app/api&#34;
+X_SIGNATURE=$(uuidgen)
+LOGIN_EMAIL=&#34;seuemail@provedor.com&#34;
+LOGIN_PWD=&#34;suasenhaqui!!&#34;
+
+TOKEN_RES=$(curl -s -X POST &#34;$BASE_URL/tokens&#34; \
+  -H &#34;Content-Type: application/json&#34; \
+  -H &#34;Accept: application/json&#34; \
+  -H &#34;x-signature: $X_SIGNATURE&#34; \
+  -d &#34;{
+    \&#34;email\&#34;: \&#34;$LOGIN_EMAIL\&#34;,
+    \&#34;password\&#34;: \&#34;$LOGIN_PWD\&#34;
+  }&#34;)
+
+TOKEN=$(echo $TOKEN_RES | jq -r .data.token)
+
+curl -i -X GET &#34;$BASE_URL/account/export?format=json&#34; \
+  -H &#34;Content-Type: application/json&#34; \
+  -H &#34;Accept: application/json&#34;  \
+  -H &#34;Authorization: $TOKEN&#34; \
+  -H &#34;x-signature: $X_SIGNATURE&#34; \
+  -H &#34;rat-app-version: 2026.02.13&#34; \
+  -H &#34;rat-app-platform: Android&#34; \
+  -H &#34;rat-timezone: America/Sao_Paulo&#34;
+</code></pre><h2 id="considerações-finais">Considerações finais</h2>
+<p>O processo de engenharia reversa é demorado, e você vai bater com a cabeça na parede várias vezes. Tudo bem! Tenha em mente que toda aplicação precisa de uma lógica interna. Se não, os desenvolvedores não conseguiriam navegar nela.</p>
+<p>Por causa do envio de e-mail ter funcionado na URL de pre-production, eu fiquei muito, muito tempo tentando descobrir combinações de NONCE e hash de senha pra fazer login. No final, o primeiro formato de requisição que eu testei acabou funcionando.</p>
+<p>Eu só avancei quando comecei a explorar o código fonte através do jadx, abrindo ele pra análise com calma num editor de texto.</p>
+<p>Lembre-se de não abusar dos endpoints da API, afinal você está autenticado com o seu usuário.</p>
+<p>Bons desenvolvimentos!</p>
+<h3 id="algumas-técnicas-que-eu-tentei-utilizar-que-não-foram-pra-frente">Algumas técnicas que eu tentei utilizar que não foram pra frente</h3>
+<p>Essa parte não é tão interessante, mas vou deixar registrado aqui pra caso eu acabe passando por isso de novo no futuro.</p>
+<h4 id="rodar-o-apk-em-um-dispositivo-virtual-minha-máquina-é-x86-e-o-apk-que-eu-consegui-tem-como-build-target-processadores-arm64">Rodar o APK em um dispositivo virtual: minha máquina é x86, e o APK que eu consegui tem como build target processadores ARM64</h4>
+<p>Comecei instalando o android-studio através do snap (<code>sudo snap install android-studio --classic</code>) e depois rodando o android-studio pela primeira vez pra fazer a instalação (botei tudo no default).</p>
+<p>Configurei o <a href="https://developer.android.com/studio/run/emulator-acceleration?utm_source=android-studio#vm-linux-check-kvm">VM acceleration</a>.</p>
+<p>Em <strong>More actions -&gt; SDK Manager</strong> verifiquei a instalação do Android SDK v16.0 (&ldquo;Baklava&rdquo;), Android SDK Platform-Tools, Android Emulator e Android SDK Build-Tools.</p>
+<p>Por fim instalei um Pixel 5 e selecionei &ldquo;Google APIs&rdquo; em &ldquo;Services&rdquo;.</p>
+<p>Detalhe sobre a imagem: a arquitetura precisa bater com a arquitetura disponível no seu apk. No meu caso após a extração o arquivo <code>config.arm64_v8a.apk</code> indica que a arquitetura esperada é arm64.</p>
+<p>Se tentar rodar com uma imagem x86_64, o app abre e crasha pois não consegue carregar algumas bibliotecas:</p>
+<pre tabindex="0"><code>$ adb logcat
+
+...
+02-19 13:00:00.126 10185 10185 E AndroidRuntime: Native lib dir: /data/app/~~yp_-PjvPA6HHEEDz_3sECw==/com.hasz.gymrats.app-KVF08zb_qoqMfB8_C-p2Dw==/lib/arm64
+</code></pre><p>Tentei ajustar a arquitetura do emulador indo <a href="https://ibb.co/yCSVPLP">na aba &ldquo;Additional settings&rdquo;</a> na criação do dispositivo, mas a configuração não resultou em uma imagem arm64, o que pude verificar com</p>
+<pre tabindex="0"><code>$ adb shell getprop ro.product.cpu.abi
+x86_64
+</code></pre><p>Então restou baixar uma imagem ARM, com</p>
+<pre tabindex="0"><code>$ sdkmanager system-images;android-36.0-Baklava;google_apis;arm64-v8a
+</code></pre><p>Após a instalação, ela fica <a href="https://ibb.co/jvYjbRTs">disponível no seletor</a>, mas não consegui iniciar o emulador (na minha inocência eu tinha achado que o android-studio ia fazer essa adaptação entre arquiteturas):</p>
+<blockquote>
+<p>Error when startnig the Pixel 5 with arm image:
+Avd&rsquo;s CPU Architecture &lsquo;arm64&rsquo; is not supported by the QEMU2 emulator on x86_64 host.
+System image must match the host architecture</p>
+</blockquote>
+<p>Parecem existir formas de fazer essa tradução entre ARM e x86, mas no fim das contas eu consegui um smartphone com android pra testes.</p>
+<h4 id="usando-um-smartphone">Usando um smartphone</h4>
+<p>Após conectar o celular no notebook em modo debug, dá pra validar que ele foi reconhecido e também a arquitetura com:</p>
+<pre tabindex="0"><code>$ adb devices &amp;&amp; adb shell getprop ro.product.cpu.abi
+List of devices attached
+0071264499	device
+
+arm64-v8a
+</code></pre><p>Eu não consegui avançar muito nessa frente pois, como eu não tinha como modificar o código do apk (ou até conseguiria, usando ferramentas como <a href="https://frida.re/docs/android/">Frida</a>, mas pelo que entendi exigiria rootar o smartphone, coisa que eu não quis fazer).</p>
+<p>Minha única opção seria, então, tentar interceptar o tráfego do aplicativo usando algo como Wireshark. Como o app usa certificate pinning (não aceita certificados SSL auto assinados), e usa TLS, <a href="https://stackoverflow.com/a/38727920">ainda existia a chance das URLs serem criptografadas</a>.</p>
+<p>Acabei voltando pra análise estática do código, mas caso eu tivesse conseguido identificar as URLs teria visto que eu estava testando as requisições contra a URL errada.</p>
+<p>Fica pra próxima vez testar essa abordagem.</p>
+
+</content>
+<p>
+  
+  <a href="https://guilhermegarcia.dev/blog/portugu%C3%AAs/">#português</a>
+  
+  <a href="https://guilhermegarcia.dev/blog/api/">#api</a>
+  
+  <a href="https://guilhermegarcia.dev/blog/reverse-engineering/">#reverse-engineering</a>
+  
+  <a href="https://guilhermegarcia.dev/blog/mobile/">#mobile</a>
+  
+  <a href="https://guilhermegarcia.dev/blog/cli/">#cli</a>
+  
+</p>
+
+  </main>
+  <footer>
+</footer>
+
+    
+</body>
+
+</html>

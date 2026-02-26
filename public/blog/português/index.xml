@@ -7,8 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Copyright © 2024-2026, Guilherme Garcia.</copyright>
-    <lastBuildDate>Sat, 22 Nov 2025 19:06:05 -0300</lastBuildDate>
+    <lastBuildDate>Wed, 25 Feb 2026 15:52:19 -0300</lastBuildDate>
     <atom:link href="https://guilhermegarcia.dev/blog/portugu%C3%AAs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>FreeRats: eng reversa da API do GymRats</title>
+      <link>https://guilhermegarcia.dev/blog/freerats-reverse-eng/</link>
+      <pubDate>Wed, 25 Feb 2026 15:52:19 -0300</pubDate>
+      <guid>https://guilhermegarcia.dev/blog/freerats-reverse-eng/</guid>
+      <description>Escuta, eu quero usar apps sociais pra me manter engajado e acompanhar meus amigos. Mas são meus dados e o mínimo que eu espero é uma forma automatizada de extrair eles.&#xA;Enquanto o GymRats tem uma funcionalidade muito boa de exportar um arquivo .json com os dados de utilização, ele só permite acesso via aplicativo.&#xA;Como não existe uma versão web onde eu possa inspecionar as requisições com o devtools (e automatizar o export dos meus dados com um ou dois curls via linha de comando), tive que mergulhar de cabeça no labirinto que é mapeaer as requisições feitas por um aplicativo Android.</description>
+    </item>
     <item>
       <title>cinemaempoa na pythonsul</title>
       <link>https://guilhermegarcia.dev/blog/cinemaempoa-na-pythonsul/</link>

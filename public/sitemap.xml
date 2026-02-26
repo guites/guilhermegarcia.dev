@@ -3,15 +3,30 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://guilhermegarcia.dev/</loc>
-    <lastmod>2025-11-22T19:06:05-03:00</lastmod>
+    <lastmod>2026-02-25T15:52:19-03:00</lastmod>
+  </url><url>
+    <loc>https://guilhermegarcia.dev/blog/api/</loc>
+    <lastmod>2026-02-25T15:52:19-03:00</lastmod>
   </url><url>
     <loc>https://guilhermegarcia.dev/blog/</loc>
-    <lastmod>2025-11-22T19:06:05-03:00</lastmod>
+    <lastmod>2026-02-25T15:52:19-03:00</lastmod>
   </url><url>
-    <loc>https://guilhermegarcia.dev/blog/cinemaempoa-na-pythonsul/</loc>
-    <lastmod>2025-11-22T19:06:05-03:00</lastmod>
+    <loc>https://guilhermegarcia.dev/blog/cli/</loc>
+    <lastmod>2026-02-25T15:52:19-03:00</lastmod>
+  </url><url>
+    <loc>https://guilhermegarcia.dev/blog/freerats-reverse-eng/</loc>
+    <lastmod>2026-02-25T15:52:19-03:00</lastmod>
+  </url><url>
+    <loc>https://guilhermegarcia.dev/blog/mobile/</loc>
+    <lastmod>2026-02-25T15:52:19-03:00</lastmod>
   </url><url>
     <loc>https://guilhermegarcia.dev/blog/portugu%C3%AAs/</loc>
+    <lastmod>2026-02-25T15:52:19-03:00</lastmod>
+  </url><url>
+    <loc>https://guilhermegarcia.dev/blog/reverse-engineering/</loc>
+    <lastmod>2026-02-25T15:52:19-03:00</lastmod>
+  </url><url>
+    <loc>https://guilhermegarcia.dev/blog/cinemaempoa-na-pythonsul/</loc>
     <lastmod>2025-11-22T19:06:05-03:00</lastmod>
   </url><url>
     <loc>https://guilhermegarcia.dev/blog/python/</loc>
@@ -43,9 +58,6 @@
   </url><url>
     <loc>https://guilhermegarcia.dev/blog/aware-naive-datetime-objects-wo-pytz/</loc>
     <lastmod>2024-01-25T20:44:34-03:00</lastmod>
-  </url><url>
-    <loc>https://guilhermegarcia.dev/blog/cli/</loc>
-    <lastmod>2022-10-25T22:50:34-03:00</lastmod>
   </url><url>
     <loc>https://guilhermegarcia.dev/blog/comparando-json-na-linha-de-comando/</loc>
     <lastmod>2022-10-25T22:50:34-03:00</lastmod>
