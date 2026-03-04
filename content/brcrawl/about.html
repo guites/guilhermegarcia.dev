@@ -12,14 +12,14 @@
 		connect-src https://brcrawl.guilhermegarcia.dev;
 		base-uri 'self';
 		img-src 'self' data: ;
-		style-src 'nonce-ad72f884c7dd962271fd7cc6e0a89702' ;
-		script-src 'nonce-ad72f884c7dd962271fd7cc6e0a89702' 'strict-dynamic' ;
+		style-src 'nonce-4e3790118348ea1c39c46e89aa7584ce' ;
+		script-src 'nonce-4e3790118348ea1c39c46e89aa7584ce' 'strict-dynamic' ;
 	">
 	<meta name="application-name" content="brcrawl">
 	<meta name="description" content="Diretório da smallweb brasileira">
 	<meta name="referrer" content="same-origin">
 
-	<style nonce="ad72f884c7dd962271fd7cc6e0a89702">
+	<style nonce="4e3790118348ea1c39c46e89aa7584ce">
 :root {
     color-scheme: dark light;
     --primary: #0AC8F5;
@@ -182,15 +182,15 @@ button.report:hover, button.unreport, button.hide:hover, button.show {
 	</main>
 	<footer>
 		<p>Atualizado em:
-			<time id="update-at" datetime="2026-03-03T16:17:16.266344+00:00">
-				Tuesday, 03/03/2026 16:17:16
+			<time id="update-at" datetime="2026-03-04T16:17:46.495686+00:00">
+				Wednesday, 04/03/2026 16:17:46
 			</time>
 		</p>
 		<p><a href="index.html">BR Crawl</a> | <a href="about.html">Sobre</a> | <a href="sources.html">Fontes</a></p>
 	</footer>
 </body>
 
-<script type="module" nonce="ad72f884c7dd962271fd7cc6e0a89702">
+<script type="module" nonce="4e3790118348ea1c39c46e89aa7584ce">
 	const updatedAtElement = document.getElementById("update-at");
 	const date = new Date(updatedAtElement.dateTime);
 	updatedAtElement.innerText = date.toLocaleString(undefined, {
@@ -198,7 +198,7 @@ button.report:hover, button.unreport, button.hide:hover, button.show {
 		timeStyle: "medium",
 	})
 </script>
-<script type="module" nonce="ad72f884c7dd962271fd7cc6e0a89702">
+<script type="module" nonce="4e3790118348ea1c39c46e89aa7584ce">
 var backend_url='https://brcrawl.guilhermegarcia.dev';
 function hide_feedback(domain) {
     return `<div><small>Domínio <a href="https://${domain}">${domain}</a> escondido. | <button class="show">exibir</button></small></div>`;
