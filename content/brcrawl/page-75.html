@@ -12,14 +12,14 @@
 		connect-src https://brcrawl.guilhermegarcia.dev;
 		base-uri 'self';
 		img-src 'self' data: ;
-		style-src 'nonce-bb4eb5f7fcfd747fde082d98dd553e35' ;
-		script-src 'nonce-bb4eb5f7fcfd747fde082d98dd553e35' 'strict-dynamic' ;
+		style-src 'nonce-3fca4bb792d458e6ed56305df8a557f6' ;
+		script-src 'nonce-3fca4bb792d458e6ed56305df8a557f6' 'strict-dynamic' ;
 	">
 	<meta name="application-name" content="brcrawl">
 	<meta name="description" content="Diretório da smallweb brasileira">
 	<meta name="referrer" content="same-origin">
 
-	<style nonce="bb4eb5f7fcfd747fde082d98dd553e35">
+	<style nonce="3fca4bb792d458e6ed56305df8a557f6">
 :root {
     color-scheme: dark light;
     --primary: #0AC8F5;
@@ -155,6 +155,45 @@ button.report:hover, button.unreport, button.hide:hover, button.show {
 	</header>
 	<main>
 		<ol start="3701">
+			<li>
+				<a href="http://palestra.blogspot.com/2007/11/enquanto-isso-em-teer.html" target="_blank">
+					<h2>Enquanto isso, em Teerã</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2007-11-07">07/11/2007</time>
+					|
+					<a class="domain" href="https://palestra.blogspot.com" target="_blank">palestra.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://claudiamello.blogspot.com/2007/10/cachorro-que-vale-dinheiro.html" target="_blank">
+					<h2>Cachorro que vale dinheiro</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2007-10-26">26/10/2007</time>
+					|
+					<a class="domain" href="https://claudiamello.blogspot.com" target="_blank">claudiamello.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://eternamentelou.blogspot.com/2007/10/prefcio-ao-livro-lou-minha-irm-minha.html" target="_blank">
+					<h2>Prefácio ao livro Lou – Minha irmã, minha esposa</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2007-10-17">17/10/2007</time>
+					|
+					<a class="domain" href="https://eternamentelou.blogspot.com" target="_blank">eternamentelou.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
 			<li>
 				<a href="http://interimbelgrado.blogspot.com/2007/10/feliz-dia-das-crianas.html" target="_blank">
 					<h2>Feliz Dia das Crianças</h2>
@@ -606,15 +645,15 @@ button.report:hover, button.unreport, button.hide:hover, button.show {
 	</main>
 	<footer>
 		<p>Atualizado em:
-			<time id="update-at" datetime="2026-03-05T16:19:12.643115+00:00">
-				Thursday, 05/03/2026 16:19:12
+			<time id="update-at" datetime="2026-03-06T16:16:11.981788+00:00">
+				Friday, 06/03/2026 16:16:11
 			</time>
 		</p>
 		<p><a href="index.html">BR Crawl</a> | <a href="about.html">Sobre</a> | <a href="sources.html">Fontes</a></p>
 	</footer>
 </body>
 
-<script type="module" nonce="bb4eb5f7fcfd747fde082d98dd553e35">
+<script type="module" nonce="3fca4bb792d458e6ed56305df8a557f6">
 	const updatedAtElement = document.getElementById("update-at");
 	const date = new Date(updatedAtElement.dateTime);
 	updatedAtElement.innerText = date.toLocaleString(undefined, {
@@ -622,7 +661,7 @@ button.report:hover, button.unreport, button.hide:hover, button.show {
 		timeStyle: "medium",
 	})
 </script>
-<script type="module" nonce="bb4eb5f7fcfd747fde082d98dd553e35">
+<script type="module" nonce="3fca4bb792d458e6ed56305df8a557f6">
 var backend_url='https://brcrawl.guilhermegarcia.dev';
 function hide_feedback(domain) {
     return `<div><small>Domínio <a href="https://${domain}">${domain}</a> escondido. | <button class="show">exibir</button></small></div>`;
