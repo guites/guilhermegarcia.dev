@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>BR Crawl</title>
+
+	<meta http-equiv="Content-Security-Policy" content="
+		default-src 'none';
+		connect-src https://brcrawl.guilhermegarcia.dev;
+		base-uri 'self';
+		img-src 'self' data: ;
+		style-src 'nonce-fb611f0a86e8dfbee9230918efb8e0dd' ;
+		script-src 'nonce-fb611f0a86e8dfbee9230918efb8e0dd' 'strict-dynamic' ;
+	">
+	<meta name="application-name" content="brcrawl">
+	<meta name="description" content="Diretório da smallweb brasileira">
+	<meta name="referrer" content="same-origin">
+
+	<style nonce="fb611f0a86e8dfbee9230918efb8e0dd">
+:root {
+    color-scheme: dark light;
+    --primary: #0AC8F5;
+    --secondary: #D2F00F;
+    --text: var(--txt, #cfcfcf);
+    --border: var(--bd, #c0c0c0);
+    --background: var(--bg, #1D1F21);
+    font-size: min(calc(.75rem + 0.75vw), 16px);
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --text: var(--txt, #444444);
+        --border: var(--bd, #333333);
+        --background: var(--bg, white);
+        --primary: #207D92;
+        --secondary: #6A7A06;
+    }
+}
+
+body {
+    font-family: Calibri, 'Trebuchet MS', 'Lucida Sans', Arial, sans-serif;
+    color: var(--text);
+    background: var(--background);
+    max-width: 50rem;
+    width: 100%;
+    margin: 0.5em auto 2em;
+    line-height: 1.25em;
+}
+
+header {
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 0.25em;
+}
+
+header > h1 {
+    display: inline-block;
+    padding: 0 0.5em;
+}
+
+h2 {
+    font-size: 1rem;
+    display: inline;
+}
+
+ol {
+    padding-left: 5ch;
+}
+
+li {
+    margin-block-start: 1em;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:link {
+    color: var(--primary);
+}
+
+a:visited {
+    color: var(--secondary);
+}
+
+a:hover {
+    opacity: 0.8;
+}
+
+small {
+    padding-top: 0.25rem;
+    font-size: 0.95rem;
+}
+
+small > a:link,
+small > a:visited {
+    color: var(--text);
+}
+
+footer {
+    padding: 1rem;
+    margin-top: 2rem;
+    border-top: 1px solid var(--border);
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    padding: 1em 0;
+    margin-top: 1em;
+}
+
+nav > a, nav > span {
+    padding: 0.25em 0.75em;
+}
+
+nav > span {
+    color: var(--border);
+}
+
+button.report, button.unreport, button.hide, button.show {
+    background: transparent;
+    border: 0px transparent;
+    padding: 0px;
+    margin: 0px;
+    display: inline;
+    box-sizing: border-box;
+    font: inherit;
+    color: inherit;
+}
+
+button.report:hover, button.unreport, button.hide:hover, button.show {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.title-br { display: none; }
+
+@media screen and (max-width: 470px) {
+    header { text-align: center; }
+    .title-br { display: initial; }
+    .title-span { margin: 10px 0px; display: inline-block; }
+}
+	</style>
+</head>
+
+<body>
+	<header>
+		<h1>BR Crawl</h1>
+		<br class="title-br"/>
+		<span class="title-span">Diretório da smallweb brasileira</span>
+	</header>
+	<main>
+		<ol start="4351">
+			<li>
+				<a href="http://horadaleitur.blogspot.com/2019/01/hora-do-oriente-louvor-morte-hymn-of.html" target="_blank">
+					<h2>Hora do Oriente: Louvor à morte (The Hymn of Death) Netflix</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2019-01-03">03/01/2019</time>
+					|
+					<a class="domain" href="https://horadaleitur.blogspot.com" target="_blank">horadaleitur.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://meianoiteequinze.blogspot.com/2019/01/dicas-para-economizar-nas-compras-online.html" target="_blank">
+					<h2>Dicas para economizar nas compras online</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2019-01-02">02/01/2019</time>
+					|
+					<a class="domain" href="https://meianoiteequinze.blogspot.com" target="_blank">meianoiteequinze.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://minhavidapor.blogspot.com/2019/01/previsoes-para-2019-de-acordo-com-o.html" target="_blank">
+					<h2>Previsões para 2019 de acordo com o Tarot Zen de Osho!</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2019-01-01">01/01/2019</time>
+					|
+					<a class="domain" href="https://minhavidapor.blogspot.com" target="_blank">minhavidapor.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://mamaedabeatriz-paty.blogspot.com/2018/12/festas-juninas.html" target="_blank">
+					<h2>festas juninas</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2018-12-31">31/12/2018</time>
+					|
+					<a class="domain" href="https://mamaedabeatriz-paty.blogspot.com" target="_blank">mamaedabeatriz-paty.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://redonda.wordpress.com/2018/12/31/novo-post/" target="_blank">
+					<h2>Alcino do Fundo Lopes</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2018-12-31">31/12/2018</time>
+					|
+					<a class="domain" href="https://redonda.wordpress.com" target="_blank">redonda.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://novascronicas.blogspot.com/2018/12/os-10-melhores-filmes-de-2018.html" target="_blank">
+					<h2>Os 10 melhores filmes de 2018</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2018-12-31">31/12/2018</time>
+					|
+					<a class="domain" href="https://novascronicas.blogspot.com" target="_blank">novascronicas.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://poetadacolina.blogspot.com/2018/12/o-ultimo-antes-de-amanha-31122018.html" target="_blank">
+					<h2>“O último antes de amanhã” (31/12/2018)</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2018-12-31">31/12/2018</time>
+					|
+					<a class="domain" href="https://poetadacolina.blogspot.com" target="_blank">poetadacolina.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://reflexoesdemamae.blogspot.com/2018/12/que-venha-2019.html" target="_blank">
+					<h2>Que venha 2019!</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2018-12-31">31/12/2018</time>
+					|
+					<a class="domain" href="https://reflexoesdemamae.blogspot.com" target="_blank">reflexoesdemamae.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://evelyne-home-interiors.blogspot.com/2018/12/feliz-2019.html" target="_blank">
+					<h2>Feliz 2019!</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2018-12-31">31/12/2018</time>
+					|
+					<a class="domain" href="https://evelyne-home-interiors.blogspot.com" target="_blank">evelyne-home-interiors.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://literalmentefalandoblog.wordpress.com/2018/12/30/nao-sei-o-que-estou-fazendo-com-a-minha-vida/" target="_blank">
+					<h2>Não sei o que estou fazendo com a minha vida!</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2018-12-30">30/12/2018</time>
+					|
+					<a class="domain" href="https://literalmentefalandoblog.wordpress.com" target="_blank">literalmentefalandoblog.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://cupcakelandsz.blogspot.com/2018/12/uma-carta-sobre-2018.html" target="_blank">
+					<h2>Uma carta sobre 2018</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2018-12-30">30/12/2018</time>
+					|
+					<a class="domain" href="https://cupcakelandsz.blogspot.com" target="_blank">cupcakelandsz.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://www.superziper.com.br/2018/12/blusinha-branca-customizada-reveillon.html" target="_blank">
+					<h2>Blusinha branca customizada para o Réveillon</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2018-12-30">30/12/2018</time>
+					|
+					<a class="domain" href="https://superziper.com.br" target="_blank">superziper.com.br</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://mapadozodiaco.blogspot.com/2018/12/cartas-que-podem-indicar-que-seu.html" target="_blank">
+					<h2>Cartas do Tarot que Podem Indicar Que Seu Interesse Romântico é Casado</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2018-12-29">29/12/2018</time>
+					|
+					<a class="domain" href="https://mapadozodiaco.blogspot.com" target="_blank">mapadozodiaco.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://selph.blogspot.com/2018/12/desfecho-de-eu-tive-que-fazer.html" target="_blank">
+					<h2>Desfecho de &amp;#34;Eu tive que fazer...&amp;#34;</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2018-12-28">28/12/2018</time>
+					|
+					<a class="domain" href="https://selph.blogspot.com" target="_blank">selph.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://leitorasempre.blogspot.com/2018/12/precisamos-de-um-tempo.html" target="_blank">
+					<h2>Precisamos de um tempo</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2018-12-28">28/12/2018</time>
+					|
+					<a class="domain" href="https://leitorasempre.blogspot.com" target="_blank">leitorasempre.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://contaseumlivro.blogspot.com/2018/12/resenha-cancao-das-profundezas-uma.html" target="_blank">
+					<h2>[Resenha] Canção das profundezas - Uma antologia dark fantasy sobre sereias</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2018-12-27">27/12/2018</time>
+					|
+					<a class="domain" href="https://contaseumlivro.blogspot.com" target="_blank">contaseumlivro.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://avenidacopacabana.blogspot.com/2018/12/obrigado-por-tudo.html" target="_blank">
+					<h2>Obrigado por tudo!</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2018-12-26">26/12/2018</time>
+					|
+					<a class="domain" href="https://avenidacopacabana.blogspot.com" target="_blank">avenidacopacabana.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://maternidadehoje.wordpress.com/2018/12/24/seja-produtiva-venca-o-tempo/" target="_blank">
+					<h2>Seja produtiva, vença o tempo!</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2018-12-24">24/12/2018</time>
+					|
+					<a class="domain" href="https://maternidadehoje.wordpress.com" target="_blank">maternidadehoje.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://booksandcrowns.blogspot.com/2018/12/brilhemos.html" target="_blank">
+					<h2>Brilhemos</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2018-12-24">24/12/2018</time>
+					|
+					<a class="domain" href="https://booksandcrowns.blogspot.com" target="_blank">booksandcrowns.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://algodaotaodoce.blogspot.com/2018/12/e-o-verbo-divino-se-fez-carne-e-habitou.html" target="_blank">
+					<h2>E O VERBO DIVINO SE FEZ CARNE E HABITOU ENTRE NÓS. (Jo 1,14)</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2018-12-23">23/12/2018</time>
+					|
+					<a class="domain" href="https://algodaotaodoce.blogspot.com" target="_blank">algodaotaodoce.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://maressando.wordpress.com/2018/12/23/justamente/" target="_blank">
+					<h2>Justamente</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2018-12-23">23/12/2018</time>
+					|
+					<a class="domain" href="https://maressando.wordpress.com" target="_blank">maressando.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://paginasecenas.wordpress.com/2018/12/22/hopeless/" target="_blank">
+					<h2>Hopeless 1 e 2</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2018-12-22">22/12/2018</time>
+					|
+					<a class="domain" href="https://paginasecenas.wordpress.com" target="_blank">paginasecenas.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://sonhosaposdezoito.wordpress.com/2018/12/21/compartilhei-8-coisas-que-aprendi-em-2018/" target="_blank">
+					<h2>Compartilhei: 8 coisas que aprendi em 2018</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2018-12-21">21/12/2018</time>
+					|
+					<a class="domain" href="https://sonhosaposdezoito.wordpress.com" target="_blank">sonhosaposdezoito.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://camiirules.blogspot.com/2018/12/voce-deveria-assistir-please-like-me-eu.html" target="_blank">
+					<h2>Você deveria assistir Please Like Me, eu te digo porque</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2018-12-20">20/12/2018</time>
+					|
+					<a class="domain" href="https://camiirules.blogspot.com" target="_blank">camiirules.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://meveioamente.wordpress.com/2018/12/19/sobre-o-recargapay/" target="_blank">
+					<h2>Sobre o RecargaPay</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2018-12-20">20/12/2018</time>
+					|
+					<a class="domain" href="https://meveioamente.wordpress.com" target="_blank">meveioamente.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://mundodeblogueira.blogspot.com/2018/12/como-postar-fotos-no-instagram-pelo.html" target="_blank">
+					<h2>Como postar fotos no instagram pelo computador</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2018-12-17">17/12/2018</time>
+					|
+					<a class="domain" href="https://mundodeblogueira.blogspot.com" target="_blank">mundodeblogueira.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://k-baka.blogspot.com/2018/12/desabafo.html" target="_blank">
+					<h2>Desabafo</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2018-12-17">17/12/2018</time>
+					|
+					<a class="domain" href="https://k-baka.blogspot.com" target="_blank">k-baka.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://natalapses.blogspot.com/2018/12/resenha-bras-cubas.html" target="_blank">
+					<h2>Resenha: Memórias Póstumas de Brás Cubas</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2018-12-16">16/12/2018</time>
+					|
+					<a class="domain" href="https://natalapses.blogspot.com" target="_blank">natalapses.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://perguntasdesconexas.blogspot.com/2018/12/desejo-rebentar-vos-de-amor.html" target="_blank">
+					<h2>Desejo rebentar-vos de Amor</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2018-12-15">15/12/2018</time>
+					|
+					<a class="domain" href="https://perguntasdesconexas.blogspot.com" target="_blank">perguntasdesconexas.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://vendedorlouco.blogspot.com/2018/12/toxicidade.html" target="_blank">
+					<h2>Toxicidade...</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2018-12-15">15/12/2018</time>
+					|
+					<a class="domain" href="https://vendedorlouco.blogspot.com" target="_blank">vendedorlouco.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://umaboaovelhanegra.wordpress.com/2018/12/14/como-conhecer-auschwitz-por-conta-propria-tour-gratuito-sem-guia/" target="_blank">
+					<h2>Como conhecer Auschwitz por conta própria: Tour gratuito, sem guia.</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2018-12-14">14/12/2018</time>
+					|
+					<a class="domain" href="https://umaboaovelhanegra.wordpress.com" target="_blank">umaboaovelhanegra.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://tertuliasff.wordpress.com/2018/12/14/muffins-de-mel-e-especiarias/" target="_blank">
+					<h2>Muffins de Mel e Especiarias</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2018-12-14">14/12/2018</time>
+					|
+					<a class="domain" href="https://tertuliasff.wordpress.com" target="_blank">tertuliasff.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://direitomariofilho.blogspot.com/2018/12/dpp2-catolicasc-visita-ao-presidio-de.html" target="_blank">
+					<h2>DPP2 - CatólicaSC - Visita ao Presídio de Jaraguá - 07.12.2018 (Turma 2018.2)</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2018-12-11">11/12/2018</time>
+					|
+					<a class="domain" href="https://direitomariofilho.blogspot.com" target="_blank">direitomariofilho.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://ohamoramia.blogspot.com/2018/12/novo-link.html" target="_blank">
+					<h2>Novo link</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2018-12-11">11/12/2018</time>
+					|
+					<a class="domain" href="https://ohamoramia.blogspot.com" target="_blank">ohamoramia.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://a-pplepie.blogspot.com/2018/12/eai-meus-dengos.html" target="_blank">
+					<h2>Eai meus dengos</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2018-12-09">09/12/2018</time>
+					|
+					<a class="domain" href="https://a-pplepie.blogspot.com" target="_blank">a-pplepie.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://patricialobo.blogspot.com/2018/12/hoje-e-dia-de-mudancas.html" target="_blank">
+					<h2>Hoje é dia de mudanças!</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2018-12-08">08/12/2018</time>
+					|
+					<a class="domain" href="https://patricialobo.blogspot.com" target="_blank">patricialobo.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://petitecasserole.blogspot.com/2018/12/receita-de-muffin-de-espinafre.html" target="_blank">
+					<h2>Receita de Muffin de Espinafre</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2018-12-07">07/12/2018</time>
+					|
+					<a class="domain" href="https://petitecasserole.blogspot.com" target="_blank">petitecasserole.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://educacaofuturo.wordpress.com/2018/12/06/resumo-dos-pcns-de-lingua-portuguesa/" target="_blank">
+					<h2>Resumo dos PCNs de Língua Portuguesa</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2018-12-06">06/12/2018</time>
+					|
+					<a class="domain" href="https://educacaofuturo.wordpress.com" target="_blank">educacaofuturo.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://jardimfechado232366899.wordpress.com/2018/12/06/261/" target="_blank">
+					<h2>Untitled</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2018-12-06">06/12/2018</time>
+					|
+					<a class="domain" href="https://jardimfechado232366899.wordpress.com" target="_blank">jardimfechado232366899.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://www.nankindust.com.br/2018/12/como-fazer-hidratacao-com-abacate.html" target="_blank">
+					<h2>Como fazer hidratação com abacate</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2018-12-06">06/12/2018</time>
+					|
+					<a class="domain" href="https://nankindust.com.br" target="_blank">nankindust.com.br</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://meucantinhovirtualsite.wordpress.com/2018/12/05/imagem-de-tattos-para-se-inspirar/" target="_blank">
+					<h2>Imagem de tattos para se inspirar!!</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2018-12-05">05/12/2018</time>
+					|
+					<a class="domain" href="https://meucantinhovirtualsite.wordpress.com" target="_blank">meucantinhovirtualsite.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://nofundoeusouotimista.blogspot.com/2018/12/whats-worst-thing-i-could-say-things.html" target="_blank">
+					<h2>What&amp;#39;s the worst thing I could say? Things are better if I stay  - So long and goodnight</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2018-12-04">04/12/2018</time>
+					|
+					<a class="domain" href="https://nofundoeusouotimista.blogspot.com" target="_blank">nofundoeusouotimista.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://mirellapickler.wordpress.com/2018/12/04/sobremesa-de-natal-pave-de-kinder-bueno/" target="_blank">
+					<h2>SOBREMESA DE NATAL – PAVÊ DE KINDER BUENO</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2018-12-04">04/12/2018</time>
+					|
+					<a class="domain" href="https://mirellapickler.wordpress.com" target="_blank">mirellapickler.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://oarmariodocris.wordpress.com/2018/12/03/cala-a-boca-e-me-come/" target="_blank">
+					<h2>Cala a Boca e Me Come!</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2018-12-03">03/12/2018</time>
+					|
+					<a class="domain" href="https://oarmariodocris.wordpress.com" target="_blank">oarmariodocris.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://magdafreitasblog.wordpress.com/2018/12/03/conecte-se-a-essencia/" target="_blank">
+					<h2>Conecte-se à Essência!</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2018-12-03">03/12/2018</time>
+					|
+					<a class="domain" href="https://magdafreitasblog.wordpress.com" target="_blank">magdafreitasblog.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://literamenteblog.wordpress.com/2018/12/03/resenha-pequenas-grandes-mentiras/" target="_blank">
+					<h2>#Resenha Pequenas Grandes Mentiras</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2018-12-03">03/12/2018</time>
+					|
+					<a class="domain" href="https://literamenteblog.wordpress.com" target="_blank">literamenteblog.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://depressaoemocao.blogspot.com/2018/12/o-novo-sempre-vem.html" target="_blank">
+					<h2>O novo sempre vem 🤔🤔</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2018-12-02">02/12/2018</time>
+					|
+					<a class="domain" href="https://depressaoemocao.blogspot.com" target="_blank">depressaoemocao.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://espelhandocoisasboas.wordpress.com/2018/12/01/1o-dia-do-ultimo-mes-do-ano-voce-comeca-ou-espera/" target="_blank">
+					<h2>1º dia do último mês do ano. Você começa ou espera?</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2018-12-02">02/12/2018</time>
+					|
+					<a class="domain" href="https://espelhandocoisasboas.wordpress.com" target="_blank">espelhandocoisasboas.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://aartedaartesa.blogspot.com/2018/12/jogo-de-banheiro-croche.html" target="_blank">
+					<h2>Jogo de Banheiro - Crochê</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2018-12-01">01/12/2018</time>
+					|
+					<a class="domain" href="https://aartedaartesa.blogspot.com" target="_blank">aartedaartesa.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://isolamentotal.blogspot.com/2018/11/maldicao.html" target="_blank">
+					<h2>Maldição</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2018-11-30">30/11/2018</time>
+					|
+					<a class="domain" href="https://isolamentotal.blogspot.com" target="_blank">isolamentotal.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+		</ol>
+		<nav>
+			<a href="page-87.html">&larr; Voltar</a>
+			<span>Página 88 de 209</span>
+			<a href="page-89.html">Avançar &rarr;</a>
+		</nav>
+	</main>
+	<footer>
+		<p>Atualizado em:
+			<time id="update-at" datetime="2026-03-08T16:48:53.274582+00:00">
+				Sunday, 08/03/2026 16:48:53
+			</time>
+		</p>
+		<p><a href="index.html">BR Crawl</a> | <a href="about.html">Sobre</a> | <a href="sources.html">Fontes</a></p>
+	</footer>
+</body>
+
+<script type="module" nonce="fb611f0a86e8dfbee9230918efb8e0dd">
+	const updatedAtElement = document.getElementById("update-at");
+	const date = new Date(updatedAtElement.dateTime);
+	updatedAtElement.innerText = date.toLocaleString(undefined, {
+		dateStyle: "full",
+		timeStyle: "medium",
+	})
+</script>
+<script type="module" nonce="fb611f0a86e8dfbee9230918efb8e0dd">
+var backend_url='https://brcrawl.guilhermegarcia.dev';
+function hide_feedback(domain) {
+    return `<div><small>Domínio <a href="https://${domain}">${domain}</a> escondido. | <button class="show">exibir</button></small></div>`;
+}
+
+function report_feedback(li) {
+    li.style.opacity = 0.5;
+    const btn = li.querySelector("button.report");
+    btn.textContent = "reportado";
+    btn.className = "unreport";
+}
+
+var reported = localStorage.getItem('reported') || '[]';
+reported = JSON.parse(reported);
+var hidden = localStorage.getItem('hidden') || '[]';
+hidden = JSON.parse(hidden);
+
+let domains = Array.from(document.getElementsByClassName("domain"));
+domains.forEach((domain) => {
+    if (reported.includes(domain.textContent)) {
+        const li = domain.closest("li");
+        report_feedback(li);
+    }
+    if (hidden.includes(domain.textContent)) {
+        domain.closest("li").innerHTML = hide_feedback(domain.textContent);
+    }
+});
+
+function report(btn) {
+    const li = btn.closest("li");
+    const articleDomain = li.querySelector("a.domain");
+    const domain = articleDomain.textContent;
+
+    if (reported.length == 0) {
+        const agreed = confirm("Reporte sites que não são blogs pessoais ou não estão em português. Confirme para não ver mais essa mensagem. Obrigado!");
+        if (!agreed) {
+            return;
+        }
+    }
+    fetch(`${backend_url}/report`, {
+        method: "POST",
+        body: JSON.stringify({ domain }),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+    reported.push(domain);
+    localStorage.setItem('reported', JSON.stringify(reported));
+    report_feedback(li);
+}
+
+function unreport(btn) {
+    const li = btn.closest("li");
+    const articleDomain = li.querySelector("a.domain");
+    const domain = articleDomain.textContent;
+    reported = reported.filter((d) => d != domain);
+    localStorage.setItem('reported', JSON.stringify(reported));
+    fetch(`${backend_url}/report`, {
+        method: "POST",
+        body: JSON.stringify({ domain }),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }).finally(() => {
+        window.location.reload();
+    });
+}
+
+function hide(btn) {
+    const li = btn.closest("li");
+    const articleDomain = li.querySelector("a.domain");
+    const domain = articleDomain.textContent;
+
+    hidden.push(domain);
+    localStorage.setItem('hidden', JSON.stringify(hidden));
+    li.innerHTML = hide_feedback(domain);
+}
+
+function show(btn) {
+    const li = btn.closest("li");
+    const articleDomain = li.querySelector("a");
+    const domain = articleDomain.textContent;
+    hidden = hidden.filter((d) => d != domain);
+    localStorage.setItem('hidden', JSON.stringify(hidden));
+    window.location.reload();
+}
+
+document.addEventListener("click", function(e) {
+    if (e.target.className == "report") {
+        return report(e.target);
+    }
+    if (e.target.className == "unreport") {
+        return unreport(e.target);
+    }
+    if (e.target.className == "hide") {
+        return hide(e.target);
+    }
+    if (e.target.className == "show") {
+        return show(e.target);
+    }
+});
+</script>
+
+</html>

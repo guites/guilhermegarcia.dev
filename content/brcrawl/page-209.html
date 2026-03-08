@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>BR Crawl</title>
+
+	<meta http-equiv="Content-Security-Policy" content="
+		default-src 'none';
+		connect-src https://brcrawl.guilhermegarcia.dev;
+		base-uri 'self';
+		img-src 'self' data: ;
+		style-src 'nonce-7a5a08d9d17f75180f06416c51c1fe09' ;
+		script-src 'nonce-7a5a08d9d17f75180f06416c51c1fe09' 'strict-dynamic' ;
+	">
+	<meta name="application-name" content="brcrawl">
+	<meta name="description" content="Diretório da smallweb brasileira">
+	<meta name="referrer" content="same-origin">
+
+	<style nonce="7a5a08d9d17f75180f06416c51c1fe09">
+:root {
+    color-scheme: dark light;
+    --primary: #0AC8F5;
+    --secondary: #D2F00F;
+    --text: var(--txt, #cfcfcf);
+    --border: var(--bd, #c0c0c0);
+    --background: var(--bg, #1D1F21);
+    font-size: min(calc(.75rem + 0.75vw), 16px);
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --text: var(--txt, #444444);
+        --border: var(--bd, #333333);
+        --background: var(--bg, white);
+        --primary: #207D92;
+        --secondary: #6A7A06;
+    }
+}
+
+body {
+    font-family: Calibri, 'Trebuchet MS', 'Lucida Sans', Arial, sans-serif;
+    color: var(--text);
+    background: var(--background);
+    max-width: 50rem;
+    width: 100%;
+    margin: 0.5em auto 2em;
+    line-height: 1.25em;
+}
+
+header {
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 0.25em;
+}
+
+header > h1 {
+    display: inline-block;
+    padding: 0 0.5em;
+}
+
+h2 {
+    font-size: 1rem;
+    display: inline;
+}
+
+ol {
+    padding-left: 5ch;
+}
+
+li {
+    margin-block-start: 1em;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:link {
+    color: var(--primary);
+}
+
+a:visited {
+    color: var(--secondary);
+}
+
+a:hover {
+    opacity: 0.8;
+}
+
+small {
+    padding-top: 0.25rem;
+    font-size: 0.95rem;
+}
+
+small > a:link,
+small > a:visited {
+    color: var(--text);
+}
+
+footer {
+    padding: 1rem;
+    margin-top: 2rem;
+    border-top: 1px solid var(--border);
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    padding: 1em 0;
+    margin-top: 1em;
+}
+
+nav > a, nav > span {
+    padding: 0.25em 0.75em;
+}
+
+nav > span {
+    color: var(--border);
+}
+
+button.report, button.unreport, button.hide, button.show {
+    background: transparent;
+    border: 0px transparent;
+    padding: 0px;
+    margin: 0px;
+    display: inline;
+    box-sizing: border-box;
+    font: inherit;
+    color: inherit;
+}
+
+button.report:hover, button.unreport, button.hide:hover, button.show {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.title-br { display: none; }
+
+@media screen and (max-width: 470px) {
+    header { text-align: center; }
+    .title-br { display: initial; }
+    .title-span { margin: 10px 0px; display: inline-block; }
+}
+	</style>
+</head>
+
+<body>
+	<header>
+		<h1>BR Crawl</h1>
+		<br class="title-br"/>
+		<span class="title-span">Diretório da smallweb brasileira</span>
+	</header>
+	<main>
+		<ol start="10401">
+			<li>
+				<a href="http://mundodosmachos.blogspot.com/2006/04/corintiano-maloqueiro-e-sofredor-graas.html" target="_blank">
+					<h2>Corintiano maloqueiro e sofredor, graças a Deus</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2006-04-07">07/04/2006</time>
+					|
+					<a class="domain" href="https://mundodosmachos.blogspot.com" target="_blank">mundodosmachos.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://universoinstavel.blogspot.com/2006/02/fechado-por-tempo-indeterminado.html" target="_blank">
+					<h2>FECHADO POR TEMPO INDETERMINADO</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2006-02-22">22/02/2006</time>
+					|
+					<a class="domain" href="https://universoinstavel.blogspot.com" target="_blank">universoinstavel.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://2a2.blogspot.com/2006_01_01_archive.html#113779643870800512" target="_blank">
+					<h2>Untitled</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2006-01-20">20/01/2006</time>
+					|
+					<a class="domain" href="https://2a2.blogspot.com" target="_blank">2a2.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://santonatal.blogspot.com/2006/01/dia-de-reis.html" target="_blank">
+					<h2>Dia de Reis</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2006-01-07">07/01/2006</time>
+					|
+					<a class="domain" href="https://santonatal.blogspot.com" target="_blank">santonatal.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://giulieta.blogspot.com/2005_09_18_archive.html#112710635257911729" target="_blank">
+					<h2>Untitled</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2005-09-19">19/09/2005</time>
+					|
+					<a class="domain" href="https://giulieta.blogspot.com" target="_blank">giulieta.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://puragoiaba.blogspot.com/2005/09/vide-verso-meu-endereo.html" target="_blank">
+					<h2>Vide verso meu endereço</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2005-09-19">19/09/2005</time>
+					|
+					<a class="domain" href="https://puragoiaba.blogspot.com" target="_blank">puragoiaba.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://silvia1807.blogspot.com/2005/08/da-teoria-tica.html" target="_blank">
+					<h2>Da teoria à prática</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2005-08-10">10/08/2005</time>
+					|
+					<a class="domain" href="https://silvia1807.blogspot.com" target="_blank">silvia1807.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://stuckinsac.blogspot.com/2005/07/minha-nova-casa-na-verbeat.html" target="_blank">
+					<h2>Minha nova casa na Verbeat</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2005-07-21">21/07/2005</time>
+					|
+					<a class="domain" href="https://stuckinsac.blogspot.com" target="_blank">stuckinsac.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://afonsochato.blogspot.com/2005/07/enfim.html" target="_blank">
+					<h2>Enfim...</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2005-07-18">18/07/2005</time>
+					|
+					<a class="domain" href="https://afonsochato.blogspot.com" target="_blank">afonsochato.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://obafofia.blogspot.com/2005_07_01_archive.html#112113110531929728" target="_blank">
+					<h2>Untitled</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2005-07-12">12/07/2005</time>
+					|
+					<a class="domain" href="https://obafofia.blogspot.com" target="_blank">obafofia.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://dita59.tripod.com/2005/06/ligaes.html" target="_blank">
+					<h2>Ligações</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2005-06-15">15/06/2005</time>
+					|
+					<a class="domain" href="https://dita59.tripod.com" target="_blank">dita59.tripod.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://baladadolouco.blogspot.com/2005/01/nasce-uma-lenda.html" target="_blank">
+					<h2>Nasce Uma Lenda</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2005-01-10">10/01/2005</time>
+					|
+					<a class="domain" href="https://baladadolouco.blogspot.com" target="_blank">baladadolouco.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://fodase.blogspot.com/index.html#110399128207472842" target="_blank">
+					<h2>Untitled</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2004-12-25">25/12/2004</time>
+					|
+					<a class="domain" href="https://fodase.blogspot.com" target="_blank">fodase.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://surradepaomole.blogspot.com/2004/12/teste.html" target="_blank">
+					<h2>teste</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2004-12-01">01/12/2004</time>
+					|
+					<a class="domain" href="https://surradepaomole.blogspot.com" target="_blank">surradepaomole.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://ilhadeursos.blogspot.com/index.html#110135605078775648" target="_blank">
+					<h2>Mudei de novo!</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2004-11-25">25/11/2004</time>
+					|
+					<a class="domain" href="https://ilhadeursos.blogspot.com" target="_blank">ilhadeursos.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://ticcia.blogspot.com/2004_09_01_archive.html#109467349100691072" target="_blank">
+					<h2>Untitled</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2004-09-08">08/09/2004</time>
+					|
+					<a class="domain" href="https://ticcia.blogspot.com" target="_blank">ticcia.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://weno.blogspot.com/2003_10_01_archive.html#106761851401978528" target="_blank">
+					<h2>Untitled</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2003-10-31">31/10/2003</time>
+					|
+					<a class="domain" href="https://weno.blogspot.com" target="_blank">weno.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://meuchapa.blogspot.com/2001_11_11_archive.html#7103420" target="_blank">
+					<h2>Untitled</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2001-11-14">14/11/2001</time>
+					|
+					<a class="domain" href="https://meuchapa.blogspot.com" target="_blank">meuchapa.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://diego.ss/equipamentos/" target="_blank">
+					<h2>Equipamentos</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="0001-01-01">01/01/1</time>
+					|
+					<a class="domain" href="https://diego.ss" target="_blank">diego.ss</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+		</ol>
+		<nav>
+			<a href="page-208.html">&larr; Voltar</a>
+			<span>Página 209 de 209</span>
+			<span>Avançar &rarr;</span>
+		</nav>
+	</main>
+	<footer>
+		<p>Atualizado em:
+			<time id="update-at" datetime="2026-03-08T16:48:53.355664+00:00">
+				Sunday, 08/03/2026 16:48:53
+			</time>
+		</p>
+		<p><a href="index.html">BR Crawl</a> | <a href="about.html">Sobre</a> | <a href="sources.html">Fontes</a></p>
+	</footer>
+</body>
+
+<script type="module" nonce="7a5a08d9d17f75180f06416c51c1fe09">
+	const updatedAtElement = document.getElementById("update-at");
+	const date = new Date(updatedAtElement.dateTime);
+	updatedAtElement.innerText = date.toLocaleString(undefined, {
+		dateStyle: "full",
+		timeStyle: "medium",
+	})
+</script>
+<script type="module" nonce="7a5a08d9d17f75180f06416c51c1fe09">
+var backend_url='https://brcrawl.guilhermegarcia.dev';
+function hide_feedback(domain) {
+    return `<div><small>Domínio <a href="https://${domain}">${domain}</a> escondido. | <button class="show">exibir</button></small></div>`;
+}
+
+function report_feedback(li) {
+    li.style.opacity = 0.5;
+    const btn = li.querySelector("button.report");
+    btn.textContent = "reportado";
+    btn.className = "unreport";
+}
+
+var reported = localStorage.getItem('reported') || '[]';
+reported = JSON.parse(reported);
+var hidden = localStorage.getItem('hidden') || '[]';
+hidden = JSON.parse(hidden);
+
+let domains = Array.from(document.getElementsByClassName("domain"));
+domains.forEach((domain) => {
+    if (reported.includes(domain.textContent)) {
+        const li = domain.closest("li");
+        report_feedback(li);
+    }
+    if (hidden.includes(domain.textContent)) {
+        domain.closest("li").innerHTML = hide_feedback(domain.textContent);
+    }
+});
+
+function report(btn) {
+    const li = btn.closest("li");
+    const articleDomain = li.querySelector("a.domain");
+    const domain = articleDomain.textContent;
+
+    if (reported.length == 0) {
+        const agreed = confirm("Reporte sites que não são blogs pessoais ou não estão em português. Confirme para não ver mais essa mensagem. Obrigado!");
+        if (!agreed) {
+            return;
+        }
+    }
+    fetch(`${backend_url}/report`, {
+        method: "POST",
+        body: JSON.stringify({ domain }),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+    reported.push(domain);
+    localStorage.setItem('reported', JSON.stringify(reported));
+    report_feedback(li);
+}
+
+function unreport(btn) {
+    const li = btn.closest("li");
+    const articleDomain = li.querySelector("a.domain");
+    const domain = articleDomain.textContent;
+    reported = reported.filter((d) => d != domain);
+    localStorage.setItem('reported', JSON.stringify(reported));
+    fetch(`${backend_url}/report`, {
+        method: "POST",
+        body: JSON.stringify({ domain }),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }).finally(() => {
+        window.location.reload();
+    });
+}
+
+function hide(btn) {
+    const li = btn.closest("li");
+    const articleDomain = li.querySelector("a.domain");
+    const domain = articleDomain.textContent;
+
+    hidden.push(domain);
+    localStorage.setItem('hidden', JSON.stringify(hidden));
+    li.innerHTML = hide_feedback(domain);
+}
+
+function show(btn) {
+    const li = btn.closest("li");
+    const articleDomain = li.querySelector("a");
+    const domain = articleDomain.textContent;
+    hidden = hidden.filter((d) => d != domain);
+    localStorage.setItem('hidden', JSON.stringify(hidden));
+    window.location.reload();
+}
+
+document.addEventListener("click", function(e) {
+    if (e.target.className == "report") {
+        return report(e.target);
+    }
+    if (e.target.className == "unreport") {
+        return unreport(e.target);
+    }
+    if (e.target.className == "hide") {
+        return hide(e.target);
+    }
+    if (e.target.className == "show") {
+        return show(e.target);
+    }
+});
+</script>
+
+</html>

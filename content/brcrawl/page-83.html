@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>BR Crawl</title>
+
+	<meta http-equiv="Content-Security-Policy" content="
+		default-src 'none';
+		connect-src https://brcrawl.guilhermegarcia.dev;
+		base-uri 'self';
+		img-src 'self' data: ;
+		style-src 'nonce-d2f9e1ac9e03a7dd7f944a859b529de5' ;
+		script-src 'nonce-d2f9e1ac9e03a7dd7f944a859b529de5' 'strict-dynamic' ;
+	">
+	<meta name="application-name" content="brcrawl">
+	<meta name="description" content="Diretório da smallweb brasileira">
+	<meta name="referrer" content="same-origin">
+
+	<style nonce="d2f9e1ac9e03a7dd7f944a859b529de5">
+:root {
+    color-scheme: dark light;
+    --primary: #0AC8F5;
+    --secondary: #D2F00F;
+    --text: var(--txt, #cfcfcf);
+    --border: var(--bd, #c0c0c0);
+    --background: var(--bg, #1D1F21);
+    font-size: min(calc(.75rem + 0.75vw), 16px);
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --text: var(--txt, #444444);
+        --border: var(--bd, #333333);
+        --background: var(--bg, white);
+        --primary: #207D92;
+        --secondary: #6A7A06;
+    }
+}
+
+body {
+    font-family: Calibri, 'Trebuchet MS', 'Lucida Sans', Arial, sans-serif;
+    color: var(--text);
+    background: var(--background);
+    max-width: 50rem;
+    width: 100%;
+    margin: 0.5em auto 2em;
+    line-height: 1.25em;
+}
+
+header {
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 0.25em;
+}
+
+header > h1 {
+    display: inline-block;
+    padding: 0 0.5em;
+}
+
+h2 {
+    font-size: 1rem;
+    display: inline;
+}
+
+ol {
+    padding-left: 5ch;
+}
+
+li {
+    margin-block-start: 1em;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:link {
+    color: var(--primary);
+}
+
+a:visited {
+    color: var(--secondary);
+}
+
+a:hover {
+    opacity: 0.8;
+}
+
+small {
+    padding-top: 0.25rem;
+    font-size: 0.95rem;
+}
+
+small > a:link,
+small > a:visited {
+    color: var(--text);
+}
+
+footer {
+    padding: 1rem;
+    margin-top: 2rem;
+    border-top: 1px solid var(--border);
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    padding: 1em 0;
+    margin-top: 1em;
+}
+
+nav > a, nav > span {
+    padding: 0.25em 0.75em;
+}
+
+nav > span {
+    color: var(--border);
+}
+
+button.report, button.unreport, button.hide, button.show {
+    background: transparent;
+    border: 0px transparent;
+    padding: 0px;
+    margin: 0px;
+    display: inline;
+    box-sizing: border-box;
+    font: inherit;
+    color: inherit;
+}
+
+button.report:hover, button.unreport, button.hide:hover, button.show {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.title-br { display: none; }
+
+@media screen and (max-width: 470px) {
+    header { text-align: center; }
+    .title-br { display: initial; }
+    .title-span { margin: 10px 0px; display: inline-block; }
+}
+	</style>
+</head>
+
+<body>
+	<header>
+		<h1>BR Crawl</h1>
+		<br class="title-br"/>
+		<span class="title-span">Diretório da smallweb brasileira</span>
+	</header>
+	<main>
+		<ol start="4101">
+			<li>
+				<a href="https://letravelblog.wordpress.com/2019/06/21/2017/" target="_blank">
+					<h2>Untitled</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2019-06-21">21/06/2019</time>
+					|
+					<a class="domain" href="https://letravelblog.wordpress.com" target="_blank">letravelblog.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://anipuntura.wordpress.com/2019/06/20/optimizar-a-saude/" target="_blank">
+					<h2>Optimizar a saúde!</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2019-06-20">20/06/2019</time>
+					|
+					<a class="domain" href="https://anipuntura.wordpress.com" target="_blank">anipuntura.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://atraspenteadeira.blogspot.com/2019/06/casamento-sem-grana-e-possivel.html" target="_blank">
+					<h2>CASAMENTO SEM GRANA, É POSSÍVEL?</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2019-06-19">19/06/2019</time>
+					|
+					<a class="domain" href="https://atraspenteadeira.blogspot.com" target="_blank">atraspenteadeira.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://meumundoemoutrascores.wordpress.com/2019/06/19/curso-para-aprender-a-viajar-pagando-barato/" target="_blank">
+					<h2>Curso para aprender a viajar pagando barato</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2019-06-19">19/06/2019</time>
+					|
+					<a class="domain" href="https://meumundoemoutrascores.wordpress.com" target="_blank">meumundoemoutrascores.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://arwenreleituras.wordpress.com/2019/06/19/vamos-praticar-ingles/" target="_blank">
+					<h2>Vamos praticar Inglês</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2019-06-19">19/06/2019</time>
+					|
+					<a class="domain" href="https://arwenreleituras.wordpress.com" target="_blank">arwenreleituras.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://pri-precisaemagrecer.blogspot.com/2019/06/atualizando.html" target="_blank">
+					<h2>Atualizando........🙊🙈🙉</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2019-06-18">18/06/2019</time>
+					|
+					<a class="domain" href="https://pri-precisaemagrecer.blogspot.com" target="_blank">pri-precisaemagrecer.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://algodenadablog.wordpress.com/2019/06/17/358/" target="_blank">
+					<h2>Caminhos e Propósitos</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2019-06-17">17/06/2019</time>
+					|
+					<a class="domain" href="https://algodenadablog.wordpress.com" target="_blank">algodenadablog.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://fabriciofjorge.wordpress.com/2019/06/16/quem-e-vivo-sempre-aparece/" target="_blank">
+					<h2>Quem é vivo sempre aparece</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2019-06-16">16/06/2019</time>
+					|
+					<a class="domain" href="https://fabriciofjorge.wordpress.com" target="_blank">fabriciofjorge.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://ohsofangirl.blogspot.com/2019/06/guess-whos-back-by-popular-demand-not-me.html" target="_blank">
+					<h2>Guess who&amp;#39;s back by popular demand? (not me)</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2019-06-15">15/06/2019</time>
+					|
+					<a class="domain" href="https://ohsofangirl.blogspot.com" target="_blank">ohsofangirl.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://alegoriaprimavera.blogspot.com/2019/06/brazilian-cool-kids-1-tim-maia-dia-de.html" target="_blank">
+					<h2>Brazilian Cool Kids #1: Tim Maia - Dia de Domingo</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2019-06-14">14/06/2019</time>
+					|
+					<a class="domain" href="https://alegoriaprimavera.blogspot.com" target="_blank">alegoriaprimavera.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://dctorx.blogspot.com/2019/06/feitico.html" target="_blank">
+					<h2>FEITIÇO</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2019-06-14">14/06/2019</time>
+					|
+					<a class="domain" href="https://dctorx.blogspot.com" target="_blank">dctorx.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://dedicartes.blogspot.com/2019/06/dia-dos-namorados.html" target="_blank">
+					<h2>DIA DOS NAMORADOS</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2019-06-13">13/06/2019</time>
+					|
+					<a class="domain" href="https://dedicartes.blogspot.com" target="_blank">dedicartes.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://jacaredopapoamarelo.wordpress.com/2019/06/12/primeira-exibicao/" target="_blank">
+					<h2>Primeira Exibição</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2019-06-12">12/06/2019</time>
+					|
+					<a class="domain" href="https://jacaredopapoamarelo.wordpress.com" target="_blank">jacaredopapoamarelo.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://folhasdenetuno.blogspot.com/2019/06/como-cuidar-dos-cabelos-noite.html" target="_blank">
+					<h2>COMO CUIDAR DOS CABELOS A NOITE</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2019-06-10">10/06/2019</time>
+					|
+					<a class="domain" href="https://folhasdenetuno.blogspot.com" target="_blank">folhasdenetuno.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://liliandalledone.blogspot.com/2019/06/tenho-mil-cores-na-minha-caneta-que.html" target="_blank">
+					<h2>Untitled</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2019-06-10">10/06/2019</time>
+					|
+					<a class="domain" href="https://liliandalledone.blogspot.com" target="_blank">liliandalledone.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://allecoruja.blogspot.com/2019/06/152semanasdegratidao.html" target="_blank">
+					<h2>#1#52semanasdeGratidão</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2019-06-08">08/06/2019</time>
+					|
+					<a class="domain" href="https://allecoruja.blogspot.com" target="_blank">allecoruja.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://docedelira.blogspot.com/2019/06/espelho.html" target="_blank">
+					<h2>Espelho</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2019-06-08">08/06/2019</time>
+					|
+					<a class="domain" href="https://docedelira.blogspot.com" target="_blank">docedelira.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://casacorpoecia.blogspot.com/2019/06/oculos-dior-homme.html" target="_blank">
+					<h2>Óculos Dior Homme</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2019-06-06">06/06/2019</time>
+					|
+					<a class="domain" href="https://casacorpoecia.blogspot.com" target="_blank">casacorpoecia.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://festacomgosto.blogspot.com/2019/06/miguel-nas-galaxias.html" target="_blank">
+					<h2>Miguel nas Galáxias!</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2019-06-05">05/06/2019</time>
+					|
+					<a class="domain" href="https://festacomgosto.blogspot.com" target="_blank">festacomgosto.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://inversomeu.blogspot.com/2019/06/humano-demasiado-humano.html" target="_blank">
+					<h2>&amp;#34;Humano, demasiado humano...&amp;#34;</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2019-06-05">05/06/2019</time>
+					|
+					<a class="domain" href="https://inversomeu.blogspot.com" target="_blank">inversomeu.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://ogarotocomoslivros.blogspot.com/2019/06/brincadeira-realista-bonecas-produzidas.html" target="_blank">
+					<h2>Brincadeira realista: bonecas produzidas em Porto Alegre parecem bebês de verdade</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2019-06-05">05/06/2019</time>
+					|
+					<a class="domain" href="https://ogarotocomoslivros.blogspot.com" target="_blank">ogarotocomoslivros.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://literadia.wordpress.com/2019/06/02/reflexao-de-quem-nao-consegue-dormir/" target="_blank">
+					<h2>Reflexões  de quando não se consegue dormir</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2019-06-02">02/06/2019</time>
+					|
+					<a class="domain" href="https://literadia.wordpress.com" target="_blank">literadia.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://blogsemdrama.blogspot.com/2026/03/blog-post.html" target="_blank">
+					<h2>15 dicas do que fazer nas férias</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2019-06-01">01/06/2019</time>
+					|
+					<a class="domain" href="https://blogsemdrama.blogspot.com" target="_blank">blogsemdrama.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://lifestylebydb.wordpress.com/2019/06/01/dia-mundial-da-crianca/" target="_blank">
+					<h2>Dia Mundial da Criança</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2019-06-01">01/06/2019</time>
+					|
+					<a class="domain" href="https://lifestylebydb.wordpress.com" target="_blank">lifestylebydb.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://blogoutonoliterario.blogspot.com/2019/05/resenha-menina-que-roubava-livros.html" target="_blank">
+					<h2>[ Resenha ] - A Menina que Roubava Livros (Markus Zusak)</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2019-05-30">30/05/2019</time>
+					|
+					<a class="domain" href="https://blogoutonoliterario.blogspot.com" target="_blank">blogoutonoliterario.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://mytudoemaisumpouco.wordpress.com/2019/05/29/gilmore-girlstal-maetal-filha-%e2%9d%a4/" target="_blank">
+					<h2>Gilmore girls(tal mãe,tal filha ❤)</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2019-05-29">29/05/2019</time>
+					|
+					<a class="domain" href="https://mytudoemaisumpouco.wordpress.com" target="_blank">mytudoemaisumpouco.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://coisasdajuuh.blogspot.com/2019/05/primeiras-impressoes-lady-killers.html" target="_blank">
+					<h2>Primeiras impressões - Lady Killers: Assassinas em Série</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2019-05-29">29/05/2019</time>
+					|
+					<a class="domain" href="https://coisasdajuuh.blogspot.com" target="_blank">coisasdajuuh.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://quemakeup.blogspot.com/2019/05/suporte-para-esponja.html" target="_blank">
+					<h2>Suporte para Esponja</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2019-05-28">28/05/2019</time>
+					|
+					<a class="domain" href="https://quemakeup.blogspot.com" target="_blank">quemakeup.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://abrunagandra.blogspot.com/2019/05/femme-luxe-haul-review.html" target="_blank">
+					<h2>Femme luxe Haul &amp;#43; review</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2019-05-28">28/05/2019</time>
+					|
+					<a class="domain" href="https://abrunagandra.blogspot.com" target="_blank">abrunagandra.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://zizi-santos.blogspot.com/2019/05/pausa.html" target="_blank">
+					<h2>Pausa</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2019-05-27">27/05/2019</time>
+					|
+					<a class="domain" href="https://zizi-santos.blogspot.com" target="_blank">zizi-santos.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://pausaparapitacos.blogspot.com/2019/05/etc-e-tal-na-minha-play-bebe-rexha.html" target="_blank">
+					<h2>{Etc e tal...} ~ Na minha play: Bebe Rexha ~</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2019-05-24">24/05/2019</time>
+					|
+					<a class="domain" href="https://pausaparapitacos.blogspot.com" target="_blank">pausaparapitacos.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://essatalpaternidade.wordpress.com/2019/05/24/roda-de-conversa-educando-com-amor/" target="_blank">
+					<h2>Roda de Conversa – Educando com Amor</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2019-05-24">24/05/2019</time>
+					|
+					<a class="domain" href="https://essatalpaternidade.wordpress.com" target="_blank">essatalpaternidade.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://ebocalivre.blogspot.com/2019/05/cozinha-do-harmonico-ao-sinfonico_22.html" target="_blank">
+					<h2>Cozinha: do harmônico ao sinfônico</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2019-05-22">22/05/2019</time>
+					|
+					<a class="domain" href="https://ebocalivre.blogspot.com" target="_blank">ebocalivre.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://falanara.blogspot.com/2019/05/voce-pode-desde-que-me-tornei-mae-tenho.html" target="_blank">
+					<h2>Untitled</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2019-05-22">22/05/2019</time>
+					|
+					<a class="domain" href="https://falanara.blogspot.com" target="_blank">falanara.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://omundodesofisma.blogspot.com/2019/05/ha-alguns-meses-eu-me-comprometia.html" target="_blank">
+					<h2>Despedida</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2019-05-21">21/05/2019</time>
+					|
+					<a class="domain" href="https://omundodesofisma.blogspot.com" target="_blank">omundodesofisma.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://aestantedosgemeos.blogspot.com/2019/05/the-society-critica.html" target="_blank">
+					<h2>The Society  | CRÍTICA</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2019-05-21">21/05/2019</time>
+					|
+					<a class="domain" href="https://aestantedosgemeos.blogspot.com" target="_blank">aestantedosgemeos.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://olharsimplesmente.blogspot.com/2019/05/e-ai-fica-em-paz.html" target="_blank">
+					<h2>E aí, fica em paz.</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2019-05-20">20/05/2019</time>
+					|
+					<a class="domain" href="https://olharsimplesmente.blogspot.com" target="_blank">olharsimplesmente.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://vestidadeceu.blogspot.com/2019/05/eu-falhei.html" target="_blank">
+					<h2>eu falhei</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2019-05-20">20/05/2019</time>
+					|
+					<a class="domain" href="https://vestidadeceu.blogspot.com" target="_blank">vestidadeceu.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://entretardes.wordpress.com/2019/05/20/953/" target="_blank">
+					<h2>–</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2019-05-20">20/05/2019</time>
+					|
+					<a class="domain" href="https://entretardes.wordpress.com" target="_blank">entretardes.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://idisayblog.wordpress.com/2019/05/20/um-desabafo-sobre-as-redes-sociais/" target="_blank">
+					<h2>{Um desabafo sobre as redes sociais…}</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2019-05-20">20/05/2019</time>
+					|
+					<a class="domain" href="https://idisayblog.wordpress.com" target="_blank">idisayblog.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://saitica.blogspot.com/2019/05/so-para-nao-esquecer-ditadura-militar.html" target="_blank">
+					<h2>Só para não Esquecer a Ditadura militar. Quartel do Barbalho em Salvador. Ba. fotos daniel de andrade simões</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2019-05-19">19/05/2019</time>
+					|
+					<a class="domain" href="https://saitica.blogspot.com" target="_blank">saitica.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://itanamara.wordpress.com/2019/05/19/8165/" target="_blank">
+					<h2>Ausência do Blog.</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2019-05-19">19/05/2019</time>
+					|
+					<a class="domain" href="https://itanamara.wordpress.com" target="_blank">itanamara.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://dancaravida.blogspot.com/2019/05/acesso-tese-publicada.html" target="_blank">
+					<h2>ACESSO À TESE PUBLICADA</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2019-05-19">19/05/2019</time>
+					|
+					<a class="domain" href="https://dancaravida.blogspot.com" target="_blank">dancaravida.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://prafalardecoisas.wordpress.com/2019/05/17/mashmallow-para-o-brasil/" target="_blank">
+					<h2>Mashmallow para o Brasil</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2019-05-17">17/05/2019</time>
+					|
+					<a class="domain" href="https://prafalardecoisas.wordpress.com" target="_blank">prafalardecoisas.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://devaneius.wordpress.com/2019/05/17/a-gata-da-vizinha/" target="_blank">
+					<h2>A gata da vizinha</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2019-05-17">17/05/2019</time>
+					|
+					<a class="domain" href="https://devaneius.wordpress.com" target="_blank">devaneius.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://apartamentoparadois.blogspot.com/2019/05/diario-de-reforma-por-onde-comecamos.html" target="_blank">
+					<h2>Diário de Reforma: por onde começamos</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2019-05-15">15/05/2019</time>
+					|
+					<a class="domain" href="https://apartamentoparadois.blogspot.com" target="_blank">apartamentoparadois.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://alvarengasempre.blogspot.com/2019/05/uma-tarde-em-maio-2019.html" target="_blank">
+					<h2>uma tarde em maio 2019</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2019-05-15">15/05/2019</time>
+					|
+					<a class="domain" href="https://alvarengasempre.blogspot.com" target="_blank">alvarengasempre.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://mauraparvatis.blogspot.com/2019/05/algumas-centenas-de-postagens-menos.html" target="_blank">
+					<h2>Algumas centenas de postagens a menos...</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2019-05-15">15/05/2019</time>
+					|
+					<a class="domain" href="https://mauraparvatis.blogspot.com" target="_blank">mauraparvatis.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://rasgadojeans.blogspot.com/2019/05/italy-by-pantone.html" target="_blank">
+					<h2>Italy by Pantone</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2019-05-14">14/05/2019</time>
+					|
+					<a class="domain" href="https://rasgadojeans.blogspot.com" target="_blank">rasgadojeans.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://blogmundodalari.blogspot.com/2019/05/creme-hidratante-corporal-pele-extrasseca-monange.html" target="_blank">
+					<h2>Resenha: Creme hidratante corporal para pele extrasseca - Monange</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2019-05-14">14/05/2019</time>
+					|
+					<a class="domain" href="https://blogmundodalari.blogspot.com" target="_blank">blogmundodalari.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+		</ol>
+		<nav>
+			<a href="page-82.html">&larr; Voltar</a>
+			<span>Página 83 de 209</span>
+			<a href="page-84.html">Avançar &rarr;</a>
+		</nav>
+	</main>
+	<footer>
+		<p>Atualizado em:
+			<time id="update-at" datetime="2026-03-08T16:48:53.271300+00:00">
+				Sunday, 08/03/2026 16:48:53
+			</time>
+		</p>
+		<p><a href="index.html">BR Crawl</a> | <a href="about.html">Sobre</a> | <a href="sources.html">Fontes</a></p>
+	</footer>
+</body>
+
+<script type="module" nonce="d2f9e1ac9e03a7dd7f944a859b529de5">
+	const updatedAtElement = document.getElementById("update-at");
+	const date = new Date(updatedAtElement.dateTime);
+	updatedAtElement.innerText = date.toLocaleString(undefined, {
+		dateStyle: "full",
+		timeStyle: "medium",
+	})
+</script>
+<script type="module" nonce="d2f9e1ac9e03a7dd7f944a859b529de5">
+var backend_url='https://brcrawl.guilhermegarcia.dev';
+function hide_feedback(domain) {
+    return `<div><small>Domínio <a href="https://${domain}">${domain}</a> escondido. | <button class="show">exibir</button></small></div>`;
+}
+
+function report_feedback(li) {
+    li.style.opacity = 0.5;
+    const btn = li.querySelector("button.report");
+    btn.textContent = "reportado";
+    btn.className = "unreport";
+}
+
+var reported = localStorage.getItem('reported') || '[]';
+reported = JSON.parse(reported);
+var hidden = localStorage.getItem('hidden') || '[]';
+hidden = JSON.parse(hidden);
+
+let domains = Array.from(document.getElementsByClassName("domain"));
+domains.forEach((domain) => {
+    if (reported.includes(domain.textContent)) {
+        const li = domain.closest("li");
+        report_feedback(li);
+    }
+    if (hidden.includes(domain.textContent)) {
+        domain.closest("li").innerHTML = hide_feedback(domain.textContent);
+    }
+});
+
+function report(btn) {
+    const li = btn.closest("li");
+    const articleDomain = li.querySelector("a.domain");
+    const domain = articleDomain.textContent;
+
+    if (reported.length == 0) {
+        const agreed = confirm("Reporte sites que não são blogs pessoais ou não estão em português. Confirme para não ver mais essa mensagem. Obrigado!");
+        if (!agreed) {
+            return;
+        }
+    }
+    fetch(`${backend_url}/report`, {
+        method: "POST",
+        body: JSON.stringify({ domain }),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+    reported.push(domain);
+    localStorage.setItem('reported', JSON.stringify(reported));
+    report_feedback(li);
+}
+
+function unreport(btn) {
+    const li = btn.closest("li");
+    const articleDomain = li.querySelector("a.domain");
+    const domain = articleDomain.textContent;
+    reported = reported.filter((d) => d != domain);
+    localStorage.setItem('reported', JSON.stringify(reported));
+    fetch(`${backend_url}/report`, {
+        method: "POST",
+        body: JSON.stringify({ domain }),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }).finally(() => {
+        window.location.reload();
+    });
+}
+
+function hide(btn) {
+    const li = btn.closest("li");
+    const articleDomain = li.querySelector("a.domain");
+    const domain = articleDomain.textContent;
+
+    hidden.push(domain);
+    localStorage.setItem('hidden', JSON.stringify(hidden));
+    li.innerHTML = hide_feedback(domain);
+}
+
+function show(btn) {
+    const li = btn.closest("li");
+    const articleDomain = li.querySelector("a");
+    const domain = articleDomain.textContent;
+    hidden = hidden.filter((d) => d != domain);
+    localStorage.setItem('hidden', JSON.stringify(hidden));
+    window.location.reload();
+}
+
+document.addEventListener("click", function(e) {
+    if (e.target.className == "report") {
+        return report(e.target);
+    }
+    if (e.target.className == "unreport") {
+        return unreport(e.target);
+    }
+    if (e.target.className == "hide") {
+        return hide(e.target);
+    }
+    if (e.target.className == "show") {
+        return show(e.target);
+    }
+});
+</script>
+
+</html>

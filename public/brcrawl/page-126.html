@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>BR Crawl</title>
+
+	<meta http-equiv="Content-Security-Policy" content="
+		default-src 'none';
+		connect-src https://brcrawl.guilhermegarcia.dev;
+		base-uri 'self';
+		img-src 'self' data: ;
+		style-src 'nonce-877d00e8c02f8b47f02cb43b96c97f34' ;
+		script-src 'nonce-877d00e8c02f8b47f02cb43b96c97f34' 'strict-dynamic' ;
+	">
+	<meta name="application-name" content="brcrawl">
+	<meta name="description" content="Diretório da smallweb brasileira">
+	<meta name="referrer" content="same-origin">
+
+	<style nonce="877d00e8c02f8b47f02cb43b96c97f34">
+:root {
+    color-scheme: dark light;
+    --primary: #0AC8F5;
+    --secondary: #D2F00F;
+    --text: var(--txt, #cfcfcf);
+    --border: var(--bd, #c0c0c0);
+    --background: var(--bg, #1D1F21);
+    font-size: min(calc(.75rem + 0.75vw), 16px);
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --text: var(--txt, #444444);
+        --border: var(--bd, #333333);
+        --background: var(--bg, white);
+        --primary: #207D92;
+        --secondary: #6A7A06;
+    }
+}
+
+body {
+    font-family: Calibri, 'Trebuchet MS', 'Lucida Sans', Arial, sans-serif;
+    color: var(--text);
+    background: var(--background);
+    max-width: 50rem;
+    width: 100%;
+    margin: 0.5em auto 2em;
+    line-height: 1.25em;
+}
+
+header {
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 0.25em;
+}
+
+header > h1 {
+    display: inline-block;
+    padding: 0 0.5em;
+}
+
+h2 {
+    font-size: 1rem;
+    display: inline;
+}
+
+ol {
+    padding-left: 5ch;
+}
+
+li {
+    margin-block-start: 1em;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:link {
+    color: var(--primary);
+}
+
+a:visited {
+    color: var(--secondary);
+}
+
+a:hover {
+    opacity: 0.8;
+}
+
+small {
+    padding-top: 0.25rem;
+    font-size: 0.95rem;
+}
+
+small > a:link,
+small > a:visited {
+    color: var(--text);
+}
+
+footer {
+    padding: 1rem;
+    margin-top: 2rem;
+    border-top: 1px solid var(--border);
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    padding: 1em 0;
+    margin-top: 1em;
+}
+
+nav > a, nav > span {
+    padding: 0.25em 0.75em;
+}
+
+nav > span {
+    color: var(--border);
+}
+
+button.report, button.unreport, button.hide, button.show {
+    background: transparent;
+    border: 0px transparent;
+    padding: 0px;
+    margin: 0px;
+    display: inline;
+    box-sizing: border-box;
+    font: inherit;
+    color: inherit;
+}
+
+button.report:hover, button.unreport, button.hide:hover, button.show {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.title-br { display: none; }
+
+@media screen and (max-width: 470px) {
+    header { text-align: center; }
+    .title-br { display: initial; }
+    .title-span { margin: 10px 0px; display: inline-block; }
+}
+	</style>
+</head>
+
+<body>
+	<header>
+		<h1>BR Crawl</h1>
+		<br class="title-br"/>
+		<span class="title-span">Diretório da smallweb brasileira</span>
+	</header>
+	<main>
+		<ol start="6251">
+			<li>
+				<a href="https://mundejolie.wordpress.com/2016/05/22/mini-tour-pelo-meu-apartamento/" target="_blank">
+					<h2>Mini Tour pelo meu apartamento!</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2016-05-22">22/05/2016</time>
+					|
+					<a class="domain" href="https://mundejolie.wordpress.com" target="_blank">mundejolie.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://vamosfalarlivros.blogspot.com/2016/05/dicas-da-semana-39-abuse-dos-abracos.html" target="_blank">
+					<h2>Dicas da Semana #39 - Abuse dos Abraços</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2016-05-22">22/05/2016</time>
+					|
+					<a class="domain" href="https://vamosfalarlivros.blogspot.com" target="_blank">vamosfalarlivros.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://desenhistasautodidatas.blogspot.com/2016/05/livro-desenho-bico-de-pena-uma.html" target="_blank">
+					<h2>LIVRO DESENHO A BICO DE PENA - UMA REFERÊNCIA DOS GRANDES ARTISTAS</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2016-05-21">21/05/2016</time>
+					|
+					<a class="domain" href="https://desenhistasautodidatas.blogspot.com" target="_blank">desenhistasautodidatas.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://nanamada.blogspot.com/2016/05/cancao-de-ninar.html" target="_blank">
+					<h2>Canção de Ninar</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2016-05-21">21/05/2016</time>
+					|
+					<a class="domain" href="https://nanamada.blogspot.com" target="_blank">nanamada.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://metacronica.wordpress.com/2016/05/21/compre-livros/" target="_blank">
+					<h2>COMPRE LIVROS!!!!</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2016-05-21">21/05/2016</time>
+					|
+					<a class="domain" href="https://metacronica.wordpress.com" target="_blank">metacronica.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://vienaoresisti.blogspot.com/2016/05/tres-coisas-que-voce-limpou-errado-vida.html" target="_blank">
+					<h2>Três coisas que você limpou errado a vida inteira</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2016-05-21">21/05/2016</time>
+					|
+					<a class="domain" href="https://vienaoresisti.blogspot.com" target="_blank">vienaoresisti.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://viagemnatardis.blogspot.com/2016/05/estamos-com-botao-de-seguidorrelatos.html" target="_blank">
+					<h2>estamos com botão de seguidor&amp;#43;Relatos bulimia</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2016-05-20">20/05/2016</time>
+					|
+					<a class="domain" href="https://viagemnatardis.blogspot.com" target="_blank">viagemnatardis.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://missindigo.blogspot.com/2016/05/vicios.html" target="_blank">
+					<h2>Vícios</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2016-05-20">20/05/2016</time>
+					|
+					<a class="domain" href="https://missindigo.blogspot.com" target="_blank">missindigo.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://indecidable.blogspot.com/2016/05/sarah-vicomte-manifesto-contra-o.html" target="_blank">
+					<h2>Sarah Vicomte: &amp;#34;Manifesto contra o orgasmos&amp;#34;</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2016-05-20">20/05/2016</time>
+					|
+					<a class="domain" href="https://indecidable.blogspot.com" target="_blank">indecidable.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://verasaidajanela.blogspot.com/2016/05/a-agenda.html" target="_blank">
+					<h2>A agenda</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2016-05-20">20/05/2016</time>
+					|
+					<a class="domain" href="https://verasaidajanela.blogspot.com" target="_blank">verasaidajanela.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://tudofashionoficial.wordpress.com/2016/05/20/review-batons-da-queen-make-up/" target="_blank">
+					<h2>Review – Batons da Queen Make Up!</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2016-05-20">20/05/2016</time>
+					|
+					<a class="domain" href="https://tudofashionoficial.wordpress.com" target="_blank">tudofashionoficial.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://danirosachoque.wordpress.com/2016/05/19/dica-de-viagem-campos-do-jordao/" target="_blank">
+					<h2>Dica de Viagem: Campos Do Jordão</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2016-05-19">19/05/2016</time>
+					|
+					<a class="domain" href="https://danirosachoque.wordpress.com" target="_blank">danirosachoque.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://daniperere.blogspot.com/2016/05/httpestante-da-daniblogspotcombr-agora.html" target="_blank">
+					<h2>http://estante-da-dani.blogspot.com.br/ AGORA! ♥</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2016-05-19">19/05/2016</time>
+					|
+					<a class="domain" href="https://daniperere.blogspot.com" target="_blank">daniperere.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://alternativaestilo.wordpress.com/2016/05/18/como-eu-uso-e-para-que-serve-probentol-derma-hidratacao-para-pele-e-cabelo/" target="_blank">
+					<h2>Como eu uso e para que serve: Probentol Derma – Hidratação para pele e cabelo</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2016-05-19">19/05/2016</time>
+					|
+					<a class="domain" href="https://alternativaestilo.wordpress.com" target="_blank">alternativaestilo.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://annyeongdramas.blogspot.com/2016/05/mas-ja-4-anos.html" target="_blank">
+					<h2>Mas já 4 anos?</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2016-05-19">19/05/2016</time>
+					|
+					<a class="domain" href="https://annyeongdramas.blogspot.com" target="_blank">annyeongdramas.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://inquietudine.wordpress.com/2016/05/18/tempo-tempo-tempo/" target="_blank">
+					<h2>Tempo, tempo, tempo</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2016-05-18">18/05/2016</time>
+					|
+					<a class="domain" href="https://inquietudine.wordpress.com" target="_blank">inquietudine.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://gotmewrappedup.wordpress.com/2016/05/17/april-favourites/" target="_blank">
+					<h2>April Favourites</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2016-05-17">17/05/2016</time>
+					|
+					<a class="domain" href="https://gotmewrappedup.wordpress.com" target="_blank">gotmewrappedup.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://livreacao.blogspot.com/2016/05/dancando-conforme-musica.html" target="_blank">
+					<h2>Untitled</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2016-05-16">16/05/2016</time>
+					|
+					<a class="domain" href="https://livreacao.blogspot.com" target="_blank">livreacao.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://leiturasparalelas.wordpress.com/2016/05/16/a-morte-da-luz-george-r-r-martin/" target="_blank">
+					<h2>A Morte da Luz – George R. R. Martin</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2016-05-16">16/05/2016</time>
+					|
+					<a class="domain" href="https://leiturasparalelas.wordpress.com" target="_blank">leiturasparalelas.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://dicasgreen.blogspot.com/2016/05/diy-quadro-de-fotos.html" target="_blank">
+					<h2>DIY: Quadro de Fotos</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2016-05-15">15/05/2016</time>
+					|
+					<a class="domain" href="https://dicasgreen.blogspot.com" target="_blank">dicasgreen.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://maymunyke.wordpress.com/2016/05/15/trend-sobreposicoes/" target="_blank">
+					<h2>Trend: Sobreposições</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2016-05-15">15/05/2016</time>
+					|
+					<a class="domain" href="https://maymunyke.wordpress.com" target="_blank">maymunyke.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://quietlypink.blogspot.com/2016/05/12meses12coisas-blogs-que-sigo.html" target="_blank">
+					<h2>#12Meses12Coisas | Blogs que Sigo</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2016-05-15">15/05/2016</time>
+					|
+					<a class="domain" href="https://quietlypink.blogspot.com" target="_blank">quietlypink.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://patriciamariahahne.blogspot.com/2016/05/dieta-paleo.html" target="_blank">
+					<h2>DIETA PALEO....</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2016-05-15">15/05/2016</time>
+					|
+					<a class="domain" href="https://patriciamariahahne.blogspot.com" target="_blank">patriciamariahahne.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://jantandolivros.blogspot.com/2016/05/um-fim.html" target="_blank">
+					<h2>Um fim.</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2016-05-14">14/05/2016</time>
+					|
+					<a class="domain" href="https://jantandolivros.blogspot.com" target="_blank">jantandolivros.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://flaviakoloske.wordpress.com/2016/05/13/camisa-jeans-e-saia-suede/" target="_blank">
+					<h2>Camisa Jeans e Saia Suede</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2016-05-13">13/05/2016</time>
+					|
+					<a class="domain" href="https://flaviakoloske.wordpress.com" target="_blank">flaviakoloske.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://umabaguncadeliciosa.blogspot.com/2016/05/projeto-10-em-10-abril-2016.html" target="_blank">
+					<h2>Projeto 10 em 10 - abril / 2016</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2016-05-12">12/05/2016</time>
+					|
+					<a class="domain" href="https://umabaguncadeliciosa.blogspot.com" target="_blank">umabaguncadeliciosa.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://b-rasiaticos.blogspot.com/2016/05/o-brasiaticos-mudou-de-endereco-m.html" target="_blank">
+					<h2>O Brasiáticos mudou de endereço: m-onoceros.blogspot.com.br *:・ﾟ✧</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2016-05-12">12/05/2016</time>
+					|
+					<a class="domain" href="https://b-rasiaticos.blogspot.com" target="_blank">b-rasiaticos.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://lilligarcia.blogspot.com/2016/05/promessa.html" target="_blank">
+					<h2>Promessa</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2016-05-12">12/05/2016</time>
+					|
+					<a class="domain" href="https://lilligarcia.blogspot.com" target="_blank">lilligarcia.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://bsabrinaandrade.blogspot.com/2016/05/5-coisas-estranhas-sobre-mim.html" target="_blank">
+					<h2>5 Coisas estranhas sobre mim</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2016-05-11">11/05/2016</time>
+					|
+					<a class="domain" href="https://bsabrinaandrade.blogspot.com" target="_blank">bsabrinaandrade.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://flavoli.blogspot.com/2016/05/orange-is-new-blackseason-4.html" target="_blank">
+					<h2>Orange is the New Black Season 4</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2016-05-10">10/05/2016</time>
+					|
+					<a class="domain" href="https://flavoli.blogspot.com" target="_blank">flavoli.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://namelessara.wordpress.com/2016/05/10/tendecia-floral/" target="_blank">
+					<h2>Tendência floral</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2016-05-10">10/05/2016</time>
+					|
+					<a class="domain" href="https://namelessara.wordpress.com" target="_blank">namelessara.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://00081.blogspot.com/2016/05/alou-sdds.html" target="_blank">
+					<h2>Alou, SDDS</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2016-05-10">10/05/2016</time>
+					|
+					<a class="domain" href="https://00081.blogspot.com" target="_blank">00081.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://gracycostta.blogspot.com/2016/05/presentes-do-dia-das-maes.html" target="_blank">
+					<h2>Presentes do Dia das Mães!</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2016-05-09">09/05/2016</time>
+					|
+					<a class="domain" href="https://gracycostta.blogspot.com" target="_blank">gracycostta.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://lojagavetinha.blogspot.com/2016/05/ola-gente-linda-d.html" target="_blank">
+					<h2>Olá, gente linda! :D</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2016-05-09">09/05/2016</time>
+					|
+					<a class="domain" href="https://lojagavetinha.blogspot.com" target="_blank">lojagavetinha.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://doladoddentro.blogspot.com/2016/05/cuidando-dos-cabelos-com-produtos.html" target="_blank">
+					<h2>Cuidando dos cabelos com produtos naturais</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2016-05-08">08/05/2016</time>
+					|
+					<a class="domain" href="https://doladoddentro.blogspot.com" target="_blank">doladoddentro.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://barcaf.blogspot.com/2016/05/oracao-de-boa-noite.html" target="_blank">
+					<h2>Oração de Boa Noite</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2016-05-07">07/05/2016</time>
+					|
+					<a class="domain" href="https://barcaf.blogspot.com" target="_blank">barcaf.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://aestranhaestantedagi.blogspot.com/2016/05/na-janela-do-busao-slimane.html" target="_blank">
+					<h2>Na Janela do Busão - Slimane</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2016-05-06">06/05/2016</time>
+					|
+					<a class="domain" href="https://aestranhaestantedagi.blogspot.com" target="_blank">aestranhaestantedagi.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://taciklein.wordpress.com/2016/05/06/cor-da-roupa-x-cor-da-sombra/" target="_blank">
+					<h2>Cor da Roupa X Cor da Sombra</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2016-05-06">06/05/2016</time>
+					|
+					<a class="domain" href="https://taciklein.wordpress.com" target="_blank">taciklein.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://metamorfosando.blogspot.com/2016/05/sobre-amizades-que-se-vao-fisicamente-e.html" target="_blank">
+					<h2>Sobre amizades que se vão fisicamente e emocionalmente, mas permanecem em nossas almas.</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2016-05-05">05/05/2016</time>
+					|
+					<a class="domain" href="https://metamorfosando.blogspot.com" target="_blank">metamorfosando.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://barraisah.blogspot.com/2016/05/7-principios-basicos-para-o-sucesso.html" target="_blank">
+					<h2>7 princípios básicos para o sucesso</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2016-05-05">05/05/2016</time>
+					|
+					<a class="domain" href="https://barraisah.blogspot.com" target="_blank">barraisah.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://raphs-world.blogspot.com/2016/05/depois-de-me-desfazer-do-meu-quinto.html" target="_blank">
+					<h2>Comprei um Nintendo 3DS! Porém... Que preços são esses???</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2016-05-05">05/05/2016</time>
+					|
+					<a class="domain" href="https://raphs-world.blogspot.com" target="_blank">raphs-world.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://complicated1life.wordpress.com/2016/05/05/batons-vermelhos-favoritos/" target="_blank">
+					<h2>Batons vermelhos favoritos</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2016-05-05">05/05/2016</time>
+					|
+					<a class="domain" href="https://complicated1life.wordpress.com" target="_blank">complicated1life.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://agataescreve.wordpress.com/2016/05/05/historia-do-novo-sobrenome-elena-ferrante/" target="_blank">
+					<h2>História do novo sobrenome [Elena Ferrante]</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2016-05-05">05/05/2016</time>
+					|
+					<a class="domain" href="https://agataescreve.wordpress.com" target="_blank">agataescreve.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://pequenaursa.wordpress.com/2016/05/04/comprinhas-da-china/" target="_blank">
+					<h2>Comprinhas da China</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2016-05-05">05/05/2016</time>
+					|
+					<a class="domain" href="https://pequenaursa.wordpress.com" target="_blank">pequenaursa.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://melangedetout.blogspot.com/2016/05/muito-amor-por-estas-estampas-de.html" target="_blank">
+					<h2>Muito amor por estas estampas de cachorros</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2016-05-04">04/05/2016</time>
+					|
+					<a class="domain" href="https://melangedetout.blogspot.com" target="_blank">melangedetout.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://katiabueno.blogspot.com/2016/05/de-tempos-em-tempos-e-bom-levar-nossa.html" target="_blank">
+					<h2>Cuidando do nosso espaço sagrado</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2016-05-04">04/05/2016</time>
+					|
+					<a class="domain" href="https://katiabueno.blogspot.com" target="_blank">katiabueno.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://cinelupinha.blogspot.com/2016/05/novo-blog.html" target="_blank">
+					<h2>Novo blog</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2016-05-04">04/05/2016</time>
+					|
+					<a class="domain" href="https://cinelupinha.blogspot.com" target="_blank">cinelupinha.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://mvcee.blogspot.com/2016/05/uma-pincelada-sobre-os-perigos-da.html" target="_blank">
+					<h2>Uma pincelada sobre os perigos da insegurança, a síndrome do impostor e a fragmentação</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2016-05-04">04/05/2016</time>
+					|
+					<a class="domain" href="https://mvcee.blogspot.com" target="_blank">mvcee.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://inspiracaoinesperada.blogspot.com/2016/05/ate-ja.html" target="_blank">
+					<h2>Até já!</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2016-05-03">03/05/2016</time>
+					|
+					<a class="domain" href="https://inspiracaoinesperada.blogspot.com" target="_blank">inspiracaoinesperada.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://cerebrocafe.blogspot.com/2016/05/po-das-asas-das-borboletas-pode-cegar.html" target="_blank">
+					<h2>PÓ DAS ASAS DAS BORBOLETAS PODE CEGAR? A VOVÓ ESTAVA CERTA?</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2016-05-02">02/05/2016</time>
+					|
+					<a class="domain" href="https://cerebrocafe.blogspot.com" target="_blank">cerebrocafe.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+		</ol>
+		<nav>
+			<a href="page-125.html">&larr; Voltar</a>
+			<span>Página 126 de 209</span>
+			<a href="page-127.html">Avançar &rarr;</a>
+		</nav>
+	</main>
+	<footer>
+		<p>Atualizado em:
+			<time id="update-at" datetime="2026-03-08T16:48:53.299620+00:00">
+				Sunday, 08/03/2026 16:48:53
+			</time>
+		</p>
+		<p><a href="index.html">BR Crawl</a> | <a href="about.html">Sobre</a> | <a href="sources.html">Fontes</a></p>
+	</footer>
+</body>
+
+<script type="module" nonce="877d00e8c02f8b47f02cb43b96c97f34">
+	const updatedAtElement = document.getElementById("update-at");
+	const date = new Date(updatedAtElement.dateTime);
+	updatedAtElement.innerText = date.toLocaleString(undefined, {
+		dateStyle: "full",
+		timeStyle: "medium",
+	})
+</script>
+<script type="module" nonce="877d00e8c02f8b47f02cb43b96c97f34">
+var backend_url='https://brcrawl.guilhermegarcia.dev';
+function hide_feedback(domain) {
+    return `<div><small>Domínio <a href="https://${domain}">${domain}</a> escondido. | <button class="show">exibir</button></small></div>`;
+}
+
+function report_feedback(li) {
+    li.style.opacity = 0.5;
+    const btn = li.querySelector("button.report");
+    btn.textContent = "reportado";
+    btn.className = "unreport";
+}
+
+var reported = localStorage.getItem('reported') || '[]';
+reported = JSON.parse(reported);
+var hidden = localStorage.getItem('hidden') || '[]';
+hidden = JSON.parse(hidden);
+
+let domains = Array.from(document.getElementsByClassName("domain"));
+domains.forEach((domain) => {
+    if (reported.includes(domain.textContent)) {
+        const li = domain.closest("li");
+        report_feedback(li);
+    }
+    if (hidden.includes(domain.textContent)) {
+        domain.closest("li").innerHTML = hide_feedback(domain.textContent);
+    }
+});
+
+function report(btn) {
+    const li = btn.closest("li");
+    const articleDomain = li.querySelector("a.domain");
+    const domain = articleDomain.textContent;
+
+    if (reported.length == 0) {
+        const agreed = confirm("Reporte sites que não são blogs pessoais ou não estão em português. Confirme para não ver mais essa mensagem. Obrigado!");
+        if (!agreed) {
+            return;
+        }
+    }
+    fetch(`${backend_url}/report`, {
+        method: "POST",
+        body: JSON.stringify({ domain }),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+    reported.push(domain);
+    localStorage.setItem('reported', JSON.stringify(reported));
+    report_feedback(li);
+}
+
+function unreport(btn) {
+    const li = btn.closest("li");
+    const articleDomain = li.querySelector("a.domain");
+    const domain = articleDomain.textContent;
+    reported = reported.filter((d) => d != domain);
+    localStorage.setItem('reported', JSON.stringify(reported));
+    fetch(`${backend_url}/report`, {
+        method: "POST",
+        body: JSON.stringify({ domain }),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }).finally(() => {
+        window.location.reload();
+    });
+}
+
+function hide(btn) {
+    const li = btn.closest("li");
+    const articleDomain = li.querySelector("a.domain");
+    const domain = articleDomain.textContent;
+
+    hidden.push(domain);
+    localStorage.setItem('hidden', JSON.stringify(hidden));
+    li.innerHTML = hide_feedback(domain);
+}
+
+function show(btn) {
+    const li = btn.closest("li");
+    const articleDomain = li.querySelector("a");
+    const domain = articleDomain.textContent;
+    hidden = hidden.filter((d) => d != domain);
+    localStorage.setItem('hidden', JSON.stringify(hidden));
+    window.location.reload();
+}
+
+document.addEventListener("click", function(e) {
+    if (e.target.className == "report") {
+        return report(e.target);
+    }
+    if (e.target.className == "unreport") {
+        return unreport(e.target);
+    }
+    if (e.target.className == "hide") {
+        return hide(e.target);
+    }
+    if (e.target.className == "show") {
+        return show(e.target);
+    }
+});
+</script>
+
+</html>

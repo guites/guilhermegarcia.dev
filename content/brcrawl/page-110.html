@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>BR Crawl</title>
+
+	<meta http-equiv="Content-Security-Policy" content="
+		default-src 'none';
+		connect-src https://brcrawl.guilhermegarcia.dev;
+		base-uri 'self';
+		img-src 'self' data: ;
+		style-src 'nonce-f637fa1f3215b4219f6891251c006aaf' ;
+		script-src 'nonce-f637fa1f3215b4219f6891251c006aaf' 'strict-dynamic' ;
+	">
+	<meta name="application-name" content="brcrawl">
+	<meta name="description" content="Diretório da smallweb brasileira">
+	<meta name="referrer" content="same-origin">
+
+	<style nonce="f637fa1f3215b4219f6891251c006aaf">
+:root {
+    color-scheme: dark light;
+    --primary: #0AC8F5;
+    --secondary: #D2F00F;
+    --text: var(--txt, #cfcfcf);
+    --border: var(--bd, #c0c0c0);
+    --background: var(--bg, #1D1F21);
+    font-size: min(calc(.75rem + 0.75vw), 16px);
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --text: var(--txt, #444444);
+        --border: var(--bd, #333333);
+        --background: var(--bg, white);
+        --primary: #207D92;
+        --secondary: #6A7A06;
+    }
+}
+
+body {
+    font-family: Calibri, 'Trebuchet MS', 'Lucida Sans', Arial, sans-serif;
+    color: var(--text);
+    background: var(--background);
+    max-width: 50rem;
+    width: 100%;
+    margin: 0.5em auto 2em;
+    line-height: 1.25em;
+}
+
+header {
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 0.25em;
+}
+
+header > h1 {
+    display: inline-block;
+    padding: 0 0.5em;
+}
+
+h2 {
+    font-size: 1rem;
+    display: inline;
+}
+
+ol {
+    padding-left: 5ch;
+}
+
+li {
+    margin-block-start: 1em;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:link {
+    color: var(--primary);
+}
+
+a:visited {
+    color: var(--secondary);
+}
+
+a:hover {
+    opacity: 0.8;
+}
+
+small {
+    padding-top: 0.25rem;
+    font-size: 0.95rem;
+}
+
+small > a:link,
+small > a:visited {
+    color: var(--text);
+}
+
+footer {
+    padding: 1rem;
+    margin-top: 2rem;
+    border-top: 1px solid var(--border);
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    padding: 1em 0;
+    margin-top: 1em;
+}
+
+nav > a, nav > span {
+    padding: 0.25em 0.75em;
+}
+
+nav > span {
+    color: var(--border);
+}
+
+button.report, button.unreport, button.hide, button.show {
+    background: transparent;
+    border: 0px transparent;
+    padding: 0px;
+    margin: 0px;
+    display: inline;
+    box-sizing: border-box;
+    font: inherit;
+    color: inherit;
+}
+
+button.report:hover, button.unreport, button.hide:hover, button.show {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.title-br { display: none; }
+
+@media screen and (max-width: 470px) {
+    header { text-align: center; }
+    .title-br { display: initial; }
+    .title-span { margin: 10px 0px; display: inline-block; }
+}
+	</style>
+</head>
+
+<body>
+	<header>
+		<h1>BR Crawl</h1>
+		<br class="title-br"/>
+		<span class="title-span">Diretório da smallweb brasileira</span>
+	</header>
+	<main>
+		<ol start="5451">
+			<li>
+				<a href="http://quemtemcerteza.blogspot.com/2017/05/links-mais-incriveis-do-mes-abril.html" target="_blank">
+					<h2>Links mais incríveis do mês| Abril</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2017-05-01">01/05/2017</time>
+					|
+					<a class="domain" href="https://quemtemcerteza.blogspot.com" target="_blank">quemtemcerteza.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://glitteringgg.blogspot.com/2017/04/d12m12e-pandora-big-universo.html" target="_blank">
+					<h2>[D12M12E] Pandora, Big Universo</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2017-04-30">30/04/2017</time>
+					|
+					<a class="domain" href="https://glitteringgg.blogspot.com" target="_blank">glitteringgg.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://backpackingalone.wordpress.com/2017/04/30/iii-encontro-europeu-de-blogueiros-brasileiros-eebb/" target="_blank">
+					<h2>III Encontro Europeu de Blogueiros Brasileiros EEBB</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2017-04-30">30/04/2017</time>
+					|
+					<a class="domain" href="https://backpackingalone.wordpress.com" target="_blank">backpackingalone.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://praseencantar.wordpress.com/2017/04/29/girlboss-sophia-amoruso/" target="_blank">
+					<h2>GirlBoss – Sophia Amoruso</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2017-04-29">29/04/2017</time>
+					|
+					<a class="domain" href="https://praseencantar.wordpress.com" target="_blank">praseencantar.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://blogdabravablog.wordpress.com/2017/04/29/tudo-sobre-a-anestesia-raquidiana/" target="_blank">
+					<h2>TUDO SOBRE A ANESTESIA RAQUIDIANA</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2017-04-29">29/04/2017</time>
+					|
+					<a class="domain" href="https://blogdabravablog.wordpress.com" target="_blank">blogdabravablog.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://lovandpop.blogspot.com/2017/04/lancamentos-da-semana-28042017.html" target="_blank">
+					<h2>LANÇAMENTOS DA SEMANA (28/04/2017)</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2017-04-29">29/04/2017</time>
+					|
+					<a class="domain" href="https://lovandpop.blogspot.com" target="_blank">lovandpop.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://agrtdalivraria.blogspot.com/2017/04/resenha-kiss-of-deception.html" target="_blank">
+					<h2>[Resenha] The Kiss of deception</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2017-04-29">29/04/2017</time>
+					|
+					<a class="domain" href="https://agrtdalivraria.blogspot.com" target="_blank">agrtdalivraria.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://reciclaecria.blogspot.com/2017/04/1-projeto-por-mes-trico-e-croche.html" target="_blank">
+					<h2>1 projeto por mês: Tricô e crochê</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2017-04-29">29/04/2017</time>
+					|
+					<a class="domain" href="https://reciclaecria.blogspot.com" target="_blank">reciclaecria.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://pequenaaviajante.blogspot.com/2017/04/blog-post.html" target="_blank">
+					<h2>Untitled</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2017-04-28">28/04/2017</time>
+					|
+					<a class="domain" href="https://pequenaaviajante.blogspot.com" target="_blank">pequenaaviajante.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://filtrodementes.wordpress.com/2017/04/28/a-verdade-e-a-verdade-disciplinada/" target="_blank">
+					<h2>A verdade e a verdade disciplinada</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2017-04-28">28/04/2017</time>
+					|
+					<a class="domain" href="https://filtrodementes.wordpress.com" target="_blank">filtrodementes.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://ameninadocabelolaranja.wordpress.com/2017/04/28/seja-voce-o-amor-da-sua-vida/" target="_blank">
+					<h2>Seja Você o Amor da Sua Vida</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2017-04-28">28/04/2017</time>
+					|
+					<a class="domain" href="https://ameninadocabelolaranja.wordpress.com" target="_blank">ameninadocabelolaranja.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://substantivocomum.blogspot.com/2017/04/golpe-na-oea-conspiracao-contra.html" target="_blank">
+					<h2>Golpe na OEA, conspiração contra a Venezuela</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2017-04-27">27/04/2017</time>
+					|
+					<a class="domain" href="https://substantivocomum.blogspot.com" target="_blank">substantivocomum.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://borboletanoespelho.wordpress.com/2017/04/27/e-borboleta-voa/" target="_blank">
+					<h2>…E BORBOLETA VOA!</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2017-04-27">27/04/2017</time>
+					|
+					<a class="domain" href="https://borboletanoespelho.wordpress.com" target="_blank">borboletanoespelho.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://ascoisasdaline.wordpress.com/2017/04/27/girlboss-da-serie-ao-look/" target="_blank">
+					<h2>“GIRLBOSS”: DA SÉRIE AO LOOK</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2017-04-27">27/04/2017</time>
+					|
+					<a class="domain" href="https://ascoisasdaline.wordpress.com" target="_blank">ascoisasdaline.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://franquialacquadifiori.wordpress.com/2017/04/27/lacqua-di-fiori-mmn-e-possivel-ganhar-dinheiro-em-casa/" target="_blank">
+					<h2>Lacqua di Fiori MMN – É possível ganhar dinheiro em casa</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2017-04-27">27/04/2017</time>
+					|
+					<a class="domain" href="https://franquialacquadifiori.wordpress.com" target="_blank">franquialacquadifiori.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://www.ummundoemduas.com.br/2017/04/valeu-mae.html" target="_blank">
+					<h2>Valeu mãe</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2017-04-26">26/04/2017</time>
+					|
+					<a class="domain" href="https://ummundoemduas.com.br" target="_blank">ummundoemduas.com.br</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://ydecazio.blogspot.com/2017/04/desafios-publicos.html" target="_blank">
+					<h2>Desafios públicos</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2017-04-26">26/04/2017</time>
+					|
+					<a class="domain" href="https://ydecazio.blogspot.com" target="_blank">ydecazio.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://omeumundolouko.blogspot.com/2017/04/5-ideias-de-penteados-para-levar-ao.html" target="_blank">
+					<h2>5 Ideias| de Penteados Para Levar ao Casamento.</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2017-04-25">25/04/2017</time>
+					|
+					<a class="domain" href="https://omeumundolouko.blogspot.com" target="_blank">omeumundolouko.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://gileanes.com.br/patronagem-como-apoiar-um-estudante/" target="_blank">
+					<h2>Patronagem – Como apoiar um estudante?</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2017-04-25">25/04/2017</time>
+					|
+					<a class="domain" href="https://gileanes.com.br" target="_blank">gileanes.com.br</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://trintaporumalinhanoticias.blogspot.com/2017/04/hospital-da-bonecada-by-bepanthene-plus.html" target="_blank">
+					<h2>Hospital da Bonecada by Bepanthene Plus - Com colaboração da Majora</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2017-04-24">24/04/2017</time>
+					|
+					<a class="domain" href="https://trintaporumalinhanoticias.blogspot.com" target="_blank">trintaporumalinhanoticias.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://maiavox.wordpress.com/2017/04/24/maia-vox-tv-quem-tem-medo-de-esteriotipos/" target="_blank">
+					<h2>Maia Vox TV: Quem tem medo de esteriótipos?</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2017-04-24">24/04/2017</time>
+					|
+					<a class="domain" href="https://maiavox.wordpress.com" target="_blank">maiavox.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://eugabrielferreira.wordpress.com/2017/04/24/jaqueta-colete-jeans/" target="_blank">
+					<h2>Jaqueta / Colete Jeans</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2017-04-24">24/04/2017</time>
+					|
+					<a class="domain" href="https://eugabrielferreira.wordpress.com" target="_blank">eugabrielferreira.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://maquiagensparadivas.wordpress.com/2017/04/23/8-truques-de-maquiagem-para-lacrar/" target="_blank">
+					<h2>8 truques de maquiagem para “lacrar” :)</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2017-04-23">23/04/2017</time>
+					|
+					<a class="domain" href="https://maquiagensparadivas.wordpress.com" target="_blank">maquiagensparadivas.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://laisscagliusi.blogspot.com/2017/04/resenhanaoseapeganao.html" target="_blank">
+					<h2>Resenha do livro: Não se apega, não</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2017-04-22">22/04/2017</time>
+					|
+					<a class="domain" href="https://laisscagliusi.blogspot.com" target="_blank">laisscagliusi.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://escreversemparar.wordpress.com/2017/04/22/mudanca-permanente/" target="_blank">
+					<h2>Mudança Permanente</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2017-04-22">22/04/2017</time>
+					|
+					<a class="domain" href="https://escreversemparar.wordpress.com" target="_blank">escreversemparar.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://osnyessenciadaalma.blogspot.com/2017/04/blog-post.html" target="_blank">
+					<h2>Untitled</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2017-04-20">20/04/2017</time>
+					|
+					<a class="domain" href="https://osnyessenciadaalma.blogspot.com" target="_blank">osnyessenciadaalma.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://wellsuzcanada.blogspot.com/2017/04/desafio-da-coruja-vermelha.html" target="_blank">
+					<h2>Desafio da Coruja Vermelha</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2017-04-19">19/04/2017</time>
+					|
+					<a class="domain" href="https://wellsuzcanada.blogspot.com" target="_blank">wellsuzcanada.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://blogdagullo.blogspot.com/2017/04/bolso-organizar-para-lateral-da-cama.html" target="_blank">
+					<h2>BOLSO ORGANIZADOR PARA LATERAL DA CAMA</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2017-04-19">19/04/2017</time>
+					|
+					<a class="domain" href="https://blogdagullo.blogspot.com" target="_blank">blogdagullo.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://blogdacabecadojohn.blogspot.com/2017/04/um-texto-sobre-teatro.html" target="_blank">
+					<h2>Um texto sobre teatro</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2017-04-18">18/04/2017</time>
+					|
+					<a class="domain" href="https://blogdacabecadojohn.blogspot.com" target="_blank">blogdacabecadojohn.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://maiovinteeseis.blogspot.com/2017/04/love-because-i-love-to-love-como-diria.html" target="_blank">
+					<h2>Love.</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2017-04-17">17/04/2017</time>
+					|
+					<a class="domain" href="https://maiovinteeseis.blogspot.com" target="_blank">maiovinteeseis.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://crescimentocristaomaturidade.blogspot.com/2013/05/jesus-era-pobre-ou-prospero.html" target="_blank">
+					<h2>JESUS ERA POBRE OU PRÓSPERO?</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2017-04-17">17/04/2017</time>
+					|
+					<a class="domain" href="https://crescimentocristaomaturidade.blogspot.com" target="_blank">crescimentocristaomaturidade.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://sammyitaborahy.blogspot.com/2017/04/fagulha.html" target="_blank">
+					<h2>Fagulha</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2017-04-17">17/04/2017</time>
+					|
+					<a class="domain" href="https://sammyitaborahy.blogspot.com" target="_blank">sammyitaborahy.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://verdadequeridablog.wordpress.com/2017/04/17/joana-moreira-entrevista/" target="_blank">
+					<h2>Joana Moreira | Entrevista</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2017-04-17">17/04/2017</time>
+					|
+					<a class="domain" href="https://verdadequeridablog.wordpress.com" target="_blank">verdadequeridablog.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://luzedesign.blogspot.com/2017/04/voltei-sera.html" target="_blank">
+					<h2>Voltei, será?!</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2017-04-15">15/04/2017</time>
+					|
+					<a class="domain" href="https://luzedesign.blogspot.com" target="_blank">luzedesign.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://rhbsp1000.blogspot.com/2017/04/felicidade.html" target="_blank">
+					<h2>FELICIDADE</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2017-04-15">15/04/2017</time>
+					|
+					<a class="domain" href="https://rhbsp1000.blogspot.com" target="_blank">rhbsp1000.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://cantinhoparalivro.blogspot.com/2017/04/resenha-eu-amo-new-york-lindsey-kelk.html" target="_blank">
+					<h2>[Resenha] Eu amo new york, Lindsey Kelk</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2017-04-14">14/04/2017</time>
+					|
+					<a class="domain" href="https://cantinhoparalivro.blogspot.com" target="_blank">cantinhoparalivro.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://jaquelineborgesblog.wordpress.com/2017/04/13/playlist-da-semana-9/" target="_blank">
+					<h2>Playlist da Semana!</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2017-04-13">13/04/2017</time>
+					|
+					<a class="domain" href="https://jaquelineborgesblog.wordpress.com" target="_blank">jaquelineborgesblog.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://saborsaudade.blogspot.com/2017/04/pastel-de-forno-de-natas-ou-melhor-de.html" target="_blank">
+					<h2>Pastel de forno de natas, ou melhor, de creme fresco</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2017-04-13">13/04/2017</time>
+					|
+					<a class="domain" href="https://saborsaudade.blogspot.com" target="_blank">saborsaudade.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://comqueroupavouparaigreja.blogspot.com/2017/04/linha-natura-plantsnutricao-e-brilho.html" target="_blank">
+					<h2>Linha Natura Plants–Nutrição e Brilho</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2017-04-13">13/04/2017</time>
+					|
+					<a class="domain" href="https://comqueroupavouparaigreja.blogspot.com" target="_blank">comqueroupavouparaigreja.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://becreative-be-you.blogspot.com/2017/04/layer-up-outfit-8.html" target="_blank">
+					<h2>LAYER UP | OUTFIT #8</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2017-04-13">13/04/2017</time>
+					|
+					<a class="domain" href="https://becreative-be-you.blogspot.com" target="_blank">becreative-be-you.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://damavellocet.blogspot.com/2017/04/tem-uma-musica-do-raul-que-ele-diz.html" target="_blank">
+					<h2>Untitled</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2017-04-12">12/04/2017</time>
+					|
+					<a class="domain" href="https://damavellocet.blogspot.com" target="_blank">damavellocet.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://popysp.wordpress.com/2017/04/12/e-eu-ganhei-campos-de-trigo/" target="_blank">
+					<h2>E eu ganhei campos de trigo…</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2017-04-12">12/04/2017</time>
+					|
+					<a class="domain" href="https://popysp.wordpress.com" target="_blank">popysp.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://roemsomenteamor.blogspot.com/2017/04/depois-de-um-ano-e-seis-mesesvoltei-com.html" target="_blank">
+					<h2>Depois de um ano e seis meses...voltei com a Valentina já uma mocinha...</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2017-04-12">12/04/2017</time>
+					|
+					<a class="domain" href="https://roemsomenteamor.blogspot.com" target="_blank">roemsomenteamor.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://dailycrazylikaa.blogspot.com/2017/04/doces-chineses.html" target="_blank">
+					<h2>DOCES CHINESES</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2017-04-12">12/04/2017</time>
+					|
+					<a class="domain" href="https://dailycrazylikaa.blogspot.com" target="_blank">dailycrazylikaa.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://bailasempeso.blogspot.com/2017/04/teus-dizeres-nao-sao-pecadores.html" target="_blank">
+					<h2>Teus dizeres não são pecadores</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2017-04-11">11/04/2017</time>
+					|
+					<a class="domain" href="https://bailasempeso.blogspot.com" target="_blank">bailasempeso.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://voa-mariposa.blogspot.com/2017/04/voce-precisa-conhecer-o-domingo-zen.html" target="_blank">
+					<h2>Você precisa conhecer o Domingo Zen</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2017-04-10">10/04/2017</time>
+					|
+					<a class="domain" href="https://voa-mariposa.blogspot.com" target="_blank">voa-mariposa.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://mnmmente.wordpress.com/2017/04/10/voce-e-o-que-voce-consome/" target="_blank">
+					<h2>Você é o que você consome</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2017-04-10">10/04/2017</time>
+					|
+					<a class="domain" href="https://mnmmente.wordpress.com" target="_blank">mnmmente.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://vidaslinha.blogspot.com/2017/04/garra-do-diabo-ou-simplesmente-garra-d.html" target="_blank">
+					<h2>GARRA DO DIABO OU SIMPLESMENTE &amp;#34;GARRA D&amp;#34; - PODEROSO ANTI-INFLAMATÓRIO NATURAL</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2017-04-10">10/04/2017</time>
+					|
+					<a class="domain" href="https://vidaslinha.blogspot.com" target="_blank">vidaslinha.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://sobre-as-pequenas-coisas.blogspot.com/2017/04/coragem-nem-sempre-ruge.html" target="_blank">
+					<h2>Untitled</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2017-04-09">09/04/2017</time>
+					|
+					<a class="domain" href="https://sobre-as-pequenas-coisas.blogspot.com" target="_blank">sobre-as-pequenas-coisas.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://jamilamafraescritora.blogspot.com/2017/04/livro-um-amor-e-um-amigo-nas-lojas.html" target="_blank">
+					<h2>Livro Um Amor e Um Amigo nas Lojas Americanas</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2017-04-09">09/04/2017</time>
+					|
+					<a class="domain" href="https://jamilamafraescritora.blogspot.com" target="_blank">jamilamafraescritora.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+		</ol>
+		<nav>
+			<a href="page-109.html">&larr; Voltar</a>
+			<span>Página 110 de 209</span>
+			<a href="page-111.html">Avançar &rarr;</a>
+		</nav>
+	</main>
+	<footer>
+		<p>Atualizado em:
+			<time id="update-at" datetime="2026-03-08T16:48:53.288851+00:00">
+				Sunday, 08/03/2026 16:48:53
+			</time>
+		</p>
+		<p><a href="index.html">BR Crawl</a> | <a href="about.html">Sobre</a> | <a href="sources.html">Fontes</a></p>
+	</footer>
+</body>
+
+<script type="module" nonce="f637fa1f3215b4219f6891251c006aaf">
+	const updatedAtElement = document.getElementById("update-at");
+	const date = new Date(updatedAtElement.dateTime);
+	updatedAtElement.innerText = date.toLocaleString(undefined, {
+		dateStyle: "full",
+		timeStyle: "medium",
+	})
+</script>
+<script type="module" nonce="f637fa1f3215b4219f6891251c006aaf">
+var backend_url='https://brcrawl.guilhermegarcia.dev';
+function hide_feedback(domain) {
+    return `<div><small>Domínio <a href="https://${domain}">${domain}</a> escondido. | <button class="show">exibir</button></small></div>`;
+}
+
+function report_feedback(li) {
+    li.style.opacity = 0.5;
+    const btn = li.querySelector("button.report");
+    btn.textContent = "reportado";
+    btn.className = "unreport";
+}
+
+var reported = localStorage.getItem('reported') || '[]';
+reported = JSON.parse(reported);
+var hidden = localStorage.getItem('hidden') || '[]';
+hidden = JSON.parse(hidden);
+
+let domains = Array.from(document.getElementsByClassName("domain"));
+domains.forEach((domain) => {
+    if (reported.includes(domain.textContent)) {
+        const li = domain.closest("li");
+        report_feedback(li);
+    }
+    if (hidden.includes(domain.textContent)) {
+        domain.closest("li").innerHTML = hide_feedback(domain.textContent);
+    }
+});
+
+function report(btn) {
+    const li = btn.closest("li");
+    const articleDomain = li.querySelector("a.domain");
+    const domain = articleDomain.textContent;
+
+    if (reported.length == 0) {
+        const agreed = confirm("Reporte sites que não são blogs pessoais ou não estão em português. Confirme para não ver mais essa mensagem. Obrigado!");
+        if (!agreed) {
+            return;
+        }
+    }
+    fetch(`${backend_url}/report`, {
+        method: "POST",
+        body: JSON.stringify({ domain }),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+    reported.push(domain);
+    localStorage.setItem('reported', JSON.stringify(reported));
+    report_feedback(li);
+}
+
+function unreport(btn) {
+    const li = btn.closest("li");
+    const articleDomain = li.querySelector("a.domain");
+    const domain = articleDomain.textContent;
+    reported = reported.filter((d) => d != domain);
+    localStorage.setItem('reported', JSON.stringify(reported));
+    fetch(`${backend_url}/report`, {
+        method: "POST",
+        body: JSON.stringify({ domain }),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }).finally(() => {
+        window.location.reload();
+    });
+}
+
+function hide(btn) {
+    const li = btn.closest("li");
+    const articleDomain = li.querySelector("a.domain");
+    const domain = articleDomain.textContent;
+
+    hidden.push(domain);
+    localStorage.setItem('hidden', JSON.stringify(hidden));
+    li.innerHTML = hide_feedback(domain);
+}
+
+function show(btn) {
+    const li = btn.closest("li");
+    const articleDomain = li.querySelector("a");
+    const domain = articleDomain.textContent;
+    hidden = hidden.filter((d) => d != domain);
+    localStorage.setItem('hidden', JSON.stringify(hidden));
+    window.location.reload();
+}
+
+document.addEventListener("click", function(e) {
+    if (e.target.className == "report") {
+        return report(e.target);
+    }
+    if (e.target.className == "unreport") {
+        return unreport(e.target);
+    }
+    if (e.target.className == "hide") {
+        return hide(e.target);
+    }
+    if (e.target.className == "show") {
+        return show(e.target);
+    }
+});
+</script>
+
+</html>
