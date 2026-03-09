@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>BR Crawl</title>
+
+	<meta http-equiv="Content-Security-Policy" content="
+		default-src 'none';
+		connect-src https://brcrawl.guilhermegarcia.dev;
+		base-uri 'self';
+		img-src 'self' data: ;
+		style-src 'nonce-f30afc0e512e1f1b692df29535790e55' ;
+		script-src 'nonce-f30afc0e512e1f1b692df29535790e55' 'strict-dynamic' ;
+	">
+	<meta name="application-name" content="brcrawl">
+	<meta name="description" content="Diretório da smallweb brasileira">
+	<meta name="referrer" content="same-origin">
+
+	<style nonce="f30afc0e512e1f1b692df29535790e55">
+:root {
+    color-scheme: dark light;
+    --primary: #0AC8F5;
+    --secondary: #D2F00F;
+    --text: var(--txt, #cfcfcf);
+    --border: var(--bd, #c0c0c0);
+    --background: var(--bg, #1D1F21);
+    font-size: min(calc(.75rem + 0.75vw), 16px);
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --text: var(--txt, #444444);
+        --border: var(--bd, #333333);
+        --background: var(--bg, white);
+        --primary: #207D92;
+        --secondary: #6A7A06;
+    }
+}
+
+body {
+    font-family: Calibri, 'Trebuchet MS', 'Lucida Sans', Arial, sans-serif;
+    color: var(--text);
+    background: var(--background);
+    max-width: 50rem;
+    width: 100%;
+    margin: 0.5em auto 2em;
+    line-height: 1.25em;
+}
+
+header {
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 0.25em;
+}
+
+header > h1 {
+    display: inline-block;
+    padding: 0 0.5em;
+}
+
+h2 {
+    font-size: 1rem;
+    display: inline;
+}
+
+ol {
+    padding-left: 5ch;
+}
+
+li {
+    margin-block-start: 1em;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:link {
+    color: var(--primary);
+}
+
+a:visited {
+    color: var(--secondary);
+}
+
+a:hover {
+    opacity: 0.8;
+}
+
+small {
+    padding-top: 0.25rem;
+    font-size: 0.95rem;
+}
+
+small > a:link,
+small > a:visited {
+    color: var(--text);
+}
+
+footer {
+    padding: 1rem;
+    margin-top: 2rem;
+    border-top: 1px solid var(--border);
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    padding: 1em 0;
+    margin-top: 1em;
+}
+
+nav > a, nav > span {
+    padding: 0.25em 0.75em;
+}
+
+nav > span {
+    color: var(--border);
+}
+
+button.report, button.unreport, button.hide, button.show {
+    background: transparent;
+    border: 0px transparent;
+    padding: 0px;
+    margin: 0px;
+    display: inline;
+    box-sizing: border-box;
+    font: inherit;
+    color: inherit;
+}
+
+button.report:hover, button.unreport, button.hide:hover, button.show {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.title-br { display: none; }
+
+@media screen and (max-width: 470px) {
+    header { text-align: center; }
+    .title-br { display: initial; }
+    .title-span { margin: 10px 0px; display: inline-block; }
+}
+	</style>
+</head>
+
+<body>
+	<header>
+		<h1>BR Crawl</h1>
+		<br class="title-br"/>
+		<span class="title-span">Diretório da smallweb brasileira</span>
+	</header>
+	<main>
+		<ol start="12951">
+			<li>
+				<a href="http://horaciosoares.blogspot.com/2009/10/dia-22-lancamento-do-livro-o-tiro-e-o.html" target="_blank">
+					<h2>Dia 22: lançamento do livro &amp;#34;O tiro e o alvo&amp;#34;</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2009-10-15">15/10/2009</time>
+					|
+					<a class="domain" href="https://horaciosoares.blogspot.com" target="_blank">horaciosoares.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://ciberjornalismobr.blogspot.com/2009/10/fqalfjaocfjkcohifowcffqfjacjfclahfcfjfe.html" target="_blank">
+					<h2>Blogs</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2009-10-14">14/10/2009</time>
+					|
+					<a class="domain" href="https://ciberjornalismobr.blogspot.com" target="_blank">ciberjornalismobr.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://meucontodefadasparticular.blogspot.com/2009/10/obvio-e-cliche.html" target="_blank">
+					<h2>Óbvio e clichê</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2009-10-14">14/10/2009</time>
+					|
+					<a class="domain" href="https://meucontodefadasparticular.blogspot.com" target="_blank">meucontodefadasparticular.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://cronicasdeumacidadebranca.blogspot.com/2009/10/as-minhas-eleicoes.html" target="_blank">
+					<h2>As minhas eleições</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2009-10-13">13/10/2009</time>
+					|
+					<a class="domain" href="https://cronicasdeumacidadebranca.blogspot.com" target="_blank">cronicasdeumacidadebranca.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://inclusaoebemestar.blogspot.com/2009/10/dramaturgia-do-silencio.html" target="_blank">
+					<h2>A dramaturgia do silêncio</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2009-10-12">12/10/2009</time>
+					|
+					<a class="domain" href="https://inclusaoebemestar.blogspot.com" target="_blank">inclusaoebemestar.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://cybersociedade.blogspot.com/2009/10/event-paciente-informado.html" target="_blank">
+					<h2>Evento: Paciente Informado</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2009-10-07">07/10/2009</time>
+					|
+					<a class="domain" href="https://cybersociedade.blogspot.com" target="_blank">cybersociedade.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://monalou.blogspot.com/2009/10/odd-cupcake.html" target="_blank">
+					<h2>ODD &amp;#43; Cupcake</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2009-10-07">07/10/2009</time>
+					|
+					<a class="domain" href="https://monalou.blogspot.com" target="_blank">monalou.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://normalaoextremo.blogspot.com/2009/10/ele-vira.html" target="_blank">
+					<h2>Ele Virá</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2009-10-06">06/10/2009</time>
+					|
+					<a class="domain" href="https://normalaoextremo.blogspot.com" target="_blank">normalaoextremo.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://personaconsultoriademoda.blogspot.com/2009/10/end.html" target="_blank">
+					<h2>The End</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2009-10-05">05/10/2009</time>
+					|
+					<a class="domain" href="https://personaconsultoriademoda.blogspot.com" target="_blank">personaconsultoriademoda.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://quasesemquerer.wordpress.com/2009/10/03/um-elogio-a-nacao-rubro-negra/" target="_blank">
+					<h2>Um elogio à nação rubro-negra</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2009-10-04">04/10/2009</time>
+					|
+					<a class="domain" href="https://quasesemquerer.wordpress.com" target="_blank">quasesemquerer.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://idzero.wordpress.com/2009/10/01/baraka/" target="_blank">
+					<h2>Baraka</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2009-10-01">01/10/2009</time>
+					|
+					<a class="domain" href="https://idzero.wordpress.com" target="_blank">idzero.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://fashiongazette.wordpress.com/2009/10/01/endereco-novo/" target="_blank">
+					<h2>Endereço novo!!!</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2009-10-01">01/10/2009</time>
+					|
+					<a class="domain" href="https://fashiongazette.wordpress.com" target="_blank">fashiongazette.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://elfoverde.blogspot.com/2009/09/rescaldo-do-euromilhoes.html" target="_blank">
+					<h2>Rescaldo do euromilhões</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2009-09-28">28/09/2009</time>
+					|
+					<a class="domain" href="https://elfoverde.blogspot.com" target="_blank">elfoverde.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://heartpierrot.blogspot.com/2009/09/vem-e-vai.html" target="_blank">
+					<h2>Vem e vai</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2009-09-26">26/09/2009</time>
+					|
+					<a class="domain" href="https://heartpierrot.blogspot.com" target="_blank">heartpierrot.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://anabelmascarenhas.wordpress.com/2009/09/25/projetos-fotogrficos-parte-1/" target="_blank">
+					<h2>Projetos Fotográficos – Parte 1</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2009-09-25">25/09/2009</time>
+					|
+					<a class="domain" href="https://anabelmascarenhas.wordpress.com" target="_blank">anabelmascarenhas.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://variasvariaveisjulianesoska.blogspot.com/2009/09/na-paz-e-na-pressao-now.html" target="_blank">
+					<h2>na paz e na pressão now</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2009-09-22">22/09/2009</time>
+					|
+					<a class="domain" href="https://variasvariaveisjulianesoska.blogspot.com" target="_blank">variasvariaveisjulianesoska.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://receitadeaconchego.blogspot.com/2009/09/colecao.html" target="_blank">
+					<h2>Coleção Cozinha Regional Brasileira</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2009-09-21">21/09/2009</time>
+					|
+					<a class="domain" href="https://receitadeaconchego.blogspot.com" target="_blank">receitadeaconchego.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://albertogpo.wordpress.com/2009/09/21/webdesign-revista-batuta/" target="_blank">
+					<h2>Webdesign Revista Batuta!</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2009-09-21">21/09/2009</time>
+					|
+					<a class="domain" href="https://albertogpo.wordpress.com" target="_blank">albertogpo.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://catorzeblog.wordpress.com/2009/09/21/mudamos/" target="_blank">
+					<h2>Mudamos</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2009-09-21">21/09/2009</time>
+					|
+					<a class="domain" href="https://catorzeblog.wordpress.com" target="_blank">catorzeblog.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://asesforcadas.blogspot.com/2009/09/nao-sei-se-e-verdade-mas-recebi-o.html" target="_blank">
+					<h2>A numerologia da chefia</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2009-09-18">18/09/2009</time>
+					|
+					<a class="domain" href="https://asesforcadas.blogspot.com" target="_blank">asesforcadas.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://misturebachique.blogspot.com/2009/09/casamento.html" target="_blank">
+					<h2>Casamento</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2009-09-18">18/09/2009</time>
+					|
+					<a class="domain" href="https://misturebachique.blogspot.com" target="_blank">misturebachique.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://fogueteformidavel.blogspot.com/2009/09/disco-rock-punk-funk-pop-rap-yeye-soul.html" target="_blank">
+					<h2>Untitled</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2009-09-18">18/09/2009</time>
+					|
+					<a class="domain" href="https://fogueteformidavel.blogspot.com" target="_blank">fogueteformidavel.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://eternoatrito.blogspot.com/2009/09/o-voo-de-samsa.html" target="_blank">
+					<h2>O Voo de Samsa</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2009-09-14">14/09/2009</time>
+					|
+					<a class="domain" href="https://eternoatrito.blogspot.com" target="_blank">eternoatrito.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://dopiomcj.blogspot.com/2009/09/cidade-hoje-as-16-horas.html" target="_blank">
+					<h2>A cidade hoje às 16 horas...</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2009-09-08">08/09/2009</time>
+					|
+					<a class="domain" href="https://dopiomcj.blogspot.com" target="_blank">dopiomcj.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://meubairrominharua.blogspot.com/2009/09/fora-de-casa-e-trabalho.html" target="_blank">
+					<h2>Fora de Casa e a Trabalho</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2009-09-07">07/09/2009</time>
+					|
+					<a class="domain" href="https://meubairrominharua.blogspot.com" target="_blank">meubairrominharua.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://bgrunig.wordpress.com/2009/09/07/98/" target="_blank">
+					<h2>Untitled</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2009-09-07">07/09/2009</time>
+					|
+					<a class="domain" href="https://bgrunig.wordpress.com" target="_blank">bgrunig.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://formasdoconteudo.blogspot.com/2009/09/novo-conceito-de-cadeira.html" target="_blank">
+					<h2>Novo conceito de cadeira!!!</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2009-09-04">04/09/2009</time>
+					|
+					<a class="domain" href="https://formasdoconteudo.blogspot.com" target="_blank">formasdoconteudo.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://jcoutelle.wordpress.com/2009/09/03/ponto-final/" target="_blank">
+					<h2>Ponto Final</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2009-09-03">03/09/2009</time>
+					|
+					<a class="domain" href="https://jcoutelle.wordpress.com" target="_blank">jcoutelle.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://tiachublog.blogspot.com/2009/09/tacinhas-de-goiabada.html" target="_blank">
+					<h2>Tacinhas de Goiabada</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2009-09-02">02/09/2009</time>
+					|
+					<a class="domain" href="https://tiachublog.blogspot.com" target="_blank">tiachublog.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://midocarmo.blogspot.com/2009/08/as-9-primeiras-dicas-de-como-ser-um.html" target="_blank">
+					<h2>As 9 primeiras dicas de como ser um twitteiro mais legal. Ou menos chato</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2009-08-28">28/08/2009</time>
+					|
+					<a class="domain" href="https://midocarmo.blogspot.com" target="_blank">midocarmo.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://unspensamentossoltos.blogspot.com/2009/08/porque-voce-faz-isso-comigo.html" target="_blank">
+					<h2>Porque você faz isso comigo?</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2009-08-27">27/08/2009</time>
+					|
+					<a class="domain" href="https://unspensamentossoltos.blogspot.com" target="_blank">unspensamentossoltos.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://drasticactions.blogspot.com/2009/08/aviso-importante.html" target="_blank">
+					<h2>AVISO IMPORTANTE!</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2009-08-26">26/08/2009</time>
+					|
+					<a class="domain" href="https://drasticactions.blogspot.com" target="_blank">drasticactions.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://fernandoluz.wordpress.com/2009/08/26/10-links-inspiradores-parte-ii/" target="_blank">
+					<h2>10 links inspiradores | parte II</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2009-08-26">26/08/2009</time>
+					|
+					<a class="domain" href="https://fernandoluz.wordpress.com" target="_blank">fernandoluz.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://metamorfosedacarla.blogspot.com/2009/08/perseverar-e-o-segredo.html" target="_blank">
+					<h2>Perseverar é o segredo</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2009-08-26">26/08/2009</time>
+					|
+					<a class="domain" href="https://metamorfosedacarla.blogspot.com" target="_blank">metamorfosedacarla.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://wbmconsulting.wordpress.com/2009/08/26/exemplo-de-sincroniavideo/" target="_blank">
+					<h2>Exemplo de sincronia!!!(Vídeo)</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2009-08-26">26/08/2009</time>
+					|
+					<a class="domain" href="https://wbmconsulting.wordpress.com" target="_blank">wbmconsulting.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://3littlenerds.wordpress.com/2009/08/25/mudamos/" target="_blank">
+					<h2>MUDAMOS…</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2009-08-25">25/08/2009</time>
+					|
+					<a class="domain" href="https://3littlenerds.wordpress.com" target="_blank">3littlenerds.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://vemkafkacomigo.blogspot.com/2009/08/moscou-um-conto.html" target="_blank">
+					<h2>moscou - um conto</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2009-08-23">23/08/2009</time>
+					|
+					<a class="domain" href="https://vemkafkacomigo.blogspot.com" target="_blank">vemkafkacomigo.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://mundomusicalia.blogspot.com/2009/08/o-grunge-ou-seattle-sound-ganhou-o.html" target="_blank">
+					<h2>Untitled</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2009-08-21">21/08/2009</time>
+					|
+					<a class="domain" href="https://mundomusicalia.blogspot.com" target="_blank">mundomusicalia.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://rexclamacao.blogspot.com/2009/08/dumb-brazil.html" target="_blank">
+					<h2>Dumb Brazil</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2009-08-21">21/08/2009</time>
+					|
+					<a class="domain" href="https://rexclamacao.blogspot.com" target="_blank">rexclamacao.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://pequenaval.blogspot.com/2009/08/restaurante-amici.html" target="_blank">
+					<h2>Restaurante Amici</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2009-08-21">21/08/2009</time>
+					|
+					<a class="domain" href="https://pequenaval.blogspot.com" target="_blank">pequenaval.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://administrando-rh.blogspot.com/2009/08/750-vagas-para-agente-da-policia.html" target="_blank">
+					<h2>750 vagas para Agente da Polícia Federal</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2009-08-21">21/08/2009</time>
+					|
+					<a class="domain" href="https://administrando-rh.blogspot.com" target="_blank">administrando-rh.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://discodeplatina.wordpress.com/2009/08/19/encartecaixa-genial-da-decada/" target="_blank">
+					<h2>Encarte/caixa genial da década</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2009-08-19">19/08/2009</time>
+					|
+					<a class="domain" href="https://discodeplatina.wordpress.com" target="_blank">discodeplatina.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://cersibon.blogspot.com/2009/08/vova-diircoa.html" target="_blank">
+					<h2>VOVA DIIRCOA</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2009-08-19">19/08/2009</time>
+					|
+					<a class="domain" href="https://cersibon.blogspot.com" target="_blank">cersibon.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://vidapaulista.blogspot.com/2009/08/assalto.html" target="_blank">
+					<h2>Assalto</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2009-08-19">19/08/2009</time>
+					|
+					<a class="domain" href="https://vidapaulista.blogspot.com" target="_blank">vidapaulista.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://decarneeosso.wordpress.com/2009/08/19/pausa-para-outra-bobeirinha/" target="_blank">
+					<h2>Pausa para outra bobeirinha</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2009-08-19">19/08/2009</time>
+					|
+					<a class="domain" href="https://decarneeosso.wordpress.com" target="_blank">decarneeosso.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://womanofaffairs.blogspot.com/2009/08/french-maid-aparentemente-ressurgencia.html" target="_blank">
+					<h2>Untitled</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2009-08-19">19/08/2009</time>
+					|
+					<a class="domain" href="https://womanofaffairs.blogspot.com" target="_blank">womanofaffairs.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://garotasdesegunda.blogspot.com/2009/08/sobre-olhos-e-olhares.html" target="_blank">
+					<h2>Sobre olhos e olhares</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2009-08-18">18/08/2009</time>
+					|
+					<a class="domain" href="https://garotasdesegunda.blogspot.com" target="_blank">garotasdesegunda.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="https://cinevita.wordpress.com/2009/08/18/o-novo-cine-vita/" target="_blank">
+					<h2>O novo Cine Vita</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2009-08-18">18/08/2009</time>
+					|
+					<a class="domain" href="https://cinevita.wordpress.com" target="_blank">cinevita.wordpress.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://fabulosomundodeamanda.blogspot.com/2009/08/oi-gente.html" target="_blank">
+					<h2>Untitled</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2009-08-16">16/08/2009</time>
+					|
+					<a class="domain" href="https://fabulosomundodeamanda.blogspot.com" target="_blank">fabulosomundodeamanda.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+			<li>
+				<a href="http://nosdacultura.blogspot.com/2009/08/primeiro-traco.html" target="_blank">
+					<h2>Primeiro Traço</h2>
+				</a>
+				<br>
+				<small>
+					<time datetime="2009-08-16">16/08/2009</time>
+					|
+					<a class="domain" href="https://nosdacultura.blogspot.com" target="_blank">nosdacultura.blogspot.com</a> | 
+					<button class="hide">esconder</button> | 
+					<button class="report">reportar</button>
+				</small>
+			</li>
+		</ol>
+		<nav>
+			<a href="page-259.html">&larr; Voltar</a>
+			<span>Página 260 de 268</span>
+			<a href="page-261.html">Avançar &rarr;</a>
+		</nav>
+	</main>
+	<footer>
+		<p>Atualizado em:
+			<time id="update-at" datetime="2026-03-09T16:59:16.961318+00:00">
+				Monday, 09/03/2026 16:59:16
+			</time>
+		</p>
+		<p><a href="index.html">BR Crawl</a> | <a href="about.html">Sobre</a> | <a href="sources.html">Fontes</a></p>
+	</footer>
+</body>
+
+<script type="module" nonce="f30afc0e512e1f1b692df29535790e55">
+	const updatedAtElement = document.getElementById("update-at");
+	const date = new Date(updatedAtElement.dateTime);
+	updatedAtElement.innerText = date.toLocaleString(undefined, {
+		dateStyle: "full",
+		timeStyle: "medium",
+	})
+</script>
+<script type="module" nonce="f30afc0e512e1f1b692df29535790e55">
+var backend_url='https://brcrawl.guilhermegarcia.dev';
+function hide_feedback(domain) {
+    return `<div><small>Domínio <a href="https://${domain}">${domain}</a> escondido. | <button class="show">exibir</button></small></div>`;
+}
+
+function report_feedback(li) {
+    li.style.opacity = 0.5;
+    const btn = li.querySelector("button.report");
+    btn.textContent = "reportado";
+    btn.className = "unreport";
+}
+
+var reported = localStorage.getItem('reported') || '[]';
+reported = JSON.parse(reported);
+var hidden = localStorage.getItem('hidden') || '[]';
+hidden = JSON.parse(hidden);
+
+let domains = Array.from(document.getElementsByClassName("domain"));
+domains.forEach((domain) => {
+    if (reported.includes(domain.textContent)) {
+        const li = domain.closest("li");
+        report_feedback(li);
+    }
+    if (hidden.includes(domain.textContent)) {
+        domain.closest("li").innerHTML = hide_feedback(domain.textContent);
+    }
+});
+
+function report(btn) {
+    const li = btn.closest("li");
+    const articleDomain = li.querySelector("a.domain");
+    const domain = articleDomain.textContent;
+
+    if (reported.length == 0) {
+        const agreed = confirm("Reporte sites que não são blogs pessoais ou não estão em português. Confirme para não ver mais essa mensagem. Obrigado!");
+        if (!agreed) {
+            return;
+        }
+    }
+    fetch(`${backend_url}/report`, {
+        method: "POST",
+        body: JSON.stringify({ domain }),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+    reported.push(domain);
+    localStorage.setItem('reported', JSON.stringify(reported));
+    report_feedback(li);
+}
+
+function unreport(btn) {
+    const li = btn.closest("li");
+    const articleDomain = li.querySelector("a.domain");
+    const domain = articleDomain.textContent;
+    reported = reported.filter((d) => d != domain);
+    localStorage.setItem('reported', JSON.stringify(reported));
+    fetch(`${backend_url}/report`, {
+        method: "POST",
+        body: JSON.stringify({ domain }),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }).finally(() => {
+        window.location.reload();
+    });
+}
+
+function hide(btn) {
+    const li = btn.closest("li");
+    const articleDomain = li.querySelector("a.domain");
+    const domain = articleDomain.textContent;
+
+    hidden.push(domain);
+    localStorage.setItem('hidden', JSON.stringify(hidden));
+    li.innerHTML = hide_feedback(domain);
+}
+
+function show(btn) {
+    const li = btn.closest("li");
+    const articleDomain = li.querySelector("a");
+    const domain = articleDomain.textContent;
+    hidden = hidden.filter((d) => d != domain);
+    localStorage.setItem('hidden', JSON.stringify(hidden));
+    window.location.reload();
+}
+
+document.addEventListener("click", function(e) {
+    if (e.target.className == "report") {
+        return report(e.target);
+    }
+    if (e.target.className == "unreport") {
+        return unreport(e.target);
+    }
+    if (e.target.className == "hide") {
+        return hide(e.target);
+    }
+    if (e.target.className == "show") {
+        return show(e.target);
+    }
+});
+</script>
+
+</html>
