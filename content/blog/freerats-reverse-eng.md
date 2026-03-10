@@ -26,6 +26,44 @@ Pelo celular, fiz a conexão pela leitura do QRCode, que me instruiu a instalar 
 
 Consegui resolver com um `sudo ufw enable 8000`; lembre-se de fechar a porta ao sair com `sudo ufw disable 8000`.
 
+O fluxo do HTTP Toolkit é mais ou menos assim: ele senta entre o aplicativo e o servidor da API, interceptando as requisições. O que acontece é que pra que ele consiga entender o que está sendo enviado pelo app, ele tem que descriptografar as requisições, que são assinadas com SSL.
+
+Pra isso, é preciso gerar um certificado próprio, que vai ser auto assinado (a não ser que você compre o certificado de algum fornecedor, como GoDaddy, Sectigo, etc).
+
+Depois, o HTTP Toolkit ainda vai precisar criar uma nova conexão, dessa vez entre ele e a API, se passando pelo aplicativo, para finalizar a requisição. Dessa vez os dados são criptografados usando o certificado da API, e por isso o HTTP Toolkit também consegue inspecionar a resposta.
+
+![Diagrama mermaid mostrando o fluxo](https://i.ibb.co/VWZMYJqq/mermaid-diagram-2026-03-10-143811.png)
+
+<details>
+<summary>ver código fonte do diagrama</summary>
+
+```
+sequenceDiagram
+    participant App as Android App
+    participant Proxy as HTTP Toolkit (MITM Proxy)
+    participant Server as Remote API Server
+
+    Note over App,Server: Goal: Inspect HTTPS traffic
+
+    App->>Proxy: HTTPS request to https://api.example.com
+    Note right of Proxy: App traffic is routed<br/>through local proxy
+
+    Proxy-->>App: Presents forged TLS certificate<br/>for api.example.com
+    Note right of App: Certificate signed by<br/>HTTP Toolkit Root CA<br/>installed on device
+
+    App->>Proxy: Encrypted request (TLS Connection A)
+    Proxy->>Proxy: Decrypt request<br/>Inspect / modify
+
+    Proxy->>Server: New HTTPS request (TLS Connection B)
+    Note right of Proxy: Separate TLS session<br/>with real server
+
+    Server-->>Proxy: HTTPS response
+    Proxy->>Proxy: Decrypt response<br/>Inspect / modify
+
+    Proxy-->>App: Re-encrypted HTTPS response
+```
+</details>
+
 Consegui interceptar o tráfego, mas o app do GymRats não aceita certificados SSL auto assinados (que é o caso do cert usado pelo VPS do HTTP Toolkit), então as requisições acabavam sendo abortadas, e eu não conseguia ver nem as URLs acessadas pelo painel do toolkit.
 
 Existem [formas de burlar essa restrição](https://httptoolkit.com/docs/guides/android/#intercepting-traffic-from-3rd-party-android-apps), mas elas envolvem fazer root no celular (não quero) ou usando emuladores.
