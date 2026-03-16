@@ -7,8 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Copyright © 2024-2026, Guilherme Garcia.</copyright>
-    <lastBuildDate>Sun, 04 Feb 2024 12:47:34 -0300</lastBuildDate>
+    <lastBuildDate>Wed, 11 Mar 2026 11:08:32 -0300</lastBuildDate>
     <atom:link href="https://guilhermegarcia.dev/blog/english/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>On maintaining large SSR applications</title>
+      <link>https://guilhermegarcia.dev/blog/on-maintaining-large-ssr-applications/</link>
+      <pubDate>Wed, 11 Mar 2026 11:08:32 -0300</pubDate>
+      <guid>https://guilhermegarcia.dev/blog/on-maintaining-large-ssr-applications/</guid>
+      <description>A collection of insightful talks and essays about maintaining large applications.&#xA;The focus is mainly traditional SSR web applications using MVC~esque framesworks (such as Django, RoR, Laravel, &amp;hellip;), meaning that if you are focused on frontend only applications (such as SPAs using React, Vue, etc) this probably won&amp;rsquo;t be very helpful :).&#xA;Django structure for scale and longevity Reference: https://www.youtube.com/watch?v=yG3ZdxBb1oo&#xA;Where do we put the business logic? What is &amp;ldquo;business logic&amp;rdquo;?</description>
+    </item>
     <item>
       <title>Revivendo um netbook com linux</title>
       <link>https://guilhermegarcia.dev/blog/revivendo-um-netbook-com-linux/</link>

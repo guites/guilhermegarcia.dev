@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="https://guilhermegarcia.dev/images/favicon.png" />
+<title>On maintaining large SSR applications | Site do Guilherme</title>
+<meta name="title" content="On maintaining large SSR applications" />
+<meta name="description" content="A collection of insightful talks and essays about maintaining large applications" />
+<meta name="keywords" content="api,english," />
+
+
+<meta property="og:title" content="On maintaining large SSR applications" />
+<meta property="og:description" content="A collection of insightful talks and essays about maintaining large applications" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://guilhermegarcia.dev/blog/on-maintaining-large-ssr-applications/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2026-03-11T11:08:32-03:00" />
+<meta property="article:modified_time" content="2026-03-11T11:08:32-03:00" /><meta property="og:site_name" content="Blog do Guilherme" />
+
+
+
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="On maintaining large SSR applications"/>
+<meta name="twitter:description" content="A collection of insightful talks and essays about maintaining large applications"/>
+
+
+
+<meta itemprop="name" content="On maintaining large SSR applications">
+<meta itemprop="description" content="A collection of insightful talks and essays about maintaining large applications"><meta itemprop="datePublished" content="2026-03-11T11:08:32-03:00" />
+<meta itemprop="dateModified" content="2026-03-11T11:08:32-03:00" />
+<meta itemprop="wordCount" content="1440">
+<meta itemprop="keywords" content="api,english," />
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  body {
+    font-family: Verdana, sans-serif;
+    margin: auto;
+    padding: 20px;
+    max-width: 720px;
+    text-align: left;
+    background-color: #fff;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: #444;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  b {
+    color: #222;
+  }
+
+  a {
+    color: #3273dc;
+     
+  }
+
+  .title {
+    text-decoration: none;
+    border: 0;
+  }
+
+  .title span {
+    font-weight: 400;
+  }
+
+  nav a {
+    margin-right: 10px;
+  }
+
+  textarea {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  input {
+    font-size: 16px;
+  }
+
+  content {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    padding: 2px 5px;
+    background-color: #f2f2f2;
+  }
+
+  pre code {
+    color: #222;
+    display: block;
+    padding: 20px;
+    white-space: pre-wrap;
+    font-size: 14px;
+    overflow-x: auto;
+  }
+
+  div.highlight pre {
+    background-color: initial;
+    color: initial;
+  }
+
+  div.highlight code {
+    background-color: unset;
+    color: unset;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: #222;
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px;
+    text-align: center;
+  }
+
+  .helptext {
+    color: #777;
+    font-size: small;
+  }
+
+  .errorlist {
+    color: #eba613;
+    font-size: small;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: #8b6fcb;
+  }
+
+  aside {
+    margin: 15px 5px;
+    padding: 5px 10px;
+    border: 1px dashed;
+    text-align: justify;
+    hyphens: auto;
+  }
+
+  aside::before {
+    content: " ᶘ ᵒᴥᵒᶅ ";
+    margin-right: 5px;
+  }
+
+  aside.warning {
+    border-color: #ffbb00;
+    background-color: rgb(255, 249, 231);
+  }
+
+  aside.warning::before {
+    color: #ffbb00;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #333;
+      color: #ddd;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    strong,
+    b {
+      color: #eee;
+    }
+
+    a {
+      color: #8cc2dd;
+    }
+
+    code {
+      background-color: #777;
+    }
+
+    pre code {
+      color: #ddd;
+    }
+
+    blockquote {
+      color: #ccc;
+    }
+
+    aside.warning {
+        background-color: transparent;
+    }
+
+    textarea,
+    input {
+      background-color: #252525;
+      color: #ddd;
+    }
+
+    .helptext {
+      color: #aaa;
+    }
+  }
+</style>
+
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h2>Site do Guilherme</h2>
+</a>
+<nav><a href="/">Home</a>
+
+
+<a href="/blog">Blog</a>
+
+<a href="/links">Links</a>
+<a href="/opensource">Open Source</a>
+<a href="/index.xml">RSS</a>
+</nav>
+</header>
+  <main>
+
+<h1>On maintaining large SSR applications</h1>
+<p>
+  <i>
+    <time datetime='2026-03-11' pubdate>
+      11 Mar, 2026
+    </time>
+  </i>
+</p>
+
+
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#django-structure-for-scale-and-longevity">Django structure for scale and longevity</a>
+      <ul>
+        <li><a href="#where-do-we-put-the-business-logic">Where do we put the business logic?</a></li>
+        <li><a href="#models">Models</a></li>
+        <li><a href="#views--apis">Views &amp; APIs</a></li>
+        <li><a href="#existing-boxes-from-django">Existing boxes (from Django)</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#selectors">Selectors</a></li>
+        <li><a href="#selectors-vs-model-properties">Selectors vs Model properties</a></li>
+        <li><a href="#apis">APIs</a></li>
+        <li><a href="#apis---serializers">APIs - Serializers</a></li>
+        <li><a href="#testing-models">Testing models</a></li>
+        <li><a href="#testing-services">Testing services</a></li>
+        <li><a href="#testing-apis">Testing APIs</a></li>
+        <li><a href="#tldr">TL;DR</a></li>
+        <li><a href="#follow-up-talks">Follow up talks</a></li>
+      </ul>
+    </li>
+    <li><a href="#boundaries">Boundaries</a>
+      <ul>
+        <li><a href="#mocking-can-be-deceitful">Mocking can be deceitful</a></li>
+        <li><a href="#how-to-reduce-the-problem">How to reduce the problem</a></li>
+        <li><a href="#how-to-not-need-mocks">How to not need mocks</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+<content>
+  <p>A collection of insightful talks and essays about maintaining large applications.</p>
+<p>The focus is mainly traditional SSR web applications using MVC~esque framesworks (such as Django, RoR, Laravel, &hellip;), meaning that if you are focused on frontend only applications (such as SPAs using React, Vue, etc) this probably won&rsquo;t be very helpful :).</p>
+<h2 id="django-structure-for-scale-and-longevity">Django structure for scale and longevity</h2>
+<p><small>Reference: <a href="https://www.youtube.com/watch?v=yG3ZdxBb1oo">https://www.youtube.com/watch?v=yG3ZdxBb1oo</a></small></p>
+<h3 id="where-do-we-put-the-business-logic">Where do we put the business logic?</h3>
+<p>What is &ldquo;business logic&rdquo;?</p>
+<ul>
+<li>Every logic in the code base that is not related to the framework infrastructure or some sort of utility.</li>
+<li>Every <code>if</code> statement that isn&rsquo;t guessing configuration or concatenating strings.</li>
+</ul>
+<h3 id="models">Models</h3>
+<p>They define the relations to be used in the &ldquo;business logic&rdquo;. Initial business logic can be written in model validation or added in the <code>save</code> or <code>clean</code> methods.</p>
+<ul>
+<li>It&rsquo;s ok to define model properties based on existing model fields</li>
+<li>It&rsquo;s ok to have additional validation on the clean method</li>
+<li>It&rsquo;s <strong>not</strong> ok to have logic that depends on external factors outside from model relationships</li>
+</ul>
+<p><strong>BUT</strong> models take care primarily of the data model &amp; relations. Avoid fat models!</p>
+<h3 id="views--apis">Views &amp; APIs</h3>
+<p>They call code from the core of the application.</p>
+<p>(DRF specific)</p>
+<p>Serializers should:</p>
+<ul>
+<li>Transform Python / ORM objects to JSON</li>
+<li>Transform JSON to Python data / ORM</li>
+<li><strong>not</strong> take care of creating objects &amp; doing additional business logic</li>
+</ul>
+<p>What about in the APIVIew?</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">EntityCreateAPI</span>(APIView):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">post</span>(self, request):
+</span></span><span style="display:flex;"><span>        serializer <span style="color:#f92672">=</span> <span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span>        serializer<span style="color:#f92672">.</span>is_valid(<span style="color:#f92672">...</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># bunch of business logic</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> Response(status<span style="color:#f92672">=...</span>)
+</span></span></code></pre></div><p>But what if we need the same logic elsewhere? For example in a command, in another API path, in a regular view?</p>
+<h3 id="existing-boxes-from-django">Existing boxes (from Django)</h3>
+<ul>
+<li>Models</li>
+<li>Views / APIs</li>
+<li>Templates</li>
+<li>Forms / Serializers</li>
+<li>Tasks</li>
+</ul>
+<p>None are great places to put business logic at.</p>
+<h3 id="services">Services</h3>
+<p>app/services.py or multiple files at app/services/&hellip;py</p>
+<ul>
+<li>General unit that holds business logic together.</li>
+<li>Service is a simple, type annotated function</li>
+<li>Speaks the domain language of the software that we are creating</li>
+<li>Works mostly &amp; mainly with models</li>
+</ul>
+<p>Example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">create_user</span>(
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">*</span>,
+</span></span><span style="display:flex;"><span>    email: str,
+</span></span><span style="display:flex;"><span>    name: str
+</span></span><span style="display:flex;"><span>) <span style="color:#f92672">-&gt;</span> User:
+</span></span><span style="display:flex;"><span>    user <span style="color:#f92672">=</span> User(email<span style="color:#f92672">=</span>email)
+</span></span><span style="display:flex;"><span>    user<span style="color:#f92672">.</span>full_clean()
+</span></span><span style="display:flex;"><span>    user<span style="color:#f92672">.</span>save()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    create_profile(user<span style="color:#f92672">=</span>user, name<span style="color:#f92672">=</span>name)
+</span></span><span style="display:flex;"><span>    send_confirmation_email(user<span style="color:#f92672">=</span>user)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> user
+</span></span></code></pre></div><p>Every non-trivial operation, where objects are being created, should be a service.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#a6e22e">@transaction.atomic</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">create_complex_thing_with_dependences</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># does a bunch of database creating</span>
+</span></span></code></pre></div><p>No ORM code in the view layer! Not in the viewset, not in the APIView.</p>
+<h3 id="selectors">Selectors</h3>
+<ul>
+<li>Take care of business logic around fetching data from the DB</li>
+<li>Not always necessary</li>
+<li>Can handle permissions, filtering, etc</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_users</span>(<span style="color:#f92672">*</span>, fetched_by: User) <span style="color:#f92672">-&gt;</span> Iterable[User]:
+</span></span><span style="display:flex;"><span>    user_ids <span style="color:#f92672">=</span> get_visible_users_for(user<span style="color:#f92672">=</span>fetched_by)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    query <span style="color:#f92672">=</span> Q(id__in<span style="color:#f92672">=</span>user_ids)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> User<span style="color:#f92672">.</span>objects<span style="color:#f92672">.</span>filter(query)
+</span></span></code></pre></div><h3 id="selectors-vs-model-properties">Selectors vs Model properties</h3>
+<p>If a model property starts doing queries on the model&rsquo;s relations, or outside them, it should be a selector.</p>
+<p>Example (better as a selector):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Lecture</span>(models<span style="color:#f92672">.</span>Model):
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span>    course <span style="color:#f92672">=</span> models<span style="color:#f92672">.</span>ForeignKey(Course, <span style="color:#f92672">...</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@property</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">not_present_students</span>(self):
+</span></span><span style="display:flex;"><span>        present_ids <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>present_students<span style="color:#f92672">.</span>values_list(<span style="color:#e6db74">&#39;id&#39;</span>, flat<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>course<span style="color:#f92672">.</span>students<span style="color:#f92672">.</span>exclude(id__in<span style="color:#f92672">=</span>present_ids)
+</span></span></code></pre></div><p>If we are listing all <code>Lecture</code>s, this can easily become a n+1 problem (for every lecture, we need to query all course students). So this should probably be moved into a selector.</p>
+<h3 id="apis">APIs</h3>
+<ul>
+<li>When using services &amp; selectors, all APIs look the same</li>
+<li>Nice repeatable pattern for how an API should look like</li>
+<li>API layer is easily tested</li>
+</ul>
+<p>Example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CourseListApi</span>(AuthMixin, APIView):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">OutputSerializer</span>(serializers<span style="color:#f92672">.</span>ModelSerializer):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Meta</span>:
+</span></span><span style="display:flex;"><span>            model <span style="color:#f92672">=</span> Course
+</span></span><span style="display:flex;"><span>            fields <span style="color:#f92672">=</span> (<span style="color:#e6db74">&#39;id&#39;</span>, <span style="color:#e6db74">&#39;name&#39;</span>, <span style="color:#e6db74">&#39;start_date&#39;</span>, <span style="color:#e6db74">&#39;end_date&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get</span>(self, request, course_id):
+</span></span><span style="display:flex;"><span>        course <span style="color:#f92672">=</span> get_couse(id<span style="color:#f92672">=</span>course_id)
+</span></span><span style="display:flex;"><span>        data <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>OutputSerializer(course)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> Response(data)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CourseCreateApi</span>(AuthMixin, APIView):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">InputSerializer</span>(serializers<span style="color:#f92672">.</span>Serializer):
+</span></span><span style="display:flex;"><span>        name <span style="color:#f92672">=</span> serializers<span style="color:#f92672">.</span>CharField()
+</span></span><span style="display:flex;"><span>        start_date <span style="color:#f92672">=</span> serializers<span style="color:#f92672">.</span>DateField()
+</span></span><span style="display:flex;"><span>        end_date <span style="color:#f92672">=</span> serializers<span style="color:#f92672">.</span>DateField()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">post</span>(self, request):
+</span></span><span style="display:flex;"><span>        serializer <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>InputSerializer(data<span style="color:#f92672">=</span>request<span style="color:#f92672">.</span>data)
+</span></span><span style="display:flex;"><span>        serializer<span style="color:#f92672">.</span>is_valid(raise_exception<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        create_course(<span style="color:#f92672">**</span>serializer<span style="color:#f92672">.</span>validated_data)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> Response(status<span style="color:#f92672">=</span>status<span style="color:#f92672">.</span>HTTP_201_CREATED)
+</span></span></code></pre></div><h3 id="apis---serializers">APIs - Serializers</h3>
+<ul>
+<li>Serializers are nested inside the API</li>
+<li>for list / detail API, you can use ModelSerializer if needed</li>
+<li>if you are doing create / update API, you can use the normal serializer</li>
+<li>Output serializers can be reutilized with great attention</li>
+<li>Input serializers should be unique to each route</li>
+</ul>
+<h3 id="testing-models">Testing models</h3>
+<p>If there is no complex logic on the model methods, tests don&rsquo;t actually need to touch the database. Test custom validation logic.</p>
+<h3 id="testing-services">Testing services</h3>
+<ul>
+<li>The most important layer to be tested</li>
+<li>Mock integration between different services</li>
+</ul>
+<h3 id="testing-apis">Testing APIs</h3>
+<ul>
+<li>Can be done by mocking the services and selectors or</li>
+<li>Delegate to integration tests, since we are only really serializing input/output</li>
+</ul>
+<h3 id="tldr">TL;DR</h3>
+<p>Avoid business logic in</p>
+<ul>
+<li>Model&rsquo;s save method</li>
+<li>Forms &amp; Serializers</li>
+<li>Views &amp; APIs</li>
+<li>Templates, tags and utility method (these should be as close to pure functions as possible)</li>
+<li>Tasks</li>
+</ul>
+<p>Selectors &amp; Services:</p>
+<ul>
+<li>Use services for create/update actions</li>
+<li>Use selectors for get/list actions</li>
+</ul>
+<h3 id="follow-up-talks">Follow up talks</h3>
+<p>On separation of concerns and identifying boundaries in the system: <a href="https://www.youtube.com/watch?v=yTkzNHF6rMs">Ruby Conf 12 - Boundaries by Gary Bernhardt</a>.</p>
+<p>On testing: <a href="https://www.youtube.com/watch?v=NHhnEa5CyHk">Proper Django Testing by Martin Angelov</a></p>
+<h2 id="boundaries">Boundaries</h2>
+<p><small>Reference: <a href="https://www.youtube.com/watch?v=yTkzNHF6rMs">https://www.youtube.com/watch?v=yTkzNHF6rMs</a></small></p>
+<p>Testing in isolation involves mocking everything that interacts with the feature under test.</p>
+<h3 id="mocking-can-be-deceitful">Mocking can be deceitful</h3>
+<p>There are three main advantages to mocking/stubbing:</p>
+<ul>
+<li>Allows for <strong>Test-Driven Design</strong> (features can evolve based on a set of passing conditions)</li>
+<li>Allows for <strong>Outside-in Test-Driven Development</strong>, where the most important feature can be developed before the lower level implementations: for example the rules of a notification system can be implemented without a working messaging system</li>
+<li>Great test performance (quick tests)</li>
+</ul>
+<p>Which are balanced out by the drawback of testing your implementation in a fake ecosystem: with mocking you can never be 100% sure that your mocks are modeling the system in a reliable way.</p>
+<p>This creates situations where tests pass but the system breaks under the tested conditions.</p>
+<h3 id="how-to-reduce-the-problem">How to reduce the problem</h3>
+<p>There are multiple approachs to making mock and stub design more reliable.</p>
+<h4 id="contract--collaboration-tests">Contract &amp; Collaboration tests</h4>
+<p>This involves another layer of testing: we try to guarantee that our testing doubles (mocks and stubs) are reproducing the expected behaviour.</p>
+<blockquote>
+<p>Contract and Collaboration tests are medium sized tests that validate how one&rsquo;s own code interacts with an external dependency. Internal APIs are adapters that insulate most of your code from changes in such dependencies. (<a href="https://mike-bland.com/2023/09/08/contract-collaboration-tests-and-internal-apis.html">Mike Bland - Contract/Collaboration Tests and Internal APIs</a>)</p>
+</blockquote>
+<p>This valid alternative reinforces the definition of interfaces, both for internal and external dependencies, with the downside of increasing codebase complexity and adding additional layers of indirection.</p>
+<h4 id="the-tools-approach">The tools approach</h4>
+<p>In the ruby ecosystem there&rsquo;s <a href="https://github.com/xaviershay/rspec-fire">rspec-fire</a> that attempts to validate that mocked contracts (such as method or returned values) are in accord to the real implementations.</p>
+<p>Python has something similar with unittest.mock&rsquo;s <code>create_autospec</code>, but it only validates that the mocked method exist, not their returned values.</p>
+<h4 id="typing">Typing</h4>
+<p>By subclassing the mock from the real class, we can enforce type safety and statically catch both invalid methods and invalid return types.</p>
+<h4 id="integration-testing">Integration testing</h4>
+<p>See <a href="https://www.youtube.com/watch?v=fhFa4tkFUFw&amp;t=13s">Integrated Tests Are A Scam by J.B. Rainsberger</a>. But seriously the thing is that integrated tests probably do not cover your codebase throughly enough, and you still need unit tests.</p>
+<h3 id="how-to-not-need-mocks">How to not need mocks</h3>
+<p>If a function has no side effects, meaning it receives a value, manipulates it, and returns a new value, and it has no dependencies, then we don&rsquo;t need to mock anything.</p>
+<p>How can we modify existing code to approach this theoretical function?</p>
+<p>By using <strong>Values as Boundaries</strong>.</p>
+<p>Compare this initial implementation:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Sweeper</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">sweep</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> user <span style="color:#f92672">in</span> User<span style="color:#f92672">.</span>objects<span style="color:#f92672">.</span>all():
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> user<span style="color:#f92672">.</span>active <span style="color:#f92672">and</span> user<span style="color:#f92672">.</span>paid_at <span style="color:#f92672">&lt;</span> datetime<span style="color:#f92672">.</span>now() <span style="color:#f92672">-</span> timedelta(<span style="color:#ae81ff">30</span>):
+</span></span><span style="display:flex;"><span>                UserMailer<span style="color:#f92672">.</span>billing_problem(user)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@fixture</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">bob</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># in librarires such as factory boy, .create() instantiates a python</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># object and saves it to the database</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> UserFactory(active<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>, paid_at<span style="color:#f92672">=</span>datetime<span style="color:#f92672">.</span>now() <span style="color:#f92672">-</span> timedelta(<span style="color:#ae81ff">60</span>))<span style="color:#f92672">.</span>create()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@mark.describe</span>(<span style="color:#e6db74">&#34;Sweeper&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestSweeper</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@mark.context</span>(<span style="color:#e6db74">&#34;When a subscription is expired&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@mark.it</span>(<span style="color:#e6db74">&#34;emails the user&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">test_emails_users_with_expired_subs</span>(self, bob, mocker):
+</span></span><span style="display:flex;"><span>        billing_problem_mock <span style="color:#f92672">=</span> mocker<span style="color:#f92672">.</span>patch(<span style="color:#e6db74">&#34;UserMailer.billing_problem&#34;</span>, return_value<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>)
+</span></span><span style="display:flex;"><span>        sweeper <span style="color:#f92672">=</span> Sweeper()
+</span></span><span style="display:flex;"><span>        sweeper<span style="color:#f92672">.</span>sweep()
+</span></span><span style="display:flex;"><span>        billing_problem_mock<span style="color:#f92672">.</span>assert_called_once_with(bob)
+</span></span></code></pre></div><p>To this modified version:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ExpiredUsers</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">for_users</span>(self, users):
+</span></span><span style="display:flex;"><span>        expired <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> user <span style="color:#f92672">in</span> users:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> user<span style="color:#f92672">.</span>active <span style="color:#f92672">and</span> user<span style="color:#f92672">.</span>paid_at <span style="color:#f92672">&lt;</span> datetime<span style="color:#f92672">.</span>now() <span style="color:#f92672">-</span> timedelta(<span style="color:#ae81ff">30</span>):
+</span></span><span style="display:flex;"><span>                expired<span style="color:#f92672">.</span>append(user)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> expired
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Sweeper</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">sweep</span>(self):
+</span></span><span style="display:flex;"><span>        expired_users <span style="color:#f92672">=</span> ExpiredUsers()
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> user <span style="color:#f92672">in</span> expired_users<span style="color:#f92672">.</span>for_users(User<span style="color:#f92672">.</span>objects<span style="color:#f92672">.</span>all()):
+</span></span><span style="display:flex;"><span>            UserMailer<span style="color:#f92672">.</span>billing_problem(user)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@fixture</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">bob</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># .build() should instantiate the python object without</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># saving to the database</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> UserFactory(active<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>, paid_at<span style="color:#f92672">=</span>datetime<span style="color:#f92672">.</span>now() <span style="color:#f92672">-</span> timedelta(<span style="color:#ae81ff">60</span>))<span style="color:#f92672">.</span>build()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@mark.describe</span>(<span style="color:#e6db74">&#34;ExpiredUsers&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestExpiredUsers</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@mark.context</span>(<span style="color:#e6db74">&#34;When a list of users is received&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@mark.it</span>(<span style="color:#e6db74">&#34;returns the ones that are expired&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">test_emails_users_with_expired_subs</span>(self, bob):
+</span></span><span style="display:flex;"><span>        expired_users <span style="color:#f92672">=</span> ExpiredUsers()
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">assert</span> expiredUsers<span style="color:#f92672">.</span>for_users([bob]) <span style="color:#f92672">==</span> [bob]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@mark.describe</span>(<span style="color:#e6db74">&#34;Sweeper&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestSweeper</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@mark.context</span>(<span style="color:#e6db74">&#34;When a subscription is expired&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@mark.it</span>(<span style="color:#e6db74">&#34;emails the user&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">test_emails_users_with_expired_subs</span>(self, bob):
+</span></span><span style="display:flex;"><span>        mocker<span style="color:#f92672">.</span>patch(<span style="color:#e6db74">&#34;ExpiredUsers.for_users&#34;</span>, return_value<span style="color:#f92672">=</span>[bob])
+</span></span><span style="display:flex;"><span>        billing_problem_mock <span style="color:#f92672">=</span> mocker<span style="color:#f92672">.</span>patch(<span style="color:#e6db74">&#34;UserMailer.billing_problem&#34;</span>, return_value<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        sweeper <span style="color:#f92672">=</span> Sweeper()
+</span></span><span style="display:flex;"><span>        sweeper<span style="color:#f92672">.</span>sweep()
+</span></span><span style="display:flex;"><span>        billing_problem_mock<span style="color:#f92672">.</span>assert_called_once_with(bob)
+</span></span></code></pre></div><p>While we still need to use a mock, we have a much clearer separation of concerns.</p>
+<p>The <code>ExpiredUsers</code> class has a pure method (no side effects, no dependency on external state). The <code>Sweeper</code> class is now responsible for managing the dependencies.</p>
+<p>In a way, the <code>Sweeper</code> class is an orchestration layer (imperative shell) around a logical layer (the functional core).</p>
+<p>The <strong>Core</strong> should be <strong>heavy on paths</strong> (possible code outcomes, <code>if</code>s, etc) and <strong>light on dependencies</strong>, meaning it is more <strong>easily isolated</strong>.</p>
+<p>The <strong>Shell</strong> should be the oposite, <strong>heavy on dependencies</strong> and <strong>light on paths</strong>, which makes it a great contender for integration testing.</p>
+
+</content>
+<p>
+  
+  <a href="https://guilhermegarcia.dev/blog/api/">#api</a>
+  
+  <a href="https://guilhermegarcia.dev/blog/english/">#english</a>
+  
+</p>
+
+  </main>
+  <footer>
+</footer>
+
+    
+</body>
+
+</html>
