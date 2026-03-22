@@ -7,8 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Copyright © 2024-2026, Guilherme Garcia.</copyright>
-    <lastBuildDate>Wed, 11 Mar 2026 11:08:32 -0300</lastBuildDate>
+    <lastBuildDate>Sun, 22 Mar 2026 12:20:05 -0300</lastBuildDate>
     <atom:link href="https://guilhermegarcia.dev/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Análise exploratória do dataset BR Crawl</title>
+      <link>https://guilhermegarcia.dev/blog/analise-exploratoria-do-dataset-br-crawl/</link>
+      <pubDate>Sun, 22 Mar 2026 12:20:05 -0300</pubDate>
+      <guid>https://guilhermegarcia.dev/blog/analise-exploratoria-do-dataset-br-crawl/</guid>
+      <description>Nesse post compartilho minha análise exploratória no dataset do BR Crawl, projeto que indexa a blogosfera brasileira.&#xA;O que é o BR Crawl O BR Crawl é um projeto que eu iniciei por meados de fevereiro desse ano. Ele é um software que acessa blogs brasileiros e busca links para outros blogs.&#xA;O objetivo é criar um índice aberto de todos os blogs em atividade mantidos por autores brasileiros sem fins comerciais.</description>
+    </item>
     <item>
       <title>On maintaining large SSR applications</title>
       <link>https://guilhermegarcia.dev/blog/on-maintaining-large-ssr-applications/</link>

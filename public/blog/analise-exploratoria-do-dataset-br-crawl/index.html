@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="https://guilhermegarcia.dev/images/favicon.png" />
+<title>Análise exploratória do dataset BR Crawl | Site do Guilherme</title>
+<meta name="title" content="Análise exploratória do dataset BR Crawl" />
+<meta name="description" content="Análise exploratória realizada no dataset BR Crawl, projeto que indexa a blogosfera brasileira. Vamos entender quais blogs estão sendo indexados, qual o perfil de postagem e buscar padrões nas postagens dos blogs encontrados pelo projeto." />
+<meta name="keywords" content="português,data,python," />
+
+
+<meta property="og:title" content="Análise exploratória do dataset BR Crawl" />
+<meta property="og:description" content="Análise exploratória realizada no dataset BR Crawl, projeto que indexa a blogosfera brasileira. Vamos entender quais blogs estão sendo indexados, qual o perfil de postagem e buscar padrões nas postagens dos blogs encontrados pelo projeto." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://guilhermegarcia.dev/blog/analise-exploratoria-do-dataset-br-crawl/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2026-03-22T12:20:05-03:00" />
+<meta property="article:modified_time" content="2026-03-22T12:20:05-03:00" /><meta property="og:site_name" content="Blog do Guilherme" />
+
+
+
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Análise exploratória do dataset BR Crawl"/>
+<meta name="twitter:description" content="Análise exploratória realizada no dataset BR Crawl, projeto que indexa a blogosfera brasileira. Vamos entender quais blogs estão sendo indexados, qual o perfil de postagem e buscar padrões nas postagens dos blogs encontrados pelo projeto."/>
+
+
+
+<meta itemprop="name" content="Análise exploratória do dataset BR Crawl">
+<meta itemprop="description" content="Análise exploratória realizada no dataset BR Crawl, projeto que indexa a blogosfera brasileira. Vamos entender quais blogs estão sendo indexados, qual o perfil de postagem e buscar padrões nas postagens dos blogs encontrados pelo projeto."><meta itemprop="datePublished" content="2026-03-22T12:20:05-03:00" />
+<meta itemprop="dateModified" content="2026-03-22T12:20:05-03:00" />
+<meta itemprop="wordCount" content="912">
+<meta itemprop="keywords" content="português,data,python," />
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  body {
+    font-family: Verdana, sans-serif;
+    margin: auto;
+    padding: 20px;
+    max-width: 720px;
+    text-align: left;
+    background-color: #fff;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: #444;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  b {
+    color: #222;
+  }
+
+  a {
+    color: #3273dc;
+     
+  }
+
+  .title {
+    text-decoration: none;
+    border: 0;
+  }
+
+  .title span {
+    font-weight: 400;
+  }
+
+  nav a {
+    margin-right: 10px;
+  }
+
+  textarea {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  input {
+    font-size: 16px;
+  }
+
+  content {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    padding: 2px 5px;
+    background-color: #f2f2f2;
+  }
+
+  pre code {
+    color: #222;
+    display: block;
+    padding: 20px;
+    white-space: pre-wrap;
+    font-size: 14px;
+    overflow-x: auto;
+  }
+
+  div.highlight pre {
+    background-color: initial;
+    color: initial;
+  }
+
+  div.highlight code {
+    background-color: unset;
+    color: unset;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: #222;
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px;
+    text-align: center;
+  }
+
+  .helptext {
+    color: #777;
+    font-size: small;
+  }
+
+  .errorlist {
+    color: #eba613;
+    font-size: small;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: #8b6fcb;
+  }
+
+  aside {
+    margin: 15px 5px;
+    padding: 5px 10px;
+    border: 1px dashed;
+    text-align: justify;
+    hyphens: auto;
+  }
+
+  aside::before {
+    content: " ᶘ ᵒᴥᵒᶅ ";
+    margin-right: 5px;
+  }
+
+  aside.warning {
+    border-color: #ffbb00;
+    background-color: rgb(255, 249, 231);
+  }
+
+  aside.warning::before {
+    color: #ffbb00;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #333;
+      color: #ddd;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    strong,
+    b {
+      color: #eee;
+    }
+
+    a {
+      color: #8cc2dd;
+    }
+
+    code {
+      background-color: #777;
+    }
+
+    pre code {
+      color: #ddd;
+    }
+
+    blockquote {
+      color: #ccc;
+    }
+
+    aside.warning {
+        background-color: transparent;
+    }
+
+    textarea,
+    input {
+      background-color: #252525;
+      color: #ddd;
+    }
+
+    .helptext {
+      color: #aaa;
+    }
+  }
+</style>
+
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h2>Site do Guilherme</h2>
+</a>
+<nav><a href="/">Home</a>
+
+
+<a href="/blog">Blog</a>
+
+<a href="/links">Links</a>
+<a href="/opensource">Open Source</a>
+<a href="/index.xml">RSS</a>
+</nav>
+</header>
+  <main>
+
+<h1>Análise exploratória do dataset BR Crawl</h1>
+<p>
+  <i>
+    <time datetime='2026-03-22' pubdate>
+      22 Mar, 2026
+    </time>
+  </i>
+</p>
+
+
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#o-que-é-o-br-crawl">O que é o BR Crawl</a></li>
+    <li><a href="#o-dataset">O Dataset</a></li>
+    <li><a href="#análises-iniciais">Análises iniciais</a>
+      <ul>
+        <li><a href="#posts-por-mês">Posts por mês</a></li>
+        <li><a href="#surgimento-de-novos-blogs">Surgimento de novos blogs</a></li>
+        <li><a href="#intervalo-de-atividade-dos-blogs">Intervalo de atividade dos blogs</a></li>
+        <li><a href="#blogs-com-atividade-recente">Blogs com atividade recente</a></li>
+      </ul>
+    </li>
+    <li><a href="#próximos-passos">Próximos passos</a></li>
+  </ul>
+</nav>
+
+<content>
+  <p>Nesse post compartilho minha análise exploratória no dataset do
+BR Crawl, projeto que indexa a blogosfera brasileira.</p>
+<h2 id="o-que-é-o-br-crawl">O que é o BR Crawl</h2>
+<p>O BR Crawl é um projeto que eu iniciei por meados de fevereiro desse ano.
+Ele é um software que acessa blogs brasileiros e busca links para outros blogs.</p>
+<p>O objetivo é criar um índice aberto de todos os blogs em atividade mantidos
+por <strong>autores brasileiros</strong> sem <strong>fins comerciais</strong>. Ou seja, blogs feitos por
+pessoas de verdade, sem empresas, spam de SEO, essas coisas.</p>
+<p>Não vou entrar muito em detalhes sobre <em>como</em> o BR Crawl funciona, a ideia aqui
+é explorar os dados acumulados: até o recorte utilizado na análise (início
+de março/2026), eram cerca de 20 mil blogs e ~400 mil postagens.</p>
+<p>Se você tem interesse em webscrapping/análise de dados, fica o convite pra
+participar do projeto. Ele tem o código aberto no github em <a href="https://github.com/guites/brcrawl">https://github.com/guites/brcrawl</a>.</p>
+<p>Se você gosta de blogs, dê uma olhada no listão do BR Crawl, onde eu
+atualizo (quase) todos os dias com as últimas postagens encontradas: <a href="https://guilhermegarcia.dev/brcrawl">https://guilhermegarcia.dev/brcrawl</a>.</p>
+<h2 id="o-dataset">O Dataset</h2>
+<p>O dataset é uma base de dados <a href="https://sqlite.org">SQLite</a> com cerca de 1gb.</p>
+<p>Uma cópia atualizada pode ser acessada neste drive: <a href="https://drive.google.com/drive/folders/1_y7BegOcKMOVtbehaGTN9Fn9gP8Lnn1M">https://drive.google.com/drive/folders/1_y7BegOcKMOVtbehaGTN9Fn9gP8Lnn1M</a>.</p>
+<p>O <em>schema</em> revela as tabelas de interesse:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> feeds (
+</span></span><span style="display:flex;"><span>    id INTEGER <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span> AUTOINCREMENT,
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">domain</span> TEXT <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>,
+</span></span><span style="display:flex;"><span>    feed_url TEXT <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>,
+</span></span><span style="display:flex;"><span>    status_id INTEGER <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>,
+</span></span><span style="display:flex;"><span>    created_at DATETIME <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">DEFAULT</span> <span style="color:#66d9ef">CURRENT_TIMESTAMP</span>,
+</span></span><span style="display:flex;"><span>    last_checked_at DATETIME,
+</span></span><span style="display:flex;"><span>    last_post_guid VARCHAR,
+</span></span><span style="display:flex;"><span>    last_feed_item_id INTEGER,
+</span></span><span style="display:flex;"><span>    processing_status_id <span style="color:#66d9ef">DEFAULT</span> <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">FOREIGN</span> <span style="color:#66d9ef">KEY</span> (status_id) <span style="color:#66d9ef">REFERENCES</span> feed_status(id)
+</span></span><span style="display:flex;"><span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> feed_items (
+</span></span><span style="display:flex;"><span>    id INTEGER <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span> AUTOINCREMENT,
+</span></span><span style="display:flex;"><span>    feed_id INTEGER <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>,
+</span></span><span style="display:flex;"><span>    title VARCHAR <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>,
+</span></span><span style="display:flex;"><span>    author VARCHAR,
+</span></span><span style="display:flex;"><span>    content TEXT,
+</span></span><span style="display:flex;"><span>    url VARCHAR <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>,
+</span></span><span style="display:flex;"><span>    guid INTEGER <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>,
+</span></span><span style="display:flex;"><span>    published_at DATETIME <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>,
+</span></span><span style="display:flex;"><span>    created_at DATETIME <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">DEFAULT</span> <span style="color:#66d9ef">CURRENT_TIMESTAMP</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">UNIQUE</span> (feed_id, guid),
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">FOREIGN</span> <span style="color:#66d9ef">KEY</span> (feed_id) <span style="color:#66d9ef">REFERENCES</span> feeds(id) <span style="color:#66d9ef">ON</span> <span style="color:#66d9ef">DELETE</span> <span style="color:#66d9ef">CASCADE</span>
+</span></span><span style="display:flex;"><span>);
+</span></span></code></pre></div><p>Para cada <em>feed</em> (blog) temos múltiplos <em>feed_items</em> (posts).</p>
+<p>Cada feed tem uma data de criação (quando ele foi adicionado ao dataset) e a
+data da última checagem, que é quando ele foi visitado pra ver se tinha
+postagens novas.</p>
+<p>Cada feed_item (post de um blog) tem a data de criação (quando ele foi
+adicionado ao dataset) e a data de publicação.</p>
+<p>Salvamos também o título, o autor, o link pro post e, quando
+disponível, o conteúdo da postagem.</p>
+<h2 id="análises-iniciais">Análises iniciais</h2>
+<ul>
+<li>24182 blogs diferentes.</li>
+<li>22294 blogs com pelo menos uma postagem registrada.</li>
+<li>414357 postagens.</li>
+</ul>
+<p>Qual a distribuição das postagens ao longo do tempo? Dado nosso dataset
+de 20k+ blogs, qual percentual esteve em atividade de 2020 pra frente? E em 2025/2026?</p>
+<h3 id="posts-por-mês">Posts por mês</h3>
+<p><img src="./feed_items_per_month.png" alt="Agregado de posts por mês"></p>
+<p><small>Gerado com o script <a href="./feed_items_per_month.py">feed_items_per_month.py</a>.</small></p>
+<p>O gráfico acima conta todos os posts de todos os blogs.</p>
+<p>Podemos calcular os &ldquo;blogs ativos por mês&rdquo;, contando apenas um post por blog.
+Isso reduz o impacto de blogs que postam com frequência muito
+acima da média.</p>
+<p><img src="./active_feeds_per_month.png" alt="Blogs ativos por mês"></p>
+<p><small>Gerado com o script <a href="./community_activity.py">community_activity.py</a>.</small></p>
+<p>O pico de postagens em 2025-2026, que estava muito acima do número de postagens
+visto no intervalo de 2010-2017, dá uma boa reduzida quando contamos apenas um
+post por blog.</p>
+<p>Isso indica grande atividade de um número reduzido de blogs, com maior
+aumento de atividade no último ano. Vejo duas explicações possíveis:</p>
+<ul>
+<li>Facilidade cada vez maior em automatizar a geração de conteúdo.</li>
+<li>Viés de seleção: quanto mais antigo for o blog, maior a chance de
+perder o domínio, ser deletado, parar de funcionar, etc.</li>
+</ul>
+<h3 id="surgimento-de-novos-blogs">Surgimento de novos blogs</h3>
+<p>Podemos estimar a taxa com que novos blogs são criados consultando a data do
+primeiro post registrado por cada blog.</p>
+<p><img src="./new_blogs_per_month.png" alt="Novos blogs criados por mês"></p>
+<p><small>Generado com o script <a href="./new_blogs_per_month.py">new_blogs_per_month.py</a>.</small></p>
+<aside>
+Devido ao funcionamento dos feeds RSS, não temos como saber se o primeiro post
+registrado na base de dados corresponde ao primeiro post do blog em questão:
+na verdade estamos medindo o primeiro post <i>observado</i>.
+</aside>
+<h3 id="intervalo-de-atividade-dos-blogs">Intervalo de atividade dos blogs</h3>
+<p>Por quanto tempo os blogs ficam em atividade?</p>
+<p>Podemos nos basear no intervalo entre o primeiro e último post registrado
+de cada blog:</p>
+<p><img src="./blog_lifetime_hist_all.png" alt="Gráfico do intervalo de atividade dos blogs"></p>
+<p><small>Gerado com o script <a href="./blog_lifetime.py">blog_lifetime.py</a>.</small></p>
+<p>Como esperado, a maioria dos blogs fica em atividade por pouco tempo, sendo o
+valor mais comum 0 meses (blogs com um único post).</p>
+<p>A distribuição mostra que a maioria dos blogs fica em atividade por até um ano:</p>
+<ul>
+<li>1992 blogs com um único post (0 meses de atividade)</li>
+<li>8568 blogs em atividade de 1 mês a 1 ano</li>
+<li>6651 blogs em atividade de 1 ano a 3 anos</li>
+<li>2657 blogs em atividade de 3 a 5 anos</li>
+<li>2019 blogs em atividade de 5 a 10 anos</li>
+<li>406 blogs em atividade por mais de 10 anos</li>
+</ul>
+<h3 id="blogs-com-atividade-recente">Blogs com atividade recente</h3>
+<p>Vamos usar o tempo desde o último post como métrica para entender quantos blogs
+ainda estão em atividade.</p>
+<p><img src="./recency_histogram.png" alt="Quantidade de blogs vs. dias desde o último post"></p>
+<p><small>Gerado com o script <a href="./recency_histogram.py">recency_histogram.py</a>.</small></p>
+<p>O gráfico acima foi gerado agrupando as quantidades em 100 caixas (<code>bins=100</code>),
+com intervalo de 11365 dias entres o post mais antigo e o mais recente.</p>
+<p><strong>Estatísticas</strong> - análise de atividade recente.</p>
+<table>
+<thead>
+<tr>
+<th>métrica</th>
+<th>valor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>count</td>
+<td>22286.000000</td>
+</tr>
+<tr>
+<td>mean</td>
+<td>3075.129678</td>
+</tr>
+<tr>
+<td>std</td>
+<td>1869.874190</td>
+</tr>
+<tr>
+<td>min</td>
+<td>7.000000</td>
+</tr>
+<tr>
+<td>25%</td>
+<td>1594.250000</td>
+</tr>
+<tr>
+<td>50%</td>
+<td>3351.000000</td>
+</tr>
+<tr>
+<td>75%</td>
+<td>4526.000000</td>
+</tr>
+<tr>
+<td>max</td>
+<td>11372.000000</td>
+</tr>
+</tbody>
+</table>
+<p>Distribuição da atividade em intervalos.</p>
+<table>
+<thead>
+<tr>
+<th>intervalo</th>
+<th>quantidade</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0-1 mês</td>
+<td>1476</td>
+</tr>
+<tr>
+<td>1-3 meses</td>
+<td>677</td>
+</tr>
+<tr>
+<td>3-6 meses</td>
+<td>456</td>
+</tr>
+<tr>
+<td>6-12 meses</td>
+<td>591</td>
+</tr>
+<tr>
+<td>1-2 anos</td>
+<td>780</td>
+</tr>
+<tr>
+<td>2-5 anos</td>
+<td>2103</td>
+</tr>
+<tr>
+<td>5-10 anos</td>
+<td>6512</td>
+</tr>
+</tbody>
+</table>
+<p>Isso indica que dos 22286 blogs com posts registrados:</p>
+<ul>
+<li>6.6% tiveram posts no último mês;</li>
+<li>14.3% tiveram posts no último ano.</li>
+</ul>
+<h2 id="próximos-passos">Próximos passos</h2>
+<p>Daqui pra frente quero focar no conteúdo dos posts. Tenho interesse em
+saber se existem potenciais categorias emergentes baseadas nos assuntos abordados
+pelo blogueiros brasileiros.</p>
+<p>Qualquer apontamento ou sugestão, fique a vontade pra entrar em contato. Abraço.</p>
+
+</content>
+<p>
+  
+  <a href="https://guilhermegarcia.dev/blog/portugu%C3%AAs/">#português</a>
+  
+  <a href="https://guilhermegarcia.dev/blog/data/">#data</a>
+  
+  <a href="https://guilhermegarcia.dev/blog/python/">#python</a>
+  
+</p>
+
+  </main>
+  <footer>
+</footer>
+
+    
+</body>
+
+</html>
