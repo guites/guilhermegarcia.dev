@@ -8,6 +8,16 @@
     </time>
   </i>
 </p>
+{{ if ne .Lastmod .Date }}
+<p>
+  <i>
+    Last updated on
+    <time datetime='{{ .Lastmod.Format "2006-01-02" }}' pubdate>
+      {{ .Lastmod.Format (default "02 Jan, 2006" .Site.Params.dateFormat) }}
+    </time>
+  </i>
+</p>
+{{ end }}
 {{ end }}{{ end }}
 {{ if (.Params.toc) }}
   {{ .TableOfContents }}
