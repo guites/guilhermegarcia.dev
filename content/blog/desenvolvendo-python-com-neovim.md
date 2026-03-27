@@ -163,6 +163,24 @@ TODO: Escrever sobre o setup do [nvim-dap](https://github.com/mfussenegger/nvim-
 
 Lembrar do `:MasonInstall debugpy`.
 
+Instalar parser de tree sitter para python (permite chamada do depurador para a função atual ou classe atual)
+
+```diff
+diff --git a/init.lua b/init.lua
+index 31a2a60..8573ae3 100644
+--- a/init.lua
++++ b/init.lua
+@@ -872,7 +872,7 @@ require('lazy').setup({
+     branch = 'main',
+     -- [[ Configure Treesitter ]] See `:help nvim-treesitter-intro`
+     config = function()
+-      local parsers = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' }
++      local parsers = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc', 'python' }
+       require('nvim-treesitter').install(parsers)
+       vim.api.nvim_create_autocmd('FileType', {
+         callback = function(args)
+```
+
 ## Integração com Docker
 
 A estratégia é instalar o nvim **dentro** do container! Como ele funciona todo
