@@ -1,6 +1,7 @@
 +++
 title = "Desenvolvendo Python com Neovim"
 date = "2026-03-26T17:15:57-03:00"
+lastmod = "2026-03-27T18:51:43-03:00"
 
 description = "Como eu adaptei o uso do neovim pra ficar mais próximo do que eu estava acostumado no vscode. Navegação na codebase, uso do depurador e integração com docker."
 toc = true
@@ -80,6 +81,11 @@ Depois de instalar o pyright, você vai precisar definir qual ambiente virtual
 o pyright deve usar de base. Sem configurar o ambiente virtual, você não vai
 conseguir usar o LSP pra navegar nas bibliotecas importadas.
 
+<aside>Caso o pyright dê erro na instalação, é provável que seja pq você
+não tem o `npm` disponível no seu path. Confira se você tem o node instalado,
+e, se não tiver, instale usando o
+<a href="https://github.com/nvm-sh/nvm">nvm</a></aside>
+
 Pra selecionar o ambiente virtual facilmente, tem um plugin chamado [linux-cultist/venv-selector.nvim](https://github.com/linux-cultist/venv-selector.nvim).
 
 No seu init.lua, busque a parte que inicia a instalação de plugins (abertura
@@ -155,9 +161,144 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 TODO: Escrever sobre o setup do [nvim-dap](https://github.com/mfussenegger/nvim-dap) e como fiz pra criar entrypoints customizados. Fazer uma comparação com o launch.json do vscode!
 
-## (wip) Integração com Docker
+Lembrar do `:MasonInstall debugpy`.
 
-TODO: Instalação do neovim **dentro** dos containers como alternativa ao uso de devcontainers e/ou customização dos comandos pra rodar com uma camada adicional de `docker exec`.
+## Integração com Docker
+
+A estratégia é instalar o nvim **dentro** do container! Como ele funciona todo
+dentro do terminal, você pode usar um `docker exec` pra dar ssh pra dentro do
+container e fazer tudo por ali, sem precisar instalar nada na sua máquina.
+
+<aside>Você não precisa nem mesmo ter o nvim no seu host, o que é ótimo
+pra fazer setups rápidos em máquinas temporárias.</aside>
+
+O script abaixo que automatiza a instalação de tudo que é necessário no container.
+
+Eu fiz ele pensando em um container rodando Debian, mas esses passos devem
+funcionar pra Ubuntu também.
+
+Primeiro verifique qual a distro do container na qual você quer desenvolver:
+
+```bash
+docker exec -it meu_app bash
+cat /etc/os-release | grep ID
+```
+
+Se não for Debian ou Ubuntu, recomendo dar uma analisada no script e adaptar
+conforme a necessidade (acho que o mais importante é mudar apt-get
+pro gerenciador de pacotes da sua distro - use a sessão
+[Linux Install](https://github.com/nvim-lua/kickstart.nvim?tab=readme-ov-file#linux-install)
+do kickstart.nvim como referência).
+
+Salve o script como `nvim-setup.sh` e altere a variável `CONTAINER_NAME` pro
+nome que estiver utilizando.
+
+```bash
+#!/bin/bash
+# setup-nvim.sh by guites
+# more info: https://guilhermegarcia.dev/blog/desenvolvendo-python-com-neovim
+# glhf
+
+set -eu
+
+CONTAINER_NAME="meu_app"
+
+docker exec -i "$CONTAINER_NAME" bash -seu <<'EOF'
+  # talvez você precise de sudo aqui caso seu usuário não seja root
+  apt-get update
+
+  if ! node -v >/dev/null 2>&1; then
+    echo "node não encontrado. Instalando via nvm..."
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.4/install.sh | bash
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+    nvm install --lts
+  fi
+
+  # dependências para os pacotes básicos (LSPs, busca, uso do clipboard)
+  apt-get install -y make gcc ripgrep fd-find tree-sitter-cli unzip git xclip curl
+
+  # instalação do nvim
+  if ! nvim -v >/dev/null 2>&1; then
+    echo "nvim não encontrado. Instalando..."
+    curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
+    rm -rf /opt/nvim-linux-x86_64
+    mkdir -p /opt/nvim-linux-x86_64
+    chmod a+rX /opt/nvim-linux-x86_64
+    tar -C /opt -xzf nvim-linux-x86_64.tar.gz
+    ln -sf /opt/nvim-linux-x86_64/bin/nvim /usr/local/bin/
+    rm nvim-linux-x86_64.tar.gz
+    grep -qxF "alias vim='nvim'" "$HOME/.bashrc" || echo "alias vim='nvim'" >> "$HOME/.bashrc"
+  fi
+
+  # instalação do kickstart.nvim
+  mkdir -p "$HOME/.config"
+  # se você possui seu próprio fork do kickstart.nvim,
+  # substitua "guites" pelo seu usuário do github
+  # se você quer usar a versão limpa sem as minhas alterações,
+  # substitua "guites" por "nvim-lua"
+  NVIM_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/nvim"
+  if [ ! -d "$NVIM_DIR/.git" ]; then
+    echo "configuração do nvim não encontrada. Inicializando via kickstart.nvim..."
+    rm -rf "$NVIM_DIR"
+    git clone https://github.com/guites/kickstart.nvim.git "$NVIM_DIR"
+  fi
+EOF
+```
+
+Rode com `bash nvim-setup.sh`.
+
+Depois você pode acessar o container via `docker exec` e
+rodar o nvim lá dentro!
+
+```bash
+docker exec -it meu_app bash
+nvim
+```
+
+### Permitindo uso do clipboard
+
+Isso permite copiar linhas de código direto do nvim
+e colar em outro lugar (por ex. <kbd>ctrl + shift + v + y</kbd>
+e depois <kbd>ctrl + v</kbd> num outro programa).
+
+Não é essêncial mas ajuda a dar aquela sensação de que você está
+desenvolvendo localmente :).
+
+O método pra sincronizar o clipboard do nvim com a sua máquina é através do xclip.
+
+O xclip precisa ter acesso ao ambiente gráfico (`$DISPLAY`) da sua máquina, e
+pra isso você vai ter que compartilhar esse acesso com o container do docker.
+
+A forma mais prática que eu achei é criar um arquivo docker-compose.nvim.yml e adicionar
+um volume extra no serviço onde você vai abrir o nvim.
+
+```yaml
+# arquivo docker-compose.nvim.yml
+services:
+  meu_app:
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    environment:
+      - DISPLAY=${DISPLAY}
+```
+
+Você precisa também permitir acesso de processos locais ao seu display com
+
+```bash
+xhost +local:
+```
+
+<aside>Pra desfazer esse permissionamento, rode <code>xhost -local:</code></aside>
+
+E daí pra acessar seu container:
+
+```bash
+# na hora de criar o container, usar o .yaml adicional
+docker compose -f docker-compose.yml -f docker-compose.nvim.yml up meu_app -d
+docker exec -it meu_app bash
+```
 
 ## Considerações finais
 
