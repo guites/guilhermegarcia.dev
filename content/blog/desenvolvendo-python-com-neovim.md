@@ -1,7 +1,7 @@
 +++
 title = "Desenvolvendo Python com Neovim"
 date = "2026-03-26T17:15:57-03:00"
-lastmod = "2026-03-27T18:51:43-03:00"
+lastmod = "2026-04-01T12:55:43-03:00"
 
 description = "Como eu adaptei o uso do neovim pra ficar mais próximo do que eu estava acostumado no vscode. Navegação na codebase, uso do depurador e integração com docker."
 toc = true
