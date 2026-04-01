@@ -46,6 +46,8 @@ plugar as funcionalidades do editor em arquivos que estão dentro dos containers
 pra não precisar ficar instalando tudo localmente. Seria um equivalente ao
 "attach to container" do vscode, que funciona super bem.
 
+<aside>se você quer um passo a passo de como instalar o neovim e o pacote kickstart, veja <a href="https://sektant.dev/posts/tutorials/how-to-setup-neovim/">esse post</a>, que tmb mostra o uso do depurador pra js</aside>
+
 ## Navegando na codebase
 
 Essa foi a parte mais fácil, graças ao [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim).
