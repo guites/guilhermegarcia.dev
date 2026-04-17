@@ -1,7 +1,7 @@
 +++
 title = "Desenvolvendo Python com Neovim"
 date = "2026-03-26T17:15:57-03:00"
-lastmod = "2026-04-01T12:55:43-03:00"
+lastmod = "2026-04-17T14:00:32-03:00"
 
 description = "Como eu adaptei o uso do neovim pra ficar mais próximo do que eu estava acostumado no vscode. Navegação na codebase, uso do depurador e integração com docker."
 toc = true
@@ -24,7 +24,7 @@ o neovim, usando o template [kickstart nvim](https://github.com/nvim-lua/kicksta
 Ele já vem com várias configurações prontas, tipo uso do tree-sitter e
 do lazy vim pra configuração rápida de plugins.
 
-Pra que eu não precise voltar pro vscode, três coisas são fundamentais:
+Pra que eu não precise voltar pro vscode, esses pontos são fundamentais:
 
 - **Navegar na codebase** por referências, incluindo código fonte das bibliotecas
 
@@ -45,6 +45,12 @@ conseguir adicionar breakpoints em testes, geralmente com `pytest`.
 plugar as funcionalidades do editor em arquivos que estão dentro dos containers,
 pra não precisar ficar instalando tudo localmente. Seria um equivalente ao
 "attach to container" do vscode, que funciona super bem.
+
+- **Resolver conflitos de merge**
+
+    Isso eventualmente acontece e, em arquivos como `uv.lock` e `package.json`s
+da vida, em que fica fora de mão ajustar manualmente os blocos `>>>>>>> main`,
+eu preciso de uma forma fácil de visualizar e aceitar ou editar código em conflito.
 
 <aside>se você quer um passo a passo de como instalar o neovim e o pacote kickstart, veja <a href="https://sektant.dev/posts/tutorials/how-to-setup-neovim/">esse post</a>, que tmb mostra o uso do depurador pra js</aside>
 
@@ -318,6 +324,27 @@ E daí pra acessar seu container:
 # na hora de criar o container, usar o .yaml adicional
 docker compose -f docker-compose.yml -f docker-compose.nvim.yml up meu_app -d
 docker exec -it meu_app bash
+```
+
+## (wip) Resolvendo conflitos de merge
+
+vim-fugitive!
+
+- <https://www.youtube.com/watch?v=vpwJ7fqD1CE>
+- <https://github.com/tpope/vim-fugitive>
+- :Gvdiffsplit!
+  - target branch na esquerda - o branch no qual você estava (//2)
+  - merge branch na direita - o branch do qual você está pegando o código (//3)
+  - working copy no meio - o código misturado
+- `:diffget` para puxar as alterações de um dos lados para a working copy
+
+Exige um pequeno ajuste no init.lua, devido a um bug registrado no nvim:
+
+```diff
+# em init.lua
++vim.opt.diffopt:remove 'linematch:40'
+
++  { 'tpope/vim-fugitive' },
 ```
 
 ## Considerações finais

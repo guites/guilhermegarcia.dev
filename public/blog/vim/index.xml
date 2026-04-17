@@ -7,8 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Copyright © 2024-2026, Guilherme Garcia.</copyright>
-    <lastBuildDate>Tue, 25 Oct 2022 22:50:34 -0300</lastBuildDate>
+    <lastBuildDate>Thu, 26 Mar 2026 17:15:57 -0300</lastBuildDate>
     <atom:link href="https://guilhermegarcia.dev/blog/vim/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Desenvolvendo Python com Neovim</title>
+      <link>https://guilhermegarcia.dev/blog/desenvolvendo-python-com-neovim/</link>
+      <pubDate>Thu, 26 Mar 2026 17:15:57 -0300</pubDate>
+      <guid>https://guilhermegarcia.dev/blog/desenvolvendo-python-com-neovim/</guid>
+      <description>Post em constante evolução, atualizado conforme eu avançar nas configurações. Resolvi tentar mais uma vez arrumar um ambiente pra desenvolvimento com vim.&#xA;Eu sempre acabo desistindo quando preciso usar funcionalidades mais chatinhas de configurar, como setup de depurador, linters/formaters, busca de definições (classes e funções), essas coisas.&#xA;Como mudei de computador, aproveitei pra começar do zero, e dessa vez instalei o neovim, usando o template kickstart nvim.&#xA;Ele já vem com várias configurações prontas, tipo uso do tree-sitter e do lazy vim pra configuração rápida de plugins.</description>
+    </item>
     <item>
       <title>Comparando json na linha de comando</title>
       <link>https://guilhermegarcia.dev/blog/comparando-json-na-linha-de-comando/</link>

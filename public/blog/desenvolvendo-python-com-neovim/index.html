@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="https://guilhermegarcia.dev/images/favicon.png" />
+<title>Desenvolvendo Python com Neovim | Site do Guilherme</title>
+<meta name="title" content="Desenvolvendo Python com Neovim" />
+<meta name="description" content="Como eu adaptei o uso do neovim pra ficar mais próximo do que eu estava acostumado no vscode. Navegação na codebase, uso do depurador e integração com docker." />
+<meta name="keywords" content="cli,português,python,vim," />
+
+
+<meta property="og:title" content="Desenvolvendo Python com Neovim" />
+<meta property="og:description" content="Como eu adaptei o uso do neovim pra ficar mais próximo do que eu estava acostumado no vscode. Navegação na codebase, uso do depurador e integração com docker." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://guilhermegarcia.dev/blog/desenvolvendo-python-com-neovim/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2026-03-26T17:15:57-03:00" />
+<meta property="article:modified_time" content="2026-04-17T14:00:32-03:00" /><meta property="og:site_name" content="Blog do Guilherme" />
+
+
+
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Desenvolvendo Python com Neovim"/>
+<meta name="twitter:description" content="Como eu adaptei o uso do neovim pra ficar mais próximo do que eu estava acostumado no vscode. Navegação na codebase, uso do depurador e integração com docker."/>
+
+
+
+<meta itemprop="name" content="Desenvolvendo Python com Neovim">
+<meta itemprop="description" content="Como eu adaptei o uso do neovim pra ficar mais próximo do que eu estava acostumado no vscode. Navegação na codebase, uso do depurador e integração com docker."><meta itemprop="datePublished" content="2026-03-26T17:15:57-03:00" />
+<meta itemprop="dateModified" content="2026-04-17T14:00:32-03:00" />
+<meta itemprop="wordCount" content="1828">
+<meta itemprop="keywords" content="cli,português,python,vim," />
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  body {
+    font-family: Verdana, sans-serif;
+    margin: auto;
+    padding: 20px;
+    max-width: 720px;
+    text-align: left;
+    background-color: #fff;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: #444;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  b {
+    color: #222;
+  }
+
+  a {
+    color: #3273dc;
+     
+  }
+
+  .title {
+    text-decoration: none;
+    border: 0;
+  }
+
+  .title span {
+    font-weight: 400;
+  }
+
+  nav a {
+    margin-right: 10px;
+  }
+
+  textarea {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  input {
+    font-size: 16px;
+  }
+
+  content {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    padding: 2px 5px;
+    background-color: #f2f2f2;
+  }
+
+  pre code {
+    color: #222;
+    display: block;
+    padding: 20px;
+    white-space: pre-wrap;
+    font-size: 14px;
+    overflow-x: auto;
+  }
+
+  div.highlight pre {
+    background-color: initial;
+    color: initial;
+  }
+
+  div.highlight code {
+    background-color: unset;
+    color: unset;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: #222;
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px;
+    text-align: center;
+  }
+
+  .helptext {
+    color: #777;
+    font-size: small;
+  }
+
+  .errorlist {
+    color: #eba613;
+    font-size: small;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: #8b6fcb;
+  }
+
+  aside {
+    margin: 15px 5px;
+    padding: 5px 10px;
+    border: 1px dashed;
+    text-align: justify;
+    hyphens: auto;
+  }
+
+  aside::before {
+    content: " ᶘ ᵒᴥᵒᶅ ";
+    margin-right: 5px;
+  }
+
+  aside.warning {
+    border-color: #ffbb00;
+    background-color: rgb(255, 249, 231);
+  }
+
+  aside.warning::before {
+    color: #ffbb00;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #333;
+      color: #ddd;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    strong,
+    b {
+      color: #eee;
+    }
+
+    a {
+      color: #8cc2dd;
+    }
+
+    code {
+      background-color: #777;
+    }
+
+    pre code {
+      color: #ddd;
+    }
+
+    blockquote {
+      color: #ccc;
+    }
+
+    aside.warning {
+        background-color: transparent;
+    }
+
+    textarea,
+    input {
+      background-color: #252525;
+      color: #ddd;
+    }
+
+    .helptext {
+      color: #aaa;
+    }
+  }
+</style>
+
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h2>Site do Guilherme</h2>
+</a>
+<nav><a href="/">Home</a>
+
+
+<a href="/blog">Blog</a>
+
+<a href="/links">Links</a>
+<a href="/opensource">Open Source</a>
+<a href="/index.xml">RSS</a>
+</nav>
+</header>
+  <main>
+
+<h1>Desenvolvendo Python com Neovim</h1>
+<p>
+  <i>
+    <time datetime='2026-03-26' pubdate>
+      26 Mar, 2026
+    </time>
+  </i>
+</p>
+
+<p>
+  <i>
+    Last updated on
+    <time datetime='2026-04-17' pubdate>
+      17 Apr, 2026
+    </time>
+  </i>
+</p>
+
+
+
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#navegando-na-codebase">Navegando na codebase</a>
+      <ul>
+        <li><a href="#configurar-lsp-pra-python">Configurar LSP pra Python</a></li>
+        <li><a href="#básico-de-navegação">Básico de navegação</a></li>
+        <li><a href="#kbdshiftkbdkbdkkbd-preview-de-documentação"><kbd>shift</kbd>+<kbd>k</kbd>: preview de documentação</a></li>
+      </ul>
+    </li>
+    <li><a href="#wip-uso-do-depurador">(wip) Uso do depurador</a></li>
+    <li><a href="#integração-com-docker">Integração com Docker</a>
+      <ul>
+        <li><a href="#permitindo-uso-do-clipboard">Permitindo uso do clipboard</a></li>
+      </ul>
+    </li>
+    <li><a href="#wip-resolvendo-conflitos-de-merge">(wip) Resolvendo conflitos de merge</a></li>
+    <li><a href="#considerações-finais">Considerações finais</a></li>
+  </ul>
+</nav>
+
+<content>
+  <aside class="warning">Post em constante evolução, atualizado conforme eu
+avançar nas configurações.</aside>
+<p>Resolvi tentar mais uma vez arrumar um ambiente pra desenvolvimento com vim.</p>
+<p>Eu sempre acabo desistindo quando preciso usar funcionalidades mais chatinhas de
+configurar, como setup de depurador, linters/formaters, busca de definições
+(classes e funções), essas coisas.</p>
+<p>Como mudei de computador, aproveitei pra começar do zero, e dessa vez instalei
+o neovim, usando o template <a href="https://github.com/nvim-lua/kickstart.nvim">kickstart nvim</a>.</p>
+<p>Ele já vem com várias configurações prontas, tipo uso do tree-sitter e
+do lazy vim pra configuração rápida de plugins.</p>
+<p>Pra que eu não precise voltar pro vscode, esses pontos são fundamentais:</p>
+<ul>
+<li>
+<p><strong>Navegar na codebase</strong> por referências, incluindo código fonte das bibliotecas</p>
+<p>Esse é o fluxo de, no vscode, ir dando ctrl+clique nas classes e funções
+até encontrar a implementação. Eu faço isso com <strong>muita</strong> frequência e não
+faz sentido ter que sair do meu editor pra ir buscar o código fonte na internet.</p>
+</li>
+<li>
+<p><strong>Depurar projetos</strong> e suítes de teste</p>
+<p>Projetos que usam frameworks como Flask, Django ou FastAPI tem formas específica
+de inicialização (<code>manage.py runserver</code> ou <code>flask run app</code>) e podem ter mais
+de um ponto de entrada, aceitar diferentes flags, etc. Também tenho que
+conseguir adicionar breakpoints em testes, geralmente com <code>pytest</code>.</p>
+</li>
+<li>
+<p><strong>Integração com docker</strong></p>
+<p>A maioria dos ambientes devs são distribuidos assim, e eu gostaria de conseguir
+plugar as funcionalidades do editor em arquivos que estão dentro dos containers,
+pra não precisar ficar instalando tudo localmente. Seria um equivalente ao
+&ldquo;attach to container&rdquo; do vscode, que funciona super bem.</p>
+</li>
+<li>
+<p><strong>Resolver conflitos de merge</strong></p>
+<p>Isso eventualmente acontece e, em arquivos como <code>uv.lock</code> e <code>package.json</code>s
+da vida, em que fica fora de mão ajustar manualmente os blocos <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt; main</code>,
+eu preciso de uma forma fácil de visualizar e aceitar ou editar código em conflito.</p>
+</li>
+</ul>
+<aside>se você quer um passo a passo de como instalar o neovim e o pacote kickstart, veja <a href="https://sektant.dev/posts/tutorials/how-to-setup-neovim/">esse post</a>, que tmb mostra o uso do depurador pra js</aside>
+<h2 id="navegando-na-codebase">Navegando na codebase</h2>
+<p>Essa foi a parte mais fácil, graças ao <a href="https://github.com/nvim-lua/kickstart.nvim">kickstart.nvim</a>.</p>
+<p>O que eu fiz foi incrementar as configurações padrões com alguns detalhes.</p>
+<h3 id="configurar-lsp-pra-python">Configurar LSP pra Python</h3>
+<p>Isso é o que vai te permitir navegar através da codebase, tanto do seu código
+quanto das bibliotecas importadas.</p>
+<p>Lá no init.lua, busque pela variável local <code>servers</code>, que define quais
+ferramentas vão ser instaladas pelo <code>Mason</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span>  <span style="color:#75715e">--  See `:help lsp-config` for information about keys and how to configure</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">---@type table&lt;string, vim.lsp.Config&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">local</span> servers <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">-- clangd = {},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">-- gopls = {},</span>
+</span></span><span style="display:flex;"><span>    pyright <span style="color:#f92672">=</span> {},
+</span></span><span style="display:flex;"><span>    bashls <span style="color:#f92672">=</span> {},
+</span></span></code></pre></div><p>No exemplo acima eu adicionei a lsp de Python (<code>pyright</code>) e de bash (<code>bashls</code>).</p>
+<aside>O <a href="https://github.com/mason-org/mason.nvim">Mason</a> faz a gestão de pacotes
+instalados no seu nvim. Você pode escolher pacotes manualmente usando o comando
+`:Mason`, mas tudo que você colocar no `servers` do init.lua vai ser
+instalado automaticamente.</aside>
+<p>Depois de instalar o pyright, você vai precisar definir qual ambiente virtual
+o pyright deve usar de base. Sem configurar o ambiente virtual, você não vai
+conseguir usar o LSP pra navegar nas bibliotecas importadas.</p>
+<aside>Caso o pyright dê erro na instalação, é provável que seja pq você
+não tem o `npm` disponível no seu path. Confira se você tem o node instalado,
+e, se não tiver, instale usando o
+<a href="https://github.com/nvm-sh/nvm">nvm</a></aside>
+<p>Pra selecionar o ambiente virtual facilmente, tem um plugin chamado <a href="https://github.com/linux-cultist/venv-selector.nvim">linux-cultist/venv-selector.nvim</a>.</p>
+<p>No seu init.lua, busque a parte que inicia a instalação de plugins (abertura
+da chamada ao lazyvim) e adicione:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#75715e">-- NOTE: Here is where you install your plugins.</span>
+</span></span><span style="display:flex;"><span>require(<span style="color:#e6db74">&#39;lazy&#39;</span>).setup({
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">-- NOTE: Plugins can be added via a link or github org/name. To run setup automatically, use `opts = {}`</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">-- Instala o plugin de selecionar a venv para python</span>
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;linux-cultist/venv-selector.nvim&#39;</span>,
+</span></span><span style="display:flex;"><span>    cmd <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;VenvSelect&#39;</span>,
+</span></span><span style="display:flex;"><span>    opts <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>      options <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>        notify_user_on_venv_activation <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>        override_notify <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">--  Call config for Python files and load the cached venv automatically</span>
+</span></span><span style="display:flex;"><span>    ft <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;python&#39;</span>,
+</span></span><span style="display:flex;"><span>    keys <span style="color:#f92672">=</span> { { <span style="color:#e6db74">&#39;&lt;leader&gt;bpv&#39;</span>, <span style="color:#e6db74">&#39;&lt;cmd&gt;:VenvSelect&lt;cr&gt;&#39;</span>, desc <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Select VirtualEnv&#39;</span>, ft <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;python&#39;</span> } },
+</span></span><span style="display:flex;"><span>  },
+</span></span></code></pre></div><p>Ali em <code>&lt;leader&gt;bpv</code> é onde eu defino como vou abrir o seletor de ambiente virtual:
+pra mim ficou espaço + b + p + v. Você pode escolher qualquer combinação que
+achar melhor.</p>
+<p>Daí em qualquer projeto que você tenha um .venv instalado, é só usar a
+combinação e escolher o executável do python na caixinha que abrir.</p>
+<h3 id="básico-de-navegação">Básico de navegação</h3>
+<p>Os comandos básicos pra navegar usando as LSPs são os seguintes:</p>
+<ul>
+<li>espaço g r d: pular pra definição. Use esse como você usaria o ctrl+clique
+no vscode.</li>
+<li>espaço g r i: pular pra implementação. Alternativa à opção anterior para
+linguagens que definem interfaces tipo TypeScript.</li>
+<li>espaço g r t: pular pra definição do tipo. Quando você quer ver onde o tipo (e
+não a variável) foi definido.</li>
+<li>ctrl+o (ou também <a href="https://stackoverflow.com/a/8381488">ctrl+t</a>): voltar pra
+onde você estava. Use pra voltar dos pulos que você deu conforme ia indo de
+definição em definição.</li>
+<li>espaço g r r: abre uma lista com todos os lugares onde essa palavra é utilizada</li>
+<li>espaço g O: abre uma listagem de todos os símbolos do documento atual. Bom pra
+buscar pelo nome de alguma variável.</li>
+<li>espaço g W: igual ao anterior, mas no projeto inteiro.</li>
+</ul>
+<h3 id="kbdshiftkbdkbdkkbd-preview-de-documentação"><kbd>shift</kbd>+<kbd>k</kbd>: preview de documentação</h3>
+<p>Visualização rápida de argumentos de função, documentação de classes, etc.</p>
+<p>Boa adição aos comandos anteriores pra lembrar das definições sem mudar
+o contexto.</p>
+<p>Procure por <code>vim.api.nvim_create_autocmd('LspAttach', {</code> no seu init.lua e
+adicione o seguinte bloco:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span>vim.api.nvim_create_autocmd(<span style="color:#e6db74">&#39;LspAttach&#39;</span>, {
+</span></span><span style="display:flex;"><span>  group <span style="color:#f92672">=</span> vim.api.nvim_create_augroup(<span style="color:#e6db74">&#39;telescope-lsp-attach&#39;</span>, { clear <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span> }),
+</span></span><span style="display:flex;"><span>  callback <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(event)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">local</span> buf <span style="color:#f92672">=</span> event.buf
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">-- o seu init.lua vai ter mais várias coisas aqui</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">-- adicione em qualquer lugar dentro desse bloco :)</span>
+</span></span><span style="display:flex;"><span>    map(<span style="color:#e6db74">&#39;K&#39;</span>, vim.lsp.buf.hover, <span style="color:#e6db74">&#39;Hover Documentation&#39;</span>)
+</span></span></code></pre></div><h2 id="wip-uso-do-depurador">(wip) Uso do depurador</h2>
+<p>TODO: Escrever sobre o setup do <a href="https://github.com/mfussenegger/nvim-dap">nvim-dap</a> e como fiz pra criar entrypoints customizados. Fazer uma comparação com o launch.json do vscode!</p>
+<p>Lembrar do <code>:MasonInstall debugpy</code>.</p>
+<p>Instalar parser de tree sitter para python (permite chamada do depurador para a função atual ou classe atual)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-diff" data-lang="diff"><span style="display:flex;"><span>diff --git a/init.lua b/init.lua
+</span></span><span style="display:flex;"><span>index 31a2a60..8573ae3 100644
+</span></span><span style="display:flex;"><span><span style="color:#f92672">--- a/init.lua
+</span></span></span><span style="display:flex;"><span><span style="color:#f92672"></span><span style="color:#a6e22e">+++ b/init.lua
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e"></span><span style="color:#75715e">@@ -872,7 +872,7 @@ require(&#39;lazy&#39;).setup({
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>     branch = &#39;main&#39;,
+</span></span><span style="display:flex;"><span>     -- [[ Configure Treesitter ]] See `:help nvim-treesitter-intro`
+</span></span><span style="display:flex;"><span>     config = function()
+</span></span><span style="display:flex;"><span><span style="color:#f92672">-      local parsers = { &#39;bash&#39;, &#39;c&#39;, &#39;diff&#39;, &#39;html&#39;, &#39;lua&#39;, &#39;luadoc&#39;, &#39;markdown&#39;, &#39;markdown_inline&#39;, &#39;query&#39;, &#39;vim&#39;, &#39;vimdoc&#39; }
+</span></span></span><span style="display:flex;"><span><span style="color:#f92672"></span><span style="color:#a6e22e">+      local parsers = { &#39;bash&#39;, &#39;c&#39;, &#39;diff&#39;, &#39;html&#39;, &#39;lua&#39;, &#39;luadoc&#39;, &#39;markdown&#39;, &#39;markdown_inline&#39;, &#39;query&#39;, &#39;vim&#39;, &#39;vimdoc&#39;, &#39;python&#39; }
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e"></span>       require(&#39;nvim-treesitter&#39;).install(parsers)
+</span></span><span style="display:flex;"><span>       vim.api.nvim_create_autocmd(&#39;FileType&#39;, {
+</span></span><span style="display:flex;"><span>         callback = function(args)
+</span></span></code></pre></div><h2 id="integração-com-docker">Integração com Docker</h2>
+<p>A estratégia é instalar o nvim <strong>dentro</strong> do container! Como ele funciona todo
+dentro do terminal, você pode usar um <code>docker exec</code> pra dar ssh pra dentro do
+container e fazer tudo por ali, sem precisar instalar nada na sua máquina.</p>
+<aside>Você não precisa nem mesmo ter o nvim no seu host, o que é ótimo
+pra fazer setups rápidos em máquinas temporárias.</aside>
+<p>O script abaixo que automatiza a instalação de tudo que é necessário no container.</p>
+<p>Eu fiz ele pensando em um container rodando Debian, mas esses passos devem
+funcionar pra Ubuntu também.</p>
+<p>Primeiro verifique qual a distro do container na qual você quer desenvolver:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker exec -it meu_app bash
+</span></span><span style="display:flex;"><span>cat /etc/os-release | grep ID
+</span></span></code></pre></div><p>Se não for Debian ou Ubuntu, recomendo dar uma analisada no script e adaptar
+conforme a necessidade (acho que o mais importante é mudar apt-get
+pro gerenciador de pacotes da sua distro - use a sessão
+<a href="https://github.com/nvim-lua/kickstart.nvim?tab=readme-ov-file#linux-install">Linux Install</a>
+do kickstart.nvim como referência).</p>
+<p>Salve o script como <code>nvim-setup.sh</code> e altere a variável <code>CONTAINER_NAME</code> pro
+nome que estiver utilizando.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e"># setup-nvim.sh by guites</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># more info: https://guilhermegarcia.dev/blog/desenvolvendo-python-com-neovim</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># glhf</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>set -eu
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>CONTAINER_NAME<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meu_app&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>docker exec -i <span style="color:#e6db74">&#34;</span>$CONTAINER_NAME<span style="color:#e6db74">&#34;</span> bash -seu <span style="color:#e6db74">&lt;&lt;&#39;EOF&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  # talvez você precise de sudo aqui caso seu usuário não seja root
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  apt-get update
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  if ! node -v &gt;/dev/null 2&gt;&amp;1; then
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    echo &#34;node não encontrado. Instalando via nvm...&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.4/install.sh | bash
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    export NVM_DIR=&#34;$HOME/.nvm&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    [ -s &#34;$NVM_DIR/nvm.sh&#34; ] &amp;&amp; \. &#34;$NVM_DIR/nvm.sh&#34;  # This loads nvm
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    [ -s &#34;$NVM_DIR/bash_completion&#34; ] &amp;&amp; \. &#34;$NVM_DIR/bash_completion&#34;  # This loads nvm bash_completion
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    nvm install --lts
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  fi
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  # dependências para os pacotes básicos (LSPs, busca, uso do clipboard)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  apt-get install -y make gcc ripgrep fd-find tree-sitter-cli unzip git xclip curl
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  # instalação do nvim
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  if ! nvim -v &gt;/dev/null 2&gt;&amp;1; then
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    echo &#34;nvim não encontrado. Instalando...&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    rm -rf /opt/nvim-linux-x86_64
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    mkdir -p /opt/nvim-linux-x86_64
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    chmod a+rX /opt/nvim-linux-x86_64
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    tar -C /opt -xzf nvim-linux-x86_64.tar.gz
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    ln -sf /opt/nvim-linux-x86_64/bin/nvim /usr/local/bin/
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    rm nvim-linux-x86_64.tar.gz
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    grep -qxF &#34;alias vim=&#39;nvim&#39;&#34; &#34;$HOME/.bashrc&#34; || echo &#34;alias vim=&#39;nvim&#39;&#34; &gt;&gt; &#34;$HOME/.bashrc&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  fi
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  # instalação do kickstart.nvim
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  mkdir -p &#34;$HOME/.config&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  # se você possui seu próprio fork do kickstart.nvim,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  # substitua &#34;guites&#34; pelo seu usuário do github
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  # se você quer usar a versão limpa sem as minhas alterações,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  # substitua &#34;guites&#34; por &#34;nvim-lua&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  NVIM_DIR=&#34;${XDG_CONFIG_HOME:-$HOME/.config}/nvim&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  if [ ! -d &#34;$NVIM_DIR/.git&#34; ]; then
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    echo &#34;configuração do nvim não encontrada. Inicializando via kickstart.nvim...&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    rm -rf &#34;$NVIM_DIR&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    git clone https://github.com/guites/kickstart.nvim.git &#34;$NVIM_DIR&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  fi
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">EOF</span>
+</span></span></code></pre></div><p>Rode com <code>bash nvim-setup.sh</code>.</p>
+<p>Depois você pode acessar o container via <code>docker exec</code> e
+rodar o nvim lá dentro!</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker exec -it meu_app bash
+</span></span><span style="display:flex;"><span>nvim
+</span></span></code></pre></div><h3 id="permitindo-uso-do-clipboard">Permitindo uso do clipboard</h3>
+<p>Isso permite copiar linhas de código direto do nvim
+e colar em outro lugar (por ex. <kbd>ctrl + shift + v + y</kbd>
+e depois <kbd>ctrl + v</kbd> num outro programa).</p>
+<p>Não é essêncial mas ajuda a dar aquela sensação de que você está
+desenvolvendo localmente :).</p>
+<p>O método pra sincronizar o clipboard do nvim com a sua máquina é através do xclip.</p>
+<p>O xclip precisa ter acesso ao ambiente gráfico (<code>$DISPLAY</code>) da sua máquina, e
+pra isso você vai ter que compartilhar esse acesso com o container do docker.</p>
+<p>A forma mais prática que eu achei é criar um arquivo docker-compose.nvim.yml e adicionar
+um volume extra no serviço onde você vai abrir o nvim.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e"># arquivo docker-compose.nvim.yml</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">services</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">meu_app</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">/tmp/.X11-unix:/tmp/.X11-unix</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">DISPLAY=${DISPLAY}</span>
+</span></span></code></pre></div><p>Você precisa também permitir acesso de processos locais ao seu display com</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>xhost +local:
+</span></span></code></pre></div><aside>Pra desfazer esse permissionamento, rode <code>xhost -local:</code></aside>
+<p>E daí pra acessar seu container:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># na hora de criar o container, usar o .yaml adicional</span>
+</span></span><span style="display:flex;"><span>docker compose -f docker-compose.yml -f docker-compose.nvim.yml up meu_app -d
+</span></span><span style="display:flex;"><span>docker exec -it meu_app bash
+</span></span></code></pre></div><h2 id="wip-resolvendo-conflitos-de-merge">(wip) Resolvendo conflitos de merge</h2>
+<p>vim-fugitive!</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=vpwJ7fqD1CE">https://www.youtube.com/watch?v=vpwJ7fqD1CE</a></li>
+<li><a href="https://github.com/tpope/vim-fugitive">https://github.com/tpope/vim-fugitive</a></li>
+<li>:Gvdiffsplit!
+<ul>
+<li>target branch na esquerda - o branch no qual você estava (//2)</li>
+<li>merge branch na direita - o branch do qual você está pegando o código (//3)</li>
+<li>working copy no meio - o código misturado</li>
+</ul>
+</li>
+<li><code>:diffget</code> para puxar as alterações de um dos lados para a working copy</li>
+</ul>
+<p>Exige um pequeno ajuste no init.lua, devido a um bug registrado no nvim:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-diff" data-lang="diff"><span style="display:flex;"><span># em init.lua
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">+vim.opt.diffopt:remove &#39;linematch:40&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">+  { &#39;tpope/vim-fugitive&#39; },
+</span></span></span></code></pre></div><h2 id="considerações-finais">Considerações finais</h2>
+<p>O maior benefício de usar o vim/neovim (imo) é a proximidade com o terminal.</p>
+<p>Navegar com agilidade pelo código, sabendo onde as coisas estão (após decorar alguns
+atalhos <code>¯\_(ツ)_/¯</code>) facilita digerir grandes volumes de código e
+criar um modelo mental correto do que está sendo desenvolvido.</p>
+<p>Espero que o nvim te ajude a encontrar o equilibrio entre acessar informação
+com agilidade sem sobrecarregar o cérebro com milhares de abas e arquivos.</p>
+<p>Eu mantenho a minha configuração sempre atualizada em <a href="https://github.com/guites/kickstart.nvim">github.com/guites/kickstart.nvim</a>,
+caso você queria usar como referência.</p>
+<p>Abraço!</p>
+
+</content>
+<p>
+  
+  <a href="https://guilhermegarcia.dev/blog/cli/">#cli</a>
+  
+  <a href="https://guilhermegarcia.dev/blog/portugu%C3%AAs/">#português</a>
+  
+  <a href="https://guilhermegarcia.dev/blog/python/">#python</a>
+  
+  <a href="https://guilhermegarcia.dev/blog/vim/">#vim</a>
+  
+</p>
+
+  </main>
+  <footer>
+</footer>
+
+    
+</body>
+
+</html>
