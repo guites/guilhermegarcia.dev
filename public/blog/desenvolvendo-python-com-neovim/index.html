@@ -17,7 +17,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://guilhermegarcia.dev/blog/desenvolvendo-python-com-neovim/" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2026-03-26T17:15:57-03:00" />
-<meta property="article:modified_time" content="2026-04-17T14:00:32-03:00" /><meta property="og:site_name" content="Blog do Guilherme" />
+<meta property="article:modified_time" content="2026-04-30T16:15:32-03:00" /><meta property="og:site_name" content="Blog do Guilherme" />
 
 
 
@@ -29,8 +29,8 @@
 
 <meta itemprop="name" content="Desenvolvendo Python com Neovim">
 <meta itemprop="description" content="Como eu adaptei o uso do neovim pra ficar mais próximo do que eu estava acostumado no vscode. Navegação na codebase, uso do depurador e integração com docker."><meta itemprop="datePublished" content="2026-03-26T17:15:57-03:00" />
-<meta itemprop="dateModified" content="2026-04-17T14:00:32-03:00" />
-<meta itemprop="wordCount" content="1828">
+<meta itemprop="dateModified" content="2026-04-30T16:15:32-03:00" />
+<meta itemprop="wordCount" content="1863">
 <meta itemprop="keywords" content="cli,português,python,vim," />
 <meta name="referrer" content="no-referrer-when-downgrade" />
 
@@ -263,8 +263,8 @@
 <p>
   <i>
     Last updated on
-    <time datetime='2026-04-17' pubdate>
-      17 Apr, 2026
+    <time datetime='2026-04-30' pubdate>
+      30 Apr, 2026
     </time>
   </i>
 </p>
@@ -453,17 +453,26 @@ do kickstart.nvim como referência).</p>
 nome que estiver utilizando.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e"># setup-nvim.sh by guites</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># more info: https://guilhermegarcia.dev/blog/desenvolvendo-python-com-neovim</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># more info:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># https://guilhermegarcia.dev/blog/desenvolvendo-python-com-neovim</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># glhf</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>set -eu
+</span></span><span style="display:flex;"><span>set -e
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>CONTAINER_NAME<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meu_app&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> -z <span style="color:#e6db74">&#34;</span>$1<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>  echo <span style="color:#e6db74">&#34;CONTAINER_NAME not defined. Exiting.&#34;</span>
+</span></span><span style="display:flex;"><span>  echo <span style="color:#e6db74">&#34;Usage: ./setup_nvim.sh &lt;CONTAINER_NAME&gt;&#34;</span>
+</span></span><span style="display:flex;"><span>  exit <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>CONTAINER_NAME<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$1<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>KICKSTART_NVIM_REPO<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;guites&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>docker exec -i -u root <span style="color:#e6db74">&#34;</span>$CONTAINER_NAME<span style="color:#e6db74">&#34;</span> bash -seu <span style="color:#e6db74">&lt;&lt;&#39;EOF&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  apt-get update
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">EOF</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>docker exec -i <span style="color:#e6db74">&#34;</span>$CONTAINER_NAME<span style="color:#e6db74">&#34;</span> bash -seu <span style="color:#e6db74">&lt;&lt;&#39;EOF&#39;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  # talvez você precise de sudo aqui caso seu usuário não seja root
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  apt-get update
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  if ! node -v &gt;/dev/null 2&gt;&amp;1; then
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    echo &#34;node não encontrado. Instalando via nvm...&#34;
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.4/install.sh | bash
@@ -472,7 +481,9 @@ nome que estiver utilizando.</p>
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    [ -s &#34;$NVM_DIR/bash_completion&#34; ] &amp;&amp; \. &#34;$NVM_DIR/bash_completion&#34;  # This loads nvm bash_completion
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    nvm install --lts
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  fi
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">EOF</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>docker exec -i -u root <span style="color:#e6db74">&#34;</span>$CONTAINER_NAME<span style="color:#e6db74">&#34;</span> bash -seu <span style="color:#e6db74">&lt;&lt;&#39;EOF&#39;
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  # dependências para os pacotes básicos (LSPs, busca, uso do clipboard)
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  apt-get install -y make gcc ripgrep fd-find tree-sitter-cli unzip git xclip curl
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
@@ -486,9 +497,11 @@ nome que estiver utilizando.</p>
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    tar -C /opt -xzf nvim-linux-x86_64.tar.gz
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    ln -sf /opt/nvim-linux-x86_64/bin/nvim /usr/local/bin/
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    rm nvim-linux-x86_64.tar.gz
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    grep -qxF &#34;alias vim=&#39;nvim&#39;&#34; &#34;$HOME/.bashrc&#34; || echo &#34;alias vim=&#39;nvim&#39;&#34; &gt;&gt; &#34;$HOME/.bashrc&#34;
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  fi
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">EOF</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>docker exec -i <span style="color:#e6db74">&#34;</span>$CONTAINER_NAME<span style="color:#e6db74">&#34;</span> bash -seu <span style="color:#e6db74">&lt;&lt;&#39;EOF&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  grep -qxF &#34;alias vim=&#39;nvim&#39;&#34; &#34;$HOME/.bashrc&#34; || echo &#34;alias vim=&#39;nvim&#39;&#34; &gt;&gt; &#34;$HOME/.bashrc&#34;
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  # instalação do kickstart.nvim
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  mkdir -p &#34;$HOME/.config&#34;
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  # se você possui seu próprio fork do kickstart.nvim,

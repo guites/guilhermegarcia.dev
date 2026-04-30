@@ -1,7 +1,7 @@
 +++
 title = "Desenvolvendo Python com Neovim"
 date = "2026-03-26T17:15:57-03:00"
-lastmod = "2026-04-17T14:00:32-03:00"
+lastmod = "2026-04-30T16:15:32-03:00"
 
 description = "Como eu adaptei o uso do neovim pra ficar mais próximo do que eu estava acostumado no vscode. Navegação na codebase, uso do depurador e integração com docker."
 toc = true
@@ -222,17 +222,26 @@ nome que estiver utilizando.
 ```bash
 #!/bin/bash
 # setup-nvim.sh by guites
-# more info: https://guilhermegarcia.dev/blog/desenvolvendo-python-com-neovim
+# more info:
+# https://guilhermegarcia.dev/blog/desenvolvendo-python-com-neovim
 # glhf
 
-set -eu
+set -e
 
-CONTAINER_NAME="meu_app"
+if [ -z "$1" ]; then
+  echo "CONTAINER_NAME not defined. Exiting."
+  echo "Usage: ./setup_nvim.sh <CONTAINER_NAME>"
+  exit 1
+fi
+
+CONTAINER_NAME="$1"
+KICKSTART_NVIM_REPO="guites"
+
+docker exec -i -u root "$CONTAINER_NAME" bash -seu <<'EOF'
+  apt-get update
+EOF
 
 docker exec -i "$CONTAINER_NAME" bash -seu <<'EOF'
-  # talvez você precise de sudo aqui caso seu usuário não seja root
-  apt-get update
-
   if ! node -v >/dev/null 2>&1; then
     echo "node não encontrado. Instalando via nvm..."
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.4/install.sh | bash
@@ -241,7 +250,9 @@ docker exec -i "$CONTAINER_NAME" bash -seu <<'EOF'
     [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
     nvm install --lts
   fi
+EOF
 
+docker exec -i -u root "$CONTAINER_NAME" bash -seu <<'EOF'
   # dependências para os pacotes básicos (LSPs, busca, uso do clipboard)
   apt-get install -y make gcc ripgrep fd-find tree-sitter-cli unzip git xclip curl
 
@@ -255,9 +266,11 @@ docker exec -i "$CONTAINER_NAME" bash -seu <<'EOF'
     tar -C /opt -xzf nvim-linux-x86_64.tar.gz
     ln -sf /opt/nvim-linux-x86_64/bin/nvim /usr/local/bin/
     rm nvim-linux-x86_64.tar.gz
-    grep -qxF "alias vim='nvim'" "$HOME/.bashrc" || echo "alias vim='nvim'" >> "$HOME/.bashrc"
   fi
+EOF
 
+docker exec -i "$CONTAINER_NAME" bash -seu <<'EOF'
+  grep -qxF "alias vim='nvim'" "$HOME/.bashrc" || echo "alias vim='nvim'" >> "$HOME/.bashrc"
   # instalação do kickstart.nvim
   mkdir -p "$HOME/.config"
   # se você possui seu próprio fork do kickstart.nvim,
