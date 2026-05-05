@@ -21,23 +21,31 @@ You do not \(and should not\) install anything Docker related inside your WSL in
 
 Make sure you have WSL 2 installed. You can check, in PowerShell, running
 
-		wsl -l -v
+```powershell
+wsl -l -v
+```
 
 If you get the "not installed" message, proceed with
 
-    wsl.exe --install Ubuntu-26.04 2
+```powershell
+wsl.exe --install Ubuntu-26.04 2
+```
 
 If you see output like this
 
-		PS C:\Users\guites> wsl -l -v
-		  NAME                   STATE           VERSION
-		* Ubuntu-22.04           Running         2
+```powershell
+> wsl -l -v
+  NAME                   STATE           VERSION
+* Ubuntu-22.04           Running         2
+```
 
 It means you are all set. If your `version` column shows only version 1, you can [follow the official documentation](https://learn.microsoft.com/en-us/windows/wsl/install#upgrade-version-from-wsl-1-to-wsl-2) to upgrade your wsl from version 1 to 2.
 
 Then, you need to change the version used by your distro \(in powershell\):
 
-		wsl --set-version Ubuntu-26.04 2
+```powershell
+wsl --set-version Ubuntu-26.04 2
+```
 
 Now, if you have previously installed docker directly from inside wsl, using for example the [docker engine for ubuntu documentation](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository), I strongly recommend uninstalling it completely.
 
@@ -45,9 +53,11 @@ Now, if you have previously installed docker directly from inside wsl, using for
 
 I found the following commands to be the only ones necessary \(inside WSL\):
 
-		sudo apt-get remove docker docker-engine docker.io containerd runc
-		sudo rm -rf /var/lib/docker /etc/docker /etc/apparmor.d/docker /var/run/docker.sock /usr/local/bin/docker-compose /etc/docker
-		sudo groupdel docker
+```bash
+sudo apt-get remove docker docker-engine docker.io containerd runc
+sudo rm -rf /var/lib/docker /etc/docker /etc/apparmor.d/docker /var/run/docker.sock /usr/local/bin/docker-compose /etc/docker
+sudo groupdel docker
+```
 
 After removing Docker from WSL \(or in case you didn't have it installed in the first place\), make sure to uninstall Docker from your Windows also.
 
@@ -55,14 +65,13 @@ After that, proceed with the instalation of [Docker Desktop WSL 2 backend on Win
 
 Docker will create two distinct WSL containers, that can be seems running the following command from PowerShell:
 
-		wsl -l -v
-
-
-		PS C:\Users\guites> wsl -l -v
-		  NAME                   STATE           VERSION
-		* Ubuntu-22.04           Running         2
-		  docker-desktop         Running         2
-		  docker-desktop-data    Running         2
+```powershell
+> wsl -l -v
+  NAME                   STATE           VERSION
+* Ubuntu-22.04           Running         2
+  docker-desktop         Running         2
+  docker-desktop-data    Running         2
+```
 
 They will be responsible for managing the communication between windows and wsl. You do not need to install anything Docker related inside of WSL.
 
@@ -70,15 +79,15 @@ They will be responsible for managing the communication between windows and wsl.
 
 If you have a docker container inside WSL running some application on localhost, and want to access it from another docker container inside WSL, you won't be able to reach it from `http://localhost`.
 
-You will have to use your machine IP. You can find it by running
+You will have to use your machine IP. You can find it by running (inside wsl \([source](https://superuser.com/a/1642352)\))
 
-	ip addr | grep eth0
+```bash
+ip addr | grep eth0
 
-	: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
-	    inet 174.86.26.335/20 brd 174.86.25.255 scope global eth0
-		^-------------^ ====> use this IP instead of localhost
-
-Inside wsl. \([source](https://superuser.com/a/1642352)\)
+: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
+	inet 174.86.26.335/20 brd 174.86.25.255 scope global eth0
+	^-------------^ ====> use this IP instead of localhost
+```
 
 ## Copying files to the clipboard
 
@@ -88,16 +97,22 @@ Instead, you can access the `.exe` file responsible for copying in windows direc
 
 To copy the contents of a file `list-of-things.txt`
 
-		cat list-of-things.txt | clip.exe
+```bash
+cat list-of-things.txt | clip.exe
+```
 
 In this situations I like to create an alias so that I can call the same command name on both my linux and windows machine.
 
-		echo "alias ,copy='clip.exe'" >> ~/.bash_aliases
-		source ~/.bash_aliases
+```bash
+echo "alias ,copy='clip.exe'" >> ~/.bash_aliases
+source ~/.bash_aliases
+```
 
 Now, you can copy the output of any command by running, for example
 
-		ls -l | ,copy
+```bash
+ls -l | ,copy
+```
 
 And hit <kbd>ctrl + v</kbd> where you need it.
 
@@ -119,26 +134,36 @@ Mine is `C:\Program Files\Mozilla Firefox\firefox.exe`. But you must make a few 
 
 Check that you can open it by running it in the WSL terminal:
 
-		/mnt/c/Program\ Files/Mozilla\ Firefox/firefox.exe`
+```bash
+/mnt/c/Program\ Files/Mozilla\ Firefox/firefox.exe
+```
 
 If everything goes well, create an alias
 
-		echo "alias ,firefox='/mnt/c/Program\ Files/Mozilla\ Firefox/firefox.exe'" >> ~/.bash_aliases
-		source ~/.bash_aliases
+```bash
+echo "alias ,firefox='/mnt/c/Program\ Files/Mozilla\ Firefox/firefox.exe'" >> ~/.bash_aliases
+source ~/.bash_aliases
+```
 
 Test it by opening up an URL
 
-		,firefox https://guilhermegarcia.dev/blog
+```bash
+,firefox https://guilhermegarcia.dev/blog
+```
 
 **For the files**, you can simply use `explorer.exe`. In regular Ubuntu, you would use something like `xdg-open` or simply `open`, but the environment is not fully configured on the default WSL installation. Instead, lets create an alias!
 
-		echo "alias ,open='explorer.exe'" >> ~/.bash_aliases
-		source ~/.bash_aliases
+```bash
+echo "alias ,open='explorer.exe'" >> ~/.bash_aliases
+source ~/.bash_aliases
+```
 
 And test it by opening some file
 
-		echo "Contents" > file.txt
-		,open file
+```bash
+echo "Contents" > file.txt
+,open file
+```
 
 You should see your friendly neighborhood notepad pop up :P.
 
@@ -152,8 +177,10 @@ You can disable it **from inside WSL** by adding a `set bell-style none` in the 
 
 Note that if you use vim, you will also have to add the following to your ~/.vimrc
 
-		set visualbell
-		set t_vb=
+```bash
+set visualbell
+set t_vb=
+```
 
 You can also disable it **from outside WSL** \(as a brute force solution\) by openning the Volme Mixer in Windows and muting each WSL terminal window.
 
