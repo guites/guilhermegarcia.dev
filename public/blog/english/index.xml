@@ -30,5 +30,12 @@
       <guid>https://guilhermegarcia.dev/blog/aware-naive-datetime-objects-wo-pytz/</guid>
       <description>tldr: use .replace or .astimezone on both datetime objects.&#xA;Maybe you were trying to do a simple datetime comparison, and was met with the following:&#xA;TypeError: can&#39;t compare offset-naive and offset-aware datetimes Most solutions (1, 2) will point you towards pytz, but the lib page at pypi mentions:&#xA;Projects using Python 3.9 or later should be using the support now included as part of the standard library, and third party packages work with it such as tzdata</description>
     </item>
+    <item>
+      <title>Making home of the WSL 2</title>
+      <link>https://guilhermegarcia.dev/blog/making-home-of-the-wsl-2/</link>
+      <pubDate>Tue, 22 Nov 2022 12:26:19 -0300</pubDate>
+      <guid>https://guilhermegarcia.dev/blog/making-home-of-the-wsl-2/</guid>
+      <description>Having recently migrated from Ubuntu to Windows as my work machine, many of the features that made my system feel like home were missing.&#xA;This post serves as a collection of solutions I found (and some I&amp;rsquo;ve adapted) from the web. Cheers!&#xA;Correctly installing Docker under WSL You do not (and should not) install anything Docker related inside your WSL instances. Instead, you can use the Docker Desktop WSL 2 Backend, which will take care of integrating both systems, and running Docker both in your Windows and in your WSL instances.</description>
+    </item>
   </channel>
 </rss>

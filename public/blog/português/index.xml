@@ -7,8 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Copyright © 2024-2026, Guilherme Garcia.</copyright>
-    <lastBuildDate>Thu, 26 Mar 2026 17:15:57 -0300</lastBuildDate>
+    <lastBuildDate>Fri, 19 Jun 2026 11:56:13 -0300</lastBuildDate>
     <atom:link href="https://guilhermegarcia.dev/blog/portugu%C3%AAs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mantendo Um Clube Do Livro</title>
+      <link>https://guilhermegarcia.dev/blog/mantendo-um-clube-do-livro/</link>
+      <pubDate>Fri, 19 Jun 2026 11:56:13 -0300</pubDate>
+      <guid>https://guilhermegarcia.dev/blog/mantendo-um-clube-do-livro/</guid>
+      <description>tldr: o Proggers Bookclub vive, tem um site e está aceitando novos membros :) Veja mais em https://guites.github.io/proggers/. Esse post trás um relato de como foi pra chegar até aqui e recomendações pra começar seu próprio clube.&#xA;No final de 2025 um amigo próximo comprou um livro, Data Structures and Algorithm Analysis in C++. Por coíncidencia eu vinha fazendo um cursinho de algoritmos e fiquei pilhado em ler o livro junto com ele, mesmo sem entender nada de C++.</description>
+    </item>
     <item>
       <title>Desenvolvendo Python com Neovim</title>
       <link>https://guilhermegarcia.dev/blog/desenvolvendo-python-com-neovim/</link>

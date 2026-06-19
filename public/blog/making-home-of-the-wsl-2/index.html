@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="https://guilhermegarcia.dev/images/favicon.png" />
+<title>Making home of the WSL 2 | Site do Guilherme</title>
+<meta name="title" content="Making home of the WSL 2" />
+<meta name="description" content="Collection of solutions adapted from searching the web to make wsl2 on windows feel more like home" />
+<meta name="keywords" content="english,windows," />
+
+
+<meta property="og:title" content="Making home of the WSL 2" />
+<meta property="og:description" content="Collection of solutions adapted from searching the web to make wsl2 on windows feel more like home" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://guilhermegarcia.dev/blog/making-home-of-the-wsl-2/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2022-11-22T12:26:19-03:00" />
+<meta property="article:modified_time" content="2026-05-04T08:55:32-03:00" /><meta property="og:site_name" content="Blog do Guilherme" />
+
+
+
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Making home of the WSL 2"/>
+<meta name="twitter:description" content="Collection of solutions adapted from searching the web to make wsl2 on windows feel more like home"/>
+
+
+
+<meta itemprop="name" content="Making home of the WSL 2">
+<meta itemprop="description" content="Collection of solutions adapted from searching the web to make wsl2 on windows feel more like home"><meta itemprop="datePublished" content="2022-11-22T12:26:19-03:00" />
+<meta itemprop="dateModified" content="2026-05-04T08:55:32-03:00" />
+<meta itemprop="wordCount" content="893">
+<meta itemprop="keywords" content="english,windows," />
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  body {
+    font-family: Verdana, sans-serif;
+    margin: auto;
+    padding: 20px;
+    max-width: 720px;
+    text-align: left;
+    background-color: #fff;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: #444;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  b {
+    color: #222;
+  }
+
+  a {
+    color: #3273dc;
+     
+  }
+
+  .title {
+    text-decoration: none;
+    border: 0;
+  }
+
+  .title span {
+    font-weight: 400;
+  }
+
+  nav a {
+    margin-right: 10px;
+  }
+
+  textarea {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  input {
+    font-size: 16px;
+  }
+
+  content {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    padding: 2px 5px;
+    background-color: #f2f2f2;
+  }
+
+  pre code {
+    color: #222;
+    display: block;
+    padding: 20px;
+    white-space: pre-wrap;
+    font-size: 14px;
+    overflow-x: auto;
+  }
+
+  div.highlight pre {
+    background-color: initial;
+    color: initial;
+  }
+
+  div.highlight code {
+    background-color: unset;
+    color: unset;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: #222;
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px;
+    text-align: center;
+  }
+
+  .helptext {
+    color: #777;
+    font-size: small;
+  }
+
+  .errorlist {
+    color: #eba613;
+    font-size: small;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: #8b6fcb;
+  }
+
+  aside {
+    margin: 15px 5px;
+    padding: 5px 10px;
+    border: 1px dashed;
+    text-align: justify;
+    hyphens: auto;
+  }
+
+  aside::before {
+    content: " ᶘ ᵒᴥᵒᶅ ";
+    margin-right: 5px;
+  }
+
+  aside.warning {
+    border-color: #ffbb00;
+    background-color: rgb(255, 249, 231);
+  }
+
+  aside.warning::before {
+    color: #ffbb00;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #333;
+      color: #ddd;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    strong,
+    b {
+      color: #eee;
+    }
+
+    a {
+      color: #8cc2dd;
+    }
+
+    code {
+      background-color: #777;
+    }
+
+    pre code {
+      color: #ddd;
+    }
+
+    blockquote {
+      color: #ccc;
+    }
+
+    aside.warning {
+        background-color: transparent;
+    }
+
+    textarea,
+    input {
+      background-color: #252525;
+      color: #ddd;
+    }
+
+    .helptext {
+      color: #aaa;
+    }
+  }
+</style>
+
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h2>Site do Guilherme</h2>
+</a>
+<nav><a href="/">Home</a>
+
+
+<a href="/blog">Blog</a>
+
+<a href="/links">Links</a>
+<a href="/opensource">Open Source</a>
+<a href="/index.xml">RSS</a>
+</nav>
+</header>
+  <main>
+
+<h1>Making home of the WSL 2</h1>
+<p>
+  <i>
+    <time datetime='2022-11-22' pubdate>
+      22 Nov, 2022
+    </time>
+  </i>
+</p>
+
+<p>
+  <i>
+    Last updated on
+    <time datetime='2026-05-04' pubdate>
+      04 May, 2026
+    </time>
+  </i>
+</p>
+
+
+
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#correctly-installing-docker-under-wsl">Correctly installing Docker under WSL</a></li>
+    <li><a href="#acessing-localhost-from-within-a-docker-container">Acessing localhost from within a docker container</a></li>
+    <li><a href="#copying-files-to-the-clipboard">Copying files to the clipboard</a></li>
+    <li><a href="#opening-files-and-the-browser-from-wsl-terminal">Opening files and the browser from WSL terminal</a></li>
+    <li><a href="#disable-the-beep">Disable the beep</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+
+<content>
+  <p>Having recently migrated from Ubuntu to Windows as my work machine, many of the features that made my system feel like home were missing.</p>
+<p>This post serves as a collection of solutions I found (and some I&rsquo;ve adapted) from the web. Cheers!</p>
+<hr/>
+<h2 id="correctly-installing-docker-under-wsl">Correctly installing Docker under WSL</h2>
+<p>You do not (and should not) install anything Docker related inside your WSL instances. Instead, you can use the Docker Desktop WSL 2 Backend, which will take care of integrating both systems, and running Docker both in your Windows and in your WSL instances.</p>
+<p>Make sure you have WSL 2 installed. You can check, in PowerShell, running</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>wsl -l -v
+</span></span></code></pre></div><p>If you get the &ldquo;not installed&rdquo; message, proceed with</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>wsl.exe --install Ubuntu-<span style="color:#ae81ff">26.04</span> <span style="color:#ae81ff">2</span>
+</span></span></code></pre></div><p>If you see output like this</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>&gt; wsl -l -v
+</span></span><span style="display:flex;"><span>  NAME                   STATE           VERSION
+</span></span><span style="display:flex;"><span>* Ubuntu-<span style="color:#ae81ff">22.04</span>           Running         <span style="color:#ae81ff">2</span>
+</span></span></code></pre></div><p>It means you are all set. If your <code>version</code> column shows only version 1, you can <a href="https://learn.microsoft.com/en-us/windows/wsl/install#upgrade-version-from-wsl-1-to-wsl-2">follow the official documentation</a> to upgrade your wsl from version 1 to 2.</p>
+<p>Then, you need to change the version used by your distro (in powershell):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>wsl --set-version Ubuntu-<span style="color:#ae81ff">26.04</span> <span style="color:#ae81ff">2</span>
+</span></span></code></pre></div><p>Now, if you have previously installed docker directly from inside wsl, using for example the <a href="https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository">docker engine for ubuntu documentation</a>, I strongly recommend uninstalling it completely.</p>
+<p><a href="https://docs.docker.com/desktop/windows/wsl/">This post</a> goes into great detail about how you can completely remove old docker versions from wsl.</p>
+<p>I found the following commands to be the only ones necessary (inside WSL):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt-get remove docker docker-engine docker.io containerd runc
+</span></span><span style="display:flex;"><span>sudo rm -rf /var/lib/docker /etc/docker /etc/apparmor.d/docker /var/run/docker.sock /usr/local/bin/docker-compose /etc/docker
+</span></span><span style="display:flex;"><span>sudo groupdel docker
+</span></span></code></pre></div><p>After removing Docker from WSL (or in case you didn&rsquo;t have it installed in the first place), make sure to uninstall Docker from your Windows also.</p>
+<p>After that, proceed with the instalation of <a href="https://docs.docker.com/desktop/windows/wsl/">Docker Desktop WSL 2 backend on Windows</a>.</p>
+<p>Docker will create two distinct WSL containers, that can be seems running the following command from PowerShell:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>&gt; wsl -l -v
+</span></span><span style="display:flex;"><span>  NAME                   STATE           VERSION
+</span></span><span style="display:flex;"><span>* Ubuntu-<span style="color:#ae81ff">22.04</span>           Running         <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>  docker-desktop         Running         <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>  docker-desktop-data    Running         <span style="color:#ae81ff">2</span>
+</span></span></code></pre></div><p>They will be responsible for managing the communication between windows and wsl. You do not need to install anything Docker related inside of WSL.</p>
+<h2 id="acessing-localhost-from-within-a-docker-container">Acessing localhost from within a docker container</h2>
+<p>If you have a docker container inside WSL running some application on localhost, and want to access it from another docker container inside WSL, you won&rsquo;t be able to reach it from <code>http://localhost</code>.</p>
+<p>You will have to use your machine IP. You can find it by running (inside wsl (<a href="https://superuser.com/a/1642352">source</a>))</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ip addr | grep eth0
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>: eth0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu <span style="color:#ae81ff">1500</span> qdisc mq state UP group default qlen <span style="color:#ae81ff">1000</span>
+</span></span><span style="display:flex;"><span>	inet 174.86.26.335/20 brd 174.86.25.255 scope global eth0
+</span></span><span style="display:flex;"><span>	^-------------^ <span style="color:#f92672">====</span>&gt; use this IP instead of localhost
+</span></span></code></pre></div><h2 id="copying-files-to-the-clipboard">Copying files to the clipboard</h2>
+<p>You will not be able to run <code>xclip</code> or <code>xsel</code>, as you would in regular ubuntu.</p>
+<p>Instead, you can access the <code>.exe</code> file responsible for copying in windows directly.</p>
+<p>To copy the contents of a file <code>list-of-things.txt</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cat list-of-things.txt | clip.exe
+</span></span></code></pre></div><p>In this situations I like to create an alias so that I can call the same command name on both my linux and windows machine.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;alias ,copy=&#39;clip.exe&#39;&#34;</span> &gt;&gt; ~/.bash_aliases
+</span></span><span style="display:flex;"><span>source ~/.bash_aliases
+</span></span></code></pre></div><p>Now, you can copy the output of any command by running, for example</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ls -l | ,copy
+</span></span></code></pre></div><p>And hit <kbd>ctrl + v</kbd> where you need it.</p>
+<h2 id="opening-files-and-the-browser-from-wsl-terminal">Opening files and the browser from WSL terminal</h2>
+<p>There are many possible solutions, but the most straightforward seems to be creating an alias pointing to your browser and explorer executables.</p>
+<p><strong>For the browser</strong>, you first need to find where the application binary lives in your Windows machine.</p>
+<p>For firefox, you can do this by opening a new page, going to <code>about:support</code> and scrolling down to <code>Application binary</code> (right below <code>Operational System</code>).</p>
+<p>Mine is <code>C:\Program Files\Mozilla Firefox\firefox.exe</code>. But you must make a few changes to that path.</p>
+<ol>
+<li>Change backslashes into forward slashes: <code>C:/Program Files/Mozilla Firefox/firefox.exe</code></li>
+<li>Remove the <code>:</code> from the path: <code>C/Program Files/Mozilla Firefox/firefox.exe</code></li>
+<li>Escape the spaces: <code>C/Program\ Files/Mozilla\ Firefox/firefox.exe</code></li>
+<li>Lowercase that C: <code>c/Program\ Files/Mozilla\ Firefox/firefox.exe</code></li>
+<li>(First check if you need it) append /mnt to the path: <code>/mnt/c/Program\ Files/Mozilla\ Firefox/firefox.exe</code></li>
+</ol>
+<p>Check that you can open it by running it in the WSL terminal:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>/mnt/c/Program<span style="color:#ae81ff">\ </span>Files/Mozilla<span style="color:#ae81ff">\ </span>Firefox/firefox.exe
+</span></span></code></pre></div><p>If everything goes well, create an alias</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;alias ,firefox=&#39;/mnt/c/Program\ Files/Mozilla\ Firefox/firefox.exe&#39;&#34;</span> &gt;&gt; ~/.bash_aliases
+</span></span><span style="display:flex;"><span>source ~/.bash_aliases
+</span></span></code></pre></div><p>Test it by opening up an URL</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>,firefox https://guilhermegarcia.dev/blog
+</span></span></code></pre></div><p><strong>For the files</strong>, you can simply use <code>explorer.exe</code>. In regular Ubuntu, you would use something like <code>xdg-open</code> or simply <code>open</code>, but the environment is not fully configured on the default WSL installation. Instead, lets create an alias!</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;alias ,open=&#39;explorer.exe&#39;&#34;</span> &gt;&gt; ~/.bash_aliases
+</span></span><span style="display:flex;"><span>source ~/.bash_aliases
+</span></span></code></pre></div><p>And test it by opening some file</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;Contents&#34;</span> &gt; file.txt
+</span></span><span style="display:flex;"><span>,open file
+</span></span></code></pre></div><p>You should see your friendly neighborhood notepad pop up :P.</p>
+<p><a href="https://stackoverflow.com/questions/52691835/wsl-ubuntu-how-to-open-localhost-in-browser-from-bash-terminal">source</a></p>
+<h2 id="disable-the-beep">Disable the beep</h2>
+<p>That goddamn beep ( ` ω ´ ).</p>
+<p>You can disable it <strong>from inside WSL</strong> by adding a <code>set bell-style none</code> in the <code>/etc/inputrc</code> file. (<a href="https://stackoverflow.com/a/36726662">source</a>)</p>
+<p>Note that if you use vim, you will also have to add the following to your ~/.vimrc</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>set visualbell
+</span></span><span style="display:flex;"><span>set t_vb<span style="color:#f92672">=</span>
+</span></span></code></pre></div><p>You can also disable it <strong>from outside WSL</strong> (as a brute force solution) by openning the Volme Mixer in Windows and muting each WSL terminal window.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>These are the adjustments I&rsquo;ve made to my WSL so far. If you have any additional tips or comments, please send them to my <a href="mailto:gui.garcia67@gmail.com">email address</a>. Thanks!</p>
+
+</content>
+<p>
+  
+  <a href="https://guilhermegarcia.dev/blog/english/">#english</a>
+  
+  <a href="https://guilhermegarcia.dev/blog/windows/">#windows</a>
+  
+</p>
+
+  </main>
+  <footer>
+</footer>
+
+    
+</body>
+
+</html>

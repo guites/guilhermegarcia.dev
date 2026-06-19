@@ -3,18 +3,21 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://guilhermegarcia.dev/</loc>
-    <lastmod>2026-04-30T16:15:32-03:00</lastmod>
+    <lastmod>2026-06-19T11:56:13-03:00</lastmod>
   </url><url>
     <loc>https://guilhermegarcia.dev/blog/</loc>
-    <lastmod>2026-04-30T16:15:32-03:00</lastmod>
+    <lastmod>2026-06-19T11:56:13-03:00</lastmod>
+  </url><url>
+    <loc>https://guilhermegarcia.dev/blog/mantendo-um-clube-do-livro/</loc>
+    <lastmod>2026-06-19T11:56:13-03:00</lastmod>
+  </url><url>
+    <loc>https://guilhermegarcia.dev/blog/portugu%C3%AAs/</loc>
+    <lastmod>2026-06-19T11:56:13-03:00</lastmod>
   </url><url>
     <loc>https://guilhermegarcia.dev/blog/cli/</loc>
     <lastmod>2026-04-30T16:15:32-03:00</lastmod>
   </url><url>
     <loc>https://guilhermegarcia.dev/blog/desenvolvendo-python-com-neovim/</loc>
-    <lastmod>2026-04-30T16:15:32-03:00</lastmod>
-  </url><url>
-    <loc>https://guilhermegarcia.dev/blog/portugu%C3%AAs/</loc>
     <lastmod>2026-04-30T16:15:32-03:00</lastmod>
   </url><url>
     <loc>https://guilhermegarcia.dev/blog/python/</loc>
@@ -33,7 +36,7 @@
     <lastmod>2026-03-11T11:08:32-03:00</lastmod>
   </url><url>
     <loc>https://guilhermegarcia.dev/blog/english/</loc>
-    <lastmod>2026-03-11T11:08:32-03:00</lastmod>
+    <lastmod>2026-05-04T08:55:32-03:00</lastmod>
   </url><url>
     <loc>https://guilhermegarcia.dev/blog/on-maintaining-large-ssr-applications/</loc>
     <lastmod>2026-03-11T11:08:32-03:00</lastmod>
@@ -73,6 +76,12 @@
   </url><url>
     <loc>https://guilhermegarcia.dev/blog/aware-naive-datetime-objects-wo-pytz/</loc>
     <lastmod>2024-01-25T20:44:34-03:00</lastmod>
+  </url><url>
+    <loc>https://guilhermegarcia.dev/blog/making-home-of-the-wsl-2/</loc>
+    <lastmod>2026-05-04T08:55:32-03:00</lastmod>
+  </url><url>
+    <loc>https://guilhermegarcia.dev/blog/windows/</loc>
+    <lastmod>2026-05-04T08:55:32-03:00</lastmod>
   </url><url>
     <loc>https://guilhermegarcia.dev/blog/comparando-json-na-linha-de-comando/</loc>
     <lastmod>2022-10-25T22:50:34-03:00</lastmod>

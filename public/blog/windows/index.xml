@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>windows on Site do Guilherme</title>
+    <link>https://guilhermegarcia.dev/blog/windows/</link>
+    <description>Recent content in windows on Site do Guilherme</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <copyright>Copyright © 2024-2026, Guilherme Garcia.</copyright>
+    <lastBuildDate>Tue, 22 Nov 2022 12:26:19 -0300</lastBuildDate>
+    <atom:link href="https://guilhermegarcia.dev/blog/windows/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Making home of the WSL 2</title>
+      <link>https://guilhermegarcia.dev/blog/making-home-of-the-wsl-2/</link>
+      <pubDate>Tue, 22 Nov 2022 12:26:19 -0300</pubDate>
+      <guid>https://guilhermegarcia.dev/blog/making-home-of-the-wsl-2/</guid>
+      <description>Having recently migrated from Ubuntu to Windows as my work machine, many of the features that made my system feel like home were missing.&#xA;This post serves as a collection of solutions I found (and some I&amp;rsquo;ve adapted) from the web. Cheers!&#xA;Correctly installing Docker under WSL You do not (and should not) install anything Docker related inside your WSL instances. Instead, you can use the Docker Desktop WSL 2 Backend, which will take care of integrating both systems, and running Docker both in your Windows and in your WSL instances.</description>
+    </item>
+  </channel>
+</rss>
