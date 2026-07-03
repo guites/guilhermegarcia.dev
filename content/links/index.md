@@ -38,5 +38,8 @@ Get surfing!
 - [Choose Boring Technology](https://boringtechnology.club/)
 - [O que é indireção? em pt.stackoverflow.com](https://pt.stackoverflow.com/questions/181032/o-que-%c3%a9-indire%c3%a7%c3%a3o/181033#181033)
 - [Bash scripting quirks & safety tips](https://jvns.ca/blog/2017/03/26/bash-quirks/)
+- [Harness engineering by Ryan Lopopolo](https://openai.com/index/harness-engineering)
+- [Backpressure is all you need by Lucas Fernandes da Costa](https://www.lucasfcosta.com/blog/backpressure-is-all-you-need)
+- [Dirty Little Zine](https://dirtylittlezine.com/)
 
-<small>last updated ter 10 fev 2026 12:41:26 -03</small>
+<small>last updated sex 03 jul 2026 06:58:13 -03</small>
