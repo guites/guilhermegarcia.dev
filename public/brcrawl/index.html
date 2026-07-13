@@ -1,937 +1,278 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="pt-br">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="https://guilhermegarcia.dev/images/favicon.png" />
+<title>Site do Guilherme</title>
+<meta name="title" content="Site do Guilherme" />
+<meta name="description" content="BR Crawl BR Crawl is a brazilian blogosphere aggregator! It now lives in brcrawl.guilhermegarcia.dev.
+Read more blogs!" />
+<meta name="keywords" content="" />
 
-	<title>BR Crawl</title>
 
-	<meta http-equiv="Content-Security-Policy" content="
-		default-src 'none';
-		connect-src https://brcrawl.guilhermegarcia.dev;
-		base-uri 'self';
-		img-src 'self' data: ;
-		style-src 'nonce-9aec9ae096b128cd312f64db1635f5e0' ;
-		script-src 'nonce-9aec9ae096b128cd312f64db1635f5e0' 'strict-dynamic' ;
-	">
-	<meta name="application-name" content="brcrawl">
-	<meta name="description" content="Diretório da smallweb brasileira">
-	<meta name="referrer" content="same-origin">
+<meta property="og:title" content="" />
+<meta property="og:description" content="BR Crawl BR Crawl is a brazilian blogosphere aggregator! It now lives in brcrawl.guilhermegarcia.dev.
+Read more blogs!" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://guilhermegarcia.dev/brcrawl/" /><meta property="article:section" content="" />
 
-	<style nonce="9aec9ae096b128cd312f64db1635f5e0">
-:root {
-    color-scheme: dark light;
-    --primary: #0AC8F5;
-    --secondary: #D2F00F;
-    --text: var(--txt, #cfcfcf);
-    --border: var(--bd, #c0c0c0);
-    --background: var(--bg, #1D1F21);
-    font-size: min(calc(.75rem + 0.75vw), 16px);
-}
+<meta property="og:site_name" content="Blog do Guilherme" />
 
-@media (prefers-color-scheme: light) {
-    :root {
-        --text: var(--txt, #444444);
-        --border: var(--bd, #333333);
-        --background: var(--bg, white);
-        --primary: #207D92;
-        --secondary: #6A7A06;
-    }
-}
 
-body {
-    font-family: Calibri, 'Trebuchet MS', 'Lucida Sans', Arial, sans-serif;
-    color: var(--text);
-    background: var(--background);
-    max-width: 50rem;
-    width: 100%;
-    margin: 0.5em auto 2em;
-    line-height: 1.25em;
-}
 
-header {
-    border-bottom: 1px solid var(--border);
-    margin-bottom: 0.25em;
-}
 
-header > h1 {
-    display: inline-block;
-    padding: 0 0.5em;
-}
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="BR Crawl BR Crawl is a brazilian blogosphere aggregator! It now lives in brcrawl.guilhermegarcia.dev.
+Read more blogs!"/>
 
-h2 {
-    font-size: 1rem;
-    display: inline;
-}
 
-ol {
-    padding-left: 5ch;
-}
 
-li {
-    margin-block-start: 1em;
-}
+<meta itemprop="name" content="">
+<meta itemprop="description" content="BR Crawl BR Crawl is a brazilian blogosphere aggregator! It now lives in brcrawl.guilhermegarcia.dev.
+Read more blogs!">
 
-a {
+<meta itemprop="wordCount" content="17">
+<meta itemprop="keywords" content="" />
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  body {
+    font-family: Verdana, sans-serif;
+    margin: auto;
+    padding: 20px;
+    max-width: 720px;
+    text-align: left;
+    background-color: #fff;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: #444;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  b {
+    color: #222;
+  }
+
+  a {
+    color: #3273dc;
+     
+  }
+
+  .title {
     text-decoration: none;
-}
+    border: 0;
+  }
 
-a:link {
-    color: var(--primary);
-}
+  .title span {
+    font-weight: 400;
+  }
 
-a:visited {
-    color: var(--secondary);
-}
+  nav a {
+    margin-right: 10px;
+  }
 
-a:hover {
-    opacity: 0.8;
-}
+  textarea {
+    width: 100%;
+    font-size: 16px;
+  }
 
-small {
-    padding-top: 0.25rem;
-    font-size: 0.95rem;
-}
+  input {
+    font-size: 16px;
+  }
 
-small > a:link,
-small > a:visited {
-    color: var(--text);
-}
+  content {
+    line-height: 1.6;
+  }
 
-footer {
-    padding: 1rem;
-    margin-top: 2rem;
-    border-top: 1px solid var(--border);
-}
+  table {
+    width: 100%;
+  }
 
-nav {
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    padding: 2px 5px;
+    background-color: #f2f2f2;
+  }
+
+  pre code {
+    color: #222;
+    display: block;
+    padding: 20px;
+    white-space: pre-wrap;
+    font-size: 14px;
+    overflow-x: auto;
+  }
+
+  div.highlight pre {
+    background-color: initial;
+    color: initial;
+  }
+
+  div.highlight code {
+    background-color: unset;
+    color: unset;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: #222;
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px;
+    text-align: center;
+  }
+
+  .helptext {
+    color: #777;
+    font-size: small;
+  }
+
+  .errorlist {
+    color: #eba613;
+    font-size: small;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
     display: flex;
-    justify-content: center;
-    gap: 1em;
-    padding: 1em 0;
-    margin-top: 1em;
-}
+  }
 
-nav > a, nav > span {
-    padding: 0.25em 0.75em;
-}
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
 
-nav > span {
-    color: var(--border);
-}
+  ul.blog-posts li a:visited {
+    color: #8b6fcb;
+  }
 
-button.report, button.unreport, button.hide, button.show {
-    background: transparent;
-    border: 0px transparent;
-    padding: 0px;
-    margin: 0px;
-    display: inline;
-    box-sizing: border-box;
-    font: inherit;
-    color: inherit;
-}
+  aside {
+    margin: 15px 5px;
+    padding: 5px 10px;
+    border: 1px dashed;
+    text-align: justify;
+    hyphens: auto;
+  }
 
-button.report:hover, button.unreport, button.hide:hover, button.show {
-    opacity: 0.8;
-    cursor: pointer;
-}
+  aside::before {
+    content: " ᶘ ᵒᴥᵒᶅ ";
+    margin-right: 5px;
+  }
 
-.title-br { display: none; }
+  aside.warning {
+    border-color: #ffbb00;
+    background-color: rgb(255, 249, 231);
+  }
 
-@media screen and (max-width: 470px) {
-    header { text-align: center; }
-    .title-br { display: initial; }
-    .title-span { margin: 10px 0px; display: inline-block; }
-}
-	</style>
+  aside.warning::before {
+    color: #ffbb00;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #333;
+      color: #ddd;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    strong,
+    b {
+      color: #eee;
+    }
+
+    a {
+      color: #8cc2dd;
+    }
+
+    code {
+      background-color: #777;
+    }
+
+    pre code {
+      color: #ddd;
+    }
+
+    blockquote {
+      color: #ccc;
+    }
+
+    aside.warning {
+        background-color: transparent;
+    }
+
+    textarea,
+    input {
+      background-color: #252525;
+      color: #ddd;
+    }
+
+    .helptext {
+      color: #aaa;
+    }
+  }
+</style>
+
 </head>
 
 <body>
-	<header>
-		<h1>BR Crawl</h1>
-		<br class="title-br"/>
-		<span class="title-span">Diretório da smallweb brasileira</span>
-	</header>
-	<main>
-		<ol start="1">
-			<li>
-				<a href="http://sismosesmp.blogspot.com/2009/05/lisboa-antes-do-cataclismo.html" target="_blank">
-					<h2>Lisboa, antes do cataclismo</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2100-11-01">01/11/2100</time>
-					|
-					<a class="domain" href="https://sismosesmp.blogspot.com" target="_blank">sismosesmp.blogspot.com</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
-				<a href="https://elysium-editions.blogspot.com/2017/05/welcome-fixo.html" target="_blank">
-					<h2>WELCOME</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2090-02-03">03/02/2090</time>
-					|
-					<a class="domain" href="https://elysium-editions.blogspot.com" target="_blank">elysium-editions.blogspot.com</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
-				<a href="http://bunny-demo.blogspot.com/2017/08/me-leve-agora-para-casa.html" target="_blank">
-					<h2>Me leve agora para &amp;#34;casa&amp;#34;</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2040-08-08">08/08/2040</time>
-					|
-					<a class="domain" href="https://bunny-demo.blogspot.com" target="_blank">bunny-demo.blogspot.com</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
-				<a href="http://bunny-preview.blogspot.com/2017/06/era-uma-vez-mim.html" target="_blank">
-					<h2>Era uma vez &amp;#34;mim&amp;#34;</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2040-06-11">11/06/2040</time>
-					|
-					<a class="domain" href="https://bunny-preview.blogspot.com" target="_blank">bunny-preview.blogspot.com</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
-				<a href="http://pequena-estante.blogspot.com/2014/11/sejam-bem-vindos-este-e-um-blog.html" target="_blank">
-					<h2>Sejam Bem Vindos</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2035-11-21">21/11/2035</time>
-					|
-					<a class="domain" href="https://pequena-estante.blogspot.com" target="_blank">pequena-estante.blogspot.com</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
-				<a href="http://andreia-inoue.blogspot.com/2025/12/dvds.html" target="_blank">
-					<h2>Dvds</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2027-12-31">31/12/2027</time>
-					|
-					<a class="domain" href="https://andreia-inoue.blogspot.com" target="_blank">andreia-inoue.blogspot.com</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
-				<a href="https://estagiositiodosherdeiros.blogspot.com/2026/03/olha-dica.html" target="_blank">
-					<h2>OLHA A DICA</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2026-03-13">13/03/2026</time>
-					|
-					<a class="domain" href="https://estagiositiodosherdeiros.blogspot.com" target="_blank">estagiositiodosherdeiros.blogspot.com</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
-				<a href="https://blogdopaulinho.com.br/2026/03/13/o-companheiro-de-reunioes-do-presidente-do-corinthians/?utm_source=rss&amp;amp;utm_medium=rss&amp;amp;utm_campaign=o-companheiro-de-reunioes-do-presidente-do-corinthians" target="_blank">
-					<h2>O companheiro de reuniões do Presidente do Corinthians</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2026-03-13">13/03/2026</time>
-					|
-					<a class="domain" href="https://blogdopaulinho.com.br" target="_blank">blogdopaulinho.com.br</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
-				<a href="https://www.blogderocha.com.br/musica-de-agora-geleira-do-tempo-planeta-amapari-ze-miguel-val-milhomem-e-joaozinho-gomes-14/" target="_blank">
-					<h2>Música de agora: Geleira do Tempo – Planeta Amapari (Zé Miguel, Val Milhomem e Joãozinho Gomes)</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2026-03-13">13/03/2026</time>
-					|
-					<a class="domain" href="https://blogderocha.com.br" target="_blank">blogderocha.com.br</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
-				<a href="https://fomedeleitura.wordpress.com/2026/03/13/ewb-enemies-with-benefits/" target="_blank">
-					<h2>EWB – Enemies With Benefits</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2026-03-13">13/03/2026</time>
-					|
-					<a class="domain" href="https://fomedeleitura.wordpress.com" target="_blank">fomedeleitura.wordpress.com</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
-				<a href="https://vladcampos.com/2026/03/13/vcp-palavras-que-mudaram-a.html" target="_blank">
-					<h2>VCP.41 - Palavras que mudaram a minha vida</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2026-03-13">13/03/2026</time>
-					|
-					<a class="domain" href="https://vladcampos.com" target="_blank">vladcampos.com</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
-				<a href="https://comixrevenge.wordpress.com/2026/03/13/o-legado-do-blue-bomber-como-mega-man-mudou-o-jogo/" target="_blank">
-					<h2>O Legado do Blue Bomber: Como Mega Man Mudou o Jogo</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2026-03-13">13/03/2026</time>
-					|
-					<a class="domain" href="https://comixrevenge.wordpress.com" target="_blank">comixrevenge.wordpress.com</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
-				<a href="https://tatilopatiuk.home.blog/2026/03/13/oscar-2026-assisti-a-39-dos-50-filmes-indicados-e-olha-so-no-que-deu/" target="_blank">
-					<h2>OSCAR 2026: ASSISTI A 39 DOS 50 FILMES INDICADOS E OLHA SÓ NO QUE DEU</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2026-03-13">13/03/2026</time>
-					|
-					<a class="domain" href="https://tatilopatiuk.home.blog" target="_blank">tatilopatiuk.home.blog</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
-				<a href="https://contoscurtosdavidalafora.wordpress.com/2026/03/13/a-viagem-da-vida/" target="_blank">
-					<h2>A Viagem da Vida</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2026-03-13">13/03/2026</time>
-					|
-					<a class="domain" href="https://contoscurtosdavidalafora.wordpress.com" target="_blank">contoscurtosdavidalafora.wordpress.com</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
-				<a href="http://oficinadeideias54.blogspot.com/2026/03/blog-post_39.html" target="_blank">
-					<h2>Untitled</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2026-03-13">13/03/2026</time>
-					|
-					<a class="domain" href="https://oficinadeideias54.blogspot.com" target="_blank">oficinadeideias54.blogspot.com</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
-				<a href="https://ilhadeconcreto.wordpress.com/2026/03/13/a-certain-friday-13-i/" target="_blank">
-					<h2>A certain Friday 13 (I)</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2026-03-13">13/03/2026</time>
-					|
-					<a class="domain" href="https://ilhadeconcreto.wordpress.com" target="_blank">ilhadeconcreto.wordpress.com</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
-				<a href="https://blogsoncrusoe.blogspot.com/2026/03/sujeito-devolucao.html" target="_blank">
-					<h2>SUJEITO A DEVOLUÇÃO</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2026-03-13">13/03/2026</time>
-					|
-					<a class="domain" href="https://blogsoncrusoe.blogspot.com" target="_blank">blogsoncrusoe.blogspot.com</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
-				<a href="https://abertoatedemadrugada.com/2026/03/headphones-sony-wh-1000xm5sa-202.html" target="_blank">
-					<h2>Headphones Sony WH-1000XM5SA a €202</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2026-03-13">13/03/2026</time>
-					|
-					<a class="domain" href="https://abertoatedemadrugada.com" target="_blank">abertoatedemadrugada.com</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
-				<a href="http://www.willtirando.com.br/astolfo-um-gato-num-mundo-cao-26/" target="_blank">
-					<h2>Astolfo: Um gato num mundo cão # 26</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2026-03-13">13/03/2026</time>
-					|
-					<a class="domain" href="https://willtirando.com.br" target="_blank">willtirando.com.br</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
-				<a href="https://redutoeremitavirtual.wordpress.com/2026/03/12/a-importancia-da-lideranca-no-desenvolvimento-de-equipes/" target="_blank">
-					<h2>A importância da liderança no desenvolvimento de equipes</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2026-03-13">13/03/2026</time>
-					|
-					<a class="domain" href="https://redutoeremitavirtual.wordpress.com" target="_blank">redutoeremitavirtual.wordpress.com</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
-				<a href="https://bdbrasil.wordpress.com/2026/03/13/erika-hilton-e-a-defesa-de-todas-as-mulheres-fatos-contra-a-desinformacao/" target="_blank">
-					<h2>Érika Hilton e a defesa de todas as mulheres: Fatos contra a desinformação</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2026-03-13">13/03/2026</time>
-					|
-					<a class="domain" href="https://bdbrasil.wordpress.com" target="_blank">bdbrasil.wordpress.com</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
-				<a href="https://rabiscosdestorias.blogspot.com/2026/03/o-valor-da-energia-de-outros-tempos.html" target="_blank">
-					<h2>Untitled</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2026-03-13">13/03/2026</time>
-					|
-					<a class="domain" href="https://rabiscosdestorias.blogspot.com" target="_blank">rabiscosdestorias.blogspot.com</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
-				<a href="http://blog.afundasao.com/2026/03/o-farfalho-da-filha-do-toino.html" target="_blank">
-					<h2>O farfalho da filha do Toino</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2026-03-13">13/03/2026</time>
-					|
-					<a class="domain" href="https://blog.afundasao.com" target="_blank">blog.afundasao.com</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
-				<a href="https://tendimag.com/2026/03/13/virar-paginas/" target="_blank">
-					<h2>Virar páginas</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2026-03-13">13/03/2026</time>
-					|
-					<a class="domain" href="https://tendimag.com" target="_blank">tendimag.com</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
-				<a href="https://mentirinhas.com.br/mentirinhas-2273/" target="_blank">
-					<h2>Mentirinhas #2273</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2026-03-13">13/03/2026</time>
-					|
-					<a class="domain" href="https://mentirinhas.com.br" target="_blank">mentirinhas.com.br</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
-				<a href="https://leiturademaisestressedemenos.wordpress.com/2026/03/13/o-crime-do-cais-do-valongo-eliana-alves-cruz/" target="_blank">
-					<h2>O Crime do cais do Valongo- Eliana Alves Cruz</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2026-03-13">13/03/2026</time>
-					|
-					<a class="domain" href="https://leiturademaisestressedemenos.wordpress.com" target="_blank">leiturademaisestressedemenos.wordpress.com</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
-				<a href="https://admiravelleitura.wordpress.com/2026/03/13/resenha-o-apocalipse-amarelo-diego-aguiar-vieira/" target="_blank">
-					<h2>[Resenha] O Apocalipse Amarelo – Diego Aguiar Vieira</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2026-03-13">13/03/2026</time>
-					|
-					<a class="domain" href="https://admiravelleitura.wordpress.com" target="_blank">admiravelleitura.wordpress.com</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
-				<a href="https://breno.bearblog.dev/the-music-in-the-montessori-method/" target="_blank">
-					<h2>The music in the Montessori method</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2026-03-13">13/03/2026</time>
-					|
-					<a class="domain" href="https://breno.bearblog.dev" target="_blank">breno.bearblog.dev</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
-				<a href="http://catapop.blogspot.com/2026/03/pastel-de-vento-e-luxo.html" target="_blank">
-					<h2>Pastel de vento e luxo</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2026-03-13">13/03/2026</time>
-					|
-					<a class="domain" href="https://catapop.blogspot.com" target="_blank">catapop.blogspot.com</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
-				<a href="https://balancedscorecard.blogspot.com/2026/03/curiosidade-do-dia_01516427948.html" target="_blank">
-					<h2>Curiosidade do dia</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2026-03-13">13/03/2026</time>
-					|
-					<a class="domain" href="https://balancedscorecard.blogspot.com" target="_blank">balancedscorecard.blogspot.com</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
-				<a href="http://leiturakriativa.blogspot.com/2026/03/coracoes-de-gelo-da-juliana-dantas.html" target="_blank">
-					<h2>Corações de Gelo da Juliana Dantas</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2026-03-13">13/03/2026</time>
-					|
-					<a class="domain" href="https://leiturakriativa.blogspot.com" target="_blank">leiturakriativa.blogspot.com</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
-				<a href="https://www.blogdomello.org/2026/03/cybervaccari-e-atualizacao-do-encontro.html" target="_blank">
-					<h2>CyberVaccari e a atualização do encontro de Jesus com seus discípulos</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2026-03-13">13/03/2026</time>
-					|
-					<a class="domain" href="https://blogdomello.org" target="_blank">blogdomello.org</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
-				<a href="http://sobencomendaa.blogspot.com/2026/03/as-esculturas-sem-cabeca-junji-ito.html" target="_blank">
-					<h2>As Esculturas Sem Cabeça || Junji Ito</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2026-03-13">13/03/2026</time>
-					|
-					<a class="domain" href="https://sobencomendaa.blogspot.com" target="_blank">sobencomendaa.blogspot.com</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
-				<a href="http://umjeitomanso.blogspot.com/2026/03/o-um-jeito-manso-ja-ultrapassou-os.html" target="_blank">
-					<h2>O Um Jeito Manso já ultrapassou os 9.000.000 (9 milhões!) de visualizações Muito obrigada</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2026-03-13">13/03/2026</time>
-					|
-					<a class="domain" href="https://umjeitomanso.blogspot.com" target="_blank">umjeitomanso.blogspot.com</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
-				<a href="https://mensagensepensamentosblog.wordpress.com/2026/03/13/forca-total/" target="_blank">
-					<h2>Força Total</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2026-03-13">13/03/2026</time>
-					|
-					<a class="domain" href="https://mensagensepensamentosblog.wordpress.com" target="_blank">mensagensepensamentosblog.wordpress.com</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
-				<a href="https://www.blogletras.com/2026/03/a-recepcao-da-literatura-brasileira-na.html" target="_blank">
-					<h2>A recepção da literatura brasileira na França</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2026-03-13">13/03/2026</time>
-					|
-					<a class="domain" href="https://blogletras.com" target="_blank">blogletras.com</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
-				<a href="https://miluramalho.wordpress.com/2026/03/13/saga-zaire-ncuma-episodio-xvi-a-palavra-que-nao-se-perde-no-mato-episode-xvi-the-word-that-does-not-get-lost-in-the-forest/" target="_blank">
-					<h2>Saga Zaire N’Cuma: Episódio XVI – A Palavra que Não se Perde no Mato / Episode XVI — The Word That Does Not Get Lost in the Forest</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2026-03-13">13/03/2026</time>
-					|
-					<a class="domain" href="https://miluramalho.wordpress.com" target="_blank">miluramalho.wordpress.com</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
-				<a href="https://sementesdiarias.blogspot.com/2026/03/escrevendo-enquanto-der.html" target="_blank">
-					<h2>🐞 Escrevendo enquanto der...</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2026-03-13">13/03/2026</time>
-					|
-					<a class="domain" href="https://sementesdiarias.blogspot.com" target="_blank">sementesdiarias.blogspot.com</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
-				<a href="https://geopedrados.blogspot.com/2026/03/percival-lowell-nasceu-ha-cento-e.html" target="_blank">
-					<h2>Percival Lowell nasceu há cento e setenta e um anos</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2026-03-13">13/03/2026</time>
-					|
-					<a class="domain" href="https://geopedrados.blogspot.com" target="_blank">geopedrados.blogspot.com</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
-				<a href="https://oliveiradimas.blogspot.com/2026/03/veja-o-documentario-melania-mulher-de.html" target="_blank">
-					<h2>Veja o documentário &amp;#34;Melania&amp;#34; (mulher de Trump) no Prime</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2026-03-13">13/03/2026</time>
-					|
-					<a class="domain" href="https://oliveiradimas.blogspot.com" target="_blank">oliveiradimas.blogspot.com</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
-				<a href="https://aldrinianas.wordpress.com/2026/03/13/rascunho-do-mundo-81/" target="_blank">
-					<h2>Rascunho do Mundo 81</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2026-03-13">13/03/2026</time>
-					|
-					<a class="domain" href="https://aldrinianas.wordpress.com" target="_blank">aldrinianas.wordpress.com</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
-				<a href="http://bonecosdebolso1.blogspot.com/2026/03/doca-sto-amaro.html" target="_blank">
-					<h2>Doca Sto Amaro</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2026-03-13">13/03/2026</time>
-					|
-					<a class="domain" href="https://bonecosdebolso1.blogspot.com" target="_blank">bonecosdebolso1.blogspot.com</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
-				<a href="http://erivanmorais.blogspot.com/2026/03/ifpb-abre-selecao-com-vagas-para.html" target="_blank">
-					<h2>IFPB abre seleção com vagas para professores substitutos em diversas cidades</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2026-03-13">13/03/2026</time>
-					|
-					<a class="domain" href="https://erivanmorais.blogspot.com" target="_blank">erivanmorais.blogspot.com</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
-				<a href="http://www.allansieber.com.br/2026/03/13/13-03-2026-sexta-feira-13-todo-dia/" target="_blank">
-					<h2>13/03/2026 – Sexta-feira 13 todo dia</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2026-03-13">13/03/2026</time>
-					|
-					<a class="domain" href="https://allansieber.com.br" target="_blank">allansieber.com.br</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
-				<a href="https://quintalvieira.blogspot.com/2026/03/via-sacra-26.html" target="_blank">
-					<h2>Via Sacra (26)</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2026-03-13">13/03/2026</time>
-					|
-					<a class="domain" href="https://quintalvieira.blogspot.com" target="_blank">quintalvieira.blogspot.com</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
-				<a href="https://no-ventre-da-poesia.blogspot.com/2026/03/poema-sem-nome.html" target="_blank">
-					<h2>Poema Sem Nome</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2026-03-13">13/03/2026</time>
-					|
-					<a class="domain" href="https://no-ventre-da-poesia.blogspot.com" target="_blank">no-ventre-da-poesia.blogspot.com</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
-				<a href="https://arpose.blogspot.com/2026/03/proxima-leitura.html" target="_blank">
-					<h2>Próxima leitura</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2026-03-13">13/03/2026</time>
-					|
-					<a class="domain" href="https://arpose.blogspot.com" target="_blank">arpose.blogspot.com</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
-				<a href="https://pratocaseiro.blogspot.com/2026/03/espetadas-de-frango-do-campo-camarao-e.html" target="_blank">
-					<h2>Espetadas de frango do campo, camarão e chouriço com batata doce assada</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2026-03-13">13/03/2026</time>
-					|
-					<a class="domain" href="https://pratocaseiro.blogspot.com" target="_blank">pratocaseiro.blogspot.com</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
-				<a href="http://dequemeservemosolhos.blogspot.com/2026/03/cochim-kerala.html" target="_blank">
-					<h2>Cochim-Kerala</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2026-03-13">13/03/2026</time>
-					|
-					<a class="domain" href="https://dequemeservemosolhos.blogspot.com" target="_blank">dequemeservemosolhos.blogspot.com</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-			<li>
-				<a href="https://www.idade-espiritual.com.br/2026/03/um-homem-e-uma-mulher.html" target="_blank">
-					<h2>Um Homem e uma Mulher</h2>
-				</a>
-				<br>
-				<small>
-					<time datetime="2026-03-13">13/03/2026</time>
-					|
-					<a class="domain" href="https://idade-espiritual.com.br" target="_blank">idade-espiritual.com.br</a> | 
-					<button class="hide">esconder</button> | 
-					<button class="report">reportar</button>
-				</small>
-			</li>
-		</ol>
-		<nav>
-			<span>&larr; Voltar</span>
-			<span>Página 1 de 411</span>
-			<a href="page-2.html">Avançar &rarr;</a>
-		</nav>
-	</main>
-	<footer>
-		<p>Atualizado em:
-			<time id="update-at" datetime="2026-03-13T17:26:26.249968+00:00">
-				Friday, 13/03/2026 17:26:26
-			</time>
-		</p>
-		<p><a href="index.html">BR Crawl</a> | <a href="about.html">Sobre</a> | <a href="sources.html">Fontes</a></p>
-	</footer>
+  <header><a href="/" class="title">
+  <h2>Site do Guilherme</h2>
+</a>
+<nav><a href="/">Home</a>
+
+
+<a href="/blog">Blog</a>
+
+<a href="/links">Links</a>
+<a href="/opensource">Open Source</a>
+<a href="/brcrawl">BR Crawl</a>
+<a href="/index.xml">RSS</a>
+</nav>
+</header>
+  <main>
+
+
+<content>
+  <h1 id="br-crawl">BR Crawl</h1>
+<p>BR Crawl is a brazilian blogosphere aggregator! It now lives in <a href="https://brcrawl.guilhermegarcia.dev">brcrawl.guilhermegarcia.dev</a>.</p>
+<p><img src="./leia-mais-blogs.png" alt="Leia mais blogs"></p>
+<p>Read more blogs!</p>
+
+</content>
+<p>
+  
+</p>
+
+  </main>
+  <footer>
+</footer>
+
+    
 </body>
-
-<script type="module" nonce="9aec9ae096b128cd312f64db1635f5e0">
-	const updatedAtElement = document.getElementById("update-at");
-	const date = new Date(updatedAtElement.dateTime);
-	updatedAtElement.innerText = date.toLocaleString(undefined, {
-		dateStyle: "full",
-		timeStyle: "medium",
-	})
-</script>
-<script type="module" nonce="9aec9ae096b128cd312f64db1635f5e0">
-var backend_url='https://brcrawl.guilhermegarcia.dev';
-function hide_feedback(domain) {
-    return `<div><small>Domínio <a href="https://${domain}">${domain}</a> escondido. | <button class="show">exibir</button></small></div>`;
-}
-
-function report_feedback(li) {
-    li.style.opacity = 0.5;
-    const btn = li.querySelector("button.report");
-    btn.textContent = "reportado";
-    btn.className = "unreport";
-}
-
-var reported = localStorage.getItem('reported') || '[]';
-reported = JSON.parse(reported);
-var hidden = localStorage.getItem('hidden') || '[]';
-hidden = JSON.parse(hidden);
-
-let domains = Array.from(document.getElementsByClassName("domain"));
-domains.forEach((domain) => {
-    if (reported.includes(domain.textContent)) {
-        const li = domain.closest("li");
-        report_feedback(li);
-    }
-    if (hidden.includes(domain.textContent)) {
-        domain.closest("li").innerHTML = hide_feedback(domain.textContent);
-    }
-});
-
-function report(btn) {
-    const li = btn.closest("li");
-    const articleDomain = li.querySelector("a.domain");
-    const domain = articleDomain.textContent;
-
-    if (reported.length == 0) {
-        const agreed = confirm("Reporte sites que não são blogs pessoais ou não estão em português. Confirme para não ver mais essa mensagem. Obrigado!");
-        if (!agreed) {
-            return;
-        }
-    }
-    fetch(`${backend_url}/report`, {
-        method: "POST",
-        body: JSON.stringify({ domain }),
-        headers: {
-            "Content-Type": "application/json"
-        }
-    });
-    reported.push(domain);
-    localStorage.setItem('reported', JSON.stringify(reported));
-    report_feedback(li);
-}
-
-function unreport(btn) {
-    const li = btn.closest("li");
-    const articleDomain = li.querySelector("a.domain");
-    const domain = articleDomain.textContent;
-    reported = reported.filter((d) => d != domain);
-    localStorage.setItem('reported', JSON.stringify(reported));
-    fetch(`${backend_url}/report`, {
-        method: "POST",
-        body: JSON.stringify({ domain }),
-        headers: {
-            "Content-Type": "application/json"
-        }
-    }).finally(() => {
-        window.location.reload();
-    });
-}
-
-function hide(btn) {
-    const li = btn.closest("li");
-    const articleDomain = li.querySelector("a.domain");
-    const domain = articleDomain.textContent;
-
-    hidden.push(domain);
-    localStorage.setItem('hidden', JSON.stringify(hidden));
-    li.innerHTML = hide_feedback(domain);
-}
-
-function show(btn) {
-    const li = btn.closest("li");
-    const articleDomain = li.querySelector("a");
-    const domain = articleDomain.textContent;
-    hidden = hidden.filter((d) => d != domain);
-    localStorage.setItem('hidden', JSON.stringify(hidden));
-    window.location.reload();
-}
-
-document.addEventListener("click", function(e) {
-    if (e.target.className == "report") {
-        return report(e.target);
-    }
-    if (e.target.className == "unreport") {
-        return unreport(e.target);
-    }
-    if (e.target.className == "hide") {
-        return hide(e.target);
-    }
-    if (e.target.className == "show") {
-        return show(e.target);
-    }
-});
-</script>
 
 </html>
