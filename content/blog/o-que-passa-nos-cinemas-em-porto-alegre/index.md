@@ -1,0 +1,352 @@
++++
+title = "O que passa nos cinemas de Porto Alegre?"
+date = "2026-07-24T11:47:34-03:00"
+description = "Resumão do que anda passando nas salas de cinema da capital: quais os generos, diretores, países e ano de lançamento dos filmes?"
+tags = ['português', 'data']
+slug = 'o-que-passa-nos-cinemas-de-porto-alegre'
+draft = false
+toc = true
++++
+
+O [Cinema em POA](https://cinemaempoa.com.br) está se encaminhando para 1000
+filmes registrados. É uma diversidade imensa pensando que, até pouco tempo,
+tinhamos apenas quatro cinemas registrados!
+
+O registro dos filmes começou em julho de 2025, mas até agora não tinhamos como
+avaliar que _tipo_ de filme estava sendo passado: tinhamos apenas o título do
+filme (em português) e o poster.
+
+Graças a uma integração com o site [The Movie Database (TMBD)](https://www.themoviedb.org/)
+agora todos os filmes possuem informação de **título original**, **ano de lançamento**,
+**país de origem**, **gêneros**, **direção** e **idioma original**.
+
+Explore os gráficos abaixo pra entender mais sobre a variedade de cada cinema.
+
+<link rel="stylesheet" href="dashboard.css">
+<style>
+#cepoa-dash .progress{background-color:var(--bs-tertiary-bg);}
+#cepoa-dash .cepoa-tooltip{position:absolute;pointer-events:none;background:var(--bs-content-floating-bg);border:1px solid var(--bs-content-floating-border-color);border-radius:8px;padding:8px 10px;font-size:0.75rem;box-shadow:var(--bs-content-floating-box-shadow);opacity:0;transition:opacity .08s;z-index:5;min-width:140px;color:var(--bs-content-floating-color);}
+#cepoa-dash .cepoa-tooltip.show{opacity:1;}
+#cepoa-dash .cepoa-tooltip .t-title{font-weight:600;margin-bottom:4px;}
+#cepoa-dash .cepoa-tooltip .t-row{display:flex;align-items:center;gap:6px;justify-content:space-between;padding:1px 0;}
+#cepoa-dash .cepoa-tooltip .t-row .k{display:flex;align-items:center;gap:6px;}
+#cepoa-dash .cepoa-tooltip .t-row .dot{width:7px;height:7px;border-radius:50%;flex:none;}
+#cepoa-dash .cepoa-tooltip .t-row .v{font-variant-numeric:tabular-nums;}
+#cepoa-dash .cepoa-linechart-wrap{position:relative;}
+#cepoa-dash .cepoa-linechart-wrap svg{width:100%;height:auto;overflow:visible;}
+#cepoa-dash .cepoa-axis-label{font-size:10px;}
+#cepoa-dash .cepoa-hbar-lbl{width:130px;flex:0 0 auto;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+#cepoa-dash .cepoa-hbar-val{width:44px;flex:0 0 auto;font-variant-numeric:tabular-nums;}
+#cepoa-dash .cepoa-cinema-dot{width:10px;height:10px;border-radius:50%;flex:none;}
+</style>
+<div id="cepoa-dash">
+<div class="card mb-4">
+<div class="card-body">
+<div class="d-flex flex-wrap justify-content-between align-items-start gap-3 mb-2">
+<div>
+<h2 class="h5 card-title mb-1">Atividade de programação ao longo do tempo</h2>
+<p class="card-text text-body-secondary small mb-0">Filmes distintos programados por mês, por cinema. Alterne para ver o total de sessões (horários individuais).</p>
+</div>
+<div class="d-flex flex-wrap gap-2">
+<div class="btn-group btn-group-sm" role="group" id="cepoa-metric-toggle">
+<button type="button" class="btn btn-outline-secondary active" data-metric="distinct_movies" aria-pressed="true">Filmes programados</button>
+<button type="button" class="btn btn-outline-secondary" data-metric="showtimes" aria-pressed="false">Sessões</button>
+</div>
+<button type="button" class="btn btn-outline-secondary btn-sm" id="cepoa-trend-table-toggle" aria-pressed="false">Ver tabela</button>
+</div>
+</div>
+<div id="cepoa-trend-chart-view">
+<div class="cepoa-linechart-wrap" id="cepoa-trend-chart"></div>
+<div class="d-flex flex-wrap gap-3 small text-body-secondary mt-2" id="cepoa-trend-legend"></div>
+</div>
+<div class="table-responsive d-none" id="cepoa-trend-table-view"></div>
+</div>
+</div>
+<div class="card mb-4">
+<div class="card-body">
+<h2 class="h5 card-title mb-1">Panorama por cinema</h2>
+<p class="card-text text-body-secondary small mb-2">Totais de todo o histórico coletado. "Rotatividade" é o número de sessões por filme: uma aproximação de quanto tempo cada título permanece em cartaz.</p>
+<div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-3" id="cepoa-cinema-cards"></div>
+</div>
+</div>
+<div class="card mb-4">
+<div class="card-body d-flex flex-wrap justify-content-between align-items-center gap-3">
+<div>
+<h2 class="h5 card-title mb-1">Catálogo por gênero, país, década e diretor</h2>
+<p class="card-text text-body-secondary small mb-0">Filtre os quatro gráficos abaixo por cinema.</p>
+</div>
+<select class="form-select form-select-sm" style="max-width:220px" id="cepoa-charts-filter"></select>
+</div>
+</div>
+<div class="row row-cols-1 row-cols-md-2 g-3 mb-4">
+<div class="col">
+<div class="card h-100">
+<div class="card-body">
+<h2 class="h5 card-title mb-1">Mix de gêneros</h2>
+<p class="card-text text-body-secondary small">Filmes distintos por gênero (um filme pode ter mais de um gênero).</p>
+<div id="cepoa-genre-bars"></div>
+</div>
+</div>
+</div>
+<div class="col">
+<div class="card h-100">
+<div class="card-body">
+<h2 class="h5 card-title mb-1">País de origem</h2>
+<p class="card-text text-body-secondary small">Principais países de produção por número de filmes distintos.</p>
+<div id="cepoa-country-bars"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="row row-cols-1 row-cols-md-2 g-3 mb-4">
+<div class="col">
+<div class="card h-100">
+<div class="card-body">
+<h2 class="h5 card-title mb-1">Qual a idade dos filmes exibidos</h2>
+<p class="card-text text-body-secondary small">Filmes distintos por década de lançamento.</p>
+<div id="cepoa-decade-bars"></div>
+</div>
+</div>
+</div>
+<div class="col">
+<div class="card h-100">
+<div class="card-body">
+<h2 class="h5 card-title mb-1">Diretores mais exibidos</h2>
+<p class="card-text text-body-secondary small">Filmes distintos por diretor.</p>
+<div id="cepoa-director-bars"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script id="cepoa-dashboard-data" type="application/json">{"cinemas": [{"id": 1, "slug": "capitolio", "name": "Cinemateca Capitólio"}, {"id": 2, "slug": "sala-redencao", "name": "Sala Redenção"}, {"id": 3, "slug": "cinebancarios", "name": "CineBancários"}, {"id": 4, "slug": "paulo-amorim", "name": "Cinemateca Paulo Amorim"}], "monthly": [{"cinema": "paulo-amorim", "month": "2025-01", "distinct_movies": 8, "showtimes": 30}, {"cinema": "capitolio", "month": "2025-07", "distinct_movies": 6, "showtimes": 13}, {"cinema": "cinebancarios", "month": "2025-07", "distinct_movies": 4, "showtimes": 18}, {"cinema": "paulo-amorim", "month": "2025-07", "distinct_movies": 11, "showtimes": 18}, {"cinema": "sala-redencao", "month": "2025-07", "distinct_movies": 6, "showtimes": 8}, {"cinema": "capitolio", "month": "2025-08", "distinct_movies": 29, "showtimes": 73}, {"cinema": "cinebancarios", "month": "2025-08", "distinct_movies": 9, "showtimes": 81}, {"cinema": "paulo-amorim", "month": "2025-08", "distinct_movies": 24, "showtimes": 198}, {"cinema": "sala-redencao", "month": "2025-08", "distinct_movies": 31, "showtimes": 36}, {"cinema": "capitolio", "month": "2025-09", "distinct_movies": 38, "showtimes": 69}, {"cinema": "cinebancarios", "month": "2025-09", "distinct_movies": 9, "showtimes": 76}, {"cinema": "paulo-amorim", "month": "2025-09", "distinct_movies": 45, "showtimes": 219}, {"cinema": "sala-redencao", "month": "2025-09", "distinct_movies": 38, "showtimes": 50}, {"cinema": "capitolio", "month": "2025-10", "distinct_movies": 45, "showtimes": 71}, {"cinema": "cinebancarios", "month": "2025-10", "distinct_movies": 11, "showtimes": 60}, {"cinema": "paulo-amorim", "month": "2025-10", "distinct_movies": 41, "showtimes": 228}, {"cinema": "sala-redencao", "month": "2025-10", "distinct_movies": 28, "showtimes": 37}, {"cinema": "capitolio", "month": "2025-11", "distinct_movies": 41, "showtimes": 70}, {"cinema": "cinebancarios", "month": "2025-11", "distinct_movies": 6, "showtimes": 41}, {"cinema": "paulo-amorim", "month": "2025-11", "distinct_movies": 18, "showtimes": 162}, {"cinema": "sala-redencao", "month": "2025-11", "distinct_movies": 31, "showtimes": 45}, {"cinema": "capitolio", "month": "2025-12", "distinct_movies": 34, "showtimes": 47}, {"cinema": "cinebancarios", "month": "2025-12", "distinct_movies": 27, "showtimes": 66}, {"cinema": "paulo-amorim", "month": "2025-12", "distinct_movies": 26, "showtimes": 162}, {"cinema": "sala-redencao", "month": "2025-12", "distinct_movies": 11, "showtimes": 12}, {"cinema": "capitolio", "month": "2026-01", "distinct_movies": 17, "showtimes": 41}, {"cinema": "paulo-amorim", "month": "2026-01", "distinct_movies": 24, "showtimes": 226}, {"cinema": "sala-redencao", "month": "2026-01", "distinct_movies": 14, "showtimes": 18}, {"cinema": "capitolio", "month": "2026-02", "distinct_movies": 21, "showtimes": 65}, {"cinema": "cinebancarios", "month": "2026-02", "distinct_movies": 7, "showtimes": 60}, {"cinema": "paulo-amorim", "month": "2026-02", "distinct_movies": 36, "showtimes": 189}, {"cinema": "sala-redencao", "month": "2026-02", "distinct_movies": 2, "showtimes": 2}, {"cinema": "capitolio", "month": "2026-03", "distinct_movies": 43, "showtimes": 82}, {"cinema": "cinebancarios", "month": "2026-03", "distinct_movies": 9, "showtimes": 78}, {"cinema": "paulo-amorim", "month": "2026-03", "distinct_movies": 54, "showtimes": 236}, {"cinema": "sala-redencao", "month": "2026-03", "distinct_movies": 25, "showtimes": 42}, {"cinema": "capitolio", "month": "2026-04", "distinct_movies": 55, "showtimes": 112}, {"cinema": "cinebancarios", "month": "2026-04", "distinct_movies": 5, "showtimes": 21}, {"cinema": "paulo-amorim", "month": "2026-04", "distinct_movies": 55, "showtimes": 253}, {"cinema": "sala-redencao", "month": "2026-04", "distinct_movies": 17, "showtimes": 24}, {"cinema": "capitolio", "month": "2026-05", "distinct_movies": 6, "showtimes": 32}, {"cinema": "cinebancarios", "month": "2026-05", "distinct_movies": 6, "showtimes": 54}, {"cinema": "paulo-amorim", "month": "2026-05", "distinct_movies": 26, "showtimes": 258}, {"cinema": "sala-redencao", "month": "2026-05", "distinct_movies": 30, "showtimes": 44}, {"cinema": "capitolio", "month": "2026-06", "distinct_movies": 6, "showtimes": 6}, {"cinema": "paulo-amorim", "month": "2026-06", "distinct_movies": 24, "showtimes": 61}, {"cinema": "sala-redencao", "month": "2026-06", "distinct_movies": 23, "showtimes": 39}, {"cinema": "capitolio", "month": "2026-07", "distinct_movies": 44, "showtimes": 83}, {"cinema": "cinebancarios", "month": "2026-07", "distinct_movies": 5, "showtimes": 54}, {"cinema": "paulo-amorim", "month": "2026-07", "distinct_movies": 26, "showtimes": 173}, {"cinema": "sala-redencao", "month": "2026-07", "distinct_movies": 27, "showtimes": 43}, {"cinema": "capitolio", "month": "2026-08", "distinct_movies": 3, "showtimes": 11}, {"cinema": "sala-redencao", "month": "2026-08", "distinct_movies": 1, "showtimes": 6}], "cinema_summary": [{"cinema": "capitolio", "name": "Cinemateca Capitólio", "screenings": 344, "distinct_movies": 344, "showtimes": 775}, {"cinema": "sala-redencao", "name": "Sala Redenção", "screenings": 271, "distinct_movies": 268, "showtimes": 406}, {"cinema": "cinebancarios", "name": "CineBancários", "screenings": 81, "distinct_movies": 81, "showtimes": 609}, {"cinema": "paulo-amorim", "name": "Cinemateca Paulo Amorim", "screenings": 284, "distinct_movies": 284, "showtimes": 2413}], "genre_overall": [{"genre": "Drama", "movies": 339}, {"genre": "Documentário", "movies": 117}, {"genre": "Comédia", "movies": 117}, {"genre": "Thriller", "movies": 82}, {"genre": "Romance", "movies": 77}, {"genre": "Terror", "movies": 60}, {"genre": "Fantasia", "movies": 52}, {"genre": "Crime", "movies": 49}, {"genre": "Aventura", "movies": 45}, {"genre": "Animação", "movies": 45}, {"genre": "História", "movies": 44}, {"genre": "Ficção científica", "movies": 38}, {"genre": "Ação", "movies": 32}, {"genre": "Família", "movies": 31}, {"genre": "Mistério", "movies": 28}, {"genre": "Música", "movies": 25}, {"genre": "Guerra", "movies": 14}, {"genre": "Faroeste", "movies": 10}, {"genre": "Cinema TV", "movies": 7}], "genre_by_cinema": [{"cinema": "capitolio", "genre": "Drama", "movies": 106}, {"cinema": "capitolio", "genre": "Terror", "movies": 40}, {"cinema": "capitolio", "genre": "Thriller", "movies": 38}, {"cinema": "capitolio", "genre": "Documentário", "movies": 37}, {"cinema": "capitolio", "genre": "Comédia", "movies": 37}, {"cinema": "capitolio", "genre": "Romance", "movies": 24}, {"cinema": "capitolio", "genre": "Crime", "movies": 22}, {"cinema": "capitolio", "genre": "Fantasia", "movies": 19}, {"cinema": "capitolio", "genre": "Ficção científica", "movies": 16}, {"cinema": "capitolio", "genre": "Aventura", "movies": 16}, {"cinema": "capitolio", "genre": "Ação", "movies": 12}, {"cinema": "capitolio", "genre": "Mistério", "movies": 11}, {"cinema": "capitolio", "genre": "História", "movies": 9}, {"cinema": "capitolio", "genre": "Família", "movies": 9}, {"cinema": "capitolio", "genre": "Música", "movies": 8}, {"cinema": "capitolio", "genre": "Animação", "movies": 8}, {"cinema": "capitolio", "genre": "Faroeste", "movies": 3}, {"cinema": "capitolio", "genre": "Guerra", "movies": 2}, {"cinema": "capitolio", "genre": "Cinema TV", "movies": 2}, {"cinema": "cinebancarios", "genre": "Drama", "movies": 36}, {"cinema": "cinebancarios", "genre": "Documentário", "movies": 23}, {"cinema": "cinebancarios", "genre": "Thriller", "movies": 10}, {"cinema": "cinebancarios", "genre": "Comédia", "movies": 8}, {"cinema": "cinebancarios", "genre": "Animação", "movies": 5}, {"cinema": "cinebancarios", "genre": "Aventura", "movies": 4}, {"cinema": "cinebancarios", "genre": "Terror", "movies": 3}, {"cinema": "cinebancarios", "genre": "Mistério", "movies": 3}, {"cinema": "cinebancarios", "genre": "História", "movies": 3}, {"cinema": "cinebancarios", "genre": "Ficção científica", "movies": 3}, {"cinema": "cinebancarios", "genre": "Família", "movies": 3}, {"cinema": "cinebancarios", "genre": "Crime", "movies": 3}, {"cinema": "cinebancarios", "genre": "Romance", "movies": 2}, {"cinema": "cinebancarios", "genre": "Fantasia", "movies": 2}, {"cinema": "cinebancarios", "genre": "Cinema TV", "movies": 2}, {"cinema": "cinebancarios", "genre": "Ação", "movies": 2}, {"cinema": "cinebancarios", "genre": "Música", "movies": 1}, {"cinema": "paulo-amorim", "genre": "Drama", "movies": 138}, {"cinema": "paulo-amorim", "genre": "Comédia", "movies": 42}, {"cinema": "paulo-amorim", "genre": "Documentário", "movies": 34}, {"cinema": "paulo-amorim", "genre": "Thriller", "movies": 32}, {"cinema": "paulo-amorim", "genre": "Animação", "movies": 27}, {"cinema": "paulo-amorim", "genre": "Fantasia", "movies": 26}, {"cinema": "paulo-amorim", "genre": "Romance", "movies": 24}, {"cinema": "paulo-amorim", "genre": "História", "movies": 20}, {"cinema": "paulo-amorim", "genre": "Aventura", "movies": 18}, {"cinema": "paulo-amorim", "genre": "Família", "movies": 16}, {"cinema": "paulo-amorim", "genre": "Crime", "movies": 15}, {"cinema": "paulo-amorim", "genre": "Ação", "movies": 15}, {"cinema": "paulo-amorim", "genre": "Terror", "movies": 11}, {"cinema": "paulo-amorim", "genre": "Mistério", "movies": 11}, {"cinema": "paulo-amorim", "genre": "Música", "movies": 10}, {"cinema": "paulo-amorim", "genre": "Ficção científica", "movies": 10}, {"cinema": "paulo-amorim", "genre": "Faroeste", "movies": 5}, {"cinema": "paulo-amorim", "genre": "Guerra", "movies": 4}, {"cinema": "paulo-amorim", "genre": "Cinema TV", "movies": 3}, {"cinema": "sala-redencao", "genre": "Drama", "movies": 111}, {"cinema": "sala-redencao", "genre": "Documentário", "movies": 37}, {"cinema": "sala-redencao", "genre": "Comédia", "movies": 37}, {"cinema": "sala-redencao", "genre": "Romance", "movies": 34}, {"cinema": "sala-redencao", "genre": "História", "movies": 21}, {"cinema": "sala-redencao", "genre": "Ficção científica", "movies": 15}, {"cinema": "sala-redencao", "genre": "Crime", "movies": 14}, {"cinema": "sala-redencao", "genre": "Thriller", "movies": 13}, {"cinema": "sala-redencao", "genre": "Aventura", "movies": 12}, {"cinema": "sala-redencao", "genre": "Guerra", "movies": 10}, {"cinema": "sala-redencao", "genre": "Música", "movies": 8}, {"cinema": "sala-redencao", "genre": "Fantasia", "movies": 7}, {"cinema": "sala-redencao", "genre": "Animação", "movies": 7}, {"cinema": "sala-redencao", "genre": "Terror", "movies": 6}, {"cinema": "sala-redencao", "genre": "Mistério", "movies": 5}, {"cinema": "sala-redencao", "genre": "Família", "movies": 5}, {"cinema": "sala-redencao", "genre": "Ação", "movies": 5}, {"cinema": "sala-redencao", "genre": "Faroeste", "movies": 4}, {"cinema": "sala-redencao", "genre": "Cinema TV", "movies": 2}], "country_overall": [{"country": "Brazil", "movies": 215}, {"country": "United States of America", "movies": 144}, {"country": "France", "movies": 132}, {"country": "Germany", "movies": 47}, {"country": "United Kingdom", "movies": 44}, {"country": "Italy", "movies": 38}, {"country": "Japan", "movies": 34}, {"country": "Belgium", "movies": 25}, {"country": "Spain", "movies": 23}, {"country": "Canada", "movies": 16}, {"country": "Switzerland", "movies": 12}, {"country": "Czechoslovakia", "movies": 11}, {"country": "Luxembourg", "movies": 10}, {"country": "Portugal", "movies": 9}, {"country": "Mexico", "movies": 9}, {"country": "Sweden", "movies": 8}, {"country": "Argentina", "movies": 8}, {"country": "Netherlands", "movies": 7}, {"country": "Taiwan", "movies": 6}, {"country": "South Korea", "movies": 6}, {"country": "Chile", "movies": 6}, {"country": "Australia", "movies": 6}, {"country": "Saudi Arabia", "movies": 5}, {"country": "Norway", "movies": 5}, {"country": "Colombia", "movies": 5}, {"country": "Soviet Union", "movies": 4}, {"country": "Ireland", "movies": 4}, {"country": "Hungary", "movies": 4}, {"country": "Finland", "movies": 4}, {"country": "Denmark", "movies": 4}, {"country": "China", "movies": 4}, {"country": "Austria", "movies": 4}, {"country": "Turkey", "movies": 3}, {"country": "Tunisia", "movies": 3}, {"country": "Romania", "movies": 3}, {"country": "Qatar", "movies": 3}, {"country": "Poland", "movies": 3}, {"country": "Latvia", "movies": 3}, {"country": "Iran", "movies": 3}, {"country": "India", "movies": 3}, {"country": "Hong Kong", "movies": 3}, {"country": "Honduras", "movies": 3}, {"country": "East Germany", "movies": 3}, {"country": "Thailand", "movies": 2}, {"country": "South Africa", "movies": 2}, {"country": "Singapore", "movies": 2}, {"country": "Serbia", "movies": 2}, {"country": "Russia", "movies": 2}, {"country": "Philippines", "movies": 2}, {"country": "Peru", "movies": 2}, {"country": "Mauritania", "movies": 2}, {"country": "Lebanon", "movies": 2}, {"country": "Iceland", "movies": 2}, {"country": "Greece", "movies": 2}, {"country": "Venezuela", "movies": 1}, {"country": "Uruguay", "movies": 1}, {"country": "United Arab Emirates", "movies": 1}, {"country": "Ukraine", "movies": 1}, {"country": "Sudan", "movies": 1}, {"country": "Panama", "movies": 1}, {"country": "Palestinian Territory", "movies": 1}, {"country": "Nigeria", "movies": 1}, {"country": "Netherlands Antilles", "movies": 1}, {"country": "Madagascar", "movies": 1}, {"country": "Macedonia", "movies": 1}, {"country": "Lithuania", "movies": 1}, {"country": "Indonesia", "movies": 1}, {"country": "Egypt", "movies": 1}, {"country": "Dominican Republic", "movies": 1}, {"country": "Czech Republic", "movies": 1}, {"country": "Cyprus", "movies": 1}, {"country": "Cote D'Ivoire", "movies": 1}, {"country": "Bulgaria", "movies": 1}], "country_by_cinema": [{"cinema": "capitolio", "country": "Brazil", "movies": 83}, {"cinema": "capitolio", "country": "United States of America", "movies": 52}, {"cinema": "capitolio", "country": "France", "movies": 25}, {"cinema": "capitolio", "country": "United Kingdom", "movies": 13}, {"cinema": "capitolio", "country": "Czechoslovakia", "movies": 11}, {"cinema": "capitolio", "country": "Germany", "movies": 9}, {"cinema": "capitolio", "country": "Italy", "movies": 7}, {"cinema": "capitolio", "country": "Spain", "movies": 6}, {"cinema": "capitolio", "country": "Portugal", "movies": 5}, {"cinema": "capitolio", "country": "Mexico", "movies": 5}, {"cinema": "capitolio", "country": "Canada", "movies": 4}, {"cinema": "capitolio", "country": "Belgium", "movies": 4}, {"cinema": "capitolio", "country": "Australia", "movies": 4}, {"cinema": "capitolio", "country": "Argentina", "movies": 4}, {"cinema": "capitolio", "country": "Taiwan", "movies": 3}, {"cinema": "cinebancarios", "country": "Brazil", "movies": 45}, {"cinema": "cinebancarios", "country": "France", "movies": 10}, {"cinema": "cinebancarios", "country": "Italy", "movies": 5}, {"cinema": "cinebancarios", "country": "Germany", "movies": 5}, {"cinema": "cinebancarios", "country": "United States of America", "movies": 4}, {"cinema": "cinebancarios", "country": "Spain", "movies": 3}, {"cinema": "cinebancarios", "country": "Netherlands", "movies": 3}, {"cinema": "cinebancarios", "country": "Argentina", "movies": 3}, {"cinema": "cinebancarios", "country": "Switzerland", "movies": 2}, {"cinema": "cinebancarios", "country": "Mexico", "movies": 2}, {"cinema": "cinebancarios", "country": "Latvia", "movies": 2}, {"cinema": "cinebancarios", "country": "China", "movies": 2}, {"cinema": "cinebancarios", "country": "Chile", "movies": 2}, {"cinema": "cinebancarios", "country": "Canada", "movies": 2}, {"cinema": "cinebancarios", "country": "Tunisia", "movies": 1}, {"cinema": "paulo-amorim", "country": "France", "movies": 67}, {"cinema": "paulo-amorim", "country": "Brazil", "movies": 65}, {"cinema": "paulo-amorim", "country": "United States of America", "movies": 60}, {"cinema": "paulo-amorim", "country": "Japan", "movies": 25}, {"cinema": "paulo-amorim", "country": "Germany", "movies": 23}, {"cinema": "paulo-amorim", "country": "United Kingdom", "movies": 19}, {"cinema": "paulo-amorim", "country": "Italy", "movies": 17}, {"cinema": "paulo-amorim", "country": "Belgium", "movies": 16}, {"cinema": "paulo-amorim", "country": "Spain", "movies": 11}, {"cinema": "paulo-amorim", "country": "Canada", "movies": 8}, {"cinema": "paulo-amorim", "country": "Netherlands", "movies": 5}, {"cinema": "paulo-amorim", "country": "Luxembourg", "movies": 5}, {"cinema": "paulo-amorim", "country": "Switzerland", "movies": 4}, {"cinema": "paulo-amorim", "country": "Sweden", "movies": 4}, {"cinema": "paulo-amorim", "country": "Saudi Arabia", "movies": 4}, {"cinema": "sala-redencao", "country": "Brazil", "movies": 71}, {"cinema": "sala-redencao", "country": "France", "movies": 45}, {"cinema": "sala-redencao", "country": "United States of America", "movies": 32}, {"cinema": "sala-redencao", "country": "Germany", "movies": 16}, {"cinema": "sala-redencao", "country": "Italy", "movies": 14}, {"cinema": "sala-redencao", "country": "United Kingdom", "movies": 12}, {"cinema": "sala-redencao", "country": "Japan", "movies": 7}, {"cinema": "sala-redencao", "country": "Spain", "movies": 6}, {"cinema": "sala-redencao", "country": "Belgium", "movies": 5}, {"cinema": "sala-redencao", "country": "Switzerland", "movies": 4}, {"cinema": "sala-redencao", "country": "Soviet Union", "movies": 4}, {"cinema": "sala-redencao", "country": "Mexico", "movies": 4}, {"cinema": "sala-redencao", "country": "Luxembourg", "movies": 4}, {"cinema": "sala-redencao", "country": "Hungary", "movies": 4}, {"cinema": "sala-redencao", "country": "Sweden", "movies": 3}], "decade_overall": [{"decade": 1920, "movies": 6}, {"decade": 1930, "movies": 5}, {"decade": 1940, "movies": 7}, {"decade": 1950, "movies": 17}, {"decade": 1960, "movies": 32}, {"decade": 1970, "movies": 39}, {"decade": 1980, "movies": 61}, {"decade": 1990, "movies": 38}, {"decade": 2000, "movies": 48}, {"decade": 2010, "movies": 99}, {"decade": 2020, "movies": 291}], "decade_by_cinema": [{"cinema": "capitolio", "decade": 1930, "movies": 3}, {"cinema": "capitolio", "decade": 1940, "movies": 2}, {"cinema": "capitolio", "decade": 1950, "movies": 10}, {"cinema": "capitolio", "decade": 1960, "movies": 13}, {"cinema": "capitolio", "decade": 1970, "movies": 22}, {"cinema": "capitolio", "decade": 1980, "movies": 27}, {"cinema": "capitolio", "decade": 1990, "movies": 14}, {"cinema": "capitolio", "decade": 2000, "movies": 17}, {"cinema": "capitolio", "decade": 2010, "movies": 27}, {"cinema": "capitolio", "decade": 2020, "movies": 84}, {"cinema": "cinebancarios", "decade": 1980, "movies": 2}, {"cinema": "cinebancarios", "decade": 1990, "movies": 1}, {"cinema": "cinebancarios", "decade": 2000, "movies": 3}, {"cinema": "cinebancarios", "decade": 2010, "movies": 6}, {"cinema": "cinebancarios", "decade": 2020, "movies": 63}, {"cinema": "paulo-amorim", "decade": 1950, "movies": 1}, {"cinema": "paulo-amorim", "decade": 1960, "movies": 5}, {"cinema": "paulo-amorim", "decade": 1970, "movies": 11}, {"cinema": "paulo-amorim", "decade": 1980, "movies": 18}, {"cinema": "paulo-amorim", "decade": 1990, "movies": 19}, {"cinema": "paulo-amorim", "decade": 2000, "movies": 17}, {"cinema": "paulo-amorim", "decade": 2010, "movies": 29}, {"cinema": "paulo-amorim", "decade": 2020, "movies": 139}, {"cinema": "sala-redencao", "decade": 1920, "movies": 6}, {"cinema": "sala-redencao", "decade": 1930, "movies": 3}, {"cinema": "sala-redencao", "decade": 1940, "movies": 5}, {"cinema": "sala-redencao", "decade": 1950, "movies": 6}, {"cinema": "sala-redencao", "decade": 1960, "movies": 17}, {"cinema": "sala-redencao", "decade": 1970, "movies": 9}, {"cinema": "sala-redencao", "decade": 1980, "movies": 18}, {"cinema": "sala-redencao", "decade": 1990, "movies": 6}, {"cinema": "sala-redencao", "decade": 2000, "movies": 13}, {"cinema": "sala-redencao", "decade": 2010, "movies": 44}, {"cinema": "sala-redencao", "decade": 2020, "movies": 57}], "top_directors": [{"director": "Hayao Miyazaki", "movies": 11}, {"director": "Agnès Varda", "movies": 9}, {"director": "Jean-Luc Godard", "movies": 4}, {"director": "Isao Takahata", "movies": 4}, {"director": "Zeca Brito", "movies": 3}, {"director": "Wong Kar-Wai", "movies": 3}, {"director": "Tabajara Ruas", "movies": 3}, {"director": "Rob Reiner", "movies": 3}, {"director": "Marcio Reolon", "movies": 3}, {"director": "Karim Aïnouz", "movies": 3}, {"director": "Glauber Rocha", "movies": 3}, {"director": "François Truffaut", "movies": 3}, {"director": "Filipe Matzembacher", "movies": 3}, {"director": "David Cronenberg", "movies": 3}, {"director": "Costa-Gavras", "movies": 3}, {"director": "Chris Marker", "movies": 3}, {"director": "Chantal Akerman", "movies": 3}, {"director": "Anna Muylaert", "movies": 3}, {"director": "Alain Resnais", "movies": 3}, {"director": "米林宏昌", "movies": 2}], "director_by_cinema": [{"cinema": "capitolio", "director": "Marcio Reolon", "movies": 3}, {"cinema": "capitolio", "director": "François Truffaut", "movies": 3}, {"cinema": "capitolio", "director": "Filipe Matzembacher", "movies": 3}, {"cinema": "capitolio", "director": "Sergio Guidoux", "movies": 2}, {"cinema": "capitolio", "director": "Rob Reiner", "movies": 2}, {"cinema": "capitolio", "director": "Nelson Nadotti", "movies": 2}, {"cinema": "capitolio", "director": "Maurílio Martins", "movies": 2}, {"cinema": "capitolio", "director": "Giba Assis Brasil", "movies": 2}, {"cinema": "capitolio", "director": "David Cronenberg", "movies": 2}, {"cinema": "capitolio", "director": "Carlos Gerbase", "movies": 2}, {"cinema": "capitolio", "director": "Brian De Palma", "movies": 2}, {"cinema": "capitolio", "director": "Alfred Hitchcock", "movies": 2}, {"cinema": "capitolio", "director": "한형모", "movies": 1}, {"cinema": "capitolio", "director": "이강천", "movies": 1}, {"cinema": "capitolio", "director": "永野", "movies": 1}, {"cinema": "capitolio", "director": "侯孝賢", "movies": 1}, {"cinema": "capitolio", "director": "Zlatica Vejchodská", "movies": 1}, {"cinema": "capitolio", "director": "Zachary Beckler", "movies": 1}, {"cinema": "capitolio", "director": "Wolfgang Petersen", "movies": 1}, {"cinema": "capitolio", "director": "Wim Wenders", "movies": 1}, {"cinema": "cinebancarios", "director": "Meng Huo", "movies": 2}, {"cinema": "cinebancarios", "director": "Jeferson De", "movies": 2}, {"cinema": "cinebancarios", "director": "홍상수", "movies": 1}, {"cinema": "cinebancarios", "director": "Сергей Лозница", "movies": 1}, {"cinema": "cinebancarios", "director": "Yves Goulart", "movies": 1}, {"cinema": "cinebancarios", "director": "Vini Albernaz", "movies": 1}, {"cinema": "cinebancarios", "director": "Tiago Carvalho", "movies": 1}, {"cinema": "cinebancarios", "director": "Thiago Gomes Rosa", "movies": 1}, {"cinema": "cinebancarios", "director": "Tetê Moraes", "movies": 1}, {"cinema": "cinebancarios", "director": "Sérgio Xavier Filho", "movies": 1}, {"cinema": "cinebancarios", "director": "Sérgio Machado", "movies": 1}, {"cinema": "cinebancarios", "director": "Susan Kalik", "movies": 1}, {"cinema": "cinebancarios", "director": "Sueli Maxakali", "movies": 1}, {"cinema": "cinebancarios", "director": "Sheldon Wilson", "movies": 1}, {"cinema": "cinebancarios", "director": "Shane Acker", "movies": 1}, {"cinema": "cinebancarios", "director": "Régis Faria", "movies": 1}, {"cinema": "cinebancarios", "director": "Roberto Romero", "movies": 1}, {"cinema": "cinebancarios", "director": "Roberto Moret", "movies": 1}, {"cinema": "cinebancarios", "director": "Ricardo Corrêa", "movies": 1}, {"cinema": "cinebancarios", "director": "Renata Meirelles", "movies": 1}, {"cinema": "paulo-amorim", "director": "Hayao Miyazaki", "movies": 11}, {"cinema": "paulo-amorim", "director": "Agnès Varda", "movies": 9}, {"cinema": "paulo-amorim", "director": "Isao Takahata", "movies": 4}, {"cinema": "paulo-amorim", "director": "米林宏昌", "movies": 2}, {"cinema": "paulo-amorim", "director": "宮崎吾朗", "movies": 2}, {"cinema": "paulo-amorim", "director": "Tabajara Ruas", "movies": 2}, {"cinema": "paulo-amorim", "director": "Sergio Leone", "movies": 2}, {"cinema": "paulo-amorim", "director": "Jeferson De", "movies": 2}, {"cinema": "paulo-amorim", "director": "홍상수", "movies": 1}, {"cinema": "paulo-amorim", "director": "黒沢清", "movies": 1}, {"cinema": "paulo-amorim", "director": "近藤喜文", "movies": 1}, {"cinema": "paulo-amorim", "director": "森田宏幸", "movies": 1}, {"cinema": "paulo-amorim", "director": "李相日", "movies": 1}, {"cinema": "paulo-amorim", "director": "望月智充", "movies": 1}, {"cinema": "paulo-amorim", "director": "รัชฏ์ภูมิ บุญบัญชาโชค", "movies": 1}, {"cinema": "paulo-amorim", "director": "Сергей Лозница", "movies": 1}, {"cinema": "paulo-amorim", "director": "Zeca Brito", "movies": 1}, {"cinema": "paulo-amorim", "director": "Zackary Adler", "movies": 1}, {"cinema": "paulo-amorim", "director": "Wregas Bhanuteja", "movies": 1}, {"cinema": "paulo-amorim", "director": "Wim Wenders", "movies": 1}, {"cinema": "sala-redencao", "director": "Jean-Luc Godard", "movies": 4}, {"cinema": "sala-redencao", "director": "Wong Kar-Wai", "movies": 3}, {"cinema": "sala-redencao", "director": "Tabajara Ruas", "movies": 3}, {"cinema": "sala-redencao", "director": "Karim Aïnouz", "movies": 3}, {"cinema": "sala-redencao", "director": "Glauber Rocha", "movies": 3}, {"cinema": "sala-redencao", "director": "Chris Marker", "movies": 3}, {"cinema": "sala-redencao", "director": "Zeca Brito", "movies": 2}, {"cinema": "sala-redencao", "director": "Spike Lee", "movies": 2}, {"cinema": "sala-redencao", "director": "Michelangelo Antonioni", "movies": 2}, {"cinema": "sala-redencao", "director": "Konrad Wolf", "movies": 2}, {"cinema": "sala-redencao", "director": "Kleber Mendonça Filho", "movies": 2}, {"cinema": "sala-redencao", "director": "Gabriel Mascaro", "movies": 2}, {"cinema": "sala-redencao", "director": "Diego Mas Trelles", "movies": 2}, {"cinema": "sala-redencao", "director": "Costa-Gavras", "movies": 2}, {"cinema": "sala-redencao", "director": "Cacá Diegues", "movies": 2}, {"cinema": "sala-redencao", "director": "Alain Resnais", "movies": 2}, {"cinema": "sala-redencao", "director": "殿勝秀樹", "movies": 1}, {"cinema": "sala-redencao", "director": "冨樫森", "movies": 1}, {"cinema": "sala-redencao", "director": "三原光尋", "movies": 1}, {"cinema": "sala-redencao", "director": "مریم مقدم", "movies": 1}]}</script>
+<script>
+(function(){
+var DATA = JSON.parse(document.getElementById('cepoa-dashboard-data').textContent);
+var CINEMA_ORDER = ["capitolio", "cinebancarios", "paulo-amorim", "sala-redencao"];
+var CINEMA_COLOR = {"capitolio": "var(--bs-primary)", "cinebancarios": "var(--bs-teal)", "paulo-amorim": "var(--bs-pink)", "sala-redencao": "var(--bs-amber)"};
+var cinemaName = {};
+DATA.cinemas.forEach(function(c){ cinemaName[c.slug] = c.name; });
+var fmt = function(n){ return n.toLocaleString('pt-BR'); };
+var MONTHS_PT = ['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];
+var formatMonth = function(m){ var parts = m.split('-'); return MONTHS_PT[parseInt(parts[1],10)-1] + '/' + parts[0].slice(2); };
+var COUNTRY_PT = {
+"Brazil": "Brasil", "United States of America": "Estados Unidos", "France": "França",
+"Germany": "Alemanha", "United Kingdom": "Reino Unido", "Italy": "Itália", "Japan": "Japão",
+"Belgium": "Bélgica", "Spain": "Espanha", "Canada": "Canadá", "Switzerland": "Suíça",
+"Czechoslovakia": "Tchecoslováquia", "Luxembourg": "Luxemburgo", "Portugal": "Portugal",
+"Mexico": "México", "Sweden": "Suécia", "Argentina": "Argentina", "Netherlands": "Países Baixos",
+"Taiwan": "Taiwan", "South Korea": "Coreia do Sul", "Chile": "Chile", "Australia": "Austrália",
+"Saudi Arabia": "Arábia Saudita", "Norway": "Noruega", "Colombia": "Colômbia",
+"Soviet Union": "União Soviética", "Ireland": "Irlanda", "Hungary": "Hungria",
+"Finland": "Finlândia", "Denmark": "Dinamarca", "China": "China", "Austria": "Áustria",
+"Turkey": "Turquia", "Tunisia": "Tunísia", "Romania": "Romênia", "Qatar": "Catar",
+"Poland": "Polônia", "Latvia": "Letônia", "Iran": "Irã", "India": "Índia",
+"Hong Kong": "Hong Kong", "Honduras": "Honduras", "East Germany": "Alemanha Oriental",
+"Thailand": "Tailândia", "South Africa": "África do Sul", "Singapore": "Singapura",
+"Serbia": "Sérvia", "Russia": "Rússia", "Philippines": "Filipinas", "Peru": "Peru",
+"Mauritania": "Mauritânia", "Lebanon": "Líbano", "Iceland": "Islândia", "Greece": "Grécia",
+"Venezuela": "Venezuela", "Uruguay": "Uruguai", "United Arab Emirates": "Emirados Árabes Unidos",
+"Ukraine": "Ucrânia", "Sudan": "Sudão", "Panama": "Panamá",
+"Palestinian Territory": "Território Palestino", "Nigeria": "Nigéria",
+"Netherlands Antilles": "Antilhas Holandesas", "Madagascar": "Madagascar",
+"Macedonia": "Macedônia", "Lithuania": "Lituânia", "Indonesia": "Indonésia", "Egypt": "Egito",
+"Dominican Republic": "República Dominicana", "Czech Republic": "República Tcheca",
+"Cyprus": "Chipre", "Cote D'Ivoire": "Costa do Marfim", "Bulgaria": "Bulgária"
+};
+var countryPt = function(name){ return COUNTRY_PT[name] || name; };
+/* ================= trend line chart ================= */
+var months = Array.from(new Set(DATA.monthly.map(function(r){ return r.month; }))).sort();
+function seriesFor(metric){
+return CINEMA_ORDER.map(function(slug){
+var byMonth = {};
+DATA.monthly.filter(function(r){ return r.cinema === slug; }).forEach(function(r){ byMonth[r.month] = r[metric]; });
+return { slug: slug, values: months.map(function(m){ return byMonth[m] || 0; }) };
+});
+}
+var currentMetric = 'distinct_movies';
+var chartWrap = document.getElementById('cepoa-trend-chart');
+var tooltipEl;
+function renderTrend(){
+var series = seriesFor(currentMetric);
+var W = 1000, H = 300, padL = 36, padR = 16, padT = 16, padB = 28;
+var innerW = W - padL - padR, innerH = H - padT - padB;
+var maxV = Math.max(1, Math.max.apply(null, series.reduce(function(a,s){ return a.concat(s.values); }, [])));
+var niceMax = Math.ceil(maxV / 5) * 5 || 5;
+var x = function(i){ return padL + (months.length === 1 ? innerW/2 : (i / (months.length - 1)) * innerW); };
+var y = function(v){ return padT + innerH - (v / niceMax) * innerH; };
+var gridSvg = '';
+var ticks = 5;
+for (var t = 0; t <= ticks; t++){
+var v = Math.round((niceMax / ticks) * t);
+var yy = y(v);
+gridSvg += '<line x1="' + padL + '" x2="' + (W-padR) + '" y1="' + yy + '" y2="' + yy + '" style="stroke:var(--bs-border-color);stroke-width:1" />';
+gridSvg += '<text class="cepoa-axis-label" style="fill:var(--bs-secondary-color)" x="' + (padL-6) + '" y="' + (yy+3) + '" text-anchor="end">' + fmt(v) + '</text>';
+}
+var monthTicks = '';
+var step = Math.max(1, Math.round(months.length / 7));
+months.forEach(function(m, i){
+if (i % step === 0 || i === months.length - 1){
+monthTicks += '<text class="cepoa-axis-label" style="fill:var(--bs-secondary-color)" x="' + x(i) + '" y="' + (H-8) + '" text-anchor="middle">' + formatMonth(m) + '</text>';
+}
+});
+var paths = '';
+series.forEach(function(s){
+var color = CINEMA_COLOR[s.slug];
+var d = s.values.map(function(v,i){ return (i===0?'M':'L') + x(i) + ',' + y(v); }).join(' ');
+paths += '<path d="' + d + '" style="stroke:' + color + ';stroke-width:2;fill:none;stroke-linejoin:round;stroke-linecap:round" />';
+var lastI = s.values.length - 1;
+paths += '<circle cx="' + x(lastI) + '" cy="' + y(s.values[lastI]) + '" r="4" style="fill:' + color + ';stroke:var(--bs-card-bg);stroke-width:2" />';
+});
+var hoverRects = '';
+var colW = innerW / Math.max(1, months.length);
+months.forEach(function(m, i){
+hoverRects += '<rect class="cepoa-hover-col" data-i="' + i + '" x="' + (padL + i*colW) + '" y="' + padT + '" width="' + colW + '" height="' + innerH + '" fill="transparent" />';
+});
+chartWrap.innerHTML =
+'<svg viewBox="0 0 ' + W + ' ' + H + '" id="cepoa-trend-svg">' +
+gridSvg +
+'<line x1="' + padL + '" x2="' + (W-padR) + '" y1="' + (padT+innerH) + '" y2="' + (padT+innerH) + '" style="stroke:var(--bs-border-color)" />' +
+paths +
+monthTicks +
+'<g id="cepoa-crosshair-g" style="opacity:0"><line style="stroke:var(--bs-border-color)" x1="0" x2="0" y1="' + padT + '" y2="' + (padT+innerH) + '" /></g>' +
+hoverRects +
+'</svg>' +
+'<div class="cepoa-tooltip" id="cepoa-trend-tooltip"></div>';
+tooltipEl = document.getElementById('cepoa-trend-tooltip');
+var svg = document.getElementById('cepoa-trend-svg');
+var crosshairG = document.getElementById('cepoa-crosshair-g');
+svg.querySelectorAll('.cepoa-hover-col').forEach(function(rect){
+rect.addEventListener('mousemove', function(){
+var i = +rect.getAttribute('data-i');
+crosshairG.style.opacity = 1;
+crosshairG.querySelector('line').setAttribute('x1', x(i));
+crosshairG.querySelector('line').setAttribute('x2', x(i));
+var rows = series.map(function(s){
+return '<div class="t-row"><span class="k"><span class="dot" style="background:' + CINEMA_COLOR[s.slug] + '"></span>' + cinemaName[s.slug] + '</span><span class="v">' + fmt(s.values[i]) + '</span></div>';
+}).join('');
+tooltipEl.innerHTML = '<div class="t-title">' + formatMonth(months[i]) + '</div>' + rows;
+tooltipEl.classList.add('show');
+var bounds = chartWrap.getBoundingClientRect();
+var px = (x(i) / W) * bounds.width;
+var left = px + 14;
+if (left + 160 > bounds.width) left = px - 174;
+tooltipEl.style.left = Math.max(0,left) + 'px';
+tooltipEl.style.top = '8px';
+});
+rect.addEventListener('mouseleave', function(){
+crosshairG.style.opacity = 0;
+tooltipEl.classList.remove('show');
+});
+});
+document.getElementById('cepoa-trend-legend').innerHTML = series.map(function(s){
+return '<span class="d-flex align-items-center gap-1"><span class="cepoa-cinema-dot" style="background:' + CINEMA_COLOR[s.slug] + '"></span>' + cinemaName[s.slug] + '</span>';
+}).join('');
+renderTrendTable(series);
+}
+function renderTrendTable(series){
+var tv = document.getElementById('cepoa-trend-table-view');
+var head = '<tr><th>Mês</th>' + series.map(function(s){ return '<th>' + cinemaName[s.slug] + '</th>'; }).join('') + '</tr>';
+var rows = months.map(function(m,i){
+return '<tr><td>' + formatMonth(m) + '</td>' + series.map(function(s){ return '<td class="text-end">' + fmt(s.values[i]) + '</td>'; }).join('') + '</tr>';
+}).join('');
+tv.innerHTML = '<table class="table table-sm table-hover">' + head + rows + '</table>';
+}
+document.getElementById('cepoa-metric-toggle').addEventListener('click', function(e){
+var btn = e.target.closest('button');
+if (!btn) return;
+document.querySelectorAll('#cepoa-metric-toggle button').forEach(function(b){ b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });
+btn.classList.add('active');
+btn.setAttribute('aria-pressed', 'true');
+currentMetric = btn.getAttribute('data-metric');
+renderTrend();
+});
+document.getElementById('cepoa-trend-table-toggle').addEventListener('click', function(e){
+var pressed = e.target.getAttribute('aria-pressed') === 'true';
+e.target.setAttribute('aria-pressed', String(!pressed));
+e.target.classList.toggle('active', !pressed);
+document.getElementById('cepoa-trend-chart-view').classList.toggle('d-none', !pressed);
+document.getElementById('cepoa-trend-table-view').classList.toggle('d-none', pressed);
+});
+renderTrend();
+window.addEventListener('resize', renderTrend);
+/* ================= cinema cards ================= */
+var cardsEl = document.getElementById('cepoa-cinema-cards');
+CINEMA_ORDER.forEach(function(slug){
+var row = DATA.cinema_summary.find(function(c){ return c.cinema === slug; });
+if (!row) return;
+var turnover = (row.showtimes / Math.max(1, row.distinct_movies)).toFixed(1);
+var col = document.createElement('div');
+col.className = 'col';
+col.innerHTML =
+'<div class="border rounded-3 p-3 h-fit">' +
+'<div class="d-flex align-items-center gap-2 mb-2"><span class="cepoa-cinema-dot" style="background:' + CINEMA_COLOR[slug] + '"></span><span class="fw-semibold small">' + row.name + '</span></div>' +
+'<div class="d-flex justify-content-between small text-body-secondary py-1"><span>Filmes programados</span><span class="text-body-emphasis">' + fmt(row.distinct_movies) + '</span></div>' +
+'<div class="d-flex justify-content-between small text-body-secondary py-1"><span>Sessões</span><span class="text-body-emphasis">' + fmt(row.showtimes) + '</span></div>' +
+'<div class="d-flex justify-content-between small text-body-secondary py-1"><span>Sessões / filme</span><span class="text-body-emphasis">' + turnover + '</span></div>' +
+'</div>';
+cardsEl.appendChild(col);
+});
+/* ================= horizontal bars helper ================= */
+function renderBars(container, rows, color){
+var max = Math.max(1, Math.max.apply(null, rows.map(function(r){ return r.value; })));
+container.innerHTML = rows.map(function(r){
+var pct = Math.max(2, (r.value / max) * 100);
+return '<div class="d-flex align-items-center gap-2 mb-2">' +
+'<div class="cepoa-hbar-lbl small text-body-secondary text-end" title="' + r.label + '">' + r.label + '</div>' +
+'<div class="progress flex-grow-1" style="height:14px;">' +
+'<div class="progress-bar" style="width:' + pct + '%;background-color:' + color + ';"></div>' +
+'</div>' +
+'<div class="cepoa-hbar-val small text-body-emphasis text-end">' + fmt(r.value) + '</div>' +
+'</div>';
+}).join('');
+}
+/* ================= shared cinema filter ================= */
+var chartsFilter = document.getElementById('cepoa-charts-filter');
+chartsFilter.innerHTML = '<option value="__all__">Todos os cinemas</option>' +
+CINEMA_ORDER.map(function(slug){ return '<option value="' + slug + '">' + cinemaName[slug] + '</option>'; }).join('');
+function topPlusOther(rows, key, ptLabel, n){
+var sorted = rows.slice().sort(function(a,b){ return b.movies - a.movies; });
+var top = sorted.slice(0, n);
+var restSum = sorted.slice(n).reduce(function(a,r){ return a + r.movies; }, 0);
+var out = top.map(function(r){ return { label: ptLabel ? ptLabel(r[key]) : r[key], value: r.movies }; });
+if (restSum > 0) out.push({ label: 'Outros (' + (sorted.length - n) + ' países)', value: restSum });
+return out;
+}
+function renderGenres(){
+var sel = chartsFilter.value;
+var rows = sel === '__all__' ? DATA.genre_overall : DATA.genre_by_cinema.filter(function(r){ return r.cinema === sel; });
+var out = rows.slice().sort(function(a,b){ return b.movies - a.movies; }).slice(0, 12)
+.map(function(r){ return { label: r.genre, value: r.movies }; });
+renderBars(document.getElementById('cepoa-genre-bars'), out, 'var(--bs-primary)');
+}
+function renderCountries(){
+var sel = chartsFilter.value;
+var rows = sel === '__all__' ? DATA.country_overall : DATA.country_by_cinema.filter(function(r){ return r.cinema === sel; });
+var out = topPlusOther(rows, 'country', countryPt, 11);
+renderBars(document.getElementById('cepoa-country-bars'), out, 'var(--bs-teal)');
+}
+function renderDecades(){
+var sel = chartsFilter.value;
+var rows = sel === '__all__' ? DATA.decade_overall : DATA.decade_by_cinema.filter(function(r){ return r.cinema === sel; });
+var out = rows.slice().sort(function(a,b){ return b.decade - a.decade; })
+.map(function(r){ return { label: 'Anos ' + r.decade, value: r.movies }; });
+renderBars(document.getElementById('cepoa-decade-bars'), out, 'var(--bs-amber)');
+}
+function renderDirectors(){
+var sel = chartsFilter.value;
+var rows = sel === '__all__' ? DATA.top_directors : DATA.director_by_cinema.filter(function(r){ return r.cinema === sel; });
+var out = rows.slice().sort(function(a,b){ return b.movies - a.movies; }).slice(0, 15)
+.map(function(r){ return { label: r.director, value: r.movies }; });
+renderBars(document.getElementById('cepoa-director-bars'), out, 'var(--bs-violet)');
+}
+function renderFilteredCharts(){
+renderGenres();
+renderCountries();
+renderDecades();
+renderDirectors();
+}
+chartsFilter.addEventListener('change', renderFilteredCharts);
+renderFilteredCharts();
+})();
+</script>

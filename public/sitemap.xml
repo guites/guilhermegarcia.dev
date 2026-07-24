@@ -3,15 +3,21 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://guilhermegarcia.dev/</loc>
-    <lastmod>2026-06-19T11:56:13-03:00</lastmod>
+    <lastmod>2026-07-24T11:47:34-03:00</lastmod>
   </url><url>
     <loc>https://guilhermegarcia.dev/blog/</loc>
-    <lastmod>2026-06-19T11:56:13-03:00</lastmod>
+    <lastmod>2026-07-24T11:47:34-03:00</lastmod>
   </url><url>
-    <loc>https://guilhermegarcia.dev/blog/mantendo-um-clube-do-livro/</loc>
-    <lastmod>2026-06-19T11:56:13-03:00</lastmod>
+    <loc>https://guilhermegarcia.dev/blog/data/</loc>
+    <lastmod>2026-07-24T11:47:34-03:00</lastmod>
+  </url><url>
+    <loc>https://guilhermegarcia.dev/blog/o-que-passa-nos-cinemas-de-porto-alegre/</loc>
+    <lastmod>2026-07-24T11:47:34-03:00</lastmod>
   </url><url>
     <loc>https://guilhermegarcia.dev/blog/portugu%C3%AAs/</loc>
+    <lastmod>2026-07-24T11:47:34-03:00</lastmod>
+  </url><url>
+    <loc>https://guilhermegarcia.dev/blog/mantendo-um-clube-do-livro/</loc>
     <lastmod>2026-06-19T11:56:13-03:00</lastmod>
   </url><url>
     <loc>https://guilhermegarcia.dev/blog/cli/</loc>
@@ -27,9 +33,6 @@
     <lastmod>2026-04-30T16:15:32-03:00</lastmod>
   </url><url>
     <loc>https://guilhermegarcia.dev/blog/analise-exploratoria-do-dataset-br-crawl/</loc>
-    <lastmod>2026-03-22T12:20:05-03:00</lastmod>
-  </url><url>
-    <loc>https://guilhermegarcia.dev/blog/data/</loc>
     <lastmod>2026-03-22T12:20:05-03:00</lastmod>
   </url><url>
     <loc>https://guilhermegarcia.dev/blog/api/</loc>

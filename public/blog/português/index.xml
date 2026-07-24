@@ -7,8 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Copyright © 2024-2026, Guilherme Garcia.</copyright>
-    <lastBuildDate>Fri, 19 Jun 2026 11:56:13 -0300</lastBuildDate>
+    <lastBuildDate>Fri, 24 Jul 2026 11:47:34 -0300</lastBuildDate>
     <atom:link href="https://guilhermegarcia.dev/blog/portugu%C3%AAs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>O que passa nos cinemas de Porto Alegre?</title>
+      <link>https://guilhermegarcia.dev/blog/o-que-passa-nos-cinemas-de-porto-alegre/</link>
+      <pubDate>Fri, 24 Jul 2026 11:47:34 -0300</pubDate>
+      <guid>https://guilhermegarcia.dev/blog/o-que-passa-nos-cinemas-de-porto-alegre/</guid>
+      <description>O Cinema em POA está se encaminhando para 1000 filmes registrados. É uma diversidade imensa pensando que, até pouco tempo, tinhamos apenas quatro cinemas registrados!&#xA;O registro dos filmes começou em julho de 2025, mas até agora não tinhamos como avaliar que tipo de filme estava sendo passado: tinhamos apenas o título do filme (em português) e o poster.&#xA;Graças a uma integração com o site The Movie Database (TMBD) agora todos os filmes possuem informação de título original, ano de lançamento, país de origem, gêneros, direção e idioma original.</description>
+    </item>
     <item>
       <title>Mantendo Um Clube Do Livro</title>
       <link>https://guilhermegarcia.dev/blog/mantendo-um-clube-do-livro/</link>
