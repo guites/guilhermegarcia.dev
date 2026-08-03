@@ -2,7 +2,7 @@
 
 I'm a developer based in Brazil.
 
-<video src="spinning-racc-web.mp4" autoplay loop muted playsinline onplay="this.playbackRate = 2.0;"></video>
+<video src="spinning-racc-bg-loop.mp4" autoplay loop muted playsinline onplay="this.playbackRate = 1.75;"></video>
 
 This [blog](/blog) serves as my homepage on the web.
 
