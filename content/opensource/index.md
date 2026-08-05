@@ -17,11 +17,12 @@ My OS contributions, as well as projects or specific issues I'm interested in ex
 - [portexe/PortalsAndToast](https://github.com/portexe/PortalsAndToast/pull/1) Fixes auto close closing all previous toasts
 - [usebruno/bruno-docs](https://github.com/usebruno/bruno-docs/pull/38) Add additional image with example on how to use variables
 - [open-runtimes/executor](https://github.com/open-runtimes/executor/pull/171) feat: allow setting curl connect timeout via env variable
+- [rhubarb-ai/sam3-cpu](https://github.com/rhubarb-ai/sam3-cpu/pull/25) fix: lazy import decord package
 
 ## Interested
 
 - [mataroablog/mataroa](https://github.com/mataroablog/mataroa/issues/21)
  ActivityPub Federation
 
-<small>last updated Wed Feb 25 22:11:04 -03 2026</small>
+<small>last updated Wed Aug  5 12:20:50 -03 2026</small>
 <!-- LC_TIME=C date -->
