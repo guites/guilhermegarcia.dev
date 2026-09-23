@@ -42,5 +42,6 @@ Get surfing!
 - [Backpressure is all you need by Lucas Fernandes da Costa](https://www.lucasfcosta.com/blog/backpressure-is-all-you-need)
 - [Dirty Little Zine](https://dirtylittlezine.com/)
 - [A Gentle Introduction to TanStack Query by Neciu Dan](https://neciudan.dev/a-gentle-introduction-to-tanstack-query)
+- [Solitaire Alone Together](https://solitairealonetogether.com)
 
-<small>last updated sex 03 jul 2026 07:46:13 -03</small>
+<small>last updated qua 23 set 2026 12:31:53 -03</small>
